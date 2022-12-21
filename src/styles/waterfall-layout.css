@@ -1,0 +1,27 @@
+body {
+  background-color: #2e3035;
+}
+
+.post {
+  background-color: #64666c;
+  color: #fff;
+}
+
+.dense-grid {
+  width: 98%;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-rows: 10px;
+  column-gap: 20px;
+  grid-auto-flow: dense;
+}
+
+.dense-grid > * {
+  margin-bottom: 20px;
+}
+
+.post {
+  grid-row: span var(--span);
+}

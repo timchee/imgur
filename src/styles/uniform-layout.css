@@ -1,0 +1,17 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.flex-container > * {
+  width: 300px;
+  height: 330px;
+}
+
+.flex-container img {
+  object-fit: cover;
+  object-position: top center;
+  height: 300px;
+}
