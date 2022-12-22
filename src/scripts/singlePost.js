@@ -1,8 +1,15 @@
 export function singlePost(img) {
   const image = `../assets/${img}`;
-  const post = ` <div class="post" id="image-container">
-     <img src="${image}" id="image" class="image" />
-     <div class="p-2">Lorem ipsum dolor sit amet</div>
+  const post = ` <div class="post text-white" id="image-container">
+     <img src="${image}" id="image" class="image" width="300px" />
+     <div class="flex flex-col bg-gray-500 p-2">
+        <p class="text-sm">Lorem ipsum dolor sit amet</p>
+        <div class="flex justify-between text-gray-200 text-xs">
+        <p>* 300</p>
+        <p>* 29</p>
+        <p>* 5K</p>
+        </div>
+     </div>
     </div>
     `;
   return post;

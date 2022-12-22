@@ -6,12 +6,12 @@
 }
 
 .flex-container > * {
-  width: 300px;
-  height: 330px;
+  /* width: 300px; */
+  height: 260px;
 }
 
 .flex-container img {
-  object-fit: cover;
-  object-position: top center;
-  height: 300px;
+  /* object-fit: cover; */
+  object-position: top left;
+  height: 200px;
 }
