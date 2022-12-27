@@ -7,11 +7,21 @@
 
 .flex-container > * {
   /* width: 300px; */
-  height: 280px;
+  height: 300px;
 }
 
-.flex-container img {
-  /* object-fit: cover; */
+.flex-container img,
+.flex-container video {
   object-position: top left;
-  height: 220px;
+  height: 230px;
+}
+
+.flex-container .long-title img,
+.flex-container .long-title video {
+  height: 210px;
+}
+
+.flex-container .extra-long-title img,
+.flex-container .extra-long-title video {
+  height: 190px;
 }

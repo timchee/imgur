@@ -15,16 +15,8 @@ export const getGallery = async () => {
   //   requestOptions
   // );
   // const responseJson = await response.json();
-  // const dataArray = responseJson.data;
-  // let postsArray = [];
-
-  // dataArray.forEach((response) => {
-  //   const { id } = response;
-  //   postsArray.push(id);
-  // });
 
   const response = await fetch(`./data/gallery.json`);
-
   const responseJson = await response.json();
   const dataArray = responseJson.data;
   let postsArray = [];
@@ -34,7 +26,7 @@ export const getGallery = async () => {
     if (views > 1000) {
       views = Math.floor(views / 1000) + "K";
     }
-    if (images && postsArray.length < 10) {
+    if (images && postsArray.length < 30) {
       const image = images[0];
       let { link, height, width, animated } = image;
       postsArray.push(
