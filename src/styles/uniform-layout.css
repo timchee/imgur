@@ -7,11 +7,11 @@
 
 .flex-container > * {
   /* width: 300px; */
-  height: 260px;
+  height: 280px;
 }
 
 .flex-container img {
   /* object-fit: cover; */
   object-position: top left;
-  height: 200px;
+  height: 220px;
 }
