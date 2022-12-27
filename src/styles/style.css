@@ -1,19 +1,26 @@
-h1{
-    font-family: Proxima Nova ExtraBold,Helvetica Neue,Helvetica,Arial,sans-serif;
-    color: #aed8ea;
+h1 {
+  font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  color: #aed8ea;
+}
+
+#image-container:hover .desc {
+  background-color: #67686f;
+}
+
+#image-container:hover img,
+#image-container:hover video {
+  filter: brightness(115%);
+}
+.desc {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 40%);
 }
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
-input[type=text]::-ms-clear {  
-    display: none;
-    width : 0;
-    height: 0; 
+input[type="text"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
 }
-
-
