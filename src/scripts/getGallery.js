@@ -16,7 +16,10 @@ export const getGallery = async () => {
   // );
   // const responseJson = await response.json();
 
-  const response = await fetch(`./data/gallery.json`);
+  let response = await fetch(`./data/gallery.json`);
+  if (response.ok == false) {
+    response = await fetch(`../data/gallery.json`);
+  }
   const responseJson = await response.json();
   const dataArray = responseJson.data;
   let postsArray = [];

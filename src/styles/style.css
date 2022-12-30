@@ -24,3 +24,11 @@ input[type="text"]::-ms-clear {
   width: 0;
   height: 0;
 }
+
+/*GALLERY PAGE*/
+
+.gradient-background {
+  background: linear-gradient(180deg, rgba(23, 21, 68, 1) 26.22%, #27292d),
+    linear-gradient(0deg, #171544, #171544);
+  /* height: 650px; */
+}
