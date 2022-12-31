@@ -27,13 +27,13 @@ for (let i = 0; i < dropdowns.length; i++) {
             prevSibling.innerHTML = this.innerHTML;
             sameAsSelected = this.parentNode.getElementsByClassName("same-as-selected");
             for (let k = 0; k < sameAsSelected.length; k++) {
-              y[k].removeAttribute("class");
+              sameAsSelected[k].removeAttribute("class");
             }
             this.setAttribute("class", "same-as-selected");
             break;
           }
         }
-        h.click();
+        prevSibling.click();
     });
     optionList.appendChild(option);
   }

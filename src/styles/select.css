@@ -4,7 +4,7 @@
 }
 
 .custom-select select {
-  display: none; 
+  display: none;
 }
 
 .select-selected {
@@ -65,11 +65,10 @@
 
 /* Selected */
 .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
   color: white;
 }
 
-.select-items div:hover, .same-as-selected {
+.select-items div:hover{
   background-color: rgba(0, 0, 0, 0.1);
   color: white;
 }
