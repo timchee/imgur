@@ -19,12 +19,13 @@
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/waterfall-layout.css" />
     <script type="module" src="../main.js" defer></script>
+    <script type="module" src="../scripts/galleryPage.js" defer></script>
     <!-- <script src="../scripts/changeLayout.js" defer></script> -->
     <title>Document</title>
   </head>
   <body class="bg-gray-900">
     <header
-      class="header bg-bgColor flex flex-col justify-center items-center gap-y-5 h-auto pb-5 mb-5 z-10 relative"
+      class="header hidden bg-[#1a193e] sm:flex flex-col justify-center items-center gap-y-5 h-auto pb-5 mb-5 z-10 relative"
     >
       <nav
         class="flex w-full h-auto pt-5 px-5 justify-between sticky top-0 left-0"
@@ -110,71 +111,188 @@
     </header>
 
     <div
-      class="gradient-background z-0 absolute top-0 left-0 w-full h-[650px]"
+      class="hidden sm:block gradient-background z-0 absolute top-0 left-0 w-full h-[650px]"
     ></div>
+    <!--Mobile-->
+    <div class="relative flex items-center gap-2 p-2 bg-gray-900 w-full sm:hidden">
+         <div class="bg-btnColor w-8 h-8 rounded-full basis-[32px]"></div>
+         <div class="flex flex-col gap-1 font-medium">
+          <p class="text-white text-sm font-medium break-normal ">Absolutely gorgeous</p>
+          <p class="text-gray-200 text-xs">AttemptingToLoseAllOfMyFakeInterests</p>
+         </div>
+    </div>
     <div
-      class="flex relative z-10 h-full w-full md:w-5/6 lg:w-4/5 justify-between mx-auto"
+      class="flex relative z-10 h-full  justify-center "
     >
-      <div class="flex justify-center w-full h-full">
+      <div class="flex justify-center h-full">
         <div class="flex-col items-center text-white w-[60px] hidden md:flex">
           <div class="sticky top-48">
             <div
               class="flex flex-col gap-4 border border-gray-500 rounded py-2 px-4 items-center mb-7"
             >
-              <img src="../assets/upvote.svg" alt="" srcset="" />
+              <img src="../assets/upvote.svg"/>
               <p>228</p>
-              <img src="../assets/downvote.svg" alt="" srcset="" />
-              <img src="../assets/favorite.svg" alt="" srcset="" />
+              <img src="../assets/downvote.svg"/>
+              <img src="../assets/favorite.svg"/>
             </div>
 
             <img src="../assets/share.svg" alt="" class="mb-7 mx-auto" />
             <div
               class="flex flex-col gap-4 border border-gray-500 rounded py-2 px-4 items-center"
             >
-              <img src="../assets/comments.svg" alt="" srcset="" />
+              <img src="../assets/comments.svg"/>
               <p>228</p>
             </div>
           </div>
         </div>
-        <div class="h-[800px] w-full mx-0 md:ml-4 lg:mx-16">
-          <p class="text-white text-2xl mb-3 font-bold">Absolutely gorgeous...</p>
-          <div class="flex gap-2 w-full mb-5">
-            <img class="img w-10 h-10 rounded-full bg-btnColor"></img>
-            <div class=" flex justify-between w-full items-center">
-                <div>
-                    <p class="text-btnColor">AttemptingToLoseAllOfMyFakeInterests</p>
-                    <div class="text-gray-200 text-xs font-medium">
-                       <span>238,234 views</span>
-                       <span> &#8226</span>
-                       <span>4h</span>
-                       <span> &#8226</span>
-                       <span>via Iphone</span>
-                    </div>
-                </div>
-                <div class="text-gray-200">
-                    <span> &#8226</span>
-                    <span> &#8226</span>
-                    <span> &#8226</span>
-                </div>
+        <!--Desktop-->
+        <div class="sm:mx-6 mx-0 md:ml-4 lg:mx-16">
+          <div class="hidden sm:block">
+            <p class="text-white  text-2xl mb-3 font-bold">Absolutely gorgeous...</p>
+            <div class="flex gap-2 w-full mb-5">
+              <img class="img w-10 h-10 rounded-full bg-btnColor"></img>
+              <div class=" flex justify-between w-full items-center">
+                  <div>
+                      <p class="text-btnColor">AttemptingToLoseAllOfMyFakeInterests</p>
+                      <div class="text-gray-200 text-xs font-medium">
+                         <span>238,234 views</span>
+                         <span> &#8226</span>
+                         <span>4h</span>
+                      </div>
+                  </div>
+                  <!-- <div class="text-gray-200">
+                      <span> &#8226</span>
+                      <span> &#8226</span>
+                      <span> &#8226</span>
+                  </div> -->
+              </div>
             </div>
           </div>
-          <img src="https://i.imgur.com/N7KHgAB.jpg" alt="" srcset="">
-          <div class="comments mt-5">
-             <p class="text-white text-base font-medium uppercase">26 comments</p>
+          <img src="https://i.imgur.com/N7KHgAB.jpg" alt="" class="w-full">
+          <div class="comments mt-5 hidden sm:block">
+             <div class="flex justify-between">
+              <p class="text-white text-base font-medium uppercase">26 comments</p>
+              <div class="flex gap-3 font-medium" style="color: rgb(218, 220, 226);">
+                <div class="flex gap-1"><span>Expand All</span><img src="../assets/expand.svg" alt=""></div>
+                <div class="flex gap-1">
+                  <span>Best</span> 
+                  <!-- <img class="iconChevronDown" src="https://s.imgur.com/desktop-assets/desktop-assets/chevron-down-w.2cb2334cccdb7201bd1b686b3a482f09.svg" > -->
+                </div>
+              </div>
+             </div>
+             <div class="bg-gray-900 h-px w-full my-2 sm:bg-gray-500"></div>
+
+          </div>
+          <div class="bg-gray-800 px-2 text-white sm:bg-gray-900 sm:px-0">
+            <p class="uppercase text-xs text-gray-200 py-4 sm:hidden">Best Comments</p>
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
+              <div class="op-3 bg-btnColor w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="flex flex-col gap-2 relative">
+                <p class="text-gray-200 font-medium sm:text-btnColor sm:relative sm:top-1">accountname</p>
+                <p class="sm:mt-2 sm:left-0">comment</p>
+                <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
+                <div class="flex items-center gap-6 py-1">
+                  <img src="../assets/upvote.svg" class="w-4 h-4" />
+                  <p class="text-white text-xs font-medium">1,266</p>
+                  <img src="../assets/downvote.svg" class="w-4 h-4" />
+                  <p class="sm:hidden">Reply</p>
+                  <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
+                  <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
+
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
+              <div class="op-3 bg-btnColor w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="flex flex-col gap-2 relative">
+                <p class="text-gray-200 font-medium sm:text-btnColor sm:relative sm:top-1">accountname</p>
+                <p class="sm:mt-2 sm:left-0">comment</p>
+                <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
+                <div class="flex items-center gap-6 py-1">
+                  <img src="../assets/upvote.svg" class="w-4 h-4" />
+                  <p class="text-white text-xs font-medium">1,266</p>
+                  <img src="../assets/downvote.svg" class="w-4 h-4" />
+                  <p class="sm:hidden">Reply</p>
+                  <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
+                  <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
+
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
+              <div class="op-3 bg-btnColor w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="flex flex-col gap-2 relative">
+                <p class="text-gray-200 font-medium sm:text-btnColor sm:relative sm:top-1">accountname</p>
+                <p class="sm:mt-2 sm:left-0">comment</p>
+                <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
+                <div class="flex items-center gap-6 py-1">
+                  <img src="../assets/upvote.svg" class="w-4 h-4" />
+                  <p class="text-white text-xs font-medium">1,266</p>
+                  <img src="../assets/downvote.svg" class="w-4 h-4" />
+                  <p class="sm:hidden">Reply</p>
+                  <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
+                  <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
+
           </div>
         </div>
       </div>
-      <div class="sidebar hidden lg:block lg:w-[300px]">
-        <p class="text-white text-sm font-medium uppercase">
-            Newest in most viral
-        </p>
+      <div class="flex relative pb-36">
+        <div class="sidebar sticky top-16 hidden h-[260px]  lg:block lg:w-[300px]">
+          <p class="text-white text-sm font-medium uppercase">
+              Newest in most viral
+          </p>
+          <div class="w-full h-px bg-gray-200 mt-2"></div>
+          <div class="flex items-center w-full my-3">
+            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
+            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor sit amet</p>
+          </div>
+          <div class="flex items-center w-full my-3">
+            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
+            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor sit amet psum dolor sit amet</p>
+          </div>
+          <div class="flex items-center w-full my-3">
+            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
+            <p class="text-sm text-gray-200 font-medium">Lorem </p>
+          </div>
+          <div class="flex items-center w-full my-3">
+            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
+            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor</p>
+          </div>
+          <div class="flex items-center w-full my-3">
+            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
+            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor sit amet</p>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="sm:hidden text-xs font-medium p-4">
+      <span class="text-gray-200">834,148 views &#8226</span>
+      <span class="text-white">5 Tags</span>
+    </div>
+
+    
+
+
     <div class="w-full">
       <p class="text-white text-center uppercase text-base font-medium my-10">
         Explore posts
       </p>
       <div class="dense-grid gallery" id="posts-container"></div>
+    </div>
+    <div class="sticky z-10 flex justify-around items-center bottom-2 bg-gray-500 w-11/12 sm:w-1/2 rounded-xl mx-auto p-2 md:hidden" style="box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.5)">
+      <div class="flex justify-center items-center gap-5">
+        <img src="../assets/upvote.svg" class="w-6 h-6" />
+        <p class="text-white text-xs font-medium">1,266</p>
+        <img src="../assets/downvote.svg" class="w-6 h-6" />
+      </div>
+     <img src="../assets/favorite.svg" class="w-6 h-6" />
     </div>
   </body>
 </html>
