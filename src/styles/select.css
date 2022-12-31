@@ -1,0 +1,75 @@
+.custom-select {
+  position: relative;
+  width: auto;
+}
+
+.custom-select select {
+  display: none; 
+}
+
+.select-selected {
+    width: 100%;
+    display: flex;
+    gap: 2px;
+    justify-content: flex-end;
+    color: white;
+}
+
+/*arrow*/
+.select-selected:after {
+    align-self: center;
+    margin-top: 6px;
+    margin-left: 10px;
+    content: "";
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+
+/*options*/
+.select-items div,.select-selected {
+  /* color: white; */
+  cursor: pointer;
+  user-select: none;
+  padding: 8px 12px;
+}
+
+/*triangle*/
+.select-items::before{
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: 12px;
+  z-index: 99;
+  border: 10px solid transparent;
+  border-color:  transparent transparent #53565d transparent ;
+}
+/* options */
+.select-items {
+  color: gray;
+  width: auto;
+  position: absolute;
+  background-color: #53565d;
+  border-radius: 4px;
+  top: 100%;
+  right: -4px;
+  z-index: 99;
+}
+
+/*hide the options when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+/* Selected */
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+}
