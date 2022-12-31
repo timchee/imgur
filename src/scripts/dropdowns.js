@@ -64,3 +64,20 @@ function closeAllSelect(element) {
 }
 
 document.addEventListener("click", closeAllSelect);
+
+
+let btn = document.querySelector(".open-menu");
+let profileMenu = document.querySelector(".profile-menu")
+btn.addEventListener("click", hideMenu)
+
+
+function hideMenu() {
+    console.log(profileMenu.style.display)
+
+    if(profileMenu.style.display != "flex")
+    {
+        profileMenu.style.display = "flex";
+    } else {
+        profileMenu.style.display = "none"
+    }
+}

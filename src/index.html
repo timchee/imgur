@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="./styles/animation.css">
     <script type="module" src="./main.js" defer></script>
     <script src="./scripts/changeLayout.js" defer></script>
-    <script src="./scripts/select.js" defer></script>
+    <script src="./scripts/dropdowns.js" defer></script>
     <title>Imgur: The magic of the Internet</title>
   </head>
   <body class="bg-gray-800">
     <header
       class="header bg-bgColor flex flex-col justify-center items-center gap-y-5 h-auto pb-20 relative"
     >
-    <!-- <div class="bg-animation overflow-hidden">
+    <div class="bg-animation overflow-hidden">
       <div class="small small-1">
           <div></div>
       </div>
@@ -50,7 +50,7 @@
       <div class="small small-6">
           <div></div>
       </div>  
-    </div> -->
+    </div>
     <nav
       class="flex w-full h-auto pt-4 px-4 justify-between sticky top-0 left-0 z-20"
     >
@@ -123,7 +123,7 @@
           <span class="material-symbols-outlined"> search </span>
         </button>
       </form>
-      <div class="flex gap-x-5">
+      <div class="gap-x-5 hidden">
         <button class="text-white font-sans font-medium">Sign in</button>
         <button
           class="btn bg-btnColor w-auto py-1 px-6 rounded-sm text-white font-medium text-sm"
@@ -131,15 +131,73 @@
           Sign up
         </button>
       </div>
-      <!-- <div class="avatar"></div> -->
-      <!-- <label for="profile_menu"></label>
-      <select name="profile_menu" id="profile_menu">
-        <option value="posts">Posts</option>
-        <option value="favorites">Favorites</option>
-        <option value="comments">Comments</option>
-        <option value="settings">Settings</option>
-        <option value="signout">Sign out</option>
-      </select> -->
+      <div class="flex gap-x-5 items-center ">
+        <button class="chat pt-2">
+          <span class="material-symbols-outlined text-white hover:text-settings">
+            chat_bubble
+            </span>
+        </button>
+        <button class="notification pt-2">
+          <span class="material-symbols-outlined text-white hover:text-settings">
+            notifications
+            </span>
+        </button>
+        <div class="open-menu flex gap-4 items-center">
+        <h2 class="text-white font-sans font-medium text-start">username</h2>
+        <input type="button"
+          class="avatar bg-btnColor bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9"  
+        > 
+        </input>
+      </div>
+
+        <menu class="profile-menu w-36 text-white text-lg profile-menu bg-dropdown rounded-md  absolute top-20 right-2 z-50  hidden flex-col ">
+          <ul class="flex flex-col py-1">
+            <li class="hover:bg-searchBar px-6 py-1">
+              <a href="">
+                Posts
+              </a>
+            </li>
+            <li class="hover:bg-searchBar px-6 py-1">
+              <a href="">
+                Favorites
+              </a>
+            </li>
+            <li class="hover:bg-searchBar px-6 py-1">
+              <a href="">
+                Comments
+              </a>
+            </li>
+            <li class="hover:bg-searchBar px-6 py-1">
+              <a href="">
+                About
+              </a>
+            </li>
+            <li class="hover:bg-searchBar px-6 py-1">
+              <a href="">
+              Images
+            </a>
+          </li>
+          </ul>
+          <ul class="bg-settings overflow-hidden rounded-b-md text-sm">
+            <li class="hover:bg-searchBar px-6 py-1">
+              <a href="" class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm">
+                settings
+                </span>
+              Settings
+            </a>
+          </li>
+            <li class="hover:bg-searchBar px-6 py-1">
+               <a href="" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">
+                  mode_off_on
+                  </span>
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </menu>
+      </div>
     </nav>
     <h1 class="text-center font-semibold text-2xl">Edward Macaroni Fork.</h1>
     <section class="tags w-11/12 h-auto flex flex-col gap-y-5 relative z-10">
@@ -214,55 +272,9 @@
         </div>
       </nav>
     </header>
-    <!-- <div class="dense-grid gallery relative" id="posts-container"></div> -->
-    <div class="">
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      <h2>Hello</h2>
-      
-    </div>
-     </section>
+    <div class="dense-grid gallery relative" id="posts-container"></div>
+
+     </section> 
 
     <!-- <img
       src="https://i.imgur.com/iyP2QDM.jpg"

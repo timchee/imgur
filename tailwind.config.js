@@ -25,6 +25,8 @@ module.exports = {
       searchBar: "#ffffff40",
       hBlue: "#aed8ea",
       inputTextColor: "#ffffffb3",
+      dropdown: "#67686f",
+      settings: "#565f6e",
 
     },
   },
