@@ -13,10 +13,19 @@ module.exports = {
         800: "#2e3035",
       },
       btnColor: "#1bb76e",
+      tagColor: {
+        1: "#8472bd",
+        2: "#508a9f",
+        3: "#5b62a5",
+        4: "#2b1a5a",
+        5: "#155c71",
+        6: "#633875"
+      },
       bgColor: "#171544",
-      searchBar: "#ffffff4d",
+      searchBar: "#ffffff40",
       hBlue: "#aed8ea",
-      textGray: "#babec4",
+      inputTextColor: "#ffffffb3",
+
     },
   },
   plugins: [],
