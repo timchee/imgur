@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/uniform-layout.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/waterfall-layout.css" />
-    <script type="module" src="../main.js" defer></script>
-    <script type="module" src="../scripts/galleryPage.js" defer></script>
+    <script src="../scripts/getSinglePost.js" defer></script>
+    <!-- <script type="module" src="../main.js" defer></script>
+    <script type="module" src="../scripts/galleryPage.js" defer></script> -->
     <!-- <script src="../scripts/changeLayout.js" defer></script> -->
-    <title>Document</title>
+    <title class="title">Document</title>
   </head>
   <body class="bg-gray-900">
     <header
@@ -118,7 +119,7 @@
          <div class="bg-btnColor w-8 h-8 rounded-full basis-[32px]"></div>
          <div class="flex flex-col gap-1 font-medium">
           <p class="text-white text-sm font-medium break-normal ">Absolutely gorgeous</p>
-          <p class="text-gray-200 text-xs">AttemptingToLoseAllOfMyFakeInterests</p>
+          <p class="text-gray-200 text-xs account_name">AttemptingToLoseAllOfMyFakeInterests</p>
          </div>
     </div>
     <div
@@ -148,16 +149,16 @@
         <!--Desktop-->
         <div class="sm:mx-6 mx-0 md:ml-4 lg:mx-16">
           <div class="hidden sm:block">
-            <p class="text-white  text-2xl mb-3 font-bold">Absolutely gorgeous...</p>
+            <p class="text-white text-2xl mb-3 font-bold title">Absolutely gorgeous...</p>
             <div class="flex gap-2 w-full mb-5">
               <img class="img w-10 h-10 rounded-full bg-btnColor"></img>
               <div class=" flex justify-between w-full items-center">
                   <div>
-                      <p class="text-btnColor">AttemptingToLoseAllOfMyFakeInterests</p>
+                      <p class="text-btnColor account_name">AttemptingToLoseAllOfMyFakeInterests</p>
                       <div class="text-gray-200 text-xs font-medium">
                          <span>238,234 views</span>
                          <span> &#8226</span>
-                         <span>4h</span>
+                         <span id="post_age" >4h</span>
                       </div>
                   </div>
                   <!-- <div class="text-gray-200">
@@ -168,7 +169,7 @@
               </div>
             </div>
           </div>
-          <img src="https://i.imgur.com/N7KHgAB.jpg" alt="" class="w-full">
+          <img src="https://i.imgur.com/N7KHgAB.jpg" class="w-full max-w-md xl:max-w-2xl" id="image">
           <div class="comments mt-5 hidden sm:block">
              <div class="flex justify-between">
               <p class="text-white text-base font-medium uppercase">26 comments</p>

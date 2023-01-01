@@ -9,8 +9,7 @@ export function singlePost(
   comment_count,
   views
 ) {
-  // const image = `../assets/imgur-img-1.webp${img}`;
-  let post = `<div class="post text-white rounded-sm overflow-hidden "  id="image-container" data-id=${id}>`;
+  let post = `<div class="post text-white rounded-sm overflow-hidden "  id="image-container" data-id=${id}" onClick="window.location ='http://localhost:5500/src/pages/gallery.html?postId=${id}'">`;
   if (animated) {
     post += `
       <video id="image" class="image" width="300px" data-height="${height}" data-width="${width}" autoplay muted>
@@ -43,5 +42,3 @@ export function singlePost(
 
   return post;
 }
-
-// box-shadow: 0 2px 4px 0 rgb(0 0 0 / 40%);
