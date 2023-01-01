@@ -68,16 +68,46 @@ document.addEventListener("click", closeAllSelect);
 
 let btn = document.querySelector(".open-menu");
 let profileMenu = document.querySelector(".profile-menu")
-btn.addEventListener("click", hideMenu)
+console.log(profileMenu)
+const hides = btn.addEventListener("click", () => {
+  hide(profileMenu)
+})
 
+profileMenu.style.display = "none";
 
-function hideMenu() {
-    console.log(profileMenu.style.display)
+function hide(item) {
 
-    if(profileMenu.style.display != "flex")
+    console.log(item.style.display)
+
+    if(item.style.display != "flex")
     {
-        profileMenu.style.display = "flex";
+        item.style.display = "flex";
     } else {
-        profileMenu.style.display = "none"
+        item.style.display = "none"
     }
 }
+
+let newPostBtn = document.querySelector(".new-post");
+let overlayModal = document.querySelector(".overlay")
+let modal = document.querySelector(".modal")
+newPostBtn.addEventListener("click", () => {
+  hide(overlayModal)
+})
+overlayModal.addEventListener("click", () => {
+  hide(overlayModal)
+})
+modal.addEventListener('click', (event) => {
+    event.stopPropagation()
+})
+
+
+// function hideModal(e) {
+//   console.log(overlayModal.style.display)
+
+//   if(overlayModal.style.display != "flex")
+//   {
+//       overlayModal.style.display = "flex";
+//   } else {
+//       overlayModal.style.display = "none"
+//   }
+// }

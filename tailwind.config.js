@@ -27,6 +27,9 @@ module.exports = {
       inputTextColor: "#ffffffb3",
       dropdown: "#67686f",
       settings: "#565f6e",
+      overlay: "#17191f",
+      modalCl: "#3c424b",
+      textGreen: "#01b96b",
 
     },
   },

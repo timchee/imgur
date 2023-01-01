@@ -25,6 +25,7 @@
     <title>Imgur: The magic of the Internet</title>
   </head>
   <body class="bg-gray-800">
+
     <header
       class="header bg-bgColor flex flex-col justify-center items-center gap-y-5 h-auto pb-20 relative"
     >
@@ -101,7 +102,7 @@
           </a>
         </div>
         <button
-          class="btn hidden sm:flex items-start gap-x-2 w-auto py-2 px-3 bg-btnColor rounded-sm text-white font-medium relative"
+          class="btn new-post hidden sm:flex items-start gap-x-2 w-auto py-2 px-3 bg-btnColor rounded-sm text-white font-medium relative"
         >
           <img
             src="https://s.imgur.com/desktop-assets/desktop-assets/icon-new-post.13ab64f9f36ad8f25ae3544b350e2ae1.svg"
@@ -132,6 +133,11 @@
         </button>
       </div>
       <div class="flex gap-x-5 items-center ">
+        <button class="gift pt-2">
+          <span class="material-symbols-outlined text-white hover:text-settings">
+            redeem
+            </span>
+        </button>
         <button class="chat pt-2">
           <span class="material-symbols-outlined text-white hover:text-settings">
             chat_bubble
@@ -200,27 +206,70 @@
       </div>
     </nav>
     <h1 class="text-center font-semibold text-2xl">Edward Macaroni Fork.</h1>
-    <section class="tags w-11/12 h-auto flex flex-col gap-y-5 relative z-10">
+    <section class="tag-container w-full px-24 h-auto flex flex-col gap-y-5 relative z-10">
         <div class="w-full flex flex-col gap-2 pb-10">
           <div class="flex justify-between text-white">
-            <h2>EXPLORE TAGS</h2>
-            <button>MORE TAGS +</button>
+            <h2 class="font-semibold text-gray-200">EXPLORE TAGS</h2>
+            <button class="font-semibold text-gray-200">MORE TAGS +</button>
             <!-- <button>LESS TAGS x</button> -->
           </div>
           <div class="w-full h-auto flex gap-4 overflow-hidden">
-            <div class="w-1/4 h-40 bg-tagColor-1 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-2 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-3 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-4 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-5 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-6 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-3 rounded-md"></div>
-            <div class="w-1/4 h-40 bg-tagColor-1 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-1 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-2 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-3 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-4 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-5 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-6 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-3 rounded-md"></div>
+            <div class="w-1/4 h-32 bg-tagColor-1 rounded-md"></div>
           </div>
-        </div>
+        </div>s
     </section>
     </header>
-    <section class="relative -top-28 z-20">
+    <section class="overlay w-full h-screen bg-overlay absolute top-0 z-50 flex-col gap-2 items-center justify-center hidden">
+      <div class="w-3/5 h-2/5 shadow-md flex relative">
+        <div class="x w-10 h-10 bg-modalCl rounded-full shadow-lg absolute -top-5 -right-5 flex items-center justify-center">
+          <span class="material-symbols-outlined text-3xl text-white">
+            close
+            </span>
+          <!-- <p class="text-2xl text-white font-semibold text-center">x</p> -->
+        </div>
+        <div class="modal w-full h-full rounded-md bg-modalCl shadow-md flex">
+          <div class="drop w-1/2 h-full bg-tagColor-2 flex rounded-l-md"></div>
+          <div class="add w-1/2 h-4/5 self-center flex flex-col items-center  justify-between text-white">
+            <div class="h-1/2 flex flex-col justify-between items-center">
+              <input type="file" name="Choose Photo/Video" id="" >
+              <div class="flex items-center w-32 justify-between">
+                <span class="h-0.5 w-8 bg-white inline-block"></span>
+                <p class="inline-block">Or</p>
+                <span class="h-0.5 w-8 bg-white inline-block"></span>
+              </div>
+              <input type="url" name="" id="" placeholder="Paste image or URL" class="pl-10">
+            </div>
+            <div class="extras flex w-3/4 justify-between">
+                <div class="flex flex-col items-center text-sm gap-2">
+                  <div class="w-8 h-8 bg-tagColor-2 rounded-sm"></div>
+                  <p>Meme Gen</p>
+                </div> 
+                <div class="flex flex-col items-center text-sm gap-2">
+                  <div class="w-8 h-8 bg-tagColor-3 rounded-sm"></div>
+                  <p>Video to GIF</p>
+                </div> 
+                <div class="flex flex-col items-center text-sm gap-2">
+                  <div class="w-8 h-8 bg-tagColor-1 rounded-sm"></div>
+                  <p>My Uploads</p>
+                </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-white text-xs"> By creating a post, you agree to Imgur's
+        <a href="http://" class="text-textGreen font-semibold"> Terms of Service </a>
+         and
+         <a href="http://" class="text-textGreen font-semibold"> Privacy Policy </a> 
+      </h2>  
+    </section>
+    <main class="relative -top-28 z-20">
     <header
       class="header flex justify-center items-center gap-y-5 h-auto sticky top-0 z-10"
     >
@@ -274,7 +323,7 @@
     </header>
     <div class="dense-grid gallery relative" id="posts-container"></div>
 
-     </section> 
+  </main> 
 
     <!-- <img
       src="https://i.imgur.com/iyP2QDM.jpg"
