@@ -29,7 +29,7 @@ export const getGallery = async () => {
     if (views > 1000) {
       views = Math.floor(views / 1000) + "K";
     }
-    if (images && postsArray.length < 30) {
+    if (images && postsArray.length < 10) {
       const image = images[0];
       let { link, height, width, animated } = image;
       postsArray.push(
