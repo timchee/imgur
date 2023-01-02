@@ -1,3 +1,4 @@
+@import url('select.css');
 h1 {
   font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
     sans-serif;
@@ -14,15 +15,28 @@ h1 {
 }
 .desc {
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 40%);
+  background-color: #ffffffb3;
 }
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 input[type="text"]::-ms-clear {
   display: none;
   width: 0;
   height: 0;
+}
+
+
+.profile-menu::before{
+  position: absolute;
+  top: -20px;
+  right: 16px;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-color:  transparent transparent #67686f transparent;
 }
 
 /*GALLERY PAGE*/
