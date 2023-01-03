@@ -1,8 +1,12 @@
 @import url('select.css');
+body{
+  font-family: Proxima Nova Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
 h1 {
-  font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
   color: #aed8ea;
+}
+.explore, .tag-btn{
+  letter-spacing: 1px;
 }
 
 #image-container:hover .desc {
