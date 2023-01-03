@@ -12,7 +12,7 @@
     display: flex;
     gap: 2px;
     justify-content: flex-end;
-    color: white;
+    color: #8d929a;
 }
 
 /*arrow*/
@@ -24,7 +24,7 @@
     width: 0;
     height: 0;
     border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
+    border-color: #8d929a transparent transparent transparent;
 }
 
 
