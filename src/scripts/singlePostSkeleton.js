@@ -1,3 +1,4 @@
+//Creates a single post skeleton
 export default function singlePostSkeleton(
   id,
   height,
@@ -8,30 +9,27 @@ export default function singlePostSkeleton(
   views,
   animated
 ) {
-  let titleLength;
-
-  if (title.length > 78) {
-    titleLength = "extra-long-title";
-  } else if (title.length > 39) {
-    titleLength = "long-title";
-  }
+  //Calculate post and image height using images' aspect ratio and title length
   const aspectRatio = height / width;
+  let postHeight = Math.floor((300 * aspectRatio) / 5);
+  let imageHeight = postHeight * 5;
+  if (title.length > 39) postHeight += 22;
+  else if (title.length > 78) postHeight += 24;
+  else postHeight += 20;
 
-  let calculatedHeight = Math.floor((300 * aspectRatio) / 5);
-  let imageHeight = calculatedHeight * 5;
-  if (titleLength == "long-title") calculatedHeight += 22;
-  else if (titleLength == "extra-long-title") calculatedHeight += 24;
-  else calculatedHeight += 20;
-
+  //Set the images' object fit property based on aspect ratio
   let objectFit;
-
   if (aspectRatio < 1) {
     objectFit = "object-fill";
   } else {
     objectFit = "object-cover";
   }
+
+  //Randomly generate a number in range [1,6]
   const gradientStartColor = Math.floor(Math.random() * 6) + 1;
-  let post = `<div class="post text-white rounded-sm overflow-hidden w-[300px] image-container ${titleLength}" style="--span:${calculatedHeight}" id="${id}">
+
+  //Posts' HTML
+  let post = `<div class="post text-white rounded-sm overflow-hidden w-[300px] image-container" style="--span:${postHeight}" id="${id}" onClick="window.location ='pages/gallery.html?postId=${id}'">
      <div class="w-[300px] bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" data-animated="${animated}" data-objectFit = "${objectFit}" style = "height: ${imageHeight}px"></div>
      <div class=" flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc">
      <p class="text-sm font-medium overflow-hidden mb-3 title" style="width:260px">${title}</p>

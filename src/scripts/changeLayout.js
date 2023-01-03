@@ -7,3 +7,5 @@ const changeLayout = () => {
 };
 
 changeLayoutBtn.addEventListener("click", changeLayout);
+
+export default changeLayout;

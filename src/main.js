@@ -1,11 +1,4 @@
-import { singlePost } from "./scripts/singlePost.js";
-import singlePostSkeleton from "./scripts/singlePostSkeleton.js";
-import { getGallery } from "./scripts/getGallery.js";
+import { addGalleryImages } from "./scripts/addGalleryImages.js";
+import changeLayout from "./scripts/changeLayout.js";
 
-const gridContainer = document.getElementById("posts-container");
-
-const grid = async () => {
-  await getGallery();
-};
-
-grid();
+addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
