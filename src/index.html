@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="./../dist/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/uniform-layout.css" />
     <link rel="stylesheet" href="./styles/style.css" />
@@ -103,7 +104,7 @@
         </div>
         <menu class="hidden absolute top-16 left-0 h-20 sm:h-full sm:static sm:flex w-full sm:gap-4 justify-between md:justify-around lg:justify-between bg-gray-800 sm:bg-transparent flex-col sm:flex-row">
           <button
-            class="btn hidden sm:flex new-post items-start gap-x-2 w-auto py-2 px-3 bg-btnColor rounded-sm text-white font-medium relative"
+            class="btn hidden sm:flex new-post items-start gap-x-2 w-auto py-2 px-3 bg-btnColor-1 hover:bg-btnColor-2 rounded-sm text-white font-medium relative"
           >
             <img
               src="https://s.imgur.com/desktop-assets/desktop-assets/icon-new-post.13ab64f9f36ad8f25ae3544b350e2ae1.svg"
@@ -209,7 +210,7 @@
       </div>
     </nav>
     <h1 class="text-center font-semibold text-2xl">Edward Macaroni Fork.</h1>
-    <section class="tag-container w-11/12 px-10 h-full overflow-hidden flex flex-col gap-y-4 relative z-10">
+    <section class="tag-container w-full px-2 sm:w-11/12 sm:px-10 h-full overflow-hidden flex flex-col gap-y-4 relative z-10">
         <div class="w-full flex flex-col gap-2 pb-10">
           <div class="flex justify-between text-white">
             <h2 class="font-semibold text-gray-200">EXPLORE TAGS</h2>
@@ -278,13 +279,13 @@
       class="header flex justify-center items-center gap-y-5 h-auto sticky top-0 z-10"
     >
       <nav
-        class="flex w-full px-10 sm:w-5/6 sm:px-0 md:px-10 lg:px-0 gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0"
+        class="flex w-full px-10 sm:w-5/6 sm:px-0 md:px-10 lg:px-0 sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0"
       >
         <div class="min-w-10 min-h-10">
           <!-- <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" /> -->
         </div>
         <div class="w-11/12 flex justify-between">
-        <div class="invisible">
+        <div class="hidden sm:invisible">
             <select>
               <option value="0">MOST VIRAL</option>
               <option value="1">NEWEST</option>
@@ -303,29 +304,40 @@
             </select>
         </div>
         </div>
-        <div class="w-auto flex gap-4 justify-between items-center">
-          <button class="w-7 h-7">
-            <img
+        <div class="w-auto flex gap-1 sm:gap-4 justify-between items-center">
+          <button class="">
+            <!-- <img
               class="iconFilter"
               src="https://s.imgur.com/desktop-assets/desktop-assets/icon-filter.551faed00bcf04e07c9e01a6874bd652.svg"
-            />
+            /> -->
+            <span class="filter material-symbols-rounded text-gray-200 text-2xl relative">
+              filter_list
+              </span>
           </button>
-          <button class="w-6 h-6">
-            <img
+          <button class="">
+            <!-- <img
               class="pause max-w-full min-w-full"
               src="https://s.imgur.com/desktop-assets/desktop-assets/icon-pause.68f07ce1a7e07bac06d1f2c527d7a9e5.svg"
-            />
+            /> -->
+            <span class="play material-symbols-rounded text-gray-200 text-2xl hidden relative">
+              smart_display
+            </span>
+            <span class="pause material-symbols-rounded text-gray-200 text-2xl  relative">
+              pause_presentation
+              </span>
           </button>
-          <button class="flex flex-wrap h-5 w-5 justify-around" id="change-layout-btn">
-            <div class="h-2 w-2 bg-white"></div>
-            <div class="h-2 w-2 bg-white"></div>
-            <div class="h-2 w-2 bg-white"></div>
-            <div class="h-2 w-2 bg-white"></div>
+          <button class="flex flex-wrap justify-around" id="change-layout-btn">
+            <span class="uniform material-symbols-rounded text-gray-200 text-2xl relative">
+              grid_view
+            </span>
+            <span class="waterfall material-symbols-rounded text-gray-200 text-2xl hidden relative">
+              dashboard
+            </span>
           </button>
         </div>
       </nav>
     </header>
-    <div class="dense-grid gallery relative" id="posts-container"></div>
+    <div class="dense-grid gallery relative overflow-hidden" id="posts-container"></div>
 
   </main> 
 
