@@ -8,9 +8,26 @@ h1 {
 .explore, .tag-btn{
   letter-spacing: 1px;
 }
+#image-container #image{
+  padding: 6px 6px 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
 
-#image-container:hover .desc {
-  background-color: #67686f;
+#image-container:nth-child(n) .desc, #image-container:nth-child(n) #image {
+  background-color: #5b62a5;
+}
+#image-container:nth-child(2n) .desc, #image-container:nth-child(2n) #image {
+  background-color: #155c71;
+}
+#image-container:nth-child(3n) .desc, #image-container:nth-child(3n) #image {
+  background-color: #633875;
+}
+#image-container:nth-child(4n) .desc, #image-container:nth-child(4n) #image {
+  background-color: #508a9f;
+}
+#image-container:hover .desc, #image-container:hover #image {
+  background-color: #2b1a5a;
 }
 
 #image-container:hover img,
@@ -47,7 +64,13 @@ input[type="text"]::-ms-clear {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-color:  transparent transparent #67686f transparent;
+  border-color:  transparent transparent #67676f transparent;
+}
+
+@media screen and (max-width: 640px) {
+  .profile-menu::before{
+    border-color:  transparent transparent #29051c transparent;
+  }
 }
 
 /*GALLERY PAGE*/
@@ -56,4 +79,8 @@ input[type="text"]::-ms-clear {
   background: linear-gradient(180deg, rgba(37, 38, 41, 0.24) 26.22%, #27292d),
     linear-gradient(0deg, #171544, #171544);
   /* height: 650px; */
+}
+
+.drop{
+  background: linear-gradient(210deg, rgba(102,59,103,1) 0%, rgba(174,127,83,1) 90%);
 }

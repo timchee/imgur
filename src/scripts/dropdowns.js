@@ -52,6 +52,7 @@ for (let i = 0; i < dropdowns.length; i++) {
   
 var selected = document.querySelector(".select-items div:nth-child(2)")
 var defaultSelect = document.querySelector(".select-selected");
+
 if(defaultSelect.innerHTML == selected.innerHTML){
   selected.setAttribute("class", "same-as-selected")
 } else {

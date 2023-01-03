@@ -28,7 +28,7 @@
   <body class="bg-gray-800">
     <section class="overlay w-full h-screen bg-overlay sticky top-0 z-50 flex-col gap-2 items-center justify-center hidden">
       <div class="w-3/5 h-2/5 shadow-md flex relative">
-        <div class="x w-10 h-10 bg-modalCl rounded-full shadow-lg absolute -top-5 -right-5 flex items-center justify-center">
+        <div class="x w-10 h-10 bg-modalCl hover:bg-settings cursor-pointer rounded-full shadow-lg absolute -top-5 -right-5 flex items-center justify-center">
           <span class="material-symbols-outlined text-3xl text-white">
             close
             </span>
@@ -145,7 +145,7 @@
             </svg>
           </a>
         </div>
-        <menu class="menu absolute hidden top-14 left-0 h-auto p-4 gap-4 sm:h-full sm:p-0 sm:static sm:flex w-full sm:gap-4 sm:justify-between md:justify-around lg:justify-between bg-gray-800 sm:bg-transparent flex-col sm:flex-row">
+        <menu class="menu absolute hidden top-16 left-0 h-auto p-4 gap-4 sm:h-full sm:p-0 sm:static sm:flex w-full sm:gap-4 sm:justify-between md:justify-around lg:justify-between bg-gray-800 sm:bg-transparent flex-col sm:flex-row">
           <button
             class="btn flex sm:flex new-post items-center gap-x-2 w-auto py-2  sm:mb-0 sm:py-1 px-4 bg-btnColor-1 hover:bg-btnColor-2 rounded-sm text-white font-medium relative"
           >
@@ -202,9 +202,28 @@
         > 
         </input>
       </div>
-
-        <menu class="profile-menu w-36 text-white text-lg profile-menu bg-dropdown rounded-md  absolute top-20 right-2 z-50  hidden flex-col ">
-          <ul class="flex flex-col py-1">
+        <menu class="profile-menu w-64 sm:w-36 text-white text-lg profile-menu bg-dropdown rounded-md  absolute top-20 right-2  hidden flex-col z-30">
+          <div class="h-24 bg-cover flex flex-col sm:hidden  p-4 rounded-t-md" style="background-image: url(&quot;https://imgur.com/user/vjenditapllana/cover&quot;);">
+          <div class="flex items-center justify-between">
+            <input type="button"
+            class="avatar sm:hidden bg-btnColor bg-[url('https://imgur.com/user/vjenditapllana/avatar')]  bg-contain rounded-full w-9 h-9"  
+          ></input>
+          <div class="flex gap-4 items-center">
+            <button class="chat sm:hidden items-start pt-1.5">
+              <span class="material-symbols-outlined text-white transition ease-in-out duration-500 hover:text-settings ">
+                chat_bubble
+                </span>
+            </button>
+            <button class="notification sm:hidden items-start pt-1.5">
+              <span class="material-symbols-outlined text-white transition ease-in-out duration-500 hover:text-settings">
+                notifications
+                </span>
+            </button>
+          </div>
+          </div>
+          <h2 class="sm:hidden text-white font-sans font-medium text-start">username</h2>
+          </div>
+          <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
             <li class="hover:bg-searchBar px-6 py-1">
               <a href="">
                 Posts
@@ -231,7 +250,7 @@
             </a>
           </li>
           </ul>
-          <ul class="bg-settings overflow-hidden rounded-b-md text-sm">
+          <ul class="bg-settings overflow-hidden flex py-2 sm:py-0 sm:flex-col rounded-b-md text-sm">
             <li class="hover:bg-searchBar px-6 py-1">
               <a href="" class="flex items-center gap-2">
               <span class="material-symbols-outlined text-sm">
@@ -310,7 +329,7 @@
               class="iconFilter"
               src="https://s.imgur.com/desktop-assets/desktop-assets/icon-filter.551faed00bcf04e07c9e01a6874bd652.svg"
             /> -->
-            <span class="filter material-symbols-rounded text-gray-200 text-2xl relative">
+            <span class="filter material-symbols-rounded text-gray-200 hover:text-white text-2xl relative">
               filter_list
               </span>
           </button>
@@ -319,18 +338,18 @@
               class="pause max-w-full min-w-full"
               src="https://s.imgur.com/desktop-assets/desktop-assets/icon-pause.68f07ce1a7e07bac06d1f2c527d7a9e5.svg"
             /> -->
-            <span class="play material-symbols-rounded text-gray-200 text-2xl hidden relative">
+            <span class="play material-symbols-rounded text-gray-200 hover:text-white text-2xl hidden relative">
               smart_display
             </span>
-            <span class="pause material-symbols-rounded text-gray-200 text-2xl  relative">
+            <span class="pause material-symbols-rounded text-gray-200 hover:text-white text-2xl  relative">
               pause_presentation
               </span>
           </button>
           <button class="flex flex-wrap justify-around" id="change-layout-btn">
-            <span class="uniform material-symbols-rounded text-gray-200 text-2xl relative">
+            <span class="uniform material-symbols-rounded text-gray-200 hover:text-white text-2xl relative">
               grid_view
             </span>
-            <span class="waterfall material-symbols-rounded text-gray-200 text-2xl hidden relative">
+            <span class="waterfall material-symbols-rounded text-gray-200 hover:text-white text-2xl hidden relative">
               dashboard
             </span>
           </button>
