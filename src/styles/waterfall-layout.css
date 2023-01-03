@@ -6,7 +6,6 @@
   grid-template-columns: repeat(auto-fit, 300px);
   grid-auto-rows: 5px;
   column-gap: 20px;
-  grid-auto-flow: dense;
 }
 
 .post {

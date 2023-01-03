@@ -13,8 +13,13 @@ export default function singlePostSkeleton(
   const aspectRatio = height / width;
   let postHeight = Math.floor((300 * aspectRatio) / 5);
   let imageHeight = postHeight * 5;
-  if (title.length > 39) postHeight += 22;
-  else if (title.length > 78) postHeight += 24;
+  if (title.length > 115) {
+    title = title.substring(0, 112);
+    title += "...";
+    console.log(title);
+  }
+  if (title.length > 78) postHeight += 25;
+  else if (title.length > 39) postHeight += 22;
   else postHeight += 20;
 
   //Set the images' object fit property based on aspect ratio
