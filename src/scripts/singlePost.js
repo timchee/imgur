@@ -9,18 +9,22 @@ export function singlePost(
   comment_count,
   views
 ) {
-  let post = `<div class="post text-white rounded-sm overflow-hidden "  id="image-container" data-id=${id}" onClick="window.location ='http://localhost:5500/src/pages/gallery.html?postId=${id}'">`;
-  if (animated) {
-    post += `
-      <video id="image" class="image" width="300px" data-height="${height}" data-width="${width}" autoplay muted>
-      <source src=${link} type="video/mp4">
-      </video>
-    `;
-  } else {
-    post += ` 
-      <img src="${link}" id="image" class="image" width="300px" data-height="${height}" data-width="${width}"/>
-    `;
-  }
+  const gradientStartColor = Math.floor(Math.random() * 6) + 1;
+
+  let post = `<div class="post text-white rounded-sm overflow-hidden" data-id=${id}" onClick="window.location ='pages/gallery.html?postId=${id}'">`;
+  // if (animated) {
+  //   post += `
+  //     <video id="image" class="image" width="300px" data-height="${height}" data-width="${width}" autoplay muted>
+  //     <source src=${link} type="video/mp4">
+  //     </video>
+  //   `;
+  // } else {
+  //   post += `
+  //     <img src="${link}" id="image" class="image  bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" width="300px" data-height="${height}" data-width="${width}"/>
+  //   `;
+  // }
+
+  post += ` <div class="w-[300px] h-full bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" ></div>`;
 
   post += `  
       <div class="flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc ">
