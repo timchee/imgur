@@ -4,13 +4,8 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 300px);
-  grid-auto-rows: 10px;
+  grid-auto-rows: 5px;
   column-gap: 20px;
-  grid-auto-flow: dense;
-}
-
-.dense-grid > * {
-  margin-bottom: 20px;
 }
 
 .post {
