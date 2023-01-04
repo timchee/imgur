@@ -13,7 +13,10 @@ module.exports = {
         800: "#2e3035",
         900: "#27292d",
       },
-      btnColor: "#1bb76e",
+      btnColor: {
+        1: "#1bb76e",
+        2: "#23d280"
+      },
       tagColor: {
         1: "#8472bd",
         2: "#508a9f",
