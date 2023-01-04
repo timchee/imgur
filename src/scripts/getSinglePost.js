@@ -7,9 +7,9 @@ const getPostId = () => {
 const getPostById = async (postId) => {
   const response = await fetch("https://api.npoint.io/bc13239283496e6574a7");
   const responseJson = await response.json();
-  const data = responseJson.data;
-  let post = "Post not found";
-  data.forEach((element) => {
+  const data = responseJson.data.tags;
+  // let post = "Post not found";
+  data.tags.forEach((element) => {
     if (element.id === postId) {
       post = element;
     }
