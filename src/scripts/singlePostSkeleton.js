@@ -16,7 +16,6 @@ export default function singlePostSkeleton(
   if (title.length > 115) {
     title = title.substring(0, 112);
     title += "...";
-    console.log(title);
   }
   if (title.length > 78) postHeight += 25;
   else if (title.length > 39) postHeight += 22;

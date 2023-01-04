@@ -27,7 +27,7 @@ export const createPostsSkeletons = (dataArray) => {
     if (views > 1000) {
       views = Math.floor(views / 1000) + "K";
     }
-    if (images != undefined && postsArray.length < 100) {
+    if (images != undefined && postsArray.length < 30) {
       const image = images[0];
       imagesArray.push(image);
       let { height, width, animated } = image;
