@@ -680,6 +680,10 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -1107,58 +1111,6 @@ video {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
-.from-hBlue {
-  --tw-gradient-from: #aed8ea;
-  --tw-gradient-to: rgb(174 216 234 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-1 {
-  --tw-gradient-from: #8472bd;
-  --tw-gradient-to: rgb(132 114 189 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-2 {
-  --tw-gradient-from: #508a9f;
-  --tw-gradient-to: rgb(80 138 159 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-3 {
-  --tw-gradient-from: #5b62a5;
-  --tw-gradient-to: rgb(91 98 165 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-4 {
-  --tw-gradient-from: #2b1a5a;
-  --tw-gradient-to: rgb(43 26 90 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-5 {
-  --tw-gradient-from: #155c71;
-  --tw-gradient-to: rgb(21 92 113 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-6 {
-  --tw-gradient-from: #633875;
-  --tw-gradient-to: rgb(99 56 117 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-btnColor {
-  --tw-gradient-from: #1bb76e;
-  --tw-gradient-to: rgb(27 183 110 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.to-gray-900 {
-  --tw-gradient-to: #27292d;
-}
-
 .to-gray-800 {
   --tw-gradient-to: #2e3035;
 }
@@ -1212,11 +1164,6 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .py-5 {
@@ -1597,9 +1544,9 @@ video {
     justify-content: space-around;
   }
 
-  .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -1631,11 +1578,6 @@ video {
 
   .lg\:justify-between {
     justify-content: space-between;
-  }
-
-  .lg\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 }
 
