@@ -13,13 +13,18 @@ export default function singlePostSkeleton(
   const aspectRatio = height / width;
   let postHeight = Math.floor((300 * aspectRatio) / 5);
   let imageHeight = postHeight * 5;
+  let titleLength;
   if (title.length > 115) {
     title = title.substring(0, 112);
     title += "...";
   }
-  if (title.length > 78) postHeight += 25;
-  else if (title.length > 39) postHeight += 22;
-  else postHeight += 20;
+  if (title.length > 78) {
+    postHeight += 25;
+    titleLength = "extra-long-title";
+  } else if (title.length > 39) {
+    postHeight += 22;
+    titleLength = "long-title";
+  } else postHeight += 20;
 
   //Set the images' object fit property based on aspect ratio
   let objectFit;
@@ -33,7 +38,7 @@ export default function singlePostSkeleton(
   const gradientStartColor = Math.floor(Math.random() * 6) + 1;
 
   //Posts' HTML
-  let post = `<div class="post text-white rounded-sm overflow-hidden w-[300px] image-container" style="--span:${postHeight}" id="${id}" onClick="window.location ='pages/gallery.html?postId=${id}'">
+  let post = `<div class="post ${titleLength} text-white rounded-sm overflow-hidden w-[300px] image-container" style="--span:${postHeight}" id="${id}" onClick="window.location ='pages/gallery.html?postId=${id}'">
      <div class="w-[300px] bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" data-animated="${animated}" data-objectFit = "${objectFit}" style = "height: ${imageHeight}px"></div>
      <div class=" flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc">
      <p class="text-sm font-medium overflow-hidden mb-3 title" style="width:260px">${title}</p>

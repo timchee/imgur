@@ -69,6 +69,7 @@ const addLazyLoadedImages = (imagesArray, container) => {
           } else {
             imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>`;
           }
+          imageDiv.style = "";
           observer.disconnect();
         }
       });
