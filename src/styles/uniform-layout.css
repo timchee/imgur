@@ -13,15 +13,15 @@
 .flex-container img,
 .flex-container video {
   object-position: top left;
-  height: 230px;
+  height: 220px;
 }
 
 .flex-container .long-title img,
 .flex-container .long-title video {
-  height: 210px;
+  height: 200px;
 }
 
 .flex-container .extra-long-title img,
 .flex-container .extra-long-title video {
-  height: 190px;
+  height: 180px;
 }

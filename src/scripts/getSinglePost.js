@@ -5,7 +5,7 @@ const getPostId = () => {
 };
 
 const getPostById = async (postId) => {
-  const response = await fetch("../data/gallery.json");
+  const response = await fetch("https://api.npoint.io/bc13239283496e6574a7");
   const responseJson = await response.json();
   const data = responseJson.data;
   let post = "Post not found";
@@ -15,10 +15,6 @@ const getPostById = async (postId) => {
     }
   });
   return post;
-};
-
-const getPostDetails = (post) => {
-  l(post);
 };
 
 const calcPostAge = (datePosted) => {
@@ -58,7 +54,6 @@ const changeInnerText = (element, newText) => {
 const init = async () => {
   const postId = getPostId();
   const post = await getPostById(postId);
-  getPostDetails(post);
   const {
     account_url,
     comment_count,
