@@ -1,5 +1,9 @@
 @import url("select.css");
 @import url("footer.css");
+@import url("uniform-layout.css");
+@import url("waterfall-layout.css");
+@import url("animation.css");
+
 
 *{
   font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
