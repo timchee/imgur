@@ -1,7 +1,15 @@
 @import url("select.css");
-body{
-  font-family: Proxima Nova Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+@import url("footer.css");
+@import url("uniform-layout.css");
+@import url("waterfall-layout.css");
+@import url("animation.css");
+
+
+*{
+  font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
 }
+
 h1 {
   color: #aed8ea;
 }
