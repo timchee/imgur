@@ -27,7 +27,7 @@ export const createPostsSkeletons = (dataArray) => {
     if (views > 1000) {
       views = Math.floor(views / 1000) + "K";
     }
-    if (images != undefined && postsArray.length < 10) {
+    if (images != undefined && postsArray.length < 20) {
       const image = images[0];
       imagesArray.push({ id: post.id, image });
       let { height, width, animated } = image;
@@ -40,7 +40,8 @@ export const createPostsSkeletons = (dataArray) => {
           ups,
           comment_count,
           views,
-          animated
+          animated,
+          image.id
         )
       );
     }
@@ -62,10 +63,12 @@ const addLazyLoadedImages = (imagesArray, container) => {
           const isVideo = imageDiv.dataset.animated;
           const image = getImage(imageId, imagesArray);
           if (isVideo == "true") {
-            imageDiv.innerHTML = `
-                  <video id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}" autoplay muted>
-                  <source src=${image.link} type="video/mp4">
-                  </video>`;
+            if (imageDiv.innerHTML == "") {
+              imageDiv.innerHTML = `
+              <video id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}" autoplay muted>
+              <source src=${image.link} type="video/mp4">
+              </video>`;
+            }
           } else {
             imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>`;
           }
