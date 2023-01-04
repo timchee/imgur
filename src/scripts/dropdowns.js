@@ -1,4 +1,4 @@
-var dropdowns, seleoptiontedDd, selectedOpt, optionList, option;
+var dropdowns, selectedDd, selectedOpt, optionList, option;
 
 dropdowns = document.getElementsByClassName("custom-select");
 for (let i = 0; i < dropdowns.length; i++) {
@@ -11,6 +11,7 @@ for (let i = 0; i < dropdowns.length; i++) {
 
   optionList = document.createElement("DIV");
   optionList.setAttribute("class", "select-items select-hide");
+
   for (j = 1; j < selectedDd.length; j++) {
 
     option = document.createElement("DIV");
@@ -19,6 +20,7 @@ for (let i = 0; i < dropdowns.length; i++) {
 
         var sameAsSelected, selectedBox, prevSibling;
         selectedBox = this.parentNode.parentNode.getElementsByTagName("select")[0];
+
 
         prevSibling = this.parentNode.previousSibling;
         for (let i = 0; i < selectedBox.length; i++) {
@@ -44,7 +46,19 @@ for (let i = 0; i < dropdowns.length; i++) {
       closeAllSelect(this);
       this.nextSibling.classList.toggle("select-hide");
     });
+
 }
+
+  
+var selected = document.querySelector(".select-items div:nth-child(2)")
+var defaultSelect = document.querySelector(".select-selected");
+
+if(defaultSelect.innerHTML == selected.innerHTML){
+  selected.setAttribute("class", "same-as-selected")
+} else {
+  selected.removeAttribute("class", "same-as-selected")
+}
+
 
 function closeAllSelect(element) {
 
@@ -66,19 +80,24 @@ function closeAllSelect(element) {
 document.addEventListener("click", closeAllSelect);
 
 
+
+
 let btn = document.querySelector(".open-menu");
 let profileMenu = document.querySelector(".profile-menu")
-console.log(profileMenu)
-const hides = btn.addEventListener("click", () => {
-  hide(profileMenu)
+btn.addEventListener("click", () => {
+  showAndHide(profileMenu)
 })
-
 profileMenu.style.display = "none";
 
-function hide(item) {
 
-    console.log(item.style.display)
+let menuBtn = document.querySelector(".nav-menu");
+let mobileMenu = document.querySelector(".menu")
+menuBtn.addEventListener("click", () => {
+  showAndHide(mobileMenu)
+})
 
+
+function showAndHide(item) {
     if(item.style.display != "flex")
     {
         item.style.display = "flex";
@@ -87,27 +106,17 @@ function hide(item) {
     }
 }
 
+
 let newPostBtn = document.querySelector(".new-post");
 let overlayModal = document.querySelector(".overlay")
 let modal = document.querySelector(".modal")
+
 newPostBtn.addEventListener("click", () => {
-  hide(overlayModal)
+  showAndHide(overlayModal)
 })
 overlayModal.addEventListener("click", () => {
-  hide(overlayModal)
+  showAndHide(overlayModal)
 })
 modal.addEventListener('click', (event) => {
     event.stopPropagation()
 })
-
-
-// function hideModal(e) {
-//   console.log(overlayModal.style.display)
-
-//   if(overlayModal.style.display != "flex")
-//   {
-//       overlayModal.style.display = "flex";
-//   } else {
-//       overlayModal.style.display = "none"
-//   }
-// }
