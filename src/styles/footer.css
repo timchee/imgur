@@ -53,4 +53,9 @@
     width: 50px;
     background-color: transparent;
     cursor: pointer;
-  }
+    -webkit-transition-property: bottom;
+    -webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: linear;
+    -webkit-animation-delay: 2s;
+}
+  
