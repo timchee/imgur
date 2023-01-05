@@ -6,12 +6,11 @@ export const addGalleryImages = async (url) => {
   let postsLoaded = addMorePosts(limitedDataArray);
   window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (clientHeight + scrollTop >= scrollHeight - 600) {
+    if (clientHeight + scrollTop >= scrollHeight - 300) {
       if (postsLoaded > dataArray.length - 60) {
         postsLoaded = 0;
       }
       limitedDataArray = dataArray.slice(postsLoaded, postsLoaded + 60);
-      console.log(limitedDataArray);
       postsLoaded += addMorePosts(limitedDataArray);
     }
   });
@@ -71,8 +70,6 @@ const addLazyLoadedImages = (imagesArray, postsLoaded) => {
   const gridContainer = document.getElementById("posts-container");
   const allPosts = Array.from(gridContainer.children);
   const posts = allPosts.slice(allPosts.length - postsLoaded, allPosts.length);
-
-  console.log(allPosts);
   const lazyLoad = (post) => {
     const io = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {

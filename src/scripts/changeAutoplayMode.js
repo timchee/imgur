@@ -1,7 +1,16 @@
-const autoplayBtn = document.getElementById("autoplay-btn");
-let isPlaying = localStorage.getItem("autoplayEnabled");
+const enableAutoplayBtn = document.getElementById("enable-autoplay-btn");
+const disableAutoplayBtn = document.getElementById("disable-autoplay-btn");
 
 export const changeAutoplayMode = () => {
+  let autoplayEnabled = localStorage.getItem("autoplayEnabled");
+  if (autoplayEnabled == "true") {
+    localStorage.setItem("autoplayEnabled", false);
+  } else {
+    localStorage.setItem("autoplayEnabled", true);
+  }
+
+  enableAutoplayBtn.classList.toggle("hidden");
+  disableAutoplayBtn.classList.toggle("hidden");
   const gridContainer = document.getElementById("posts-container");
   const posts = Array.from(gridContainer.children);
   posts.forEach((post) => {
@@ -13,7 +22,7 @@ export const changeAutoplayMode = () => {
     const imageLink = `https://i.imgur.com/${imageDiv.dataset.imageid}.jpg`;
     const videoLink = `https://i.imgur.com/${imageDiv.dataset.imageid}.mp4`;
     if (isVideo == "true") {
-      if (isPlaying) {
+      if (autoplayEnabled == "true") {
         post.firstChild.nextSibling.innerHTML = `<img src="${imageLink}" id="image" class="image ${objectFit}" width="300px" data-height="${height}" data-width="${width}"/><div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-tagColor-5 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">video</div>`;
       } else {
         post.firstChild.nextSibling.innerHTML = `
@@ -23,9 +32,14 @@ export const changeAutoplayMode = () => {
       }
     }
   });
-  isPlaying = !isPlaying;
-  console.log(isPlaying);
-  localStorage.setItem("autoplayEnabled", isPlaying);
 };
 
-autoplayBtn.addEventListener("click", changeAutoplayMode);
+export const addAutoplayBtn = () => {
+  let autoplayEnabled = localStorage.getItem("autoplayEnabled");
+  if (autoplayEnabled != "true") {
+    enableAutoplayBtn.classList.toggle("hidden");
+    disableAutoplayBtn.classList.toggle("hidden");
+  }
+};
+enableAutoplayBtn.addEventListener("click", changeAutoplayMode);
+disableAutoplayBtn.addEventListener("click", changeAutoplayMode);
