@@ -1,0 +1,80 @@
+.smth{
+    background-color: red;
+    width: 800px;
+    height: 800px;
+    margin: 20%;
+}
+
+.user{
+    color: white;
+}
+
+.profile{
+    display: flex;
+    width: 90vw;
+    padding: 40px 100px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.profile-img{
+    width: 125px;
+    height: 125px;
+    background-image: url(https://imgur.com/user/vjenditapllana/avatar);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-data-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-data-chat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-data-container p{
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+
+.profile-data h2{
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.pages-container{
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.pages-container a:after {
+    content: " ";
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pages-container .active-page::after {
+    margin-top: 9px;
+    border: 2px solid #fff;
+    border-radius: 2px;
+}
