@@ -61,13 +61,18 @@ const addLazyLoadedImages = (imagesArray, container) => {
           const imageDiv = entry.target.firstChild.nextSibling;
           const objectFit = imageDiv.dataset.objectfit;
           const isVideo = imageDiv.dataset.animated;
+          const imageLink = `https://i.imgur.com/${imageDiv.dataset.imageid}.jpg`;
           const image = getImage(imageId, imagesArray);
           if (isVideo == "true") {
             if (imageDiv.innerHTML == "") {
-              imageDiv.innerHTML = `
-              <video id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}" autoplay muted>
-              <source src=${image.link} type="video/mp4">
-              </video>`;
+              if (localStorage.getItem("autoplayEnabled") == "false") {
+                imageDiv.innerHTML = `<img src="${imageLink}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/><div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-tagColor-5 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">video</div>`;
+              } else {
+                imageDiv.innerHTML = `
+                <video id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}" autoplay muted>
+                <source src=${image.link} type="video/mp4">
+                </video>`;
+              }
             }
           } else {
             imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>`;
