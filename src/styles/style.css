@@ -89,5 +89,6 @@ input[type="text"]::-ms-clear {
 }
 
 .drop{
-  background: linear-gradient(210deg, rgba(102,59,103,1) 0%, rgba(174,127,83,1) 90%);
+  background: rgb(102,59,103);
+  background: linear-gradient(45deg, rgba(184,136,82,1) 0%, rgba(102,59,103,1) 95%);
 }
