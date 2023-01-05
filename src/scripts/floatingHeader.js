@@ -1,6 +1,7 @@
 const header = document.querySelector(".header-container")
 const mainHeader = document.querySelector(".main-header");
 const floatingHeader = document.querySelector(".floating-header");
+const floatingNav = document.querySelector(".floating-nav");
 const floatingImg = document.querySelector(".floating-img");
 const floatingAvatar = document.querySelector(".floating-avatar");
 const floatingSearch = document.querySelector(".floating-search");
@@ -18,21 +19,36 @@ const headerObserver = new IntersectionObserver(function (
         entries.forEach(entry => {
             // console.log(entry.target)
         if (!entry.isIntersecting) {
-            // mainHeader.classList.add("z-20")
-            mainHeader.classList.add("invisible")
-            floatingHeader.classList.remove("hidden")
+            mainHeader.classList.remove("sticky")
+            floatingHeader.classList.remove("invisible")
             floatingHeader.classList.add("bg-bgColor")
-            floatingHeader.classList.add("flex")
+            floatingHeader.classList.add("shadow-lg")
+            floatingHeader.classList.add("shadow-[#000]")
         } else {
-            // mainHeader.classList.remove("z-20")
-            mainHeader.classList.remove("invisible")
-            floatingHeader.classList.add("hidden")
+            mainHeader.classList.add("sticky")
+            floatingHeader.classList.add("invisible")
             floatingHeader.classList.remove("bg-bgColor")
-            floatingHeader.classList.remove("flex")
+            floatingHeader.classList.remove("shadow-[#000]")
             }
 
         })
-    })
+})
+headerObserver.observe(header)
+    
+
+// const floatingHeaderObserver = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
+//             console.log(entry.target)
+//         if (entry.isIntersecting) {
+//             floatingSearch.classList.add("transition")
+//             floatingSearch.classList.add("invisible")
+//         } else {
+//             floatingSearch.classList.remove("invisible")
+//         }
+//         })
+// })
+
+// floatingHeaderObserver.observe(mainHeader)
 
 let previousScrollTop = 0;
 
@@ -41,15 +57,26 @@ window.addEventListener('scroll', function() {
     const scrollTop = window.scrollY;
     // check if the element is scrolling upwards
     if (scrollTop < previousScrollTop && scrollTop < 0) {
-        console.log(this.window.scrollY)
+        // console.log(this.window.scrollY)
         header.style.transform = `translateY(-${window.scrollY}px)`;  
-    } else if(scrollTop <= 160) {
+    }
+    // check if the element is scrolling downwards
+    else if (scrollTop <= 200) {
         header.style.transform = `translateY(-${window.scrollY}px)`;  
-        console.log(this.window.scrollY)
+        // console.log(this.window.scrollY)
     }
     
     // update the previous scroll position
     previousScrollTop = scrollTop;
 })
 
-headerObserver.observe(header)
+window.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    if (scrollTop < 294) {
+        floatingSearch.classList.remove('lg:flex')
+        floatingSearch.classList.add('lg:invisible')
+    } else {
+        floatingSearch.classList.add('lg:flex')
+        floatingSearch.classList.remove('lg:invisible')
+    }
+})
