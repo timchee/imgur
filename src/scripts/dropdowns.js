@@ -8,7 +8,6 @@ for (let i = 0; i < dropdowns.length; i++) {
   selectedOpt.setAttribute("class", "select-selected");
   selectedOpt.innerHTML = selectedDd.options[selectedDd.selectedIndex].innerHTML;
   dropdowns[i].appendChild(selectedOpt);
-
   optionList = document.createElement("DIV");
   optionList.setAttribute("class", "select-items select-hide");
 
@@ -50,14 +49,19 @@ for (let i = 0; i < dropdowns.length; i++) {
 }
 
   
-var selected = document.querySelector(".select-items div:nth-child(2)")
-var defaultSelect = document.querySelector(".select-selected");
+var sameAsDefaults = document.querySelectorAll(".select-items div")
+var defaults = document.querySelectorAll(".select-selected");
 
-if(defaultSelect.innerHTML == selected.innerHTML){
-  selected.setAttribute("class", "same-as-selected")
-} else {
-  selected.removeAttribute("class", "same-as-selected")
+defaults.forEach((defaultSelect) => {
+  
+  sameAsDefaults.forEach(sameAsDefault => {
+    if (defaultSelect.innerHTML == sameAsDefault.innerHTML) {
+      sameAsDefault.setAttribute("class", "same-as-selected")
+    }
+  })
 }
+
+)
 
 
 function closeAllSelect(element) {
@@ -82,12 +86,24 @@ document.addEventListener("click", closeAllSelect);
 
 
 
-let btn = document.querySelector(".open-menu");
-let profileMenu = document.querySelector(".profile-menu")
-btn.addEventListener("click", () => {
-  showAndHide(profileMenu)
+let btns = document.querySelectorAll(".open-menu");
+let profileMenus = document.querySelectorAll(".profile-menu")
+console.log(btns.length)
+btns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    profileMenus.forEach(menu => {
+      console.log(menu.style.display)
+      showAndHide(menu)
+    })
+  })
 })
-profileMenu.style.display = "none";
+
+
+profileMenus.forEach(menu => {
+  menu.style.display = "none";
+}
+)
+
 
 
 let menuBtn = document.querySelector(".nav-menu");
