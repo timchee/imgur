@@ -2,12 +2,29 @@ import singlePostSkeleton from "./singlePostSkeleton.js";
 
 export const addGalleryImages = async (url) => {
   const dataArray = await getData(url);
+  let limitedDataArray = dataArray.slice(0, 30);
+  let postsLoaded = addMorePosts(limitedDataArray);
+  window.addEventListener("scroll", () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    if (clientHeight + scrollTop >= scrollHeight - 600) {
+      if (postsLoaded > dataArray.length - 60) {
+        postsLoaded = 0;
+      }
+      limitedDataArray = dataArray.slice(postsLoaded, postsLoaded + 60);
+      console.log(limitedDataArray);
+      postsLoaded += addMorePosts(limitedDataArray);
+    }
+  });
+};
+
+const addMorePosts = (dataArray) => {
   const [postsArray, imagesArray] = createPostsSkeletons(dataArray);
   const gridContainer = document.getElementById("posts-container");
   postsArray.forEach((post) => {
     gridContainer.innerHTML += post;
   });
-  addLazyLoadedImages(imagesArray);
+  addLazyLoadedImages(imagesArray, postsArray.length);
+  return postsArray.length;
 };
 
 //Gets gallery images from endpoint
@@ -50,9 +67,12 @@ export const createPostsSkeletons = (dataArray) => {
   return [postsArray, imagesArray];
 };
 
-const addLazyLoadedImages = (imagesArray, container) => {
+const addLazyLoadedImages = (imagesArray, postsLoaded) => {
   const gridContainer = document.getElementById("posts-container");
-  const posts = Array.from(gridContainer.children);
+  const allPosts = Array.from(gridContainer.children);
+  const posts = allPosts.slice(allPosts.length - postsLoaded, allPosts.length);
+
+  console.log(allPosts);
   const lazyLoad = (post) => {
     const io = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
