@@ -34,7 +34,7 @@
         </div>
 
         <div class="Navbar-logo-container">
-          <a aria-current="page" class="Navbar-logo active" href="">
+          <a aria-current="page" class="Navbar-logo active" href="/src/index.html">
             <svg
               width="94"
               height="34"
@@ -215,22 +215,30 @@
                 </div>
             </div>
         </div>
-        <div class="pages-container">
-            <a href="" class="active-page">POSTS</a>
-            <a href="" class="active-page">FAVORITES</a>
-            <a href="" class="active-page">COMMENTS</a>
-            <a href="" class="active-page">ABOUT</a>
+        <div id="pages-container">
+            <a id="pg0" href="" onclick="return toggle('pg0')" class="active-page">POSTS</a>
+            <a id="pg1" href="" onclick="return toggle('pg1')">FAVORITES</a>
+            <a id="pg2" href="" onclick="return toggle('pg2')">COMMENTS</a>
+            <a id="pg3" href="" onclick="return toggle('pg3')">ABOUT</a>
         </div>
-    </section>
+    </section>  
     </header>
   
 
-    <div class="smth"></div>
-    <div class="smth"></div>
-    <div class="smth"></div>
-    <div class="smth"></div>
-    <div class="smth"></div>
-    <div class="smth"></div>
+    <div id="pg">
+      <div id="pg0" class="pg">
+        <div class="smth"></div>
+      </div>
+      <div id="pg1" class="pg">
+        <div class="smth1"></div>
+      </div>
+      <div id="pg2" class="pg">
+        <div class="smth2"></div>
+      </div>
+      <div id="pg3" class="pg">
+        <div class="smth3"></div>
+      </div>
+    </div>
 
     <button id="scroll-btn">
         <svg fill="#ffffff" version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="40px" viewBox="-9.6 -9.6 51.20 51.20" xml:space="preserve" stroke="#ffffff" stroke-width="0.00032"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="-9.6" y="-9.6" width="51.20" height="51.20" rx="7.68" fill="#474a51" strokewidth="0"></rect></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;} </style> <title>up-to-top</title> <polygon points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24 "></polygon> <rect x="4" y="8" width="24" height="2"></rect> <rect id="_Transparent_Rectangle_" class="st0" width="30" height="30"></rect> </g></svg>
