@@ -9,7 +9,7 @@ import {
 } from "./scripts/changeAutoplayMode.js";
 
 if (localStorage.getItem("autoplayEnabled") == null) {
-  localStorage.setItem("autoplayEnabled", true);
+  localStorage.setItem("autoplayEnabled", false);
 }
 
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");

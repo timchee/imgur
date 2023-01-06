@@ -15,7 +15,7 @@ module.exports = {
       },
       btnColor: {
         1: "#1bb76e",
-        2: "#23d280"
+        2: "#23d280",
       },
       tagColor: {
         1: "#8472bd",
@@ -23,9 +23,10 @@ module.exports = {
         3: "#5b62a5",
         4: "#2b1a5a",
         5: "#155c71",
-        6: "#633875"
+        6: "#633875",
       },
       bgColor: "#171544",
+      bgGradientColor: "#1b193e",
       searchBar: "#ffffff40",
       hBlue: "#aed8ea",
       inputTextColor: "#ffffffb3",
@@ -34,7 +35,6 @@ module.exports = {
       overlay: "#17191f",
       modalCl: "#3c424b",
       textGreen: "#01b96b",
-
     },
   },
   plugins: [],
