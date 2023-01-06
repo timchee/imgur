@@ -23,7 +23,7 @@
     <title>Imgur: The magic of the Internet</title>
   </head>
   <body class="bg-gray-800">
-    <section class="overlay w-full h-screen bg-overlay sticky top-0 z-50 flex-col gap-2 items-center justify-center flex hidden">
+    <section class="overlay w-full h-screen bg-overlay sticky top-0 z-50 flex-col gap-2 items-center justify-center hidden">
       <div class="w-3/5 h-2/5 shadow-md flex relative">
         <div class="x w-10 h-10 bg-modalCl hover:bg-settings cursor-pointer rounded-full shadow-lg absolute -top-5 -right-5 flex items-center justify-center">
           <span class="material-symbols-outlined text-3xl text-white">
@@ -31,10 +31,17 @@
             </span>
         </div>
         <div class="modal w-full h-full rounded-md bg-modalCl shadow-md flex">
-          <div class="drop w-1/2 h-full bg-tagColor-2 flex rounded-l-md justify-center items-center relative">
+          <div class="drop w-1/2 h-full bg-tagColor-2 flex rounded-l-md justify-center items-center relative overflow-hidden">
+              <div class="stars absolute -top-4 -right-8 h-20 w-40 flex">
+                <div class="star h-12 w-12 relative top-24 -left-16 rounded-sm opacity-40"></div>
+                <div class="star h-4 w-4 relative top-10 -left-40"></div>
+                <div class="star h-4 w-4 relative top-24 left-8"></div>
+                <div class="star h-4 w-4 relative top-12 -left-16"></div>
+              </div>
+              <div class="comet bg-white h-12 w-4 opacity-80 absolute rounded-full rotate-45"></div>
               <label for="drop-input" class="flex items-center gap-1 z-20" onclick="">
-                <img src="../assets/bg.png" alt="" class="absolute bottom-0 left-0 h-44 aspect-auto">
-                <h1 class="text-white text-base border-2 border-white border-dashed py-4 px-12 rounded-md font-semibold relative z-10">Drop images here</h1>
+                <img src="../assets/bg.png" alt="" class="absolute bottom-0 left-0 h-44 aspect-auto z-50">
+                <h1 class="text-white text-base border-2 border-white border-opacity-50 border-dashed py-4 px-12 rounded-md font-semibold relative z-10">Drop images here</h1>
               </label>
               <input type="file" id="drop-input" name="drop-input" class="h-full w-full bg-btnColor-1 absolute z-10 rounded-md hidden">
           </div>
@@ -386,10 +393,10 @@
   </header>
     <main class="relative top-40">
       <nav
-        class="floating-nav flex w-10/12 mx-auto sm:gap-4 h-auto py-5 justify-between items-center  sticky top-0 left-0 z-10 px-4"
+        class="floating-nav flex w-10/12 mx-auto sm:gap-4 h-auto py-5 justify-between items-center  sticky top-0 left-0 z-10 px-4 lg:px-0"
       >
         <div class="w-full flex justify-end sm:justify-between items-center px-4 sm:px-0">
-        <div class="custom-select hidden  sm:flex">
+        <div class="custom-select hidden sm:flex">
           <select>
             <option value="0">MOST VIRAL</option>
             <option value="1">MOST VIRAL</option>
@@ -397,7 +404,7 @@
             <option value="3">HIGHEST SCORING</option>
           </select>
         </div>
-        <form class="floating-search flex h-10 items-center sm:w-2/6 md:w-5/12 relative left-8 z-50 hidden lg:visible">
+        <form class="floating-search h-10 items-center sm:w-2/6 md:w-5/12 relative left-8 z-50 hidden lg:visible">
           <input
             type="search"
             placeholder="Images, #tags, @users oh my!"
