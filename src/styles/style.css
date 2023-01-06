@@ -97,6 +97,54 @@ input[type="text"]::-ms-clear {
     rgba(174, 127, 83, 1) 90%
   );
 }
+.drop:hover {
+background: radial-gradient(755px at 77.71% -37.81%,#441b6f 0,rgba(23,23,66,0) 100%),transparent ;
+}
+
+.drop:hover .star{
+  background-color: white;
+}
+.drop:hover.star:nth-child(n+1){
+  transform: scale(.6);
+}
+.drop:hover .star:nth-child(1){
+  opacity: 1;
+}
+.drop:hover .star:nth-child(4){
+  opacity: .5;
+  transform: scale(1);
+}
+
+.drop:hover.drop h1{
+  display: none;
+}
+
+.star{
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0 50%, 35% 35%);
+  transition: transform 1s, opacity 1s;
+}
+
+
+.comet{
+  transform: translate(-400px,400px) rotate(45deg);
+  clip-path: ellipse(10% 50% at 50% 50%);
+  opacity: 0;
+}
+
+.drop:hover .comet{
+  opacity: 1;
+  animation: comet 4s;
+}
+
+@keyframes comet {
+  from{
+    transform: translate(200px,-100px) rotate(45deg);
+  } 
+  to {
+  transform: translate(-400px,400px) rotate(45deg);
+
+  }
+}
 
 .spinner-box {
   width: 100%;
