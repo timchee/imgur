@@ -29,6 +29,7 @@ module.exports = {
       bgGradientColor: "#1b193e",
       searchBar: "#ffffff40",
       hBlue: "#aed8ea",
+      blue: "#4a58fb",
       inputTextColor: "#ffffffb3",
       dropdown: "#67686f",
       settings: "#565f6e",

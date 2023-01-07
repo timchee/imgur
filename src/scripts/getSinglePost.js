@@ -9,12 +9,18 @@ const getPostById = async (postId) => {
   const responseJson = await response.json();
   const data = responseJson.data;
   let post = "Post not found";
-  data.forEach((element) => {
-    if (element.id === postId) {
-      post = element;
+  let prevId = null;
+  let nextId;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].id === postId) {
+      if (data[i - 1]) {
+        [post, prevId, nextId] = [data[i], data[i - 1].id, data[i + 1].id];
+      } else {
+        [post, nextId] = [data[i], data[i + 1].id];
+      }
     }
-  });
-  return post;
+  }
+  return [post, prevId, nextId];
 };
 
 const calcPostAge = (datePosted) => {
@@ -53,7 +59,7 @@ const changeInnerText = (element, newText) => {
 
 const init = async () => {
   const postId = getPostId();
-  const post = await getPostById(postId);
+  const [post, previousPostId, nextPostId] = await getPostById(postId);
   const {
     account_url,
     comment_count,
@@ -76,13 +82,21 @@ const init = async () => {
   );
   const postAge = document.getElementById("post_age");
   const imageDiv = document.getElementById("image");
+  const nextPostBtn = document.getElementById("next-btn");
+  nextPostBtn.href = `./gallery.html?postId=${nextPostId}`;
+  const prevPostBtn = document.getElementById("previous-btn");
+  if (previousPostId == null) {
+    prevPostBtn.classList.add("hidden");
+  } else {
+    prevPostBtn.href = `./gallery.html?postId=${previousPostId}`;
+  }
   let image;
   console.log(animated == true);
   if (animated != true) {
-    image = `<img src="${link}" class="mx-auto">`;
+    image = `<img src="${link}" class="mx-auto max-h-[80vh]">`;
   } else {
     image = `
-    <video class="mx-auto" autoplay loop muted controls>
+    <video class="mx-auto max-h-[80vh]" autoplay loop muted controls>
       <source src="${link}" type="video/mp4">
     </video>
     `;

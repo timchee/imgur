@@ -215,3 +215,32 @@ input[type="text"]::-ms-clear {
     transform: rotate(359deg);
   }
 }
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8d929a;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+#next-btn > *,
+#previous-btn > * {
+  transition: all 500ms ease;
+}
+
+#next-btn:hover > * {
+  transform: translateX(3px);
+}
+
+#previous-btn:hover > * {
+  transform: translateX(-3px);
+}

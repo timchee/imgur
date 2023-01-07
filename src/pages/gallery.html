@@ -45,7 +45,7 @@
     </div>
 
     <div
-      class="flex relative z-10 h-full justify-center sm:top-20 sm:w-[80%] mx-auto"
+      class="flex relative z-10 h-full justify-center sm:top-20 sm:w-11/12 lg:w-4/5 mx-auto"
     >
 
      <!-- MAIN CONTAINER -->
@@ -82,12 +82,18 @@
           <!--DESKTOP TITLE-->
 
           <div class="hidden sm:block">
-            <p class="text-white text-2xl mb-3 font-bold title">Absolutely gorgeous...</p>
+          <div class="flex items-start justify-between gap-4">
+            <p class="text-white text-2xl lg:text-3xl mb-3 font-bold title">Absolutely gorgeous...</p>
+            <div class="flex items-center  justify-center text-white">
+              <a href="" class="w-10 h-10 p-0.5 flex justify-center items-center bg-gray-500 rounded-l" id="previous-btn"><img src="../assets/previousPost.svg" alt=""></a>
+              <a href="" class="bg-blue h-10 w-10 p-1 xl:w-20 rounded-r text-sm font-semibold tracking-wider flex items-center justify-center gap-1 shrink-0" id="next-btn"><span class="hidden xl:block">Next</span> <img src="../assets/nextPost.svg" alt=""></a>
+            </div>
+          </div>
             <div class="flex gap-2 w-full mb-5">
-              <img class="img w-10 h-10 rounded-full bg-btnColor-1"></img>
+              <img class="img w-8 h-8 rounded-full bg-btnColor-1"></img>
               <div class=" flex justify-between w-full items-center">
                   <div>
-                      <p class="text-btnColor-1 account_name">AttemptingToLoseAllOfMyFakeInterests</p>
+                      <p class="text-btnColor-1 account_name text-xs tracking-wide font-semibold">AttemptingToLoseAllOfMyFakeInterests</p>
                       <div class="text-gray-200 text-xs font-medium">
                          <span>238,234 views</span>
                          <span> &#8226</span>
@@ -105,7 +111,7 @@
 
           <!-- IMAGE/VIDEO -->
 
-          <div class="h-[500px] bg-[rgba(0,0,0,.1)]" id="image"></div>
+          <div class="max-h-[80vh] h-[500px] bg-[rgba(0,0,0,.1)]" id="image"></div>
           <div class="comments mt-5 hidden sm:block">
              <div class="flex justify-between">
               <p class="text-white text-base font-medium uppercase">26 comments</p>
@@ -182,7 +188,7 @@
       </div>
       <div class="flex relative pb-36">
         <div class="sidebar sticky top-72 hidden h-[260px] flex-grow-0 flex-shrink-0 basis-[300px] lg:block lg:w-[300px]">
-          <p class="text-white text-sm font-medium uppercase">
+          <p class="text-white text-xs font-semibold tracking-wider uppercase">
               Newest in most viral
           </p>
           <div id="sidebar-posts" class="max-h-[300px] overflow-y-auto">
