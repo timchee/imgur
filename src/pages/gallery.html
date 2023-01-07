@@ -24,27 +24,37 @@
   </head>
   <body class="bg-gray-900">
 
-        <header
+    <!-- HEADER -->
+    <header
       class="main-header flex w-full h-auto py-4 px-4 justify-between sticky top-0 left-0 z-20 bg-bgGradientColor"
       id="header"
     ></header>
 
+    <!-- GRADIENT BACKGROUND -->
     <div
       class="hidden sm:block gradient-background z-0 absolute top-10 left-0 w-full h-[650px]"
     ></div>
-    <!--Mobile-->
+
+    <!--MOBILE TITLE-->
     <div class="relative flex items-center gap-2 p-2 bg-gray-900 w-full sm:hidden">
-         <div class="bg-btnColor w-8 h-8 rounded-full basis-[32px]"></div>
+         <div class="bg-btnColor-1 w-8 h-8 rounded-full basis-[32px]"></div>
          <div class="flex flex-col gap-1 font-medium">
           <p class="text-white text-sm font-medium break-normal ">Absolutely gorgeous</p>
           <p class="text-gray-200 text-xs account_name">AttemptingToLoseAllOfMyFakeInterests</p>
          </div>
     </div>
+
     <div
-      class="flex relative z-10 h-full justify-center top-20 "
+      class="flex relative z-10 h-full justify-center sm:top-20 sm:w-[80%] mx-auto"
     >
-      <div class="flex justify-center h-full">
-        <div class="flex-col items-center text-white w-[60px] hidden md:flex">
+
+     <!-- MAIN CONTAINER -->
+
+      <div class="w-full flex justify-center h-full">
+        
+        <!-- ENGAGEMENT BAR -->
+
+        <div class="flex-col flex-grow-0 flex-shrink-0 basis-[60px] items-center text-white hidden sm:flex">
           <div class="sticky top-80">
             <div
               class="flex flex-col gap-4 border border-gray-500 rounded py-2 px-4 items-center mb-7"
@@ -64,15 +74,20 @@
             </div>
           </div>
         </div>
-        <!--Desktop-->
-        <div class="sm:mx-6 mx-0 md:ml-4 lg:mx-16">
+ 
+        <!-- CONTENT CONTAINER -->
+
+        <div class="mx-0 px-0 w-full sm:mx-6 sm:px-6 md:ml-4">
+        
+          <!--DESKTOP TITLE-->
+
           <div class="hidden sm:block">
             <p class="text-white text-2xl mb-3 font-bold title">Absolutely gorgeous...</p>
             <div class="flex gap-2 w-full mb-5">
-              <img class="img w-10 h-10 rounded-full bg-btnColor"></img>
+              <img class="img w-10 h-10 rounded-full bg-btnColor-1"></img>
               <div class=" flex justify-between w-full items-center">
                   <div>
-                      <p class="text-btnColor account_name">AttemptingToLoseAllOfMyFakeInterests</p>
+                      <p class="text-btnColor-1 account_name">AttemptingToLoseAllOfMyFakeInterests</p>
                       <div class="text-gray-200 text-xs font-medium">
                          <span>238,234 views</span>
                          <span> &#8226</span>
@@ -87,7 +102,10 @@
               </div>
             </div>
           </div>
-          <img src="https://i.imgur.com/N7KHgAB.jpg" class="w-full max-w-md xl:max-w-2xl" id="image">
+
+          <!-- IMAGE/VIDEO -->
+
+          <div class="h-[500px] bg-[rgba(0,0,0,.1)]" id="image"></div>
           <div class="comments mt-5 hidden sm:block">
              <div class="flex justify-between">
               <p class="text-white text-base font-medium uppercase">26 comments</p>
@@ -100,14 +118,15 @@
               </div>
              </div>
              <div class="bg-gray-900 h-px w-full my-2 sm:bg-gray-500"></div>
-
           </div>
+
+
           <div class="bg-gray-800 px-2 text-white sm:bg-gray-900 sm:px-0">
             <p class="uppercase text-xs text-gray-200 py-4 sm:hidden">Best Comments</p>
             <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
-              <div class="op-3 bg-btnColor w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
               <div class="flex flex-col gap-2 relative">
-                <p class="text-gray-200 font-medium sm:text-btnColor sm:relative sm:top-1">accountname</p>
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:relative sm:top-1">accountname</p>
                 <p class="sm:mt-2 sm:left-0">comment</p>
                 <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
                 <div class="flex items-center gap-6 py-1">
@@ -123,9 +142,9 @@
             <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
 
             <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
-              <div class="op-3 bg-btnColor w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
               <div class="flex flex-col gap-2 relative">
-                <p class="text-gray-200 font-medium sm:text-btnColor sm:relative sm:top-1">accountname</p>
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:relative sm:top-1">accountname</p>
                 <p class="sm:mt-2 sm:left-0">comment</p>
                 <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
                 <div class="flex items-center gap-6 py-1">
@@ -141,9 +160,9 @@
             <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
 
             <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
-              <div class="op-3 bg-btnColor w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
               <div class="flex flex-col gap-2 relative">
-                <p class="text-gray-200 font-medium sm:text-btnColor sm:relative sm:top-1">accountname</p>
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:relative sm:top-1">accountname</p>
                 <p class="sm:mt-2 sm:left-0">comment</p>
                 <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
                 <div class="flex items-center gap-6 py-1">
@@ -162,30 +181,11 @@
         </div>
       </div>
       <div class="flex relative pb-36">
-        <div class="sidebar sticky top-72 hidden h-[260px]  lg:block lg:w-[300px]">
+        <div class="sidebar sticky top-72 hidden h-[260px] flex-grow-0 flex-shrink-0 basis-[300px] lg:block lg:w-[300px]">
           <p class="text-white text-sm font-medium uppercase">
               Newest in most viral
           </p>
-          <div class="w-full h-px bg-gray-200 mt-2"></div>
-          <div class="flex items-center w-full my-3">
-            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
-            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor sit amet</p>
-          </div>
-          <div class="flex items-center w-full my-3">
-            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
-            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor sit amet psum dolor sit amet</p>
-          </div>
-          <div class="flex items-center w-full my-3">
-            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
-            <p class="text-sm text-gray-200 font-medium">Lorem </p>
-          </div>
-          <div class="flex items-center w-full my-3">
-            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
-            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor</p>
-          </div>
-          <div class="flex items-center w-full my-3">
-            <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded w-[64px] h-[64px] mr-3">
-            <p class="text-sm text-gray-200 font-medium">Lorem ipsum dolor sit amet</p>
+          <div id="sidebar-posts" class="max-h-[300px] overflow-y-auto">
           </div>
         </div>
       </div>
@@ -205,7 +205,7 @@
       </p>
       <div class="dense-grid gallery" id="posts-container"></div>
     </div>
-    <div class="sticky z-10 flex justify-around items-center bottom-2 bg-gray-500 w-11/12 sm:w-1/2 rounded-xl mx-auto p-2 md:hidden" style="box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.5)">
+    <div class="sticky z-10 flex justify-around items-center bottom-2 bg-gray-500 w-11/12 sm:w-1/2 rounded-xl mx-auto p-2 sm:hidden" style="box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.5)">
       <div class="flex justify-center items-center gap-5">
         <img src="../assets/upvote.svg" class="w-6 h-6" />
         <p class="text-white text-xs font-medium">1,266</p>

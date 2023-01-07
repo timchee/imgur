@@ -27,7 +27,7 @@ const addMorePosts = (dataArray) => {
 };
 
 //Gets gallery images from endpoint
-const getData = async (url) => {
+export const getData = async (url) => {
   let response = await fetch(url);
   const responseJson = await response.json();
   const dataArray = responseJson.data;

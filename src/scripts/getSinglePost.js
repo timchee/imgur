@@ -75,9 +75,20 @@ const init = async () => {
     document.getElementsByClassName("account_name")
   );
   const postAge = document.getElementById("post_age");
-  const image = document.getElementById("image");
-  image.src = link;
-  l(image.src);
+  const imageDiv = document.getElementById("image");
+  let image;
+  console.log(animated == true);
+  if (animated != true) {
+    image = `<img src="${link}" class="mx-auto">`;
+  } else {
+    image = `
+    <video class="mx-auto" autoplay loop muted controls>
+      <source src="${link}" type="video/mp4">
+    </video>
+    `;
+  }
+  imageDiv.classList.remove("h-[500px]");
+  imageDiv.innerHTML += image;
   titles.forEach((t) => {
     changeInnerText(t, title);
   });
@@ -85,6 +96,8 @@ const init = async () => {
     changeInnerText(an, account_url);
   });
   changeInnerText(postAge, calcPostAge(datetime));
+
+  // addSidebarPosts();
 };
 
 init();
