@@ -36,6 +36,7 @@ module.exports = {
       overlay: "#17191f",
       modalCl: "#3c424b",
       textGreen: "#01b96b",
+      lighterGreen: "#34cfa8",
     },
   },
   plugins: [],
