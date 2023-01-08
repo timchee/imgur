@@ -184,7 +184,6 @@ export const addHeader = () => {
   };
   let btns = document.querySelectorAll(".open-menu");
   let profileMenus = document.querySelectorAll(".profile-menu");
-  console.log(btns.length);
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
       profileMenus.forEach((menu) => {

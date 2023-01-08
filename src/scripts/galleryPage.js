@@ -6,8 +6,9 @@ import { getData } from "./addGalleryImages.js";
 let postIds = [];
 const addSidebarPosts = async () => {
   const dataArray = await getData("https://api.npoint.io/bc13239283496e6574a7");
-  const postsArray = dataArray.slice(0, 20);
+  const postsArray = dataArray.slice(0, 100);
   const sidebarPostsDiv = document.getElementById("sidebar-posts");
+  sidebarPostsDiv.innerHTML = "";
   postsArray.forEach((post) => {
     if (post.images) {
       sidebarPostsDiv.innerHTML += singleSidebarPost(
@@ -23,4 +24,3 @@ const addSidebarPosts = async () => {
 addHeader();
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 await addSidebarPosts();
-console.log(postIds);

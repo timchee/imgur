@@ -26,7 +26,7 @@ export const changeAutoplayMode = () => {
         post.firstChild.nextSibling.innerHTML = `<img src="${imageLink}" id="image" class="image ${objectFit}" width="300px" data-height="${height}" data-width="${width}"/><div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-tagColor-5 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">video</div>`;
       } else {
         post.firstChild.nextSibling.innerHTML = `
-        <video id="image" class="image ${objectFit}" width="300px" data-height="${height}" data-width="${width}" autoplay muted>
+        <video id="image" class="image ${objectFit}" width="300px" data-height="${height}" data-width="${width}" autoplay loop muted>
         <source src=${videoLink} type="video/mp4">
         </video>`;
       }
