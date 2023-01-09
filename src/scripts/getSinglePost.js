@@ -24,16 +24,21 @@ const getPostById = async (postId) => {
 };
 
 const nextAndPreviousBtns = (nextPostId, previousPostId) => {
-  const nextPostBtn = document.getElementById("next-btn");
-  nextPostBtn.href = `./gallery.html?postId=${nextPostId}`;
-  const prevPostBtn = document.getElementById("previous-btn");
-  if (previousPostId == null) {
-    prevPostBtn.classList.add("hidden");
-  } else {
-    prevPostBtn.href = `./gallery.html?postId=${previousPostId}`;
-  }
+  const nextPostBtns = Array.from(document.getElementsByClassName("next-btn"));
+  nextPostBtns.forEach((nextPostBtn) => {
+    nextPostBtn.href = `./gallery.html?postId=${nextPostId}`;
+  });
+  const prevPostBtns = Array.from(
+    document.getElementsByClassName("previous-btn")
+  );
+  prevPostBtns.forEach((prevPostBtn) => {
+    if (previousPostId == null) {
+      prevPostBtn.classList.add("hidden");
+    } else {
+      prevPostBtn.href = `./gallery.html?postId=${previousPostId}`;
+    }
+  });
 };
-
 const init = async () => {
   const postId = getPostId();
   const [post, previousPostId, nextPostId] = await getPostById(postId);

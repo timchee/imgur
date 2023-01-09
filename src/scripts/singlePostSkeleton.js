@@ -35,11 +35,19 @@ export default function singlePostSkeleton(
     objectFit = "object-cover";
   }
 
+  let path;
+
+  if (window.location.pathname[5] == undefined) {
+    path = `pages/gallery.html?postId=${id}`;
+  } else {
+    path = `./gallery.html?postId=${id}`;
+  }
+
   //Randomly generate a number in range [1,6]
   const gradientStartColor = Math.floor(Math.random() * 6) + 1;
 
   //Posts' HTML
-  let post = `<div class="post ${titleLength} text-white rounded-sm overflow-hidden w-[300px] relative image-container" style="--span:${postHeight}" id="${id}" onClick="window.location ='pages/gallery.html?postId=${id}'">  
+  let post = `<div class="post ${titleLength} text-white rounded-sm overflow-hidden w-[300px] relative image-container" style="--span:${postHeight}" id="${id}" onClick="window.location ='${path}'">  
      <div class="w-[300px] bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" data-animated="${animated}" data-height="${height}" data-width="${width}" data-imageid = "${imageId}" data-objectFit = "${objectFit}" style = "height: ${imageHeight}px"></div>
      <div class=" flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc">
      <p class="text-sm font-medium overflow-hidden mb-3 title" style="width:260px">${title}</p>
