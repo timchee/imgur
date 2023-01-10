@@ -174,7 +174,7 @@ export const uploadOnDrag = () => {
     console.log(overlayModal.style)
     // overlay.style.background = 'linear-gradient(180deg, rgba(63,34,126,1) 0%, rgba(21,117,84,1) 25%, rgba(87,110,103,1) 50%, rgba(87,110,103,1) 100%)';
 
-    overlay.innerHTML = postDiv
+    overlayModal.innerHTML = postDiv
     
     if (e.dataTransfer.files.length) {
       addPhoto(e.dataTransfer.files[0])
