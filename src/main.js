@@ -1,5 +1,5 @@
 import { addGalleryImages } from "./scripts/addGalleryImages.js";
-import { addModal, uploadOnDrag } from "./scripts/modal.js";
+import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./scripts/modal.js";
 import { addHeader } from "./scripts/header.js";
 import { addFloatingHeader } from "./scripts/floatingHeader.js";
 import changeLayout from "./scripts/changeLayout.js";
@@ -19,4 +19,6 @@ addHeader();
 addFloatingHeader();
 addModal();
 uploadOnDrag();
+uploadFromPC();
+uploadByURL();
 addAutoplayBtn();

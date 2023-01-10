@@ -26,7 +26,7 @@ const modalHtml = `
         <img src="https://s.imgur.com/desktop-assets/desktop-assets/icon-photo.1ded6245836b46ed24022036f33a84e8.svg" alt="">
         <h2 class="text-gray-200 font-semibold">Choose Photo/Video</h2>
         </label>
-      <input type="file" id="file-input" class="hidden"/>
+      <input type="file" id="file-input" class="inputFromPC hidden"/>
       <div class="flex items-center w-32 justify-between">
         <span class="h-[1px] w-10 bg-gray-200 inline-block"></span>
         <p class="inline-block text-[12px] font-semibold">or</p>
@@ -58,19 +58,20 @@ const modalHtml = `
  <a href="http://" class="text-textGreen font-semibold"> Privacy Policy </a>
 </h2>
 `;
+let overlayModal = document.querySelector(".overlay");
+
 
 export const addModal = () => {
   const modalDiv = document.getElementById("modal");
   modalDiv.innerHTML += modalHtml;
   const input = document.querySelector("#paste");
-  //   console.log(input.value);
 
   input.addEventListener("focus", () => {
     input.value = "";
   });
-  input.addEventListener("blur", () => {
-    input.value = "Paste image or URL";
-  });
+  // input.addEventListener("blur", () => {
+  //   input.value = inputValue;
+  // });
 
   const inputFile = document.querySelector("#file-input");
 
@@ -93,7 +94,6 @@ export const addModal = () => {
   };
 
   let newPostBtn = document.querySelector(".new-post");
-  let overlayModal = document.querySelector(".overlay");
   let modal = document.querySelector(".modal");
 
   newPostBtn.addEventListener("click", () => {
@@ -109,11 +109,44 @@ export const addModal = () => {
   });
 };
 
+const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-center">
+<div class="w-auto flex flex-col gap-6 ">
+    <input type="text" name="title" id="title" class="w-full bg-transparent text-2xl outline-none cursor-text caret-white text-white font-semibold" placeholder="Give your post a unique title">
+    <div class="photoArea w-[700px] aspect-3/2 bg-tagColor-1 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-[50%] drop-shadow-xl">
+        <input type="text" name="desc" id="desc" class="absolute bottom-0 left-0 right-0 bg-[#44474e] p-4 text-lg caret-white" placeholder="Add a description">
+    </div>
+    <button class="h-auto w-1/4 py-2 px-4 rounded-3xl bg-[#11b8bc] self-center text-white">+ Add image</button>
+</div>
+<div class="sidebar text-white  flex flex-col gap-10">
+    <div class=" flex flex-col gap-2">
+        <h3>POST</h3>
+        <div class="buttons flex gap-2">
+            <button class="bg-[#38d1b1] rounded-sm w-auto h-auto py-2 px-8">To Community</button>
+            <button class="bg-[#575d69] rounded-sm w-auto h-auto py-2 px-8">Grab Link</button>
+        </div>
+        <p class="text-sm">Your post is currently <span class="text-textGreen">Hidden</span></p>
+        <div class="flex gap-2">
+        <input type="checkbox" name="mature" id="" class="">
+        <label for="mature" class="">Mature(?)</label>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <h3>ADD TAGS</h3>
+        <button class="bg-[#575d69] rounded-3xl w-20 px-4 py-2">+ Tag</button>
+    </div>
+    <div class="flex flex-col gap-2 items-start">
+        <h3>IMG TOOLS</h3>
+        <button>Add more images</button>
+        <button>Embed post</button>
+        <button>Download post</button>
+        <button>Delete post</button>
+    </div>
+</div>
+</div>`;
 
 export const uploadOnDrag = () => {
   const dropArea = document.querySelector(".drop");
   const inputElement = document.querySelector(".input");
-  const overlay = document.querySelector(".overlay")
 
   dropArea.addEventListener('dragover', e => {
     e.preventDefault()
@@ -136,42 +169,9 @@ export const uploadOnDrag = () => {
     e.preventDefault()
     console.log(e.dataTransfer.files)
   
-    console.log(overlay.style)
+    console.log(overlayModal.style)
     // overlay.style.background = 'linear-gradient(180deg, rgba(63,34,126,1) 0%, rgba(21,117,84,1) 25%, rgba(87,110,103,1) 50%, rgba(87,110,103,1) 100%)';
-    const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-center">
-    <div class="w-auto flex flex-col gap-6 ">
-        <input type="text" name="title" id="title" class="w-full bg-transparent text-2xl outline-none cursor-text caret-white text-white font-semibold" placeholder="Give your post a unique title">
-        <div class="photoArea w-[700px] aspect-3/2 bg-tagColor-1 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-[50%] drop-shadow-xl">
-            <input type="text" name="desc" id="desc" class="absolute bottom-0 left-0 right-0 bg-[#44474e] p-4 text-lg caret-white" placeholder="Add a description">
-        </div>
-        <button class="h-auto w-1/4 py-2 px-4 rounded-3xl bg-[#11b8bc] self-center text-white">+ Add image</button>
-    </div>
-    <div class="sidebar text-white  flex flex-col gap-10">
-        <div class=" flex flex-col gap-2">
-            <h3>POST</h3>
-            <div class="buttons flex gap-2">
-                <button class="bg-[#38d1b1] rounded-sm w-auto h-auto py-2 px-8">To Community</button>
-                <button class="bg-[#575d69] rounded-sm w-auto h-auto py-2 px-8">Grab Link</button>
-            </div>
-            <p class="text-sm">Your post is currently <span class="text-textGreen">Hidden</span></p>
-            <div class="flex gap-2">
-            <input type="checkbox" name="mature" id="" class="">
-            <label for="mature" class="">Mature(?)</label>
-            </div>
-        </div>
-        <div class="flex flex-col gap-2">
-            <h3>ADD TAGS</h3>
-            <button class="bg-[#575d69] rounded-3xl w-20 px-4 py-2">+ Tag</button>
-        </div>
-        <div class="flex flex-col gap-2 items-start">
-            <h3>IMG TOOLS</h3>
-            <button>Add more images</button>
-            <button>Embed post</button>
-            <button>Download post</button>
-            <button>Delete post</button>
-        </div>
-    </div>
-  </div>`;
+
     overlay.innerHTML = postDiv
     
     if (e.dataTransfer.files.length) {
@@ -181,7 +181,7 @@ export const uploadOnDrag = () => {
 
 }
 
-export const addPhoto = (file) => {
+const addPhoto = (file) => {
     
   let photoArea = document.querySelector(".photoArea");
 
@@ -193,5 +193,37 @@ export const addPhoto = (file) => {
     }
   }
 }
+
+export const uploadFromPC = () => {
+  const inputField = document.querySelector(".inputFromPC");
+
+  inputField.addEventListener("change", e => {
+    e.preventDefault()
+    overlayModal.innerHTML = postDiv
+    if (inputField.files.length) {
+      addPhoto(inputField.files[0])
+    }
+  })
+}
+
+export const uploadByURL = () => {
+  const pasteField = document.querySelector("#paste");
+
+  pasteField.addEventListener("keypress", e => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      overlayModal.innerHTML = postDiv
+      addPhotoByURL(pasteField.value)
+    }
+  })   
+}
+
+const addPhotoByURL = (inputValue) => {
+    console.log(inputValue)
+  let photoArea = document.querySelector(".photoArea");
+   {
+      photoArea.style.backgroundImage = `url('${inputValue}')`;
+  }
+  }
 
 
