@@ -148,6 +148,20 @@ const addImage = (images, post) => {
   imageDiv.innerHTML += image;
 };
 
+const addTags = (tags) => {
+  const tagsDiv = document.getElementById("tags");
+  console.log(tagsDiv);
+  tags.forEach((tag) => {
+    const tagHtml = `
+      <a href="/pages/tag.html?tagId=${tag.name}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
+      </a>
+      `;
+    tagsDiv.innerHTML += tagHtml;
+  });
+};
+
+// <img src = "https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand"/>
+
 export const addData = (
   title,
   account_url,
@@ -156,7 +170,8 @@ export const addData = (
   datetime,
   views,
   comment_count,
-  votes
+  votes,
+  tags
 ) => {
   addTitles(title);
   addAccountNames(account_url);
@@ -166,4 +181,5 @@ export const addData = (
   addVotes(votes);
   addImage(images, post);
   addAvatar(account_url);
+  addTags(tags);
 };

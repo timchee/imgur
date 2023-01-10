@@ -66,8 +66,16 @@ const init = async () => {
     datetime,
     views,
     comment_count,
-    ups - downs
+    ups - downs,
+    tags
   );
+  const showTags = document.getElementById("showTags");
+  showTags.innerHTML = `&#8226 ${tags.length} Tags`;
+  showTags.addEventListener("click", () => {
+    const tagsDiv = document.getElementById("tags");
+    tagsDiv.classList.toggle("hidden");
+    tagsDiv.classList.toggle("flex");
+  });
 };
 
 init();

@@ -164,7 +164,15 @@
 
           <div class="p-4 hidden sm:block text-white text-sm tracking-wider" id="description"></div>
 
-          <div class="flex justify-between items-center border border-gray-500 rounded py-2 px-4 w-full my-12" id="comments">
+          <div class="sm:hidden text-xs font-medium p-4 flex gap-1">
+            <div class="text-gray-200 views"></div>
+            <span class="text-white" id="showTags"></span>
+          </div>
+
+          <div class="hidden sm:flex flex-wrap py-2 gap-2" id="tags">
+          </div>
+
+          <div class="flex justify-between items-center border border-gray-500 rounded py-2.5 px-4 w-full mt-4 mb-12" id="comments">
             <p class="text-gray-200 text-xs sm:text-sm">Sign in to leave a comment</p>
             <div class="flex gap-2 text-white font-semibold text-xs">
               <button class="tracking-wider">Sign in</button>
@@ -191,10 +199,7 @@
              <div class="bg-gray-900 h-px w-full my-2 sm:bg-gray-500"></div>
           </div>
           
-          <div class="sm:hidden text-xs font-medium p-4 flex gap-1">
-            <div class="text-gray-200 views"></div>
-            <span class="text-white">&#8226 5 Tags</span>
-          </div>
+
 
           <div class="bg-gray-800 px-2 text-white sm:bg-gray-900 sm:px-0">
             <p class="uppercase text-xs text-gray-200 py-4 sm:hidden">Best Comments</p>
@@ -258,7 +263,7 @@
       <div class="flex relative pb-36">
         <div class="sidebar sticky top-72 hidden h-[260px] flex-grow-0 flex-shrink-0 basis-[300px] lg:block lg:w-[300px]">
           <p class="text-white text-xs font-semibold tracking-wider uppercase">
-              Newest in most viral
+            🔥Newest in most viral
           </p>
           <div id="sidebar-posts" class="max-h-[300px] overflow-y-auto">
             <div class="flex items-center w-full my-3">
