@@ -1,7 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
 <div
-class="w-32 h-36 flex flex-col justify-end rounded-md"
+class="w-32 h-36 hover:-translate-y-1 flex flex-col transition-all justify-end rounded-md"
 > <img
 class="object-center object-cover rounded-t-md h-full"
 /> 

@@ -115,15 +115,14 @@ const addAvatar = (username) => {
   });
 };
 
-const addImage = (images, post) => {
-  const imageDiv = document.getElementById("image");
+const addImage = (imageDiv, images, post) => {
   let animated, description, link;
 
   if (images) {
     [animated, description, link] = [
-      images[0].animated,
-      images[0].description,
-      images[0].link,
+      images.animated,
+      images.description,
+      images.link,
     ];
   } else {
     [animated, description, link] = [
@@ -150,7 +149,6 @@ const addImage = (images, post) => {
 
 const addTags = (tags) => {
   const tagsDiv = document.getElementById("tags");
-  console.log(tagsDiv);
   tags.forEach((tag) => {
     const tagHtml = `
       <a href="/pages/tag.html?tagId=${tag.name}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
@@ -160,26 +158,63 @@ const addTags = (tags) => {
   });
 };
 
-// <img src = "https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand"/>
+const addImageSkeletons = (count) => {
+  const imagesDiv = document.getElementById("images");
+  for (let i = 1; i < count; i++) {
+    imagesDiv.innerHTML += ` 
+      <div id="d-${i}">
+      <div class="h-[500px] bg-[rgba(0,0,0,.1)] my-3" id="image-${i}"></div>
+      <div class="p-4 hidden sm:block text-white text-sm tracking-wider" id="description-${i}"></div>
+      </div> 
+    `;
+  }
+};
 
-export const addData = (
-  title,
-  account_url,
-  images,
-  post,
-  datetime,
-  views,
-  comment_count,
-  votes,
-  tags
-) => {
-  addTitles(title);
-  addAccountNames(account_url);
-  addPostAge(datetime);
-  addViews(views);
-  addCommentCount(comment_count);
-  addVotes(votes);
-  addImage(images, post);
-  addAvatar(account_url);
-  addTags(tags);
+const addImages = (images, post) => {
+  const imagesDiv = document.getElementById("images");
+  const imageContainers = Array.from(imagesDiv.children);
+  const lazyLoad = (imageContainer) => {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id.substring(2);
+          const imageDiv = entry.target.firstChild.nextSibling;
+          const descDiv = imageDiv.nextElementSibling;
+          if (images == undefined) {
+            addImage(imageDiv, undefined, post);
+            if (post.description != null) {
+              descDiv.innerHTML += post.description;
+            }
+          } else {
+            addImage(imageDiv, images[id], post);
+            if (images[id].description != null) {
+              descDiv.innerHTML += images[id].description;
+            }
+          }
+          observer.disconnect();
+        }
+      });
+    });
+    io.observe(imageContainer);
+  };
+  imageContainers.forEach(lazyLoad);
+};
+
+export const addData = (post) => {
+  addTitles(post.title);
+  addAccountNames(post.account_url);
+  addPostAge(post.datetime);
+  addViews(post.views);
+  addCommentCount(post.comment_count);
+  addVotes(post.ups - post.downs);
+  let imageCount;
+  if (post.images == undefined) {
+    imageCount = 1;
+  } else {
+    imageCount = post.images.length;
+  }
+  addImageSkeletons(imageCount);
+  addImages(post.images, post);
+  addAvatar(post.account_url);
+  addTags(post.tags);
 };

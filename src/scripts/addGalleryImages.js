@@ -57,7 +57,8 @@ export const createPostsSkeletons = (dataArray) => {
           comment_count,
           views,
           animated,
-          image.id
+          image.id,
+          images.length
         )
       );
     }
@@ -75,6 +76,7 @@ const addLazyLoadedImages = (imagesArray, postsLoaded) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const imageId = entry.target.id;
+          const count = entry.target.dataset.count;
           const imageDiv = entry.target.firstChild.nextSibling;
           const objectFit = imageDiv.dataset.objectfit;
           const isVideo = imageDiv.dataset.animated;
@@ -92,7 +94,12 @@ const addLazyLoadedImages = (imagesArray, postsLoaded) => {
               }
             }
           } else {
-            imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>`;
+            if (count == 1) {
+              imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>`;
+            } else {
+              imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>
+            <div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-gray-800 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">${count}</div>`;
+            }
           }
           imageDiv.style = "";
           observer.disconnect();
