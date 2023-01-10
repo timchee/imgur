@@ -1,12 +1,12 @@
 const modalHtml = `
-<div class="w-3/5 h-2/5 shadow-md flex relative">
+<div class="modal-container w-3/5 h-2/5 shadow-md flex relative">
 <div class="x w-10 h-10 bg-modalCl hover:bg-settings cursor-pointer rounded-full shadow-lg absolute -top-5 -right-5 flex items-center justify-center">
   <span class="material-symbols-outlined text-3xl text-white">
     close
     </span>
 </div>
 <div class="modal w-full h-full rounded-md bg-modalCl shadow-md flex">
-  <div class="drop w-1/2 h-full bg-tagColor-2 flex rounded-l-md justify-center items-center relative overflow-hidden">
+  <div class="drop w-1/2 h-full flex rounded-l-md justify-center items-center relative overflow-hidden">
       <div class="stars absolute -top-4 -right-8 h-20 w-40 flex">
         <div class="star h-12 w-12 relative top-24 -left-16 rounded-sm opacity-40"></div>
         <div class="star h-4 w-4 relative top-10 -left-40"></div>
@@ -18,7 +18,7 @@ const modalHtml = `
         <img src="../assets/bg.png" alt="" class="absolute bottom-0 left-0 h-44 aspect-auto z-50">
         <h1 class="text-white text-base border-2 border-white border-opacity-50 border-dashed py-4 px-12 rounded-md font-semibold relative z-10">Drop images here</h1>
       </label>
-      <input type="file" id="drop-input" name="drop-input" class="h-full w-full bg-btnColor-1 absolute z-10 rounded-md hidden">
+      <input type="file" id="drop-input" name="drop-input" class="input h-full w-full bg-btnColor-1 absolute z-10 rounded-md hidden">
   </div>
   <div class="add w-1/2 h-full p-10 self-center flex flex-col items-center  justify-between text-white">
     <div class="h-auto flex flex-col justify-between items-center gap-4">
@@ -52,7 +52,7 @@ const modalHtml = `
   </div>
 </div>
 </div>
-<h2 class="text-white text-xs"> By creating a post, you agree to Imgur's
+<h2 class="terms text-white text-xs"> By creating a post, you agree to Imgur's
 <a href="http://" class="text-textGreen font-semibold"> Terms of Service </a>
  and
  <a href="http://" class="text-textGreen font-semibold"> Privacy Policy </a>
@@ -108,3 +108,90 @@ export const addModal = () => {
     event.stopPropagation();
   });
 };
+
+
+export const uploadOnDrag = () => {
+  const dropArea = document.querySelector(".drop");
+  const inputElement = document.querySelector(".input");
+  const overlay = document.querySelector(".overlay")
+
+  dropArea.addEventListener('dragover', e => {
+    e.preventDefault()
+    dropArea.classList.add('dragover')
+  })
+
+  dropArea.addEventListener('dragleave', e => {
+    dropArea.classList.remove('dragover') 
+  })
+  
+  dropArea.addEventListener('dragend', e => {
+    dropArea.classList.remove('dragover')
+  })
+
+  dropArea.addEventListener('drop', e => {
+    dropArea.classList.remove('dragover')
+  })
+    
+  dropArea.addEventListener('drop', e => {
+    e.preventDefault()
+    console.log(e.dataTransfer.files)
+  
+    console.log(overlay.style)
+    // overlay.style.background = 'linear-gradient(180deg, rgba(63,34,126,1) 0%, rgba(21,117,84,1) 25%, rgba(87,110,103,1) 50%, rgba(87,110,103,1) 100%)';
+    const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-center">
+    <div class="w-auto flex flex-col gap-6 ">
+        <input type="text" name="title" id="title" class="w-full bg-transparent text-2xl outline-none cursor-text caret-white text-white font-semibold" placeholder="Give your post a unique title">
+        <div class="photoArea w-[700px] aspect-3/2 bg-tagColor-1 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-[50%] drop-shadow-xl">
+            <input type="text" name="desc" id="desc" class="absolute bottom-0 left-0 right-0 bg-[#44474e] p-4 text-lg caret-white" placeholder="Add a description">
+        </div>
+        <button class="h-auto w-1/4 py-2 px-4 rounded-3xl bg-[#11b8bc] self-center text-white">+ Add image</button>
+    </div>
+    <div class="sidebar text-white  flex flex-col gap-10">
+        <div class=" flex flex-col gap-2">
+            <h3>POST</h3>
+            <div class="buttons flex gap-2">
+                <button class="bg-[#38d1b1] rounded-sm w-auto h-auto py-2 px-8">To Community</button>
+                <button class="bg-[#575d69] rounded-sm w-auto h-auto py-2 px-8">Grab Link</button>
+            </div>
+            <p class="text-sm">Your post is currently <span class="text-textGreen">Hidden</span></p>
+            <div class="flex gap-2">
+            <input type="checkbox" name="mature" id="" class="">
+            <label for="mature" class="">Mature(?)</label>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h3>ADD TAGS</h3>
+            <button class="bg-[#575d69] rounded-3xl w-20 px-4 py-2">+ Tag</button>
+        </div>
+        <div class="flex flex-col gap-2 items-start">
+            <h3>IMG TOOLS</h3>
+            <button>Add more images</button>
+            <button>Embed post</button>
+            <button>Download post</button>
+            <button>Delete post</button>
+        </div>
+    </div>
+  </div>`;
+    overlay.innerHTML = postDiv
+    
+    if (e.dataTransfer.files.length) {
+      addPhoto(e.dataTransfer.files[0])
+    }
+  })
+
+}
+
+export const addPhoto = (file) => {
+    
+  let photoArea = document.querySelector(".photoArea");
+
+  if (file.type.startsWith("image/")) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      photoArea.style.backgroundImage = `url('${reader.result}')`;
+    }
+  }
+}
+
+
