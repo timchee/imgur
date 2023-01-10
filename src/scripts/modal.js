@@ -65,13 +65,16 @@ export const addModal = () => {
   const modalDiv = document.getElementById("modal");
   modalDiv.innerHTML += modalHtml;
   const input = document.querySelector("#paste");
+  const inputValue = input.value;
 
   input.addEventListener("focus", () => {
     input.value = "";
   });
-  // input.addEventListener("blur", () => {
-  //   input.value = inputValue;
-  // });
+  input.addEventListener("blur", () => {
+    if (input.value == "") {
+      input.value = inputValue;     
+    }
+  });
 
   const inputFile = document.querySelector("#file-input");
 
@@ -79,7 +82,6 @@ export const addModal = () => {
     inputFile.files[0];
   });
 
-  //   const dropInput = document.querySelector("#drop-input");
 
   inputFile.addEventListener("change", () => {
     inputFile.files[0];
