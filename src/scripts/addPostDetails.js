@@ -1,3 +1,32 @@
+const avatarImages = [
+  "https://imgur.com/user/adamelias/avatar",
+  "https://imgur.com/user/beepbeepmeow/avatar",
+  "https://imgur.com/user/camelbackjack/avatar",
+  "https://imgur.com/user/david42/avatar",
+  "https://imgur.com/user/ethox/avatar",
+  "https://imgur.com/user/finnwin/avatar",
+  "https://imgur.com/user/gahidus/avatar",
+  "https://imgur.com/user/henriksen1/avatar",
+  "https://imgur.com/user/iwasdoingfinelurking/avatar",
+  "https://imgur.com/user/jinky74/avatar",
+  "https://imgur.com/user/kcloud/avatar",
+  "https://imgur.com/user/lordsmish/avatar",
+  "https://imgur.com/user/mwasbabu16/avatar",
+  "https://imgur.com/user/noncanadiangoose/avatar",
+  "https://imgur.com/user/opus68/avatar",
+  "https://imgur.com/user/psuedon/avatar",
+  "https://imgur.com/user/quade/avatar",
+  "https://imgur.com/user/rightyouareken87/avatar",
+  "https://imgur.com/user/seanjohn/avatar",
+  "https://imgur.com/user/trippingthelightfantastic/avatar",
+  "https://imgur.com/user/upvotemypics/avatar",
+  "https://imgur.com/user/vodray/avatar",
+  "https://imgur.com/user/wessyfbaby/avatar",
+  "https://imgur.com/user/xfamousx0/avatar",
+  "https://imgur.com/user/yannireddit/avatar",
+  "https://imgur.com/user/zaazzz/avatar",
+];
+
 const calcPostAge = (datePosted) => {
   const f = Math.floor;
   const currentDate = Date.now() / 1000;
@@ -77,6 +106,15 @@ const addVotes = (votes) => {
   });
 };
 
+const addAvatar = (username) => {
+  const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
+  const avatarDivs = Array.from(document.getElementsByClassName("avatar"));
+  avatarDivs.forEach((ad) => {
+    ad.classList.remove("animate-pulse");
+    ad.src = avatarImages[firstLetter];
+  });
+};
+
 const addImage = (images, post) => {
   const imageDiv = document.getElementById("image");
   let animated, description, link;
@@ -110,6 +148,20 @@ const addImage = (images, post) => {
   imageDiv.innerHTML += image;
 };
 
+const addTags = (tags) => {
+  const tagsDiv = document.getElementById("tags");
+  console.log(tagsDiv);
+  tags.forEach((tag) => {
+    const tagHtml = `
+      <a href="/pages/tag.html?tagId=${tag.name}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
+      </a>
+      `;
+    tagsDiv.innerHTML += tagHtml;
+  });
+};
+
+// <img src = "https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand"/>
+
 export const addData = (
   title,
   account_url,
@@ -118,7 +170,8 @@ export const addData = (
   datetime,
   views,
   comment_count,
-  votes
+  votes,
+  tags
 ) => {
   addTitles(title);
   addAccountNames(account_url);
@@ -127,4 +180,6 @@ export const addData = (
   addCommentCount(comment_count);
   addVotes(votes);
   addImage(images, post);
+  addAvatar(account_url);
+  addTags(tags);
 };

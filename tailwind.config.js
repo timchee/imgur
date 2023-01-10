@@ -12,6 +12,7 @@ module.exports = {
       current: "currentColor",
       white: "#ffffff",
       gray: {
+        100: "#dadce2",
         200: "#8d929a",
         400: "#67686f",
         500: "#474a51",
@@ -25,8 +26,8 @@ module.exports = {
       tagColor: {
         1: "#8472bd",
         2: "#508a9f",
-        3: "#5b62a5",
-        4: "#2b1a5a",
+        3: "#263ba7",
+        4: "#5d85c3",
         5: "#155c71",
         6: "#633875",
       },

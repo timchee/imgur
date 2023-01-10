@@ -1,3 +1,11 @@
+let href;
+
+if (window.location.pathname[5] == undefined) {
+  href = `#header`;
+} else {
+  href = `../`;
+}
+
 const headerHtml = `     
 <div class="flex gap-x-5 items-center w-2/3">
   <div class="nav-menu flex sm:hidden flex-col gap-1">
@@ -7,7 +15,7 @@ const headerHtml = `
   </div>
 
   <div class="Navbar-logo-container">
-    <a aria-current="page" class="Navbar-logo active" href="">
+    <a aria-current="page" class="Navbar-logo active" href="${href}">
       <svg
         width="94"
         height="34"

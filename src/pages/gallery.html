@@ -34,10 +34,9 @@
     <div
       class="hidden sm:block gradient-background z-0 absolute top-10 left-0 w-full h-[650px]"
     ></div>
-
     <!--MOBILE TITLE-->
     <div class="relative flex items-center gap-2 p-2 bg-gray-900 w-full sm:hidden">
-         <div class="bg-btnColor-1 shrink-0 w-8 h-8 rounded-full basis-[32px]"></div>
+         <img class="bg-lighterGreen shrink-0 w-8 h-8 rounded-full basis-[32px] animate-pulse avatar">
          <div class="flex flex-col gap-1 font-medium">
           <p class="text-white text-sm tracking-wide font-medium break-normal title "></p>
           <p class="text-gray-200 text-xs account_name">AttemptingToLoseAllOfMyFakeInterests</p>
@@ -54,28 +53,67 @@
         
         <!-- ENGAGEMENT BAR -->
 
-        <div class="flex-col flex-grow-0 flex-shrink-0 basis-[60px] items-center text-white hidden sm:flex">
+        <div class="flex-col flex-grow-0 flex-shrink-0 items-center text-white hidden sm:flex">
           <div class="sticky top-80">
-            <div
-              class="flex flex-col gap-4 border border-gray-500 rounded py-2 px-4 items-center mb-7"
-            >
-              <img src="../assets/upvote.svg"/>
-              <div class="votes">
-                <div class="w-8 h-6 bg-[rgba(0,0,0,.1)] animate-pulse"></div>
-              </div>
-              <img src="../assets/downvote.svg"/>
-              <img src="../assets/favorite.svg"/>
-            </div>
+             <div class="flex relative">
 
-            <img src="../assets/share.svg" alt="" class="mb-7 mx-auto" />
-            <div
-              class="flex flex-col gap-4 border border-gray-500 rounded py-2 px-4 items-center"
-            >
-              <img src="../assets/comments.svg"/>
-              <div class="comment-count">
-                <div class="w-8 h-6 bg-[rgba(0,0,0,.1)] animate-pulse"></div>
+              <div>
+
+                <div
+                class="flex flex-col w-full gap-4 border border-gray-500 rounded py-2 px-4 items-center mb-7"
+              >
+              <div class="flex shrink-0">
+                <svg width="32" height="32" viewBox="0 0 32 32" class="upvote" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Upvote</title><path fill="none" stroke="#ffffff" fill-rule="evenodd" clip-rule="evenodd" stroke-width="2"  d="M14.8505 7.71282C15.5179 7.12573 16.4821 7.12573 17.1495 7.71282C17.9307 8.39996 19.1203 9.49532 20.75 11.125C22.4432 12.8182 23.6614 14.2739 24.44 15.28C24.9219 15.9028 24.4732 16.75 23.6857 16.75H20V23.0316C20 23.7799 19.5634 24.435 18.8251 24.5568C18.1981 24.6603 17.2841 24.75 16 24.75C14.7159 24.75 13.8019 24.6603 13.1749 24.5568C12.4366 24.435 12 23.7799 12 23.0316V16.75H8.31433C7.52677 16.75 7.07806 15.9028 7.56004 15.28C8.33861 14.2739 9.55681 12.8182 11.25 11.125C12.8797 9.49532 14.0693 8.39996 14.8505 7.71282Z"></path></svg>
+              </div>   
+  
+                <div class="votes text-xs font-semibold">
+                  <div class="w-8 h-4 bg-[rgba(0,0,0,.1)] animate-pulse"></div>
+                </div>
+                <svg width="32" height="32" viewBox="0 0 32 32" class="downvote" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Downvote</title><path fill="none" stroke="#ffffff" fill-rule="evenodd" clip-rule="evenodd" stroke-width="2" d="M17.1495 24.2872C16.4821 24.8743 15.5179 24.8743 14.8505 24.2872C14.0693 23.6 12.8797 22.5047 11.25 20.875C9.55681 19.1818 8.33861 17.7261 7.56005 16.72C7.07806 16.0972 7.52677 15.25 8.31433 15.25L12 15.25L12 8.96842C12 8.2201 12.4366 7.56497 13.1749 7.44316C13.8019 7.33973 14.7159 7.25 16 7.25C17.2841 7.25 18.1981 7.33973 18.8251 7.44317C19.5634 7.56497 20 8.2201 20 8.96842L20 15.25L23.6857 15.25C24.4732 15.25 24.9219 16.0972 24.44 16.72C23.6614 17.7261 22.4432 19.1818 20.75 20.875C19.1203 22.5047 17.9307 23.6 17.1495 24.2872Z"></path></svg>
+  
+                <svg width="32" height="32" viewBox="0 0 32 32" class="favorite" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Add to Favorites</title><path fill="none" stroke="#ffffff" stroke-width="2" d="M20.0449 8.25C18.3743 8.25 16.8978 9.21911 16 10.4871C15.1024 9.21911 13.6258 8.25 11.9551 8.25C9.2185 8.25 7 10.4702 7 13.209C7 16.082 9.07109 19.5814 14.9328 23.5493C15.5767 23.9852 16.4233 23.9852 17.0672 23.5493C22.9289 19.5814 25 16.082 25 13.209C25 10.4702 22.7816 8.25 20.0449 8.25Z"></path></svg>
               </div>
-            </div>
+  
+              <img src="../assets/share.svg" alt="" class="mb-7 mx-auto" />
+              <div
+                class="flex flex-col gap-4 border border-gray-500 rounded py-2 px-4 items-center"
+              >
+                <a href="#comments"><img src="../assets/comments.svg"/></a>
+                <div class="comment-count text-xs font-semibold">
+                  <div class="w-8 h-4 bg-[rgba(0,0,0,.1)] animate-pulse"></div>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="absolute w-[400px] h-44 left-[55px] -top-16 hidden pl-32 pr-20 py-4 transition-all" id="upvote-banner">
+                <p class="text-lg font-bold">Up and away!</p>
+                <p class="text-sm pt-2">Sign up to upvote the posts you like and make them more popular.</p>
+                <div class="flex pt-4 font-bold gap-4">
+                   <button class=" rounded-full px-4 py-1 su-gradient hover:-translate-y-1 transition-all"><a href="https://imgur.com/register?redirect=%2F">Sign up</a></button>
+                   <button class="hover:-translate-y-1 transition-all"><a href="https://imgur.com/signin?redirect=%2F">Sign in</a></button>
+                </div>
+              </div>
+
+              <div class="absolute w-[400px] h-44 left-[55px] top-4 hidde pl-32 pr-20 py-4 hidden transition-all" id="downvote-banner">
+                <p class="text-lg font-bold">Beg to differ?</p>
+                <p class="text-sm pt-2">Sign up to downvote the posts that rub you the wrong way.</p>
+                <div class="flex pt-4 font-bold gap-4">
+                   <button class=" rounded-full px-4 py-1 su-gradient hover:-translate-y-1 transition-all"><a href="https://imgur.com/register?redirect=%2F">Sign up</a></button>
+                   <button class="hover:-translate-y-1 transition-all"><a href="https://imgur.com/signin?redirect=%2F">Sign in</a></button>
+                </div>
+              </div>
+
+              <div class="absolute w-[400px] h-44 left-[55px] top-16 hidde pl-32  py-4 hidden transition-all" id="favorite-banner">
+                <p class="text-lg font-bold">Fave and Never Forget</p>
+                <p class="text-sm pt-2 pr-20">Sign up to save your favorite posts to your profile.</p>
+                <div class="flex pt-4 font-bold gap-4">
+                   <button class=" rounded-full px-4 py-1 su-gradient hover:-translate-y-1 transition-all"><a href="https://imgur.com/register?redirect=%2F">Sign up</a></button>
+                   <button class="hover:-translate-y-1 transition-all"><a href="https://imgur.com/signin?redirect=%2F">Sign in</a></button>
+                </div>
+              </div>
+              
+             </div>
           </div>
         </div>
  
@@ -91,12 +129,12 @@
               <div class="w-2/3 bg-[rgba(0,0,0,.3)] h-8 animate-pulse"></div>
             </div>
             <div class="flex items-center  justify-center text-white">
-              <a href="" class="w-10 h-9 p-0.5 flex justify-center items-center bg-gray-500 rounded-l" id="previous-btn"><img src="../assets/previousPost.svg" alt=""></a>
-              <a href="" class="bg-blue h-9 w-10 p-1 xl:w-20 rounded-r text-sm font-semibold tracking-wide flex items-center justify-center gap-1 shrink-0" id="next-btn"><span class="hidden xl:block">Next</span> <img src="../assets/nextPost.svg" alt=""></a>
+              <a href="" class="w-10 h-9 p-0.5 flex justify-center items-center bg-gray-500 rounded-l previous-btn" id="previous-btn"><img src="../assets/previousPost.svg" alt=""></a>
+              <a href="" class="bg-blue h-9 w-10 p-1 xl:w-20 rounded-r text-sm font-semibold tracking-wide flex items-center justify-center gap-1 shrink-0 next-btn" id="next-btn"><span class="hidden xl:block">Next</span> <img src="../assets/nextPost.svg" alt=""></a>
             </div>
           </div>
             <div class="flex gap-2 w-full mb-5">
-              <img class="img w-8 h-8 rounded-full bg-btnColor-1 animate-pulse hover:scale-110"></img>
+              <img class="img w-8 h-8 rounded-full bg-lighterGreen animate-pulse hover:scale-110 avatar"></img>
               <div class=" flex justify-between w-full items-center">
                   <div>
                       <div class="text-btnColor-1 account_name text-xs tracking-wide font-semibold">
@@ -123,13 +161,33 @@
           <!-- IMAGE/VIDEO -->
 
           <div class="h-[500px] bg-[rgba(0,0,0,.1)]" id="image"></div>
-          <div class="comments mt-5 hidden sm:block">
+
+          <div class="p-4 hidden sm:block text-white text-sm tracking-wider" id="description"></div>
+
+          <div class="sm:hidden text-xs font-medium p-4 flex gap-1">
+            <div class="text-gray-200 views"></div>
+            <span class="text-white" id="showTags"></span>
+          </div>
+
+          <div class="hidden sm:flex flex-wrap py-2 gap-2" id="tags">
+          </div>
+
+          <div class="flex justify-between items-center border border-gray-500 rounded py-2.5 px-4 w-full mt-4 mb-12" id="comments">
+            <p class="text-gray-200 text-xs sm:text-sm">Sign in to leave a comment</p>
+            <div class="flex gap-2 text-white font-semibold text-xs">
+              <button class="tracking-wider">Sign in</button>
+              <button class="bg-btnColor-1 px-2 py-1 rounded-md tracking-wider">Sign up</button>
+            </div>
+          </div> 
+          <div class="comments hidden sm:block">
              <div class="flex justify-between">
               <div class="text-white flex gap-2 text-base font-medium uppercase">
-                <div class="comment-count">
-                  <div class="w-8 h-6 bg-[rgba(0,0,0,.1)] animate-pulse"></div>
+                <div class="comment-count" >
+                  <div class="w-8 h-3 bg-[rgba(0,0,0,.1)] animate-pulse"></div>
                 </div>
                 comments</div>
+
+ 
               <div class="flex gap-3 font-medium" style="color: rgb(218, 220, 226);">
                 <div class="flex gap-1"><span>Expand All</span><img src="../assets/expand.svg" alt=""></div>
                 <div class="flex gap-1">
@@ -141,17 +199,14 @@
              <div class="bg-gray-900 h-px w-full my-2 sm:bg-gray-500"></div>
           </div>
           
-          <div class="sm:hidden text-xs font-medium p-4 flex gap-1">
-            <div class="text-gray-200 views"></div>
-            <span class="text-white">&#8226 5 Tags</span>
-          </div>
+
 
           <div class="bg-gray-800 px-2 text-white sm:bg-gray-900 sm:px-0">
             <p class="uppercase text-xs text-gray-200 py-4 sm:hidden">Best Comments</p>
-            <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
               <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-              <div class="flex flex-col gap-2 relative">
-                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:relative sm:top-1">accountname</p>
+              <div class="flex flex-col gap-2">
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm: sm:top-1">accountname</p>
                 <p class="sm:mt-2 sm:left-0">comment</p>
                 <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
                 <div class="flex items-center gap-6 py-1">
@@ -166,10 +221,10 @@
             </div>
             <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
 
-            <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
               <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-              <div class="flex flex-col gap-2 relative">
-                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:relative sm:top-1">accountname</p>
+              <div class="flex flex-col gap-2">
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:top-1">accountname</p>
                 <p class="sm:mt-2 sm:left-0">comment</p>
                 <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
                 <div class="flex items-center gap-6 py-1">
@@ -184,10 +239,10 @@
             </div>
             <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
 
-            <div class="flex px-1 my-2 py-2 gap-2 text-xs relative sm:rounded-xl sm:hover:bg-gray-800">
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
               <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-              <div class="flex flex-col gap-2 relative">
-                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:relative sm:top-1">accountname</p>
+              <div class="flex flex-col gap-2">
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:top-1">accountname</p>
                 <p class="sm:mt-2 sm:left-0">comment</p>
                 <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
                 <div class="flex items-center gap-6 py-1">
@@ -208,7 +263,7 @@
       <div class="flex relative pb-36">
         <div class="sidebar sticky top-72 hidden h-[260px] flex-grow-0 flex-shrink-0 basis-[300px] lg:block lg:w-[300px]">
           <p class="text-white text-xs font-semibold tracking-wider uppercase">
-              Newest in most viral
+            🔥Newest in most viral
           </p>
           <div id="sidebar-posts" class="max-h-[300px] overflow-y-auto">
             <div class="flex items-center w-full my-3">
@@ -251,12 +306,14 @@
       <div class="dense-grid gallery" id="posts-container"></div>
     </div>
     <div class="sticky z-10 flex justify-around items-center bottom-2 bg-gray-500 w-11/12 sm:w-1/2 rounded-xl mx-auto p-2 sm:hidden" style="box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.5)">
-      <div class="flex justify-center items-center gap-5">
+      <a href="" class="w-10 h-9 p-0.5 flex justify-center items-center bg-gray-500 rounded-l previous-btn" id="previous-btn"><img src="../assets/previousPost.svg" alt=""></a>
+      <div class="flex justify-center items-center gap-3">
         <img src="../assets/upvote.svg" class="w-6 h-6" />
-        <p class="text-white text-xs font-medium votes">1,266</p>
+        <p class="text-white text-xs font-medium votes"></p>
         <img src="../assets/downvote.svg" class="w-6 h-6" />
       </div>
      <img src="../assets/favorite.svg" class="w-6 h-6" />
+     <a href="" class="w-10 p-1 xl:w-20 rounded-r text-sm font-semibold tracking-wide flex items-center justify-center gap-1 shrink-0 next-btn" id="next-btn"><span class="hidden xl:block">Next</span> <img src="../assets/nextPost.svg" alt=""></a>
     </div>
   </body>
 </html>
