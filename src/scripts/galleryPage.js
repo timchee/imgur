@@ -30,27 +30,19 @@ const downvoteBtn = document.querySelector(".downvote");
 const favoriteBtn = document.querySelector(".favorite");
 
 const body = document.querySelector("body");
-// body.addEventListener("click", (event) => {
-// event.stopPropagation();
-//   console.log(body);
-//   if (!upvoteBanner.classList.contains("hidden")) {
-//     upvoteBanner.classList.add("hidden");
-//   }
-// });
-
 const upvoteBanner = document.querySelector("#upvote-banner");
 upvoteBtn.addEventListener(
   "click",
   (e) => {
     e.stopPropagation();
-    upvoteBanner.classList.toggle("opacity-0");
-    downvoteBanner.classList.add("opacity-0");
-    favoriteBanner.classList.add("opacity-0");
+    upvoteBanner.classList.toggle("hidden");
+    downvoteBanner.classList.add("hidden");
+    favoriteBanner.classList.add("hidden");
 
     body.addEventListener("click", (event) => {
       event.stopPropagation();
       console.log(body);
-      upvoteBanner.classList.add("opacity-0");
+      upvoteBanner.classList.add("hidden");
     });
   },
   { capture: false }
@@ -61,14 +53,14 @@ downvoteBtn.addEventListener(
   "click",
   (e) => {
     e.stopPropagation();
-    downvoteBanner.classList.toggle("opacity-0");
-    upvoteBanner.classList.add("opacity-0");
-    favoriteBanner.classList.add("opacity-0");
+    downvoteBanner.classList.toggle("hidden");
+    upvoteBanner.classList.add("hidden");
+    favoriteBanner.classList.add("hidden");
 
     body.addEventListener("click", (event) => {
       event.stopPropagation();
       console.log(body);
-      downvoteBanner.classList.add("opacity-0");
+      downvoteBanner.classList.add("hidden");
     });
   },
   { capture: false }
@@ -79,14 +71,14 @@ favoriteBtn.addEventListener(
   "click",
   (e) => {
     e.stopPropagation();
-    favoriteBanner.classList.toggle("opacity-0");
-    upvoteBanner.classList.add("opacity-0");
-    downvoteBanner.classList.add("opacity-0");
+    favoriteBanner.classList.toggle("hidden");
+    upvoteBanner.classList.add("hidden");
+    downvoteBanner.classList.add("hidden");
 
     body.addEventListener("click", (event) => {
       event.stopPropagation();
       console.log(body);
-      favoriteBanner.classList.add("opacity-0");
+      favoriteBanner.classList.add("hidden");
     });
   },
   { capture: false }

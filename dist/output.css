@@ -571,8 +571,8 @@ video {
   left: 0px;
 }
 
-.top-40 {
-  top: 10rem;
+.top-96 {
+  top: 24rem;
 }
 
 .left-8 {
@@ -669,6 +669,70 @@ video {
 
 .top-44 {
   top: 11rem;
+}
+
+.top-\[600px\] {
+  top: 600px;
+}
+
+.top-\[500px\] {
+  top: 500px;
+}
+
+.top-\[550px\] {
+  top: 550px;
+}
+
+.top-\[800px\] {
+  top: 800px;
+}
+
+.top-\[700px\] {
+  top: 700px;
+}
+
+.top-\[650px\] {
+  top: 650px;
+}
+
+.top-\[620px\] {
+  top: 620px;
+}
+
+.top-\[630px\] {
+  top: 630px;
+}
+
+.top-\[530px\] {
+  top: 530px;
+}
+
+.top-\[2400px\] {
+  top: 2400px;
+}
+
+.top-\[3000px\] {
+  top: 3000px;
+}
+
+.top-\[1400px\] {
+  top: 1400px;
+}
+
+.top-\[1300px\] {
+  top: 1300px;
+}
+
+.top-\[1250px\] {
+  top: 1250px;
+}
+
+.top-\[1280px\] {
+  top: 1280px;
+}
+
+.top-\[1260px\] {
+  top: 1260px;
 }
 
 .z-50 {
@@ -773,8 +837,8 @@ video {
   height: 100%;
 }
 
-.h-36 {
-  height: 9rem;
+.h-96 {
+  height: 24rem;
 }
 
 .h-10 {
@@ -855,6 +919,70 @@ video {
 
 .h-\[1px\] {
   height: 1px;
+}
+
+.h-36 {
+  height: 9rem;
+}
+
+.h-\[600px\] {
+  height: 600px;
+}
+
+.h-\[900px\] {
+  height: 900px;
+}
+
+.h-\[1200px\] {
+  height: 1200px;
+}
+
+.h-\[2400px\] {
+  height: 2400px;
+}
+
+.h-\[3000px\] {
+  height: 3000px;
+}
+
+.h-\[2700px\] {
+  height: 2700px;
+}
+
+.h-\[2800px\] {
+  height: 2800px;
+}
+
+.h-\[2850px\] {
+  height: 2850px;
+}
+
+.h-\[2000px\] {
+  height: 2000px;
+}
+
+.h-\[1500px\] {
+  height: 1500px;
+}
+
+.h-\[1250px\] {
+  height: 1250px;
+}
+
+.h-\[1300px\] {
+  height: 1300px;
+}
+
+.h-\[1350px\] {
+  height: 1350px;
+}
+
+.h-\[1380px\] {
+  height: 1380px;
+}
+
+.h-\[1360px\] {
+  height: 1360px;
 }
 
 .max-h-\[300px\] {
@@ -1284,11 +1412,6 @@ video {
   background-color: rgb(132 114 189 / var(--tw-bg-opacity));
 }
 
-.bg-tagColor-6 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 56 117 / var(--tw-bg-opacity));
-}
-
 .bg-tagColor-3 {
   --tw-bg-opacity: 1;
   background-color: rgb(38 59 167 / var(--tw-bg-opacity));
@@ -1297,6 +1420,11 @@ video {
 .bg-tagColor-4 {
   --tw-bg-opacity: 1;
   background-color: rgb(93 133 195 / var(--tw-bg-opacity));
+}
+
+.bg-tagColor-6 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 56 117 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'https\:\/\/imgur\.com\/user\/vjenditapllana\/avatar\'\)\] {
@@ -1739,6 +1867,26 @@ video {
     left: 0px;
   }
 
+  .sm\:top-\[800px\] {
+    top: 800px;
+  }
+
+  .sm\:top-\[500px\] {
+    top: 500px;
+  }
+
+  .sm\:top-\[600px\] {
+    top: 600px;
+  }
+
+  .sm\:top-\[550px\] {
+    top: 550px;
+  }
+
+  .sm\:top-\[520px\] {
+    top: 520px;
+  }
+
   .sm\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -1770,6 +1918,10 @@ video {
 
   .sm\:h-full {
     height: 100%;
+  }
+
+  .sm\:h-\[600px\] {
+    height: 600px;
   }
 
   .sm\:w-11\/12 {
@@ -1919,12 +2071,36 @@ video {
     position: relative;
   }
 
+  .lg\:top-\[700px\] {
+    top: 700px;
+  }
+
+  .lg\:top-\[800px\] {
+    top: 800px;
+  }
+
+  .lg\:top-\[900px\] {
+    top: 900px;
+  }
+
+  .lg\:top-\[530px\] {
+    top: 530px;
+  }
+
   .lg\:block {
     display: block;
   }
 
   .lg\:flex {
     display: flex;
+  }
+
+  .lg\:h-\[600px\] {
+    height: 600px;
+  }
+
+  .lg\:h-\[630px\] {
+    height: 630px;
   }
 
   .lg\:w-\[300px\] {
@@ -1947,8 +2123,28 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:top-\[630px\] {
+    top: 630px;
+  }
+
+  .xl\:top-\[650px\] {
+    top: 650px;
+  }
+
+  .xl\:top-\[700px\] {
+    top: 700px;
+  }
+
+  .xl\:top-\[530px\] {
+    top: 530px;
+  }
+
   .xl\:block {
     display: block;
+  }
+
+  .xl\:h-\[600px\] {
+    height: 600px;
   }
 
   .xl\:w-4\/5 {

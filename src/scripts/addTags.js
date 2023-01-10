@@ -3,6 +3,10 @@ import { Tag } from "./tag.js";
 export const addTags = async () => {
   const dataArray = await getTags();
   createTags(dataArray);
+  const moreTagsBtn = document.getElementById("moreTags");
+  const lessTagsBtn = document.getElementById("lessTags");
+  moreTagsBtn.addEventListener("click", showMoreTags);
+  lessTagsBtn.addEventListener("click", hideTags);
 };
 
 const getTags = async () => {
@@ -13,7 +17,6 @@ const getTags = async () => {
 
 const createTags = (dataArray) => {
   const tagsDiv = document.getElementById("tags");
-  console.log(tagsDiv);
   dataArray.forEach((tag) => {
     const gradientStartColor = Math.floor(Math.random() * 6) + 1;
     tagsDiv.innerHTML += `
@@ -25,4 +28,35 @@ const createTags = (dataArray) => {
         posts="${tag.total_items}"
       ></imgur-tag>`;
   });
+};
+
+const showMoreTags = () => {
+  const tagsDiv = document.getElementById("tags");
+  const mainDiv = document.getElementsByTagName("main")[0];
+  const moreTagsBtn = document.getElementById("moreTags");
+  const lessTagsBtn = document.getElementById("lessTags");
+  moreTagsBtn.classList.add("hidden");
+  lessTagsBtn.classList.remove("hidden");
+  tagsDiv.classList.remove("h-36");
+  tagsDiv.classList.add("h-[1360px]");
+  tagsDiv.classList.add("sm:h-[600px]");
+  mainDiv.classList.remove("top-44");
+  mainDiv.classList.add("top-[1260px]");
+  mainDiv.classList.add("sm:top-[520px]");
+  console.log(tagsDiv);
+};
+
+const hideTags = () => {
+  const tagsDiv = document.getElementById("tags");
+  const mainDiv = document.getElementsByTagName("main")[0];
+  const moreTagsBtn = document.getElementById("moreTags");
+  const lessTagsBtn = document.getElementById("lessTags");
+  moreTagsBtn.classList.remove("hidden");
+  lessTagsBtn.classList.add("hidden");
+  tagsDiv.classList.remove("h-[1360px]");
+  tagsDiv.classList.remove("sm:h-[600px]");
+  tagsDiv.classList.add("h-36");
+  mainDiv.classList.remove("top-[1260px]");
+  mainDiv.classList.remove("sm:top-[520px]");
+  mainDiv.classList.add("top-44");
 };
