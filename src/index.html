@@ -67,35 +67,25 @@
       </div>
       <h1 class="text-center font-semibold text-2xl">Edward Macaroni Fork.</h1>
       <section
-        class="tag-container w-full px-2 sm:w-11/12 sm:px-10 h-full overflow-hidden flex flex-col gap-y-4 relative z-10"
+        class="tag-container w-full px-2 sm:w-11/12 sm:px-10 h-full overflow-hidden flex flex-col relative z-10"
       >
         <div class="w-full flex flex-col gap-2 pb-10">
           <div class="flex justify-between text-white">
             <h2 class="explore font-semibold text-gray-200 text-base">
               EXPLORE TAGS
             </h2>
-            <button class="tag-btn font-semibold text-gray-200 text-base" id="moreTags">
+            <button
+              class="tag-btn font-semibold text-gray-200 text-base"
+              id="moreTags"
+            >
               MORE TAGS +
             </button>
             <!-- <button>LESS TAGS x</button> -->
           </div>
           <div
-            class="w-full h-32 flex flex-wrap justify-between overflow-hidden"
-          >
-            <div class="w-32 h-32 bg-tagColor-1 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-6 rounded-md"></div>
-          </div>
-          <div class="w-full h-32 flex flex-wrap justify-between overflow-hidden hidden" id="hiddenTags">
-            <!-- <div class="w-32 h-32 bg-tagColor-1 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-2 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-3 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-4 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-5 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-6 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-3 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-1 rounded-md"></div>
-            <div class="w-32 h-32 bg-tagColor-6 rounded-md"></div> -->
-          </div>
+            class="w-full h-36 flex flex-wrap gap-1.5 justify-between overflow-hidden"
+            id="tags"
+          ></div>
         </div>
       </section>
     </section>
@@ -106,7 +96,7 @@
       id="floating-header"
     ></header>
 
-    <main class="relative top-40">
+    <main class="relative top-44">
       <nav
         class="floating-nav flex w-10/12 mx-auto sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0 z-10 px-4 lg:px-0"
       >
@@ -191,6 +181,7 @@
           </div>
         </div>
       </nav>
+
       <div
         class="dense-grid gallery relative overflow-hidden"
         id="posts-container"
