@@ -11,6 +11,9 @@
   font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
     sans-serif;
 }
+::-webkit-scrollbar{
+  display: none;
+}
 
 h1 {
   color: #aed8ea;

@@ -97,18 +97,22 @@ export const addModal = () => {
 
   let newPostBtn = document.querySelector(".new-post");
   let modal = document.querySelector(".modal");
+  let closeBtn = document.querySelector(".x");
 
   newPostBtn.addEventListener("click", () => {
     showAndHide(overlayModal);
   });
-
-  overlayModal.addEventListener("click", () => {
+  closeBtn.addEventListener("click", () => {
     showAndHide(overlayModal);
   });
 
-  modal.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
+  // overlayModal.addEventListener("click", () => {
+  //   showAndHide(overlayModal);
+  // });
+
+  // modal.addEventListener("click", (event) => {
+  //   event.stopPropagation();
+  // });
 };
 
 const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-center">

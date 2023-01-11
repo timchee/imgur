@@ -12,7 +12,7 @@ const floatingHeaderHtml = `
 class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0"
 >
 <button class="min-w-10 min-h-10" >
-  <a href="#header">
+  <a href="http://localhost:5500/src/index.html">
     <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" class="floating-img" />
   </a>
 </button>
@@ -86,7 +86,9 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
   </menu>
 </nav>
 `;
-
+let options = {
+  rootMargin: '-30px 0px 0px 0px'
+}
 const headerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     // console.log(entry.target)
@@ -103,7 +105,7 @@ const headerObserver = new IntersectionObserver((entries) => {
       floatingHeader.classList.remove("shadow-[#000]");
     }
   });
-});
+}, options);
 
 // const floatingHeaderObserver = new IntersectionObserver((entries) => {
 //         entries.forEach(entry => {
@@ -122,7 +124,7 @@ const headerObserver = new IntersectionObserver((entries) => {
 const addListeners = () => {
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
-    if (scrollTop < 294) {
+    if (scrollTop < 322) {
       floatingSearch.classList.remove("lg:flex");
       floatingSearch.classList.add("lg:invisible");
     } else {
