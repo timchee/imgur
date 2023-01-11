@@ -1,5 +1,5 @@
 import { addGalleryImages } from "./scripts/addGalleryImages.js";
-import { addModal } from "./scripts/modal.js";
+import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./scripts/modal.js";
 import { addHeader } from "./scripts/header.js";
 import { addTags } from "./scripts/addTags.js";
 import { addFloatingHeader } from "./scripts/floatingHeader.js";
@@ -14,10 +14,16 @@ if (localStorage.getItem("autoplayEnabled") == null) {
 }
 // import hiddenTags from "./scripts/tags.js";
 // import tagSkeleton from "./scripts/tagSkeleton.js"
+// import hiddenTags from "./scripts/tags.js";
+// import tagSkeleton from "./scripts/tagSkeleton.js"
 
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 addHeader();
 addTags();
 addFloatingHeader();
 addModal();
+uploadOnDrag();
+uploadFromPC();
+uploadByURL();
 addAutoplayBtn();
+

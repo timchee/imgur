@@ -40,9 +40,9 @@
     ></header>
 
     <section
-      class="header-container bg-bgColor flex flex-col justify-center items-center gap-y-5 h-auto absolute top-0 w-full py-20"
+      class="header-container bg-bgColor flex flex-col justify-center items-center gap-y-4 h-auto absolute top-0 w-full py-20"
     >
-      <div class="bg-animation overflow-hidden">
+      <!-- <div class="bg-animation overflow-hidden">
         <div class="small small-1">
           <div></div>
         </div>
@@ -64,13 +64,13 @@
         <div class="small small-6">
           <div></div>
         </div>
-      </div>
+      </div> -->
       <h1 class="text-center font-semibold text-2xl">Edward Macaroni Fork.</h1>
       <section
-        class="tag-container w-full px-2 sm:w-11/12 sm:px-10 h-full overflow-hidden flex flex-col relative z-10"
+        class="tag-container w-11/12 px-2 sm:w-11/12 sm:pl-20 sm:pr-16 h-full overflow-hidden flex flex-col relative z-10"
       >
-        <div class="w-full flex flex-col gap-2 pb-10">
-          <div class="flex justify-between text-white">
+        <div class="flex flex-col gap-6 pb-10 w-full self-center">
+          <div class="flex justify-between text-white self-center w-full">
             <h2 class="explore font-semibold text-gray-200 text-base">
               EXPLORE TAGS
             </h2>
@@ -88,7 +88,7 @@
             </button>
           </div>
           <div
-            class="w-full h-[150px] pt-1 flex flex-wrap gap-2 justify-center overflow-hidden"
+            class="w-full h-[150px] pt-1 flex flex-wrap gap-y-2 justify-between overflow-hidden"
             id="tags"
           ></div>
         </div>
@@ -101,7 +101,7 @@
       id="floating-header"
     ></header>
 
-    <main class="relative top-44">
+    <main class="relative top-48">
       <nav
         class="floating-nav flex w-10/12 mx-auto sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0 z-10 px-4 lg:px-0"
       >
@@ -199,70 +199,43 @@
       </div>
     </main>
 
-    <div class="footer">
-      <div class="footer-items">
-        <p><b> &copy; 2022 Imgur, Inc </b></p>
-        <a href="">About</a>
-        <a href="">Terms</a>
-        <a href="">Privacy</a>
-        <a href="">Rules</a>
-        <a href="">Help</a>
-        <a href="">Emerald</a>
-        <a href="">Store</a>
-        <a href="">Advertise</a>
-        <a href="">Blog</a>
-        <a href="">Wellness</a>
-        <a href="">CCPA</a>
-        <a href="">API</a>
+  <div class="footer w-full relative pl-6 sm:pl-[50px]">
+    <div class="footer-items w-3/4">
+      <p class=""><b>	&copy; 2022 Imgur, Inc </b></p>
+      <a href="" class="">About</a>
+      <a href="" class="">Terms</a>
+      <a href="" class="">Privacy</a>
+      <a href="" class="">Rules</a>
+      <a href="" class="">Help</a>
+      <a href="" class="">Emerald</a>
+      <a href="" class="">Store</a>
+      <a href="" class="">Advertise</a>
+      <a href="" class="">Blog</a>
+      <a href="" class="">Wellness</a>
+      <a href="" class="">CCPA</a>
+      <a href="" class="">API</a>
+    </div>
+
+    <div class="flex">
+      <div class="ellipsis bg-gray-800 items-center gap-1 px-2.5 lg:hidden absolute  right-[166px] z-10  top-0 bottom-0 hidden">
+        <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
+        <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
+        <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
+
+        <div class="footer-menu invisible px-4 py-2 rounded-md w-auto h-auto absolute bottom-11 -left-5 text-white">
+        </div>
       </div>
-      <div class="footer-app">
+      
+      <div class="footer-app md:hidden absolute right-0 top-0">
         <a href=""><b>Get the App</b></a>
       </div>
     </div>
+  </div>
 
-    <button id="scroll-btn">
-      <svg
-        fill="#ffffff"
-        version="1.1"
-        id="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="-11.84 -11.84 55.68 55.68"
-        xml:space="preserve"
-        stroke="#ffffff"
-        stroke-width="0.00032"
-      >
-        <g id="SVGRepo_bgCarrier" stroke-width="0">
-          <rect
-            x="-11.84"
-            y="-11.84"
-            width="55.68"
-            height="55.68"
-            rx="8.352"
-            fill="#474a51"
-            strokewidth="0"
-          ></rect>
-        </g>
-        <g id="SVGRepo_iconCarrier">
-          <style type="text/css">
-            .st0 {
-              fill: none;
-            }
-          </style>
-          <title>up-to-top</title>
-          <polygon
-            points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24 "
-          ></polygon>
-          <rect x="4" y="8" width="24" height="2"></rect>
-          <rect
-            id="_Transparent_Rectangle_"
-            class="st0"
-            width="32"
-            height="32"
-          ></rect>
-        </g>
-      </svg>
-    </button>
+  <button id="scroll-btn">
+    <svg fill="#ffffff" version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-11.84 -11.84 55.68 55.68" xml:space="preserve" stroke="#ffffff" stroke-width="0.00032"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="-11.84" y="-11.84" width="50" height="50" rx="8.352" fill="#474a51" strokewidth="0"></rect></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;} </style> <title>up-to-top</title> <polygon points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24 "></polygon> <rect x="4" y="8" width="24" height="2"></rect> <rect id="_Transparent_Rectangle_" class="st0" width="32" height="32"></rect> </g></svg>
+    <p class="text-white">Move to the top</p> 
+  </button>
 
     <script src="./scripts/footer.js"></script>
   </body>
