@@ -3,10 +3,16 @@
 @import url("uniform-layout.css");
 @import url("waterfall-layout.css");
 @import url("animation.css");
+@import url("user.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 * {
   font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
     sans-serif;
+}
+::-webkit-scrollbar{
+  display: none;
 }
 
 h1 {
@@ -117,7 +123,7 @@ input[type="text"]::-ms-clear {
     rgba(174, 127, 83, 1) 90%
   );
 }
-.drop:hover {
+.dragover {
   background: radial-gradient(
       755px at 77.71% -37.81%,
       #441b6f 0,
@@ -126,21 +132,21 @@ input[type="text"]::-ms-clear {
     transparent;
 }
 
-.drop:hover .star {
+.dragover .star {
   background-color: white;
 }
-.drop:hover.star:nth-child(n + 1) {
+.dragover.star:nth-child(n + 1) {
   transform: scale(0.6);
 }
-.drop:hover .star:nth-child(1) {
+.dragover .star:nth-child(1) {
   opacity: 1;
 }
-.drop:hover .star:nth-child(4) {
+.dragover .star:nth-child(4) {
   opacity: 0.5;
   transform: scale(1);
 }
 
-.drop:hover.drop h1 {
+.dragover.drop h1 {
   display: none;
 }
 
@@ -164,7 +170,7 @@ input[type="text"]::-ms-clear {
   opacity: 0;
 }
 
-.drop:hover .comet {
+.dragover .comet {
   opacity: 1;
   animation: comet 4s;
 }

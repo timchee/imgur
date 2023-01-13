@@ -2,6 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    aspectRatio: {
+        '4/3': '4 / 3',
+        '2/1': '2 / 1',
+        '3/2': '3 / 2',
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",

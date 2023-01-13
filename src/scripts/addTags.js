@@ -40,7 +40,7 @@ const showMoreTags = () => {
   tagsDiv.classList.remove("h-36");
   tagsDiv.classList.add("h-[1360px]");
   tagsDiv.classList.add("sm:h-[600px]");
-  mainDiv.classList.remove("top-44");
+  mainDiv.classList.remove("top-48");
   mainDiv.classList.add("top-[1260px]");
   mainDiv.classList.add("sm:top-[520px]");
   console.log(tagsDiv);
