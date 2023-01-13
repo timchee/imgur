@@ -91,7 +91,6 @@ let options = {
 }
 const headerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    // console.log(entry.target)
     if (!entry.isIntersecting) {
       mainHeader.classList.remove("sticky");
       floatingHeader.classList.remove("invisible");
@@ -107,44 +106,50 @@ const headerObserver = new IntersectionObserver((entries) => {
   });
 }, options);
 
-// const floatingHeaderObserver = new IntersectionObserver((entries) => {
-//         entries.forEach(entry => {
-//             console.log(entry.target)
-//         if (entry.isIntersecting) {
-//             floatingSearch.classList.add("transition")
-//             floatingSearch.classList.add("invisible")
-//         } else {
-//             floatingSearch.classList.remove("invisible")
-//         }
-//         })
-// })
 
-// floatingHeaderObserver.observe(mainHeader)
+
+const tags = document.querySelector("#tags");
 
 const addListeners = () => {
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
-    if (scrollTop < 322) {
-      floatingSearch.classList.remove("lg:flex");
-      floatingSearch.classList.add("lg:invisible");
+    if (tags.classList.contains('h-[160px]')) {
+      if (scrollTop < 340) {
+        floatingSearch.classList.remove("lg:flex");
+        floatingSearch.classList.add("lg:invisible");
+      } else {
+        floatingSearch.classList.add("lg:flex");
+        floatingSearch.classList.remove("lg:invisible");
+      }
     } else {
-      floatingSearch.classList.add("lg:flex");
-      floatingSearch.classList.remove("lg:invisible");
+
+      if (scrollTop < 830) {
+        floatingSearch.classList.remove("lg:flex");
+        floatingSearch.classList.add("lg:invisible");
+      } else {
+        floatingSearch.classList.add("lg:flex");
+        floatingSearch.classList.remove("lg:invisible");
+      }
     }
   });
+
 
   window.addEventListener("scroll", function () {
     // get the current scroll position
     const scrollTop = window.scrollY;
-    // check if the element is scrolling upwards
-    if (scrollTop < previousScrollTop && scrollTop < 0) {
-      // console.log(this.window.scrollY)
-      header.style.transform = `translateY(-${window.scrollY}px)`;
-    }
-    // check if the element is scrolling downwards
-    else if (scrollTop <= 200) {
-      header.style.transform = `translateY(-${window.scrollY}px)`;
-      // console.log(this.window.scrollY)
+
+    if (tags.classList.contains('h-[160px]')) {
+      // check if the element is scrolling downwards
+      if (scrollTop <= 200) {
+        header.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+      } 
+    } else {
+      // check if the element is scrolling upwards
+      // check if the element is scrolling downwards
+      if (scrollTop <= 100) {
+        header.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+      } 
+
     }
     // update the previous scroll position
     previousScrollTop = scrollTop;
