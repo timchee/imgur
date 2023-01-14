@@ -39,9 +39,9 @@ export class Tag extends HTMLElement {
   }
 
   connectedCallback() {
-    const id = this.getAttribute("id");
+    const name = this.getAttribute("name");
     this.addEventListener("click", () => {
-      //   window.location = `/pages/tag.html?tagId=${id}`;
+      window.location = `./pages/tag.html?tagId=${name}&featured=true`;
     });
   }
 }

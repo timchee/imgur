@@ -2,13 +2,29 @@ import singlePostSkeleton from "./singlePostSkeleton.js";
 
 export const addGalleryImages = async (url) => {
   const dataArray = await getData(url);
+  addImages(dataArray, true);
+};
+
+export const addTagImages = async (url) => {
+  let dataArray = await getData(url);
+  const random = Math.floor(Math.random() * 220) + 1;
+  dataArray = dataArray.slice(random);
+  addImages(dataArray, false);
+};
+
+const addImages = (dataArray, infinite) => {
   let limitedDataArray = dataArray.slice(0, 30);
   let postsLoaded = addMorePosts(limitedDataArray);
   window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     if (clientHeight + scrollTop >= scrollHeight - 300) {
       if (postsLoaded > dataArray.length - 60) {
-        postsLoaded = 0;
+        if (infinite) {
+          postsLoaded = 0;
+        } else {
+          const spinner = document.getElementById("spinner");
+          spinner.innerHTML = "";
+        }
       }
       limitedDataArray = dataArray.slice(postsLoaded, postsLoaded + 60);
       postsLoaded += addMorePosts(limitedDataArray);

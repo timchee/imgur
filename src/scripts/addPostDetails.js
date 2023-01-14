@@ -147,11 +147,11 @@ const addImage = (imageDiv, images, post) => {
   imageDiv.innerHTML += image;
 };
 
-const addTags = (tags) => {
+const addTags = (tags, postId) => {
   const tagsDiv = document.getElementById("tags");
   tags.forEach((tag) => {
     const tagHtml = `
-      <a href="/pages/tag.html?tagId=${tag.name}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
+      <a href="./tag.html?tagId=${tag.name}&featured=false&postId=${postId}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
       </a>
       `;
     tagsDiv.innerHTML += tagHtml;
@@ -216,5 +216,5 @@ export const addData = (post) => {
   addImageSkeletons(imageCount);
   addImages(post.images, post);
   addAvatar(post.account_url);
-  addTags(post.tags);
+  addTags(post.tags, post.id);
 };

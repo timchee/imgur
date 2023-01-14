@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://s.imgur.com/images/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link href="../../dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script type="module" src="../scripts/tagPage.js" defer></script>
+    <script src="../scripts/footer.js" defer></script>
+
+    <title>Imgur: The magic of the Internet</title>
+  </head>
+
+  <body class="bg-gray-800">
+    <!-- MODAL -->
+    <section
+      class="overlay w-full h-screen bg-overlay sticky top-0 z-50 flex-col gap-2 items-center justify-center hidden"
+      id="modal"
+    ></section>
+
+    <!-- HEADER -->
+    <header
+      class="main-header flex w-full h-auto pt-4 px-4 justify-between sticky top-0 left-0 z-20"
+      id="header"
+    ></header>
+
+    <section
+      class="header-container bg-[rgba(0,0,0,.2)] flex flex-col justify-center items-center gap-y-4 h-auto absolute top-0 w-full py-20"
+    >
+      <section
+        class="tag-info w-11/12 px-2 sm:w-11/12 sm:pl-20 sm:pr-16 h-60 overflow-hidden flex flex-col gap-2 justify-center items-center relative z-10 text-white"
+      >
+        <p
+          class="text-5xl font-extrabold w-96 h-12 bg-[rgba(0,0,0,.1)] animate-pulse"
+          id="tag-title"
+        ></p>
+        <p
+          class="text-xl tracking-widest font-extralight pb-6"
+          id="tag-desc"
+        ></p>
+        <p class="font-thin text-sm uppercase">
+          <span id="posts-count"></span> posts
+        </p>
+      </section>
+    </section>
+
+    <!-- FLOATING HEADER -->
+    <header
+      class="floating-header flex invisible justify-center items-center w-full h-auto sticky top-0 z-10 px-4 lg:px-0"
+      id="floating-header"
+    ></header>
+
+    <main class="relative top-40">
+      <nav
+        class="floating-nav flex w-10/12 mx-auto sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0 z-10 px-4 lg:px-0"
+      >
+        <div
+          class="w-full flex justify-end sm:justify-between items-center px-4 sm:px-0"
+        >
+          <div class="custom-select hidden sm:flex"></div>
+          <form
+            class="floating-search h-10 items-center sm:w-2/6 md:w-5/12 relative left-8 z-50 hidden lg:visible"
+          >
+            <input
+              type="search"
+              placeholder="Images, #tags, @users oh my!"
+              class="w-full h-full px-2 bg-searchBar text-white placeholder-inputTextColor rounded-sm"
+            />
+            <button
+              type="submit"
+              class="text-white h-full px-2 flex items-center absolute right-0"
+            >
+              <span class="material-symbols-outlined"> search </span>
+            </button>
+          </form>
+          <div class="w-auto flex gap-1 sm:gap-4 justify-between items-center">
+            <div class="custom-select"></div>
+            <button class="">
+              <span
+                class="filter material-symbols-rounded text-gray-200 hover:text-white text-2xl relative"
+              >
+                filter_list
+              </span>
+            </button>
+            <button class="">
+              <!-- <img
+              class="pause max-w-full min-w-full"
+              src="https://s.imgur.com/desktop-assets/desktop-assets/icon-pause.68f07ce1a7e07bac06d1f2c527d7a9e5.svg"
+            /> -->
+              <div id="autoplay">
+                <span
+                  class="play material-symbols-rounded text-gray-200 hover:text-white text-2xl hidden relative"
+                  id="enable-autoplay-btn"
+                >
+                  smart_display
+                </span>
+                <span
+                  class="pause material-symbols-rounded text-gray-200 hover:text-white text-2xl relative"
+                  id="disable-autoplay-btn"
+                >
+                  pause_presentation
+                </span>
+              </div>
+            </button>
+            <button
+              class="flex flex-wrap justify-around"
+              id="change-layout-btn"
+            >
+              <span
+                class="uniform material-symbols-rounded text-gray-200 hover:text-white text-2xl relative"
+              >
+                grid_view
+              </span>
+              <span
+                class="waterfall material-symbols-rounded text-gray-200 hover:text-white text-2xl hidden relative"
+              >
+                dashboard
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="dense-grid gallery relative overflow-hidden"
+        id="posts-container"
+      ></div>
+
+      <div class="spinner-box relative top-28" id="spinner">
+        <div class="circle-border">
+          <div class="circle-core"></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="footer w-full relative pl-6 sm:pl-[50px]">
+      <div class="footer-items w-3/4">
+        <p class=""><b> &copy; 2022 Imgur, Inc </b></p>
+        <a href="" class="">About</a>
+        <a href="" class="">Terms</a>
+        <a href="" class="">Privacy</a>
+        <a href="" class="">Rules</a>
+        <a href="" class="">Help</a>
+        <a href="" class="">Emerald</a>
+        <a href="" class="">Store</a>
+        <a href="" class="">Advertise</a>
+        <a href="" class="">Blog</a>
+        <a href="" class="">Wellness</a>
+        <a href="" class="">CCPA</a>
+        <a href="" class="">API</a>
+      </div>
+
+      <div class="flex">
+        <div
+          class="ellipsis bg-gray-800 items-center gap-1 px-2.5 lg:hidden absolute right-[166px] z-10 top-0 bottom-0 hidden"
+        >
+          <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
+          <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
+          <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
+
+          <div
+            class="footer-menu invisible px-4 py-2 rounded-md w-auto h-auto absolute bottom-11 -left-5 text-white"
+          ></div>
+        </div>
+
+        <div class="footer-app md:hidden absolute right-0 top-0">
+          <a href=""><b>Get the App</b></a>
+        </div>
+      </div>
+    </div>
+
+    <button id="scroll-btn">
+      <svg
+        fill="#ffffff"
+        version="1.1"
+        id="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="-11.84 -11.84 55.68 55.68"
+        xml:space="preserve"
+        stroke="#ffffff"
+        stroke-width="0.00032"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0">
+          <rect
+            x="-11.84"
+            y="-11.84"
+            width="50"
+            height="50"
+            rx="8.352"
+            fill="#474a51"
+            strokewidth="0"
+          ></rect>
+        </g>
+        <g id="SVGRepo_iconCarrier">
+          <style type="text/css">
+            .st0 {
+              fill: none;
+            }
+          </style>
+          <title>up-to-top</title>
+          <polygon
+            points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24 "
+          ></polygon>
+          <rect x="4" y="8" width="24" height="2"></rect>
+          <rect
+            id="_Transparent_Rectangle_"
+            class="st0"
+            width="32"
+            height="32"
+          ></rect>
+        </g>
+      </svg>
+      <p class="text-white">Move to the top</p>
+    </button>
+  </body>
+</html>

@@ -12,7 +12,7 @@ const floatingHeaderHtml = `
 class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0"
 >
 <button class="min-w-10 min-h-10" >
-  <a href="http://localhost:5500/src/index.html">
+  <a href="#header">
     <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" class="floating-img" />
   </a>
 </button>
@@ -87,8 +87,8 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
 </nav>
 `;
 let options = {
-  rootMargin: '-30px 0px 0px 0px'
-}
+  rootMargin: "-30px 0px 0px 0px",
+};
 const headerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     // console.log(entry.target)
