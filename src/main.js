@@ -26,4 +26,3 @@ uploadOnDrag();
 uploadFromPC();
 uploadByURL();
 addAutoplayBtn();
-

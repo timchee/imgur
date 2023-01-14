@@ -58,17 +58,7 @@ const init = async () => {
   } = post;
 
   nextAndPreviousBtns(nextPostId, previousPostId);
-  addData(
-    title,
-    account_url,
-    images,
-    post,
-    datetime,
-    views,
-    comment_count,
-    ups - downs,
-    tags
-  );
+  addData(post);
   const showTags = document.getElementById("showTags");
   showTags.innerHTML = `&#8226 ${tags.length} Tags`;
   showTags.addEventListener("click", () => {

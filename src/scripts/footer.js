@@ -13,15 +13,24 @@ window.addEventListener('scroll', function() {
 });
 
 
-  document.getElementById("scroll-btn").addEventListener("click", function scrollToTop() {
-    var scrollInterval = setInterval(function() {
-      if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-        window.scrollBy(0, -200);
-      } else {
-        clearInterval(scrollInterval);
-      }
-    }, 10);
-  });
+const scrollBtns = document.querySelectorAll(".scroll-btn");
+
+
+const scrollToTop = (element) => {
+    element.addEventListener("click", function scrollToTop() {
+      var scrollInterval = setInterval(function() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+          window.scrollBy(0, -200);
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 10);
+    });
+}
+  
+scrollBtns.forEach(button => scrollToTop(button))
+
+  
 
 // const footer = document.querySelector(".footer");
 const footerItems = document.querySelectorAll(".footer-items>a");
