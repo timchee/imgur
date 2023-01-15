@@ -111,7 +111,7 @@ const headerHtml = `
   > 
   </input>
 </div>
-  <menu class="profile-menu w-64 sm:w-36 text-white text-lg bg-dropdown rounded-md  absolute top-20 right-2  hidden flex-col z-30">
+  <menu class="profile-menu w-64 sm:w-36 text-white text-lg bg-dropdown rounded-md  absolute top-20 right-2  hidden flex-col z-50">
     <div class="h-24 bg-cover flex flex-col sm:hidden  p-4 rounded-t-md" style="background-image: url(&quot;https://imgur.com/user/vjenditapllana/cover&quot;);">
     <div class="flex items-center justify-between">
       <input type="button"
@@ -180,6 +180,9 @@ const headerHtml = `
   </menu>
 </div>`;
 
+let floatBtn = document.querySelector(".floating-avatar");
+let floatMenu = document.querySelector(".floating-menu");
+
 export const addHeader = () => {
   const headerDiv = document.getElementById("header");
   headerDiv.innerHTML += headerHtml;
@@ -192,6 +195,9 @@ export const addHeader = () => {
 
   showAndHide(btn, profileMenu)
   showAndHide(menuBtn, mobileMenu) 
+    if (floatBtn != null && floatMenu != null) {
+    showAndHide(floatBtn, floatMenu) 
+  }
   goToUserPage(avatar)
 
 };
@@ -254,7 +260,7 @@ const observeHeader = (imgur, header, headerContainer, newPostBtn, search,  gift
         bellBtn.classList.add('invisible')
         username.classList.add('invisible')
         logoImg.classList.remove('hidden')
-        // header.classList.add('shadow-lg')
+        header.classList.add('shadow-lg')
         // newPostBtn.classList.add('sm:hidden')
       } else {
         header.classList.remove('background')
@@ -279,7 +285,7 @@ const observeHeader = (imgur, header, headerContainer, newPostBtn, search,  gift
  const addListeners = (tags, headerContainer, floatingSearch) => {
    window.addEventListener("scroll", function () {
      const scrollTop = window.scrollY;
-     if (tags.classList.contains('h-[160px]')) {
+     if (headerContainer.style.height < '400px') {
        if (scrollTop < 330) {
          floatingSearch.classList.remove("lg:flex");
          floatingSearch.classList.add("lg:invisible");
@@ -304,7 +310,7 @@ const observeHeader = (imgur, header, headerContainer, newPostBtn, search,  gift
      // get the current scroll position
      const scrollTop = window.scrollY;
  
-     if (tags.classList.contains('h-[160px]')) {
+     if (headerContainer.style.height < '400px') {
        // check if the element is scrolling downwards
        if (scrollTop <= 180) {
          headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;

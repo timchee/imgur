@@ -132,21 +132,21 @@ headerObserver.observe(title)
 
 
 let options = {
-    rootMargin: '-100px'
+    rootMargin: '-85px'
 }
 const postObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
             search.classList.add('invisible')
             floatTitle.classList.remove('invisible')
-            search.style.transform = 'translateY(60px)'
-            floatTitle.style.transform = 'translateY(-60px)'
+            search.style.transform = 'translateY(40px)'
+            floatTitle.style.transform = 'translateY(-20px)'
 
         } else {
           floatTitle.classList.add('invisible')
           search.classList.remove('invisible')
           search.style.transform = 'translateY(0px)'
-          floatTitle.style.transform = 'translateY(60px)'
+          floatTitle.style.transform = 'translateY(40px)'
         }
     })
 }, options)
