@@ -1,5 +1,7 @@
 import { avatarImages } from "./avatarImages.js";
 
+const giphyApiKey = "XPfrR6YI2QZyv3SDaYGKVcWcuSzXcU6Q";
+
 const getComments = async (comment_count) => {
   const data = await fetch(
     `https://jsonplaceholder.typicode.com/comments?_limit=${comment_count}`
@@ -8,7 +10,16 @@ const getComments = async (comment_count) => {
   return comments;
 };
 
-const createComment = (comment, randomNumber, comment_count) => {
+const getGif = async () => {
+  const data = await fetch(
+    `https://api.giphy.com/v1/gifs/random?api_key=${giphyApiKey}&tag=funny`
+  );
+  const json = await data.json();
+  return json.data.images.downsized.url;
+};
+
+const createComment = async (comment, randomNumber, comment_count) => {
+  const url = await getGif();
   const username = comment.email.split("@")[0];
   const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
   const votes =
@@ -17,15 +28,17 @@ const createComment = (comment, randomNumber, comment_count) => {
     ) + 1;
   const random = Math.random();
   const hasImageAndText = random < 0.1;
-  const hasImage = random < 0.3;
+  const hasImage = random < 0.2;
   let commentBody;
   if (hasImageAndText) {
     commentBody = `
-      <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3"><p class="pt-2 first-letter:uppercase">${comment.body}</>
+     <img src="${url}"
+     m6" class="rounded h-[120px] mr-3"><p class="pt-2">${comment.body}</p>
       `;
   } else if (hasImage) {
     commentBody = `
-      <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
+    <img src="${url}"
+    mf" class="rounded h-[120px] mr-3">
       `;
   } else {
     commentBody = comment.body;
@@ -50,19 +63,19 @@ const createComment = (comment, randomNumber, comment_count) => {
   return commentHtml;
 };
 
-const addInitialComments = (comments, comment_count) => {
+const addInitialComments = async (comments, comment_count) => {
   const commentsDiv = document.getElementById("comments");
   const randomNumber = Math.random();
   let addedComments = [];
-  comments.forEach((comment) => {
-    let newComment = createComment(comment, randomNumber, comment_count);
+  for (const comment of comments) {
+    let newComment = await createComment(comment, randomNumber, comment_count);
     commentsDiv.innerHTML += newComment;
     addedComments.push(newComment);
-  });
+  }
   return [randomNumber, addedComments];
 };
 
-const addMoreComments = (
+const addMoreComments = async (
   allComments,
   commentsLoaded,
   randomNumber,
@@ -79,13 +92,14 @@ const addMoreComments = (
     commentsLoaded,
     commentsLoaded + addedCommentCount
   );
-  comments.forEach((comment) => {
-    commentsDiv.innerHTML += createComment(
+  for (const comment of comments) {
+    commentsDiv.innerHTML += await createComment(
       comment,
       randomNumber,
       comment_count
     );
-  });
+  }
+
   if (commentsLoaded + addedCommentCount >= comment_count) {
     const loadMoreCommentsBtn = document.getElementById("load-more-comments");
     const expandButton = Array.from(
@@ -102,7 +116,7 @@ const addMoreComments = (
   return addedCommentCount;
 };
 
-const addRemainingComments = (
+const addRemainingComments = async (
   allComments,
   startIndex,
   randomNumber,
@@ -110,13 +124,13 @@ const addRemainingComments = (
 ) => {
   const commentsDiv = document.getElementById("comments");
   const comments = allComments.slice(startIndex);
-  comments.forEach((comment) => {
-    commentsDiv.innerHTML += createComment(
+  for (const comment of comments) {
+    commentsDiv.innerHTML += await createComment(
       comment,
       randomNumber,
       comment_count
     );
-  });
+  }
   const loadMoreCommentsBtn = document.getElementById("load-more-comments");
   loadMoreCommentsBtn.classList.add("hidden");
 };
@@ -133,7 +147,7 @@ export const addComments = async (comment_count) => {
   const allComments = await getComments(comment_count);
   const initialCommentsLoaded = 5;
   let commentsLoaded = initialCommentsLoaded;
-  const [randomNumber, commentsAdded] = addInitialComments(
+  const [randomNumber, commentsAdded] = await addInitialComments(
     allComments.slice(0, initialCommentsLoaded),
     comment_count
   );
@@ -168,8 +182,8 @@ export const addComments = async (comment_count) => {
     commentsLoaded = 10;
   });
 
-  loadMoreCommentsBtn.addEventListener("click", () => {
-    const count = addMoreComments(
+  loadMoreCommentsBtn.addEventListener("click", async () => {
+    const count = await addMoreComments(
       allComments,
       commentsLoaded,
       randomNumber,
