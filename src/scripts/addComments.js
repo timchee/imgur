@@ -1,7 +1,38 @@
 import { avatarImages } from "./avatarImages.js";
 
 const giphyApiKey = "XPfrR6YI2QZyv3SDaYGKVcWcuSzXcU6Q";
+const commentsDiv = document.getElementById("comments");
+const collapseAllBtn = document.getElementById("collapse-all");
+const loadMoreCommentsBtn = document.getElementById("load-more-comments");
+const expandAllBtns = Array.from(document.getElementsByClassName("expandAll"));
 
+const hideLoadMoreCommentsBtn = () => {
+  const loadMoreCommentsBtn = document.getElementById("load-more-comments");
+  loadMoreCommentsBtn.classList.add("hidden");
+};
+
+const showExpandBtn = () => {
+  const expandButton = expandAllBtns[0];
+  expandButton.classList.remove("hidden");
+  expandButton.classList.add("flex");
+};
+const hideExpandBtn = () => {
+  const expandButton = expandAllBtns[0];
+  expandButton.classList.add("hidden");
+  expandButton.classList.remove("flex");
+};
+
+const showCollapseBtn = () => {
+  collapseAllBtn.classList.add("flex");
+  collapseAllBtn.classList.remove("hidden");
+};
+
+const hideCollapseBtn = () => {
+  collapseAllBtn.classList.remove("flex");
+  collapseAllBtn.classList.add("hidden");
+};
+
+//Gets comments from endpoint
 const getComments = async (comment_count) => {
   const data = await fetch(
     `https://jsonplaceholder.typicode.com/comments?_limit=${comment_count}`
@@ -10,7 +41,8 @@ const getComments = async (comment_count) => {
   return comments;
 };
 
-const getGif = async () => {
+//Gets a random gif from endpoint
+const getRandomGif = async () => {
   const data = await fetch(
     `https://api.giphy.com/v1/gifs/random?api_key=${giphyApiKey}&tag=funny`
   );
@@ -18,31 +50,42 @@ const getGif = async () => {
   return json.data.images.downsized.url;
 };
 
-const createComment = async (comment, randomNumber, comment_count) => {
-  const url = await getGif();
-  const username = comment.email.split("@")[0];
-  const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
-  const votes =
-    Math.floor(
-      randomNumber * (comment_count - comment.id + comment.postId) * 10
-    ) + 1;
+//Randomly generates a comment body
+//A comment has a probability of 0.1 to have a gif and text, and a probability of 0.2 to have only gif and no text
+const generateCommentBody = async (commentText) => {
   const random = Math.random();
   const hasImageAndText = random < 0.1;
   const hasImage = random < 0.2;
   let commentBody;
   if (hasImageAndText) {
+    const url = await getRandomGif();
     commentBody = `
      <img src="${url}"
-     m6" class="rounded h-[120px] mr-3"><p class="pt-2">${comment.body}</p>
+     m6" class="rounded h-[120px] mr-3"><p class="pt-2">${commentText}</p>
       `;
   } else if (hasImage) {
+    const url = await getRandomGif();
     commentBody = `
     <img src="${url}"
     mf" class="rounded h-[120px] mr-3">
       `;
   } else {
-    commentBody = comment.body;
+    commentBody = commentText;
   }
+  return commentBody;
+};
+
+//Creates a comment
+//randomNumber and comment_count are used to generate a random number of votes for the comment
+const createComment = async (comment, randomNumber, comment_count) => {
+  const username = comment.email.split("@")[0];
+  const firstLetter = username.toUpperCase().charCodeAt(0) - 65; //firstletter is used to choose avatar for the user
+  let commentBody = await generateCommentBody(comment.body);
+  const votes =
+    Math.floor(
+      randomNumber * (comment_count - comment.id + comment.postId) * 10
+    ) + 1;
+
   const commentHtml = `
     <div class="comment">
     <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
@@ -63,66 +106,54 @@ const createComment = async (comment, randomNumber, comment_count) => {
   return commentHtml;
 };
 
-const addInitialComments = async (comments, comment_count) => {
-  const commentsDiv = document.getElementById("comments");
-  const randomNumber = Math.random();
+//Creates first comments, adds them to the comments div and returns the comments created
+const addInitialComments = async (comments, comment_count, randomNumber) => {
   let addedComments = [];
   for (const comment of comments) {
     let newComment = await createComment(comment, randomNumber, comment_count);
     commentsDiv.innerHTML += newComment;
     addedComments.push(newComment);
   }
-  return [randomNumber, addedComments];
+  return addedComments;
 };
 
-const addMoreComments = async (
-  allComments,
-  commentsLoaded,
-  randomNumber,
-  comment_count
-) => {
-  const commentsDiv = document.getElementById("comments");
-  let addedCommentCount;
-  if (commentsLoaded + 30 < comment_count) {
-    addedCommentCount = 30;
+//If there are more than 30 unloaded comments, adds 30 more comments,
+//otherwise adds the comments left unloaded
+const addMoreComments = async (allComments, commentsLoaded, randomNumber) => {
+  let commentCount; //Nr. of comments that will be added
+  if (commentsLoaded + 30 < allComments.length) {
+    commentCount = 30;
   } else {
-    addedCommentCount = comment_count - commentsLoaded;
+    commentCount = allComments.length - commentsLoaded;
   }
   const comments = allComments.slice(
     commentsLoaded,
-    commentsLoaded + addedCommentCount
+    commentsLoaded + commentCount
   );
   for (const comment of comments) {
     commentsDiv.innerHTML += await createComment(
       comment,
       randomNumber,
-      comment_count
+      allComments.length
     );
   }
 
-  if (commentsLoaded + addedCommentCount >= comment_count) {
-    const loadMoreCommentsBtn = document.getElementById("load-more-comments");
-    const expandButton = Array.from(
-      document.getElementsByClassName("expandAll")
-    )[0];
-    const collapseAllBtn = document.getElementById("collapse-all");
-    loadMoreCommentsBtn.classList.add("hidden");
-    expandButton.classList.add("hidden");
-    expandButton.classList.remove("flex");
-    collapseAllBtn.classList.remove("hidden");
-    collapseAllBtn.classList.add("flex");
+  //If there are no more unloaded comments
+  if (commentsLoaded + commentCount >= allComments.length) {
+    hideLoadMoreCommentsBtn();
+    hideExpandBtn();
+    showCollapseBtn();
   }
-
-  return addedCommentCount;
+  return commentCount;
 };
 
+//Adds all unloaded comments
 const addRemainingComments = async (
   allComments,
   startIndex,
   randomNumber,
   comment_count
 ) => {
-  const commentsDiv = document.getElementById("comments");
   const comments = allComments.slice(startIndex);
   for (const comment of comments) {
     commentsDiv.innerHTML += await createComment(
@@ -131,38 +162,29 @@ const addRemainingComments = async (
       comment_count
     );
   }
-  const loadMoreCommentsBtn = document.getElementById("load-more-comments");
-  loadMoreCommentsBtn.classList.add("hidden");
+  hideLoadMoreCommentsBtn();
 };
 
+//Leaves only the initial comments
 const removeComments = (comments) => {
-  const commentsDiv = document.getElementById("comments");
   commentsDiv.innerHTML = "";
   comments.forEach((comment) => {
     commentsDiv.innerHTML += comment;
   });
 };
 
-export const addComments = async (comment_count) => {
-  const allComments = await getComments(comment_count);
-  const initialCommentsLoaded = 5;
-  let commentsLoaded = initialCommentsLoaded;
-  const [randomNumber, commentsAdded] = await addInitialComments(
-    allComments.slice(0, initialCommentsLoaded),
-    comment_count
-  );
-  const expandAllBtns = Array.from(
-    document.getElementsByClassName("expandAll")
-  );
-  const collapseAllBtn = document.getElementById("collapse-all");
-  const loadMoreCommentsBtn = document.getElementById("load-more-comments");
-
+//Adds event listeners to expand all button, collapse all button and load more comments button
+const addEventListeners = (
+  allComments,
+  commentsLoaded,
+  randomNumber,
+  comment_count,
+  commentsAdded
+) => {
   expandAllBtns.forEach((expandButton) => {
     expandButton.addEventListener("click", () => {
-      expandButton.classList.add("hidden");
-      expandButton.classList.remove("flex");
-      collapseAllBtn.classList.remove("hidden");
-      collapseAllBtn.classList.add("flex");
+      hideExpandBtn();
+      showCollapseBtn();
       addRemainingComments(
         allComments,
         commentsLoaded,
@@ -173,13 +195,11 @@ export const addComments = async (comment_count) => {
   });
 
   collapseAllBtn.addEventListener("click", () => {
-    expandAllBtns[0].classList.remove("hidden");
-    expandAllBtns[0].classList.add("flex");
-    collapseAllBtn.classList.remove("flex");
-    collapseAllBtn.classList.add("hidden");
+    showExpandBtn();
+    hideCollapseBtn();
     removeComments(commentsAdded);
     loadMoreCommentsBtn.classList.remove("hidden");
-    commentsLoaded = 10;
+    commentsLoaded = 5;
   });
 
   loadMoreCommentsBtn.addEventListener("click", async () => {
@@ -191,4 +211,25 @@ export const addComments = async (comment_count) => {
     );
     commentsLoaded += count;
   });
+};
+
+//Main function
+export const addComments = async (comment_count) => {
+  const allComments = await getComments(comment_count);
+  const initialCommentsLoaded = 5;
+  const randomNumber = Math.random(); //this random number is used for generating random comment votes
+  let commentsLoaded = initialCommentsLoaded;
+  //Add initial comments
+  const commentsAdded = await addInitialComments(
+    allComments.slice(0, initialCommentsLoaded),
+    comment_count,
+    randomNumber
+  );
+  addEventListeners(
+    allComments,
+    commentsLoaded,
+    randomNumber,
+    comment_count,
+    commentsAdded
+  );
 };

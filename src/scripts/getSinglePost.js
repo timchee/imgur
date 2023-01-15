@@ -4,6 +4,7 @@ const getPostId = () => {
   return window.location.search.split("=")[1];
 };
 
+//Returns post, previous post id and next post id
 const getPostById = async (postId) => {
   const response = await fetch("https://api.npoint.io/bc13239283496e6574a7");
   const responseJson = await response.json();
@@ -23,6 +24,7 @@ const getPostById = async (postId) => {
   return [post, prevId, nextId];
 };
 
+//Gives next and previous buttons functionality
 const nextAndPreviousBtns = (nextPostId, previousPostId) => {
   const nextPostBtns = Array.from(document.getElementsByClassName("next-btn"));
   nextPostBtns.forEach((nextPostBtn) => {
@@ -40,6 +42,7 @@ const nextAndPreviousBtns = (nextPostId, previousPostId) => {
   });
 };
 
+//Invokes all the functions needed for the post page
 const init = async () => {
   const postId = getPostId();
   const [post, previousPostId, nextPostId] = await getPostById(postId);

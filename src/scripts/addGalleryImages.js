@@ -1,43 +1,54 @@
 import singlePostSkeleton from "./singlePostSkeleton.js";
 
-export const addGalleryImages = async (url) => {
-  const dataArray = await getData(url);
-  addImages(dataArray, true);
-};
-
-export const addTagImages = async (url) => {
-  let dataArray = await getData(url);
-  const random = Math.floor(Math.random() * 220) + 1;
-  dataArray = dataArray.slice(random);
-  addImages(dataArray, false);
-};
-
-const addImages = (dataArray, infinite) => {
+//First adds initial 30 posts, then on every scroll adds 60 more
+const addPosts = (dataArray, infinite) => {
   let limitedDataArray = dataArray.slice(0, 30);
-  let postsLoaded = addMorePosts(limitedDataArray);
+  let postsLoadedCount = addMorePosts(limitedDataArray); //keeps track of the posts loaded count
   window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     if (clientHeight + scrollTop >= scrollHeight - 300) {
-      if (postsLoaded > dataArray.length - 60) {
+      //If there are no more elements in the dataArray and infinite scroll is enabled start from the beggining of the array.
+      if (postsLoadedCount > dataArray.length - 60) {
         if (infinite) {
           postsLoaded = 0;
-        } else {
+        }
+        //If there are no more elements in the dataArray and infinite scroll is not enabled remove the spinner
+        else {
           const spinner = document.getElementById("spinner");
           spinner.innerHTML = "";
         }
       }
-      limitedDataArray = dataArray.slice(postsLoaded, postsLoaded + 60);
-      postsLoaded += addMorePosts(limitedDataArray);
+      limitedDataArray = dataArray.slice(
+        postsLoadedCount,
+        postsLoadedCount + 60
+      );
+      postsLoadedCount += addMorePosts(limitedDataArray);
     }
   });
 };
 
+//Adds images to post skeletons
+export const addGalleryImages = async (url) => {
+  const dataArray = await getData(url);
+  addPosts(dataArray, true);
+};
+
+//Adds images to post skeletons in the tag page
+export const addTagImages = async (url) => {
+  let dataArray = await getData(url);
+  const random = Math.floor(Math.random() * 220) + 1;
+  dataArray = dataArray.slice(random);
+  addPosts(dataArray, false);
+};
+
 const addMorePosts = (dataArray) => {
+  //Creates post skeletons from the data array and adds them to the container
   const [postsArray, imagesArray] = createPostsSkeletons(dataArray);
   const gridContainer = document.getElementById("posts-container");
   postsArray.forEach((post) => {
     gridContainer.innerHTML += post;
   });
+  //Adds images to the created skeletons
   addLazyLoadedImages(imagesArray, postsArray.length);
   return postsArray.length;
 };
@@ -83,6 +94,18 @@ export const createPostsSkeletons = (dataArray) => {
   return [postsArray, imagesArray];
 };
 
+//Gets an image based on its id
+const getImage = (id, imagesArray) => {
+  let image = "not found";
+  imagesArray.forEach((element) => {
+    if (element.id == id) {
+      image = element.image;
+    }
+  });
+  return image;
+};
+
+//Adds images to skeletons when they are in the viewport
 const addLazyLoadedImages = (imagesArray, postsLoaded) => {
   const gridContainer = document.getElementById("posts-container");
   const allPosts = Array.from(gridContainer.children);
@@ -125,15 +148,4 @@ const addLazyLoadedImages = (imagesArray, postsLoaded) => {
     io.observe(post);
   };
   posts.forEach(lazyLoad);
-};
-
-//Gets an image based on its id
-const getImage = (id, imagesArray) => {
-  let image = "not found";
-  imagesArray.forEach((element) => {
-    if (element.id == id) {
-      image = element.image;
-    }
-  });
-  return image;
 };

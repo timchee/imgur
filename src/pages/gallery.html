@@ -235,23 +235,10 @@
            <div id="comments">
            </div>
 
-            <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
-              <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-              <div class="flex flex-col gap-2">
-                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:top-1">accountname</p>
-                <p class="sm:mt-2 sm:left-0">comment</p>
-                <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
-                <div class="flex items-center gap-6 py-1">
-                  <img src="../assets/upvote.svg" class="w-4 h-4" />
-                  <p class="text-white text-xs font-medium">1,266</p>
-                  <img src="../assets/downvote.svg" class="w-4 h-4" />
-                  <p class="sm:hidden">Reply</p>
-                  <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
-                  <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
-                </div>
-              </div>
-            </div>
-            <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
+          <!-- Load more comments button -->
+          <div class="flex justify-center items-center pt-4">
+            <button class="transition-all mx-auto border-blue border-2 hover:bg-blue px-4 py-2 rounded-sm" id="load-more-comments">Load more comments</button>
+          </div>
 
           </div>
         </div>
@@ -304,7 +291,7 @@
 
     <div class="w-full">
 
-     <div class="w-full h-32 hidden sm:block bg-gray-800"></div>
+     <div class="w-full h-32 hidden sm:block bg-gray-800 mt-32"></div>
 
       <p class="text-white text-center uppercase text-base font-medium my-10">
       Explore posts

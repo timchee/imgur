@@ -1,10 +1,23 @@
+//The functions in this script are used in the tag page
+
 let [tagId, featured, postId] = document.location.search.split("&");
 tagId = tagId.split("=")[1];
 featured = featured.split("=")[1];
 if (postId) {
   postId = postId.split("=")[1];
 }
-console.log(postId);
+//Main function
+//If a tag is featured it is in the tags.json file, else it is in the gallery.json file
+export const addTag = async () => {
+  let tag;
+  if (featured == "true") {
+    tag = await getFeaturedTagById(tagId);
+    addTagDetails(tag);
+  } else {
+    tag = await getTagById(tagId, postId);
+    addTagDetails(tag);
+  }
+};
 
 const getFeaturedTagById = async (tagId) => {
   const response = await fetch("https://api.npoint.io/c84c906dc1ecf067f09a");
@@ -20,7 +33,6 @@ const getFeaturedTagById = async (tagId) => {
 };
 
 export const getPostById = async (postId) => {
-  console.log(postId);
   const response = await fetch("https://api.npoint.io/bc13239283496e6574a7");
   const responseJson = await response.json();
   const data = responseJson.data;
@@ -45,6 +57,7 @@ const getTagById = async (tagId, postId) => {
   return tag;
 };
 
+//Adds header background, tag name, tag description and number of posts
 const addTagDetails = (tag) => {
   const header = document.querySelector(".header-container");
   const floatingHeader = document.querySelector(".floating-header");
@@ -66,16 +79,4 @@ const addTagDetails = (tag) => {
   title.classList.remove("animate-pulse");
   title.classList.remove("bg-[rgba(0,0,0,.1)]");
   title.classList.remove("w-96");
-};
-
-export const addTag = async () => {
-  let tag;
-  if (featured == "true") {
-    console.log(postId, "wefknewl");
-    tag = await getFeaturedTagById(tagId);
-    addTagDetails(tag);
-  } else {
-    tag = await getTagById(tagId, postId);
-    addTagDetails(tag);
-  }
 };
