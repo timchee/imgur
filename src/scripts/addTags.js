@@ -35,15 +35,15 @@ const showMoreTags = () => {
   const mainDiv = document.getElementsByTagName("main")[0];
   const moreTagsBtn = document.getElementById("moreTags");
   const lessTagsBtn = document.getElementById("lessTags");
+
+
   moreTagsBtn.classList.add("hidden");
   lessTagsBtn.classList.remove("hidden");
-  tagsDiv.classList.remove("h-36");
-  tagsDiv.classList.add("h-[1360px]");
-  tagsDiv.classList.add("sm:h-[600px]");
-  mainDiv.classList.remove("top-48");
-  mainDiv.classList.add("top-[1260px]");
+  tagsDiv.classList.remove("h-[160px]");
+  tagsDiv.classList.add("sm:h-[640px]");
+  mainDiv.classList.remove("md:top-52");
+  mainDiv.classList.add("md:top-[700px]");
   mainDiv.classList.add("sm:top-[520px]");
-  console.log(tagsDiv);
 };
 
 const hideTags = () => {
@@ -53,10 +53,9 @@ const hideTags = () => {
   const lessTagsBtn = document.getElementById("lessTags");
   moreTagsBtn.classList.remove("hidden");
   lessTagsBtn.classList.add("hidden");
-  tagsDiv.classList.remove("h-[1360px]");
-  tagsDiv.classList.remove("sm:h-[600px]");
-  tagsDiv.classList.add("h-36");
-  mainDiv.classList.remove("top-[1260px]");
+  tagsDiv.classList.add("h-[160px]");
+  tagsDiv.classList.remove("sm:h-[640px]");
+  mainDiv.classList.add("md:top-52");
+  mainDiv.classList.remove("md:top-[700px]");
   mainDiv.classList.remove("sm:top-[520px]");
-  mainDiv.classList.add("top-44");
 };
