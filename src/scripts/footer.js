@@ -45,7 +45,11 @@ export const addFooter = () => {
 
   observeFooter(ellipsis, footerMenu, footerItems)
   addResponsiveMenu(ellipsis, footerMenu)
-  scrollBtns.forEach(button => scrollToTop(button))
+  scrollBtns.forEach(button => {
+    if (button != null) {
+      scrollToTop(button)
+    }
+  })
 }
 
 

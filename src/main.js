@@ -19,11 +19,9 @@ if (localStorage.getItem("autoplayEnabled") == null) {
 // import tagSkeleton from "./scripts/tagSkeleton.js"
 
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
-// addFooter()
 addHeader();
 handleHeader()
 addTags();
-// addFloatingHeader();
 addModal();
 uploadOnDrag();
 uploadFromPC();

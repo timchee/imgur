@@ -107,7 +107,7 @@ const headerHtml = `
   <div class="open-menu flex gap-4 items-center">
   <h2 class="username hidden sm:block text-white font-sans font-medium text-start">username</h2>
   <input type="button"
-    class="avatar bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9"  
+    class="avatar bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9"
   > 
   </input>
 </div>
@@ -134,27 +134,27 @@ const headerHtml = `
     </div>
     <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="pages/user.html">
+        <a href="http://localhost:5500/src/pages/user.html">
           Posts
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="pages/user.html">
+        <a href="http://localhost:5500/src/pages/user.html">
           Favorites
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="pages/user.html">
+        <a href="http://localhost:5500/src/pages/user.html">
           Comments
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="pages/user.html">
+        <a href="http://localhost:5500/src/pages/user.html">
           About
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="pages/user.html?pg-3">
+        <a href="http://localhost:5500/src/pages/user.html">
         Images
       </a>
     </li>
@@ -185,12 +185,14 @@ export const addHeader = () => {
   headerDiv.innerHTML += headerHtml;
 
   let btn = document.querySelector(".open-menu");
+  let avatar = document.querySelector(".avatar");
   let profileMenu = document.querySelector(".profile-menu");
   let menuBtn = document.querySelector(".nav-menu");
   let mobileMenu = document.querySelector(".menu");
 
   showAndHide(btn, profileMenu)
   showAndHide(menuBtn, mobileMenu) 
+  goToUserPage(avatar)
 
 };
 
@@ -321,3 +323,13 @@ const observeHeader = (imgur, header, headerContainer, newPostBtn, search,  gift
    };
 
 
+   let clickCount = 0;
+   const goToUserPage = (avatar) => {
+     avatar.addEventListener('click', () => {
+       clickCount++;
+       if (clickCount === 2) {
+         window.location.href = "http://localhost:5500/src/pages/user.html";
+       }
+     });
+   };
+   
