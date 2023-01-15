@@ -1,31 +1,5 @@
-const avatarImages = [
-  "https://imgur.com/user/adamelias/avatar",
-  "https://imgur.com/user/beepbeepmeow/avatar",
-  "https://imgur.com/user/camelbackjack/avatar",
-  "https://imgur.com/user/david42/avatar",
-  "https://imgur.com/user/ethox/avatar",
-  "https://imgur.com/user/finnwin/avatar",
-  "https://imgur.com/user/gahidus/avatar",
-  "https://imgur.com/user/henriksen1/avatar",
-  "https://imgur.com/user/iwasdoingfinelurking/avatar",
-  "https://imgur.com/user/jinky74/avatar",
-  "https://imgur.com/user/kcloud/avatar",
-  "https://imgur.com/user/lordsmish/avatar",
-  "https://imgur.com/user/mwasbabu16/avatar",
-  "https://imgur.com/user/noncanadiangoose/avatar",
-  "https://imgur.com/user/opus68/avatar",
-  "https://imgur.com/user/psuedon/avatar",
-  "https://imgur.com/user/quade/avatar",
-  "https://imgur.com/user/rightyouareken87/avatar",
-  "https://imgur.com/user/seanjohn/avatar",
-  "https://imgur.com/user/trippingthelightfantastic/avatar",
-  "https://imgur.com/user/upvotemypics/avatar",
-  "https://imgur.com/user/vodray/avatar",
-  "https://imgur.com/user/wessyfbaby/avatar",
-  "https://imgur.com/user/xfamousx0/avatar",
-  "https://imgur.com/user/yannireddit/avatar",
-  "https://imgur.com/user/zaazzz/avatar",
-];
+import { addComments } from "./addComments.js";
+import { avatarImages } from "./avatarImages.js";
 
 const calcPostAge = (datePosted) => {
   const f = Math.floor;
@@ -147,11 +121,11 @@ const addImage = (imageDiv, images, post) => {
   imageDiv.innerHTML += image;
 };
 
-const addTags = (tags) => {
+const addTags = (tags, postId) => {
   const tagsDiv = document.getElementById("tags");
   tags.forEach((tag) => {
     const tagHtml = `
-      <a href="/pages/tag.html?tagId=${tag.name}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
+      <a href="./tag.html?tagId=${tag.name}&featured=false&postId=${postId}" class="rounded-full py-1 sm:py-2 px-3 sm:px-6 text-gray-100 text-xs sm:text-sm font-semibold" style="text-shadow: 0 1px 4px #000; box-shadow: 0 5px 5px rgb(0 0 0 / 25%); background-image: url('https://i.imgur.com/${tag.background_hash}_d.jpg?maxwidth=200&fidelity=grand');">${tag.display_name}
       </a>
       `;
     tagsDiv.innerHTML += tagHtml;
@@ -200,7 +174,7 @@ const addImages = (images, post) => {
   imageContainers.forEach(lazyLoad);
 };
 
-export const addData = (post) => {
+export const addData = async (post) => {
   addTitles(post.title);
   addAccountNames(post.account_url);
   addPostAge(post.datetime);
@@ -216,5 +190,6 @@ export const addData = (post) => {
   addImageSkeletons(imageCount);
   addImages(post.images, post);
   addAvatar(post.account_url);
-  addTags(post.tags);
+  addTags(post.tags, post.id);
+  await addComments(post.comment_count);
 };

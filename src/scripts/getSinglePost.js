@@ -46,12 +46,14 @@ const init = async () => {
   nextAndPreviousBtns(nextPostId, previousPostId);
   addData(post);
   const showTags = document.getElementById("showTags");
-  showTags.innerHTML = `&#8226 ${tags.length} Tags`;
-  showTags.addEventListener("click", () => {
-    const tagsDiv = document.getElementById("tags");
-    tagsDiv.classList.toggle("hidden");
-    tagsDiv.classList.toggle("flex");
-  });
+  showTags.innerHTML = `&#8226 ${post.tags.length} Tags`;
+  if (post.tags.length !== 0) {
+    showTags.addEventListener("click", () => {
+      const tagsDiv = document.getElementById("tags");
+      tagsDiv.classList.toggle("hidden");
+      tagsDiv.classList.toggle("flex");
+    });
+  }
 };
 
 init();

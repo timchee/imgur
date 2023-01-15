@@ -188,7 +188,7 @@
         <div id = "images">
           <div id="d-0">
             <div class="h-[500px] bg-[rgba(0,0,0,.1)] my-3" id="image-0"></div>
-            <div class="p-4 hidden sm:block text-white text-sm tracking-wider" id="description-0"></div>
+            <div class="p-4 hidden sm:block text-white text-sm tracking-wider break-all" id="description-0"></div>
           </div>
       </div>
 
@@ -201,13 +201,16 @@
         <div class="hidden sm:flex flex-wrap py-2 gap-2" id="tags">
         </div>
 
-        <div class="flex justify-between items-center border border-gray-500 rounded py-2.5 px-4 w-full mt-4 mb-12" id="comments">
-          <p class="text-gray-200 text-xs sm:text-sm">Sign in to leave a comment</p>
-          <div class="flex gap-2 text-white font-semibold text-xs">
+        <div 
+             class="flex justify-between items-center border border-gray-500 rounded py-2.5 px-4 w-full mt-4 mb-12" id="">
+           <p class="text-gray-200 text-xs sm:text-sm">Sign in to leave a comment</p>
+           <div class="flex gap-2 text-white font-semibold text-xs">
             <button class="tracking-wider">Sign in</button>
             <button class="bg-btnColor-1 px-2 py-1 rounded-md tracking-wider">Sign up</button>
           </div>
         </div> 
+
+
         <div class="comments hidden sm:block">
             <div class="flex justify-between">
             <div class="text-white flex gap-2 text-base font-medium uppercase">
@@ -216,78 +219,42 @@
               </div>
               comments</div>
 
+ 
+              <div class="flex gap-3 font-medium" style="color: rgb(218, 220, 226);">
+                <div class="flex gap-1 cursor-pointer text-gray-100 hover:text-white expandAll" ><span>Expand All</span><img src="../assets/expand.svg" alt=""></div>
+                <div class="gap-1 cursor-pointer text-gray-100 hover:text-white hidden" id="collapse-all"><span>Collapse All</span><img src="../assets/collapse.svg" alt=""></div>
+              </div>
+             </div>
+             <div class="bg-gray-900 h-px w-full my-2 sm:bg-gray-500"></div>
+          </div> 
 
-            <div class="flex gap-3 font-medium" style="color: rgb(218, 220, 226);">
-              <div class="flex gap-1"><span>Expand All</span><img src="../assets/expand.svg" alt=""></div>
-              <div class="flex gap-1">
-                <span>Best</span> 
-                <!-- <img class="iconChevronDown" src="https://s.imgur.com/desktop-assets/desktop-assets/chevron-down-w.2cb2334cccdb7201bd1b686b3a482f09.svg" > -->
+          <div class="bg-gray-800 px-2 text-white sm:bg-gray-900 sm:px-0">
+            <p class="uppercase text-xs text-gray-200 py-4 sm:hidden">Best Comments</p>
+
+
+           <div id="comments">
+           </div>
+
+            <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
+              <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
+              <div class="flex flex-col gap-2">
+                <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:top-1">accountname</p>
+                <p class="sm:mt-2 sm:left-0">comment</p>
+                <img src="https://i.imgur.com/N7KHgAB.jpg"" class="rounded h-[120px] mr-3">
+                <div class="flex items-center gap-6 py-1">
+                  <img src="../assets/upvote.svg" class="w-4 h-4" />
+                  <p class="text-white text-xs font-medium">1,266</p>
+                  <img src="../assets/downvote.svg" class="w-4 h-4" />
+                  <p class="sm:hidden">Reply</p>
+                  <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
+                  <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
+                </div>
               </div>
             </div>
-            </div>
-            <div class="bg-gray-900 h-px w-full my-2 sm:bg-gray-500"></div>
+            <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
+
+          </div>
         </div>
-        
-
-
-        <div class="bg-gray-800 px-2 text-white sm:bg-gray-900 sm:px-0">
-          <p class="uppercase text-xs text-gray-200 py-4 sm:hidden">Best Comments</p>
-          <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
-            <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-            <div class="flex flex-col gap-2">
-              <p class="text-gray-200 font-medium sm:text-btnColor-1 sm: sm:top-1">accountname</p>
-              <p class="sm:mt-2 sm:left-0">comment</p>
-              <img src="https://i.imgur.com/N7KHgAB.jpg" class="rounded h-[120px] mr-3">
-              <div class="flex items-center gap-6 py-1">
-                <p class="text-gray-900"> <img src="../assets/upvote.svg" class="w-4 h-4" /></p>
-                <p class="text-white text-xs font-medium">1,266</p>
-                <img src="../assets/downvote.svg" class="w-4 h-4" />
-                <p class="sm:hidden">Reply</p>
-                <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
-                <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
-
-          <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
-            <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-            <div class="flex flex-col gap-2">
-              <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:top-1">accountname</p>
-              <p class="sm:mt-2 sm:left-0">comment</p>
-              <img src="https://i.imgur.com/N7KHgAB.jpg" class="rounded h-[120px] mr-3">
-              <div class="flex items-center gap-6 py-1">
-                <img src="../assets/upvote.svg" class="w-4 h-4" />
-                <p class="text-white text-xs font-medium">1,266</p>
-                <img src="../assets/downvote.svg" class="w-4 h-4" />
-                <p class="sm:hidden">Reply</p>
-                <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
-                <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
-
-          <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
-            <div class="op-3 bg-btnColor-1 w-6 h-6 rounded-full sm:top-0"></div>
-            <div class="flex flex-col gap-2">
-              <p class="text-gray-200 font-medium sm:text-btnColor-1 sm:top-1">accountname</p>
-              <p class="sm:mt-2 sm:left-0">comment</p>
-              <img src="https://i.imgur.com/N7KHgAB.jpg" class="rounded h-[120px] mr-3">
-              <div class="flex items-center gap-6 py-1">
-                <img src="../assets/upvote.svg" class="w-4 h-4" />
-                <p class="text-white text-xs font-medium">1,266</p>
-                <img src="../assets/downvote.svg" class="w-4 h-4" />
-                <p class="sm:hidden">Reply</p>
-                <div class="hidden text-gray-900 rounded-xl sm:block hover:text-white"> Reply</div>
-                <p class="sm:hidden"> &#8226  &#8226  &#8226</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
-
-        </div>
-      </div>
       </div>
       <div class="flex relative pb-36">
       <div class="sidebar sticky top-72 hidden h-[260px] flex-grow-0 flex-shrink-0 basis-[300px] lg:block lg:w-[300px]">
@@ -326,9 +293,19 @@
         </div>
       </div>
       </div>
-      </div>
+    </div>
 
-      <div class="w-full">
+
+
+    <!-- Mobile load all posts button -->
+
+     <button class="w-full h-10 sm:hidden text-white flex justify-center items-center font-medium tracking-wide bg-blue expandAll" style=" text-shadow: 0 1px 4px #000;">See All Comments</button>
+
+
+    <div class="w-full">
+
+     <div class="w-full h-32 hidden sm:block bg-gray-800"></div>
+
       <p class="text-white text-center uppercase text-base font-medium my-10">
       Explore posts
       </p>

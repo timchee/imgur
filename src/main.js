@@ -1,5 +1,10 @@
 import { addGalleryImages } from "./scripts/addGalleryImages.js";
-import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./scripts/modal.js";
+import {
+  addModal,
+  uploadOnDrag,
+  uploadFromPC,
+  uploadByURL,
+} from "./scripts/modal.js";
 import { addHeader, handleHeader } from "./scripts/header.js";
 import { addTags } from "./scripts/addTags.js";
 // import { addFloatingHeader } from "./scripts/floatingHeader.js";
@@ -13,11 +18,6 @@ import { addFooter } from "./scripts/footer.js";
 if (localStorage.getItem("autoplayEnabled") == null) {
   localStorage.setItem("autoplayEnabled", false);
 }
-// import hiddenTags from "./scripts/tags.js";
-// import tagSkeleton from "./scripts/tagSkeleton.js"
-// import hiddenTags from "./scripts/tags.js";
-// import tagSkeleton from "./scripts/tagSkeleton.js"
-
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 addHeader();
 handleHeader()

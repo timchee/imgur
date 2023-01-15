@@ -18,6 +18,7 @@ const getTags = async () => {
 const createTags = (dataArray) => {
   const tagsDiv = document.getElementById("tags");
   dataArray.forEach((tag) => {
+    // console.log(tag.name);
     const gradientStartColor = Math.floor(Math.random() * 6) + 1;
     tagsDiv.innerHTML += `
         <imgur-tag
@@ -26,6 +27,7 @@ const createTags = (dataArray) => {
         title="${tag.display_name}"
         title-color="bg-tagColor-${gradientStartColor}"
         posts="${tag.total_items}"
+        name="${tag.name}"
       ></imgur-tag>`;
   });
 };
