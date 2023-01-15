@@ -25,7 +25,6 @@
   font-size: 14px;
   padding: 14px 0;
 }
-
 .footer p,
 .footer-app {
   white-space: nowrap;
@@ -42,33 +41,48 @@
   color: #b4b9c2;
 }
 
-.footer .footer-app {
-  display: flex;
-  align-items: center;
-  padding: 0px 45px;
-  background-color: #474a51;
-  color: white;
+.footer .footer-app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 45px;
+    /* width: 10%; */
+    background-color: #474a51;
+    color: white;
 }
 
-#scroll-btn {
-  position: fixed;
-  display: none;
-  align-items: center;
-  justify-content: start;
-  bottom: -60px;
-  right: 25px;
-  z-index: 99;
-  width: 50px;
-  background-color: #474a51;
-  cursor: pointer;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: width 1s;
+.ellipsis{
+    right: 166px;
 }
-#scroll-btn:hover {
-  width: 160px;
-  height: 50px;
-  padding-right: 2px;
+@media screen and (max-width:420px) {
+    .footer, .footer .footer-app{
+        padding: 0px 14px;
+    }
+
+    .ellipsis{
+        right: 106px;
+    }
+
+
+}
+#scroll-btn {
+    position: fixed;
+    display: flex;
+    align-items: center; 
+    justify-content: start; 
+    bottom: -60px;
+    right: 25px;
+    width: 50px;
+    background-color: #474a51;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: width 1s;
+  }
+#scroll-btn:hover{
+    width: 160px;
+    height: 50px;
+    padding-right: 2px;
 }
 
 #scroll-btn svg {

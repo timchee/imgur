@@ -14,6 +14,25 @@
 ::-webkit-scrollbar{
   display: none;
 }
+.header-container, .background{
+  background: url(../assets/Press_Page.jpg) no-repeat;
+  background-size: cover;
+}
+
+.header-container{
+  background-position: center top; 
+}
+
+.background{
+  background-position: center; 
+}
+
+.overlay{
+  background-attachment: fixed;
+  background-position: center bottom; 
+  background-size: cover;
+}
+
 
 h1 {
   color: #aed8ea;
@@ -71,9 +90,10 @@ input[type="text"]::-ms-clear {
   height: 0;
 }
 
-.profile-menu::before {
+ .profile-menu::before {
+  content: :'';
   position: absolute;
-  top: -20px;
+  top: -18px;
   right: 16px;
   content: "";
   width: 0;
@@ -222,21 +242,6 @@ input[type="text"]::-ms-clear {
   }
 }
 
-*::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-*::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #8d929a;
-  margin: 10px 0;
-  border-radius: 6px;
-}
 
 #next-btn > *,
 #previous-btn > * {
