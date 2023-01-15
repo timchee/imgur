@@ -105,7 +105,7 @@ const title = document.querySelector(".post-title");
 const floatTitle = document.querySelector(".floating-title")
 
 
-let threshold = {
+let rootMargin = {
   rootMargin: '-160px'
 }
 const headerObserver = new IntersectionObserver((entries) => {
@@ -126,7 +126,7 @@ const headerObserver = new IntersectionObserver((entries) => {
     }
 
   })
-}, threshold)
+}, rootMargin)
 
 headerObserver.observe(title)
 

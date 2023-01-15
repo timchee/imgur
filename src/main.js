@@ -1,8 +1,8 @@
 import { addGalleryImages } from "./scripts/addGalleryImages.js";
 import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./scripts/modal.js";
-import { addHeader } from "./scripts/header.js";
+import { addHeader, handleHeader } from "./scripts/header.js";
 import { addTags } from "./scripts/addTags.js";
-import { addFloatingHeader } from "./scripts/floatingHeader.js";
+// import { addFloatingHeader } from "./scripts/floatingHeader.js";
 import changeLayout from "./scripts/changeLayout.js";
 import {
   changeAutoplayMode,
@@ -21,8 +21,9 @@ if (localStorage.getItem("autoplayEnabled") == null) {
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 // addFooter()
 addHeader();
+handleHeader()
 addTags();
-addFloatingHeader();
+// addFloatingHeader();
 addModal();
 uploadOnDrag();
 uploadFromPC();

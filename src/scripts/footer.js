@@ -1,32 +1,31 @@
 const footerHtml = `    <div class="footer-items w-3/4">
 <p class=""><b>	&copy; 2022 Imgur, Inc </b></p>
-<a href="" class="">About</a>
-<a href="" class="">Terms</a>
-<a href="" class="">Privacy</a>
-<a href="" class="">Rules</a>
-<a href="" class="">Help</a>
-<a href="" class="">Emerald</a>
-<a href="" class="">Store</a>
-<a href="" class="">Advertise</a>
-<a href="" class="">Blog</a>
-<a href="" class="">Wellness</a>
-<a href="" class="">CCPA</a>
-<a href="" class="">API</a>
+<a href="https://imgurinc.com/about">About</a>
+<a href="https://imgur.com/tos">Terms</a>
+<a href="https://imgur.com/privacy">Privacy</a>
+<a href="https://imgur.com/rules">Rules</a>
+<a href="https://help.imgur.com/hc/en-us">Help</a>
+<a href="https://imgur.com/emerald">Emerald</a>
+<a href="https://www.imgurstore.com">Store</a>
+<a href="https://imgurinc.com/advertise">Advertise</a>
+<a href="https://blog.imgur.com">Blog</a>
+<a href="https://imgurinc.com/community-resources">Wellness</a>
+<a href="https://imgur.com/ccpa">CCPA</a>
+<a href="https://apidocs.imgur.com">API</a>
 </div>
 
 <div class="flex">
-<div id="ellipsis" class="ellipsis bg-gray-800 items-center gap-1 px-2.5 lg:hidden absolute  right-[166px] z-10  top-0 bottom-0 hidden">
+<div id="ellipsis" class="ellipsis bg-gray-800 items-center gap-1 px-2.5 lg:hidden absolute z-10  top-0 bottom-0 hidden">
   <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
   <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
   <div class="circle h-1.5 w-1.5 bg-gray-200 rounded-full"></div>
 
-  <div class="footer-menu invisible px-4 py-2 rounded-md w-auto h-auto absolute bottom-11 -left-5 text-white">
-  </div>
+  <div class="footer-menu invisible px-4 py-2 rounded-md w-auto h-auto absolute bottom-11 -left-5 text-white"></div>
 </div>
 
-<div class="footer-app md:hidden absolute right-0 top-0">
-  <a href=""><b>Get the App</b></a>
-</div>
+<button class="footer-app absolute right-0 top-0">
+  <a href="https://imgurinc.com/mobileapps"><b>Get the App</b></a>
+</button>
 </div>`
 
 const footer = document.querySelector('.footer');
@@ -64,54 +63,43 @@ const showHideFooter = () => {
 } 
   
 
-// const menuItems = document.querySelector(".footer-menu").children;
-// console.log(menuItems)
-// const arr = Array.from(menuItems)
-
 let options = {
-  rootMargin: '0px -200px 0px 0px',
+  rootMargin: '0px -200px 1000px 0px',
 }
 
 
-const observeFooter = (ellipsis, footerMenu, footerItems) => {
- const footerItemsObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      
-      if (!entry.isIntersecting) {
-        ellipsis.style.display = "flex";
-        var a = document.createElement("a");
-        footerMenu.append(a);
-        a.setAttribute("href", "")
-        a.innerHTML = entry.target.innerHTML;
-      }
-  
-      // if (entry.isIntersecting) {
-      //   // console.log(entry.target)
-      //   if (arr.length) {
-      //     // console.log(arr)
-      //     arr.forEach(menuItem => {
-      //         if (menuItem.innerHTML == entry.target.innerHTML) {
-      //           console.log(menuItem)
-      //           // footerMenu.remove(menuItem)
-      //           // console.log(menuItems[i]) 
-      //         } 
-      //       })
-      //   }
-      // }
-      })
-  }, options);
+  const observeFooter = (ellipsis, footerMenu, footerItems) => {
+    const hideObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        let attribute = entry.target.getAttribute('href')
+        let a = `<a href="${attribute}">${entry.target.innerHTML}</a>`
+        if (!entry.isIntersecting) {
+          ellipsis.style.display = 'flex'
+          footerMenu.innerHTML += a
+        }
+        else if (entry.target.innerHTML == 'API') {
+          ellipsis.style.display = 'none'              
+        }
+    
+        })
+    }, options);
 
-  footerItems.forEach(item => footerItemsObserver.observe(item))
+    footerItems.forEach(item => hideObserver.observe(item))
 
-}
+  }
 
 const addResponsiveMenu = (ellipsis, footerMenu) => {
-  ellipsis.addEventListener("click", () => {
+  ellipsis.addEventListener("click", (e) => {
+    e.stopPropagation()
     if (footerMenu.style.visibility != "visible") {
       footerMenu.style.visibility = "visible";
     } else {
       footerMenu.style.visibility = "hidden";
-      foo
+    }
+  })
+  window.addEventListener('click', () => {
+    if (footerMenu.style.visibility == "visible") {
+      footerMenu.style.visibility = "hidden";
     }
   })
 }

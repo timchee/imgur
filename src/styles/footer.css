@@ -26,7 +26,6 @@
     padding: 14px 0;
 }
 
-
 .footer p, .footer-app{
     white-space: nowrap;
 }
@@ -45,11 +44,27 @@
 .footer .footer-app{
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0px 45px;
+    /* width: 10%; */
     background-color: #474a51;
     color: white;
 }
 
+.ellipsis{
+    right: 166px;
+}
+@media screen and (max-width:420px) {
+    .footer, .footer .footer-app{
+        padding: 0px 14px;
+    }
+
+    .ellipsis{
+        right: 106px;
+    }
+
+
+}
 #scroll-btn {
     position: fixed;
     display: flex;

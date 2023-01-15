@@ -105,7 +105,7 @@ const headerHtml = `
       </span>
   </button>
   <div class="open-menu flex gap-4 items-center">
-  <h2 class="hidden sm:block text-white font-sans font-medium text-start">username</h2>
+  <h2 class="username hidden sm:block text-white font-sans font-medium text-start">username</h2>
   <input type="button"
     class="avatar bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9"  
   > 
@@ -134,27 +134,27 @@ const headerHtml = `
     </div>
     <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+        <a href="pages/user.html">
           Posts
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+        <a href="pages/user.html">
           Favorites
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+        <a href="pages/user.html">
           Comments
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+        <a href="pages/user.html">
           About
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+        <a href="pages/user.html?pg-3">
         Images
       </a>
     </li>
@@ -183,31 +183,141 @@ const headerHtml = `
 export const addHeader = () => {
   const headerDiv = document.getElementById("header");
   headerDiv.innerHTML += headerHtml;
-  const showAndHide = (item) => {
-    if (item.style.display != "flex") {
-      item.style.display = "flex";
-    } else {
-      item.style.display = "none";
-    }
-  };
-  let btns = document.querySelectorAll(".open-menu");
-  let profileMenus = document.querySelectorAll(".profile-menu");
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      profileMenus.forEach((menu) => {
-        console.log(menu.style.display);
-        showAndHide(menu);
-      });
-    });
-  });
 
-  profileMenus.forEach((menu) => {
-    menu.style.display = "none";
-  });
-
+  let btn = document.querySelector(".open-menu");
+  let profileMenu = document.querySelector(".profile-menu");
   let menuBtn = document.querySelector(".nav-menu");
   let mobileMenu = document.querySelector(".menu");
-  menuBtn.addEventListener("click", () => {
-    showAndHide(mobileMenu);
-  });
+
+  showAndHide(btn, profileMenu)
+  showAndHide(menuBtn, mobileMenu) 
+
 };
+
+export const handleHeader = () => {
+  let header = document.querySelector(".header")
+  let imgur = document.querySelector(".Navbar-logo-container")
+  let search = document.querySelector(".search-form")
+  let floatingSearch = document.querySelector(".floating-search")
+  let newPostBtn = document.querySelector(".new-post")  
+  let giftBtn = document.querySelector('.gift')
+  let chatBtn = document.querySelector('.chat')
+  let bellBtn = document.querySelector('.notification')
+  let username = document.querySelector(".username")
+  let logoImg = document.querySelector(".logoImg")
+  let headerContainer = document.querySelector(".header-container")
+  const tags = document.querySelector("#tags");
+
+  observeHeader(imgur, header, headerContainer, newPostBtn, search, giftBtn, chatBtn, bellBtn, username, logoImg)
+  addListeners(tags, headerContainer, floatingSearch)
+}
+const showAndHide = (button, menu) => {
+
+  button.addEventListener('click', (e) => {
+    e.stopPropagation()
+    if(!menu.classList.contains('flex')) {
+      menu.classList.add('flex')
+      menu.classList.remove('hidden')
+    } else {
+      menu.classList.remove('flex')
+      menu.classList.add('hidden')
+    } 
+  })
+
+  window.addEventListener('click', () => {
+    if (menu.classList.contains('flex')) {
+      menu.classList.remove('flex')
+      menu.classList.add('hidden')
+    } 
+  })
+
+};
+
+let options = {
+  threshold: '0.2'
+}
+
+
+
+const observeHeader = (imgur, header, headerContainer, newPostBtn, search,  giftBtn, chatBtn, bellBtn, username, logoImg) => {
+ const headerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        header.classList.add('background')
+        imgur.classList.add('invisible')
+        newPostBtn.classList.add('invisible')
+        search.classList.add('invisible')
+        giftBtn.classList.add('invisible')
+        chatBtn.classList.add('invisible')
+        bellBtn.classList.add('invisible')
+        username.classList.add('invisible')
+        logoImg.classList.remove('hidden')
+        // header.classList.add('shadow-lg')
+        // newPostBtn.classList.add('sm:hidden')
+      } else {
+        header.classList.remove('background')
+        header.classList.remove('shadow-lg')
+        imgur.classList.remove('invisible')
+        newPostBtn.classList.remove('invisible')
+        search.classList.remove('invisible')
+        giftBtn.classList.remove('invisible')
+        chatBtn.classList.remove('invisible')
+        bellBtn.classList.remove('invisible')
+        username.classList.remove('invisible')
+        logoImg.classList.add('hidden')
+        // newPostBtn.classList.remove('sm:hidden')
+      }
+    })
+  }, options)
+  headerObserver.observe(headerContainer)
+ }
+
+ const tags = document.querySelector("#tags");
+
+ const addListeners = (tags, headerContainer, floatingSearch) => {
+   window.addEventListener("scroll", function () {
+     const scrollTop = window.scrollY;
+     if (tags.classList.contains('h-[160px]')) {
+       if (scrollTop < 330) {
+         floatingSearch.classList.remove("lg:flex");
+         floatingSearch.classList.add("lg:invisible");
+       } else {
+         floatingSearch.classList.add("lg:flex");
+         floatingSearch.classList.remove("lg:invisible");
+       }
+     } else {
+ 
+       if (scrollTop < 770) {
+         floatingSearch.classList.remove("lg:flex");
+         floatingSearch.classList.add("lg:invisible");
+       } else {
+         floatingSearch.classList.add("lg:flex");
+         floatingSearch.classList.remove("lg:invisible");
+       }
+     }
+   });
+ 
+ 
+   window.addEventListener("scroll", function () {
+     // get the current scroll position
+     const scrollTop = window.scrollY;
+ 
+     if (tags.classList.contains('h-[160px]')) {
+       // check if the element is scrolling downwards
+       if (scrollTop <= 180) {
+         headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+       } 
+     } else {
+       // check if the element is scrolling upwards
+       // check if the element is scrolling downwards
+       if (scrollTop <= 220) {
+         headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+       } 
+ 
+     }
+     // update the previous scroll position
+     previousScrollTop = scrollTop;
+   });
+   };
+
+
