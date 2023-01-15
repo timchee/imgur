@@ -53,14 +53,13 @@ const createComment = (comment, randomNumber, comment_count) => {
 const addInitialComments = (comments, comment_count) => {
   const commentsDiv = document.getElementById("comments");
   const randomNumber = Math.random();
+  let addedComments = [];
   comments.forEach((comment) => {
-    commentsDiv.innerHTML += createComment(
-      comment,
-      randomNumber,
-      comment_count
-    );
+    let newComment = createComment(comment, randomNumber, comment_count);
+    commentsDiv.innerHTML += newComment;
+    addedComments.push(newComment);
   });
-  return randomNumber;
+  return [randomNumber, addedComments];
 };
 
 const addMoreComments = (
@@ -89,7 +88,15 @@ const addMoreComments = (
   });
   if (commentsLoaded + addedCommentCount >= comment_count) {
     const loadMoreCommentsBtn = document.getElementById("load-more-comments");
+    const expandButton = Array.from(
+      document.getElementsByClassName("expandAll")
+    )[0];
+    const collapseAllBtn = document.getElementById("collapse-all");
     loadMoreCommentsBtn.classList.add("hidden");
+    expandButton.classList.add("hidden");
+    expandButton.classList.remove("flex");
+    collapseAllBtn.classList.remove("hidden");
+    collapseAllBtn.classList.add("flex");
   }
 
   return addedCommentCount;
@@ -110,31 +117,57 @@ const addRemainingComments = (
       comment_count
     );
   });
+  const loadMoreCommentsBtn = document.getElementById("load-more-comments");
+  loadMoreCommentsBtn.classList.add("hidden");
+};
+
+const removeComments = (comments) => {
+  const commentsDiv = document.getElementById("comments");
+  commentsDiv.innerHTML = "";
+  comments.forEach((comment) => {
+    commentsDiv.innerHTML += comment;
+  });
 };
 
 export const addComments = async (comment_count) => {
   const allComments = await getComments(comment_count);
-  const initialCommentsLoaded = 10;
+  const initialCommentsLoaded = 5;
   let commentsLoaded = initialCommentsLoaded;
-  const randomNumber = addInitialComments(
+  const [randomNumber, commentsAdded] = addInitialComments(
     allComments.slice(0, initialCommentsLoaded),
     comment_count
   );
   const expandAllBtns = Array.from(
     document.getElementsByClassName("expandAll")
   );
+  const collapseAllBtn = document.getElementById("collapse-all");
+  const loadMoreCommentsBtn = document.getElementById("load-more-comments");
+
   expandAllBtns.forEach((expandButton) => {
     expandButton.addEventListener("click", () => {
+      expandButton.classList.add("hidden");
+      expandButton.classList.remove("flex");
+      collapseAllBtn.classList.remove("hidden");
+      collapseAllBtn.classList.add("flex");
       addRemainingComments(
         allComments,
-        initialCommentsLoaded,
+        commentsLoaded,
         randomNumber,
         comment_count
       );
     });
   });
 
-  const loadMoreCommentsBtn = document.getElementById("load-more-comments");
+  collapseAllBtn.addEventListener("click", () => {
+    expandAllBtns[0].classList.remove("hidden");
+    expandAllBtns[0].classList.add("flex");
+    collapseAllBtn.classList.remove("flex");
+    collapseAllBtn.classList.add("hidden");
+    removeComments(commentsAdded);
+    loadMoreCommentsBtn.classList.remove("hidden");
+    commentsLoaded = 10;
+  });
+
   loadMoreCommentsBtn.addEventListener("click", () => {
     const count = addMoreComments(
       allComments,
