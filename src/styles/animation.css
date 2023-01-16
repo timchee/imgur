@@ -1,145 +1,83 @@
-/* Animation */
-
-.bg-animation{
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-    width: 100%;
-    height: 100%;
+#i{
+    opacity: 0;
+ animation: logoAnimation 1s ease-in-out forwards;
 }
 
-.big{
-    position: absolute;
-    top: 0%;
-    left: -10px;
-    width: 100%;
-    height: 65%;
-    animation: animation 4s linear  infinite normal forwards;
+#m{
+    opacity: 0;
+    transform: translate3d(0,-100%, 0);
+    animation: logoAnimation 1s ease-in-out .5s forwards;
+
 }
 
-.big div{
-    width: 200px;
-    height: 200px;  
-    background: linear-gradient(#ffffff4c, rgba(255, 192, 203, 0.1));
-    box-shadow: inset 5px 10px 20px rgba(255, 192, 203, 0.5), 10px 5px 20px rgba(0, 0, 0, 0.5); 
-    border-radius: 100%;
-    transform-origin: translate(0,-50%);
+#g{
+    opacity: 0;
+    transform: translate3d(0,-100%, 0);
+    animation: logoAnimation 1s ease-in-out 1s forwards;
+}
+#u{
+    opacity: 0;
+    transform: translate3d(0,-100%, 0);
+    animation: logoAnimation 1s ease-in-out 1.5s forwards;
+}
+#r{
+    opacity: 0;
+    transform: translate3d(0,-100%, 0);
+    animation: logoAnimation 1s ease-in-out 2s forwards;
+}
+#dot{
+    opacity: 0;
+    scale: 0;
+    animation: logoAnimation 1s ease-in-out 2.5s forwards, dot 1s ease-in 3s forwards;
 }
 
-.big>div:before {
-    background: rgba(255, 192, 203, 0.1);
-    content: "";
-    width: 81px;
-    height: 40px;
-    position: absolute;
-    top: 8px;
-    left: 0px;
-    margin: 10px 0 0 25px;
-    border-radius: 50%;
-    transform: rotate(-30deg);
-  }
-
-.small{
-    position: absolute;
-    z-index: 5;
-    width: 100%;
-    height: auto;
-    animation: animation linear  infinite normal forwards;
+.animation-div{
+    opacity: 1;
+    background: url('../assets/giraffe.png') no-repeat center;
+    background-size: cover;
+    animation: showAnimation 1s ease-in-out 5s forwards;
 }
 
-@keyframes animation {
+.imgur-div{
+    scale: 0.5;
+    animation: dot 1s 3.7s ease-in-out forwards;
+}
+
+@keyframes showAnimation {
     0%{
-        transform: translate(0%, 25%);
-    }
-    25%{
-        transform: translate(25%, 65%);
-    }
-    75%{
-        transform: translate(75%, 10%);
+        opacity: 1;
     }
     100%{
-        transform: translate(100%, 25%);
+        opacity: 0;
     }
 }
 
-.small div{
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background: linear-gradient(#7d68684c, #fb539c56);
-    opacity: 0.5;
-    box-shadow: inset 1px 2px 4px rgba(255, 192, 203, 0.5), 10px 5px 20px rgba(0, 0, 0, 0.5);  
+
+@keyframes logoAnimation {
+
+    0%{
+        display: flex;
+        opacity: 0;
+        transform: translate3d(0,-100%, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
 }
 
-.small>div:before {
-    background: rgba(255, 192, 203, 0.4);
-    content: "";
-    width: 18px;
-    height: 10px;
-    position: absolute;
-    top: -4px;
-    left:-18px;
-    margin: 10px 0 0 25px;
-    border-radius: 50%;
-    transform: rotate(-30deg);
+@keyframes dot {
+    0%{
+    scale: 0;
+
+    }
+
+    50%{
+    scale: 1.1;
+    }
+
+    100%{
+        scale: 1;
+    }
 }
-
-.small-1{
-    top: 0;
-    left: 20%;
-    animation-duration: 3s;
-}
-
-.small-2{
-    top: 10%;
-    left: 0%;
-    animation-duration: 2.5s;
-}
-
-.small-3{
-    top: 20%;
-    left: 10%;
-    animation-duration: 2.5s;
-}
-
-.small-4{
-    top: 50%;
-    left: 20%;
-    animation-duration: 3s;
-}
-
-.small-5{
-    top: 70%;
-    left: 10%;
-    animation-duration: 2.5s;
-}
-
-.small-6{
-    bottom: 10%;
-    left: 0%;
-    transform-origin: bottom;
-    animation-duration: 3s;
-}
-
-/* Uncomment next part for original background animation */
-
-/* .bg-animation{
-    background-color: white;
-    z-index:100;
-    mix-blend-mode: hard-light;
-} 
-
-.big div{
-    background-color:#fcefa4;
-    box-shadow: none;  
-}
-
-.small div{
-    background-color: pink;
-    box-shadow: none;  
-}
-
-.big>div::before, .small>div::before{
-    display: none;
-} */
-

@@ -651,8 +651,8 @@ video {
   left: -1.25rem;
 }
 
-.top-60 {
-  top: 15rem;
+.top-48 {
+  top: 12rem;
 }
 
 .top-2 {
@@ -707,32 +707,80 @@ video {
   top: 3rem;
 }
 
-.top-48 {
-  top: 12rem;
+.left-10 {
+  left: 2.5rem;
 }
 
-.left-\[12\.5\%\] {
-  left: 12.5%;
+.top-32 {
+  top: 8rem;
 }
 
-.left-\[200px\] {
-  left: 200px;
+.left-12 {
+  left: 3rem;
 }
 
-.left-\[-200px\] {
-  left: -200px;
+.left-24 {
+  left: 6rem;
 }
 
-.left-\[-12\.5\%\] {
-  left: -12.5%;
+.left-32 {
+  left: 8rem;
 }
 
-.right-\[-12\.5\%\] {
-  right: -12.5%;
+.left-28 {
+  left: 7rem;
 }
 
-.top-40 {
-  top: 10rem;
+.left-40 {
+  left: 10rem;
+}
+
+.-top-20 {
+  top: -5rem;
+}
+
+.left-20 {
+  left: 5rem;
+}
+
+.-top-28 {
+  top: -7rem;
+}
+
+.-top-24 {
+  top: -6rem;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.-top-2 {
+  top: -0.5rem;
+}
+
+.left-6 {
+  left: 1.5rem;
+}
+
+.left-5 {
+  left: 1.25rem;
+}
+
+.left-\[44px\] {
+  left: 44px;
+}
+
+.left-\[48px\] {
+  left: 48px;
+}
+
+.left-\[60px\] {
+  left: 60px;
+}
+
+.left-\[72px\] {
+  left: 72px;
 }
 
 .z-50 {
@@ -755,12 +803,12 @@ video {
   z-index: 30;
 }
 
-.z-0 {
-  z-index: 0;
+.-z-10 {
+  z-index: -10;
 }
 
-.z-\[99\] {
-  z-index: 99;
+.-z-20 {
+  z-index: -20;
 }
 
 .m-auto {
@@ -956,8 +1004,24 @@ video {
   height: 9rem;
 }
 
-.h-\[800px\] {
-  height: 800px;
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.h-\[600px\] {
+  height: 600px;
+}
+
+.h-52 {
+  height: 13rem;
 }
 
 .max-h-\[300px\] {
@@ -966,6 +1030,14 @@ video {
 
 .max-h-\[80vh\] {
   max-height: 80vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-full {
@@ -986,10 +1058,6 @@ video {
 
 .w-\[50\%\] {
   width: 50%;
-}
-
-.w-10 {
-  width: 2.5rem;
 }
 
 .w-8 {
@@ -1040,6 +1108,10 @@ video {
   width: 0.25rem;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-9 {
   width: 2.25rem;
 }
@@ -1050,10 +1122,6 @@ video {
 
 .w-3\/5 {
   width: 60%;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-40 {
@@ -1084,8 +1152,16 @@ video {
   width: 300px;
 }
 
-.w-screen {
-  width: 100vw;
+.w-48 {
+  width: 12rem;
+}
+
+.w-52 {
+  width: 13rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .min-w-full {
@@ -1159,6 +1235,10 @@ video {
   align-items: flex-start;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
 }
@@ -1219,6 +1299,10 @@ video {
   gap: 0px;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .gap-y-4 {
   row-gap: 1rem;
 }
@@ -1235,6 +1319,10 @@ video {
 .gap-x-2 {
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
+}
+
+.self-start {
+  align-self: flex-start;
 }
 
 .self-end {
@@ -1316,6 +1404,11 @@ video {
   border-bottom-left-radius: 0.125rem;
 }
 
+.rounded-t-full {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1326,10 +1419,6 @@ video {
 
 .border-dashed {
   border-style: dashed;
-}
-
-.border-none {
-  border-style: none;
 }
 
 .border-gray-500 {
@@ -1344,6 +1433,11 @@ video {
 
 .border-opacity-50 {
   --tw-border-opacity: 0.5;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-gray-800 {
@@ -1442,9 +1536,9 @@ video {
   background-color: rgb(99 56 117 / var(--tw-bg-opacity));
 }
 
-.bg-white {
+.bg-\[\#051234\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(5 18 52 / var(--tw-bg-opacity));
 }
 
 .bg-dropdown {
@@ -1489,11 +1583,6 @@ video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#051234\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(5 18 52 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'https\:\/\/imgur\.com\/user\/vjenditapllana\/avatar\'\)\] {
@@ -1568,12 +1657,12 @@ video {
   background-position: center;
 }
 
-.bg-\[50\%\] {
-  background-position: 50%;
-}
-
 .bg-bottom {
   background-position: bottom;
+}
+
+.bg-\[50\%\] {
+  background-position: 50%;
 }
 
 .bg-no-repeat {
@@ -1674,6 +1763,11 @@ video {
   padding-right: 0.625rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -1707,11 +1801,6 @@ video {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .pb-10 {
@@ -2027,11 +2116,6 @@ video {
 
 .hover\:opacity-75:hover {
   opacity: 0.75;
-}
-
-.focus\:text-white:focus {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
