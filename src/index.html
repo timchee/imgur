@@ -19,19 +19,19 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <link href="./../dist/output.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/animation.css" />
+    <script src="./scripts/animations.js" async></script>
+    <link rel="stylesheet" href="./styles/style.css" />
     <script type="module" src="./main.js" defer></script>
     <script src="./scripts/dropdowns.js" defer></script>
-    <script src="./scripts/animations.js" defer></script>
     <title>Imgur: The magic of the Internet</title>
   </head>
 
   <body class="bg-gray-800">
     <!-- ANIMATION -->
-    <section class="animation-div w-screen h-screen flex justify-center items-center absolute z-50">
-      <div class="imgur-div w-1/2 h-1/2 relative">
-          <svg width="600" height="600" viewBox="0 0 94 34" class="icon stroke fill relative -top-24 left-20 z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <section class="animation-div w-screen h-screen flex justify-center items-start md:items-center absolute top-0 left-0 z-50">
+      <div class="imgur-div w-1/2 h-1/2 flex justify-center items-center overflow-visible">
+          <svg width="600" height="600" class="overflow-visible" viewBox="0 0 94 34" class="icon stroke fill relative -top-24 left-20 z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path id="r" d="M86.8012 17.336C86.8012 15.6108 86.981 15.0039 88.5637 14.3332C89.1292 14.0977 89.7077 13.9104 90.2587 13.7321C91.9506 13.1844 93.3833 12.7206 93.3833 11.2023C93.3833 9.86081 92.0884 8.71123 90.5059 8.71123C89.175 8.71123 87.8441 9.28632 86.6572 10.4038C85.9738 9.31751 85.0747 8.80659 83.9599 8.80659C82.0176 8.80659 81.1185 9.98884 81.1185 12.4487V22.5745C81.1185 25.0344 82.0176 26.2484 83.9599 26.2484C85.9018 26.2484 86.8012 25.0344 86.8012 22.5745V17.336Z" fill="#ffffff"></path>
               <path id="u" d="M61.085 19.1569C61.085 23.9801 64.1422 26.5359 69.6448 26.5359C75.148 26.5359 78.2051 23.9801 78.2051 19.1569V12.4487C78.2051 9.98884 77.342 8.80659 75.3995 8.80659C73.4576 8.80659 72.5582 9.98884 72.5582 12.4487V18.1345C72.5582 20.4984 71.9469 21.8081 69.6448 21.8081C67.3433 21.8081 66.7314 20.4984 66.7314 18.1345V12.4487C66.7314 9.98884 65.8326 8.80659 63.9264 8.80659C61.9841 8.80659 61.085 9.98884 61.085 12.4487V19.1569Z" fill="#ffffff"></path>
               <path id="g" fill-rule="evenodd" clip-rule="evenodd" d="M48.245 33.3078C52.2732 33.3078 55.2229 31.9981 56.877 29.5382C57.9919 27.9092 58.2077 25.6094 58.2077 22.5745V12.4487C58.2077 9.98884 57.3086 8.80659 55.3663 8.80659C54.5036 8.80659 53.4964 9.34959 52.8485 10.4038C51.6982 9.19008 50.2589 8.61499 48.317 8.61499C43.4974 8.61499 39.5052 12.4166 39.5052 17.5276C39.5052 22.6387 43.2456 26.2802 47.7057 26.2802C49.9351 26.2802 51.6262 25.4814 52.8485 23.9163C52.8485 24.0322 52.8582 24.1398 52.8675 24.2432C52.8762 24.339 52.8845 24.4313 52.8845 24.5234C52.8845 27.2705 51.2304 28.7718 48.4607 28.7718C46.6897 28.7718 45.3742 28.2995 44.3043 27.9153C43.5708 27.652 42.9527 27.43 42.3822 27.43C40.9796 27.43 39.9367 28.3565 39.9367 29.6342C39.9367 31.6152 43.0655 33.3078 48.245 33.3078ZM45.3676 17.5276C45.3676 15.0039 46.9864 13.4067 49.0726 13.4067C51.1583 13.4067 52.8125 15.0039 52.8125 17.5276C52.8125 20.0829 51.1944 21.7442 49.0726 21.7442C46.9506 21.7442 45.3676 20.1149 45.3676 17.5276Z" fill="#ffffff"></path>
