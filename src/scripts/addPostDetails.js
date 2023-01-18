@@ -1,5 +1,14 @@
 import { addComments } from "./addComments.js";
+import { addPlaceholderComments } from "./addPlaceholderComments.js";
 import { avatarImages } from "./avatarImages.js";
+
+const postsWithComments = [
+  "6rXPASw",
+  "HnDIHVv",
+  "Ac7P2Jz",
+  "67ueQWS",
+  "4p1XwMc",
+];
 
 const changeInnerText = (element, newText) => {
   element.innerText = newText;
@@ -197,5 +206,10 @@ export const addData = async (post) => {
   addImages(post.images, post);
   addAvatar(post.account_url);
   addTags(post.tags, post.id);
-  await addComments(post.comment_count);
+  const hasPlaceholderComments = !postsWithComments.includes(post.id);
+  if (hasPlaceholderComments) {
+    await addPlaceholderComments(post.comment_count);
+  } else {
+    await addComments(post.id);
+  }
 };
