@@ -21,6 +21,7 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v3.0.1/css/line.css"
     />
+    <script src="../scripts/login.js" defer></script>
     <title>Sign in - Imgur</title>
   </head>
   <body class="p-0" style="background-color: #141518">
@@ -46,7 +47,7 @@
 
     <div class="sign-in-with flex-col text-center mt-20">
       <p class="text-white text-xs w-full text-center">Sign In with</p>
-      <div class="w-full flex justify-center">
+      <div class="w-full flex justify-center card">
         <div
           class="accounts flex justify-center items-center text-center p-2 gap-5 bg-gray-800 rounded-md mt-2"
         >
@@ -86,16 +87,17 @@
       <div class="sign-in w-full h-auto flex-col mt-2">
         <div class="info bg-gray-800 w-96 p-4 flex-col rounded-md">
           <input type="email" placeholder="Username or Email" 
-            class=""
+            id="email" class="text-white"
           />
           <div class="pass">
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" id="password" 
+            class="text-white border-0"/>
             <button>forgot?</button>
           </div>
         </div>
         <div class="sign-up flex gap-x-4">
             <p class="text-white">need an account?</p>
-            <button class="text-white bg-[#5c69ff] px-4 py-2">Sign In</button>
+            <button class="text-white bg-[#5c69ff] px-4 py-2" id="sign-in">Sign In</button>
         </div>
       </div>
 
