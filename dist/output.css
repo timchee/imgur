@@ -672,6 +672,14 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -772,6 +780,10 @@ video {
   height: 64px;
 }
 
+.h-\[1px\] {
+  height: 1px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -840,8 +852,20 @@ video {
   width: 64px;
 }
 
+.w-14 {
+  width: 3.5rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
 .w-\[300px\] {
   width: 300px;
+}
+
+.w-\[150px\] {
+  width: 150px;
 }
 
 .min-w-full {
@@ -941,6 +965,11 @@ video {
 .gap-x-10 {
   -moz-column-gap: 2.5rem;
        column-gap: 2.5rem;
+}
+
+.gap-x-4 {
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
 }
 
 .self-end {
@@ -1103,48 +1132,17 @@ video {
   background-color: rgb(71 74 81 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#5c69ff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(92 105 255 / var(--tw-bg-opacity));
+}
+
 .bg-\[url\(\'https\:\/\/imgur\.com\/user\/vjenditapllana\/avatar\'\)\] {
   background-image: url('https://imgur.com/user/vjenditapllana/avatar');
 }
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.from-tagColor-1 {
-  --tw-gradient-from: #8472bd;
-  --tw-gradient-to: rgb(132 114 189 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-2 {
-  --tw-gradient-from: #508a9f;
-  --tw-gradient-to: rgb(80 138 159 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-3 {
-  --tw-gradient-from: #5b62a5;
-  --tw-gradient-to: rgb(91 98 165 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-4 {
-  --tw-gradient-from: #2b1a5a;
-  --tw-gradient-to: rgb(43 26 90 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-5 {
-  --tw-gradient-from: #155c71;
-  --tw-gradient-to: rgb(21 92 113 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.from-tagColor-6 {
-  --tw-gradient-from: #633875;
-  --tw-gradient-to: rgb(99 56 117 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .to-gray-800 {
@@ -1175,6 +1173,10 @@ video {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-4 {

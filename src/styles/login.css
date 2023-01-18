@@ -1,0 +1,82 @@
+/* .logo {
+  width: 400px;
+  height: 200px;
+  background-image: url("../assets/logo.png");
+  background-size: 400px 200px;
+} */
+.logo h1 {
+  font-size: 35px;
+}
+.facebook {
+  background-color: rgb(16, 85, 155);
+  font-size: x-large;
+}
+
+.twitter {
+  background-color: rgb(43, 150, 233);
+  font-size: x-large;
+}
+.apple {
+  background-color: aliceblue;
+  color: black;
+  font-size: x-large;
+}
+.google {
+  background-color: rgb(43, 150, 233);
+  font-size: x-large;
+  color: white;
+}
+.yahoo {
+  background-color: purple;
+  font-size: x-large;
+  font-weight: 500;
+}
+
+.l-line{
+    /* background: linear-gradient(black, white); */
+    /* background: rgb(2,0,36); */
+    background: linear-gradient(90deg, #141518 0%, rgba(255,255,255,1) 100%);
+}
+.r-line{
+    background: linear-gradient(270deg, #141518 0,  rgba(255,255,255,1) 100%);
+
+}
+
+.sign-in{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info input{
+    background-color: #141518;
+    padding: 4px;
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.pass{
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+.pass input{
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+.pass button{
+    background-color: #404040;
+    color: #999;
+    width: 25%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: small;
+}
+.pass button:hover{
+    color: rgb(255, 255, 255);
+}
+.sign-up{
+    margin-top: 10px;
+    align-items: center;
+    justify-self: end;
+}
