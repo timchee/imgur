@@ -25,7 +25,9 @@
   background-color: rgb(43, 150, 233);
   font-size: x-large;
   color: white;
+  fill: white;
 }
+
 .yahoo {
   background-color: purple;
   font-size: x-large;
@@ -46,6 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .info input{
@@ -75,10 +78,13 @@
 .pass button:hover{
     color: rgb(255, 255, 255);
 }
+
 .sign-up{
     margin-top: 10px;
     align-items: center;
-    justify-content: end;
+    justify-self: flex-start;
+    justify-content: flex-end;
+    /* width: 100%; */
 }
 input:focus{
   outline: 1px solid rgb(6, 195, 6);
