@@ -27,7 +27,7 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v3.0.1/css/line.css"
     />
-    <script src="signUp.js" defer></script>
+    <script src="../scripts/signUp.js" defer></script>
     <title>Register - Imgur</title>
   </head>
   <div class="back-to-imgur flex gap-x-2 p-4 items-center ">
@@ -51,7 +51,7 @@
       "
     ></div>
 
-    <div class="container sign-in-with flex-col text-center w-1/2">
+    <div class="container sign-in-with flex-col text-center">
       <p class="text-white text-xs w-full text-center">Register with</p>
       <div class="w-full flex justify-center card">
         <div
@@ -96,7 +96,7 @@
             <input
               type="email"
               placeholder="Username"
-              id="email"
+              id="username"
               class="text-white"
             />
             <input
@@ -115,11 +115,13 @@
               <input
                 type="password"
                 placeholder="Retype password"
-                id="password"
+                id="retype-pass"
                 class="text-white border-0 rounded-md"
               />
             </div>
-            <input type="tel" class="mt-2" placeholder="Phone number" />
+            <input type="tel" class="mt-2 text-white" placeholder="Phone number" 
+            id="tel"
+            />
             <p class="text-gray-200 mt-2" style="font-size: 12px">
               Standard message and data rates may apply.
             </p>
@@ -135,7 +137,7 @@
             <a href="login.html" class="text-white">Sign In</a>
             <button
               class="text-white bg-[#5c69ff] px-4 py-2 rounded-sm"
-              id="sign-in"
+              id="next"
             >
               Next
             </button>

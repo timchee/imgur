@@ -103,3 +103,10 @@ input:focus {
 .phoneNumber:hover{
   text-decoration: underline;
 }
+@media screen and (max-width: 640px) {
+  .container{
+    min-width: 40px;
+    max-width: 380px;
+    overflow-x: hidden;
+  }
+}

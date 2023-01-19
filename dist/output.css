@@ -672,12 +672,12 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .inline-block {
@@ -1037,10 +1037,6 @@ video {
   border-width: 0px;
 }
 
-.border-none {
-  border-style: none;
-}
-
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(71 74 81 / var(--tw-border-opacity));
@@ -1382,27 +1378,6 @@ video {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.outline {
-  outline-style: solid;
-}
-
-.outline-white {
-  outline-color: #ffffff;
-}
-
-.outline-\[green\] {
-  outline-color: green;
-}
-
-.outline-\[\#00ff00\] {
-  outline-color: #00ff00;
 }
 
 .filter {
