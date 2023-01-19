@@ -41,5 +41,6 @@ export const addAutoplayBtn = () => {
     disableAutoplayBtn.classList.toggle("hidden");
   }
 };
+
 enableAutoplayBtn.addEventListener("click", changeAutoplayMode);
 disableAutoplayBtn.addEventListener("click", changeAutoplayMode);
