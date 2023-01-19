@@ -13,7 +13,7 @@ const modalHtml = `
         <div class="star h-4 w-4 relative top-24 left-8"></div>
         <div class="star h-4 w-4 relative top-12 -left-16"></div>
       </div>
-      <div class="comet bg-white h-12 w-4 opacity-80 absolute rounded-full rotate-45"></div>
+      <div class="comet h-20 w-2"></div>
       <label for="drop-input" class="flex items-center gap-1 z-20" onclick="">
         <img src="../assets/bg.png" alt="" class="absolute bottom-0 left-0 h-44 aspect-auto z-50">
         <h1 class="text-white text-base border-2 border-white border-opacity-50 border-dashed py-4 px-12 rounded-md font-semibold relative z-10">Drop images here</h1>
@@ -53,9 +53,9 @@ const modalHtml = `
 </div>
 </div>
 <h2 class="terms text-white text-xs"> By creating a post, you agree to Imgur's
-<a href="http://" class="text-textGreen font-semibold"> Terms of Service </a>
+<a href="https://imgur.com/tos" target="_blank" class="text-textGreen font-semibold"> Terms of Service </a>
  and
- <a href="http://" class="text-textGreen font-semibold"> Privacy Policy </a>
+ <a href="https://imgur.com/privacy" target="_blank" class="text-textGreen font-semibold"> Privacy Policy </a>
 </h2>
 `;
 let overlayModal = document.querySelector(".overlay");

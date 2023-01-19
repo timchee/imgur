@@ -2,7 +2,7 @@ let animationDiv = document.querySelector('.animation-div')
 
 setTimeout(() => {
     animationDiv.style.display = "none";
-  }, 7000);
+  }, 6200);
   
 
 const  playAnimationOnFirstLoad = () => {
