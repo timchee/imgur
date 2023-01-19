@@ -1,5 +1,5 @@
 const footerHtml = `    <div class="footer-items w-3/4">
-<p class=""><b>	&copy; 2022 Imgur, Inc </b></p>
+<p class=""><b>	&copy; 2023 Imgur, Inc </b></p>
 <a href="https://imgurinc.com/about">About</a>
 <a href="https://imgur.com/tos">Terms</a>
 <a href="https://imgur.com/privacy">Privacy</a>

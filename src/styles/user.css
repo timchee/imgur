@@ -133,6 +133,10 @@
     transform: translateY(5%);
 }
 
+#nav{
+    transform: translateY(7%);
+}
+
 
 
 @media only screen and (max-width: 600px) {
@@ -158,6 +162,7 @@
         gap: 10px;
         justify-content: center;
         margin: 0;
+        margin-top: 10px;
     }
 
     .profile-data-container{
@@ -172,7 +177,7 @@
     }
 
     .profile-data-container p{
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bolder;
     }
     
@@ -180,5 +185,27 @@
     .profile-data h2{
         font-size: 30px;
         font-weight: 900;
+    }
+
+    #pg .pg .user-about-trophies .trophy-container{
+        flex-direction: column;
+    }
+
+    #nav p{
+        font-size: 14px;
+    }
+
+    #pg .pg .user-about{
+        display: grid;
+        grid-template-columns: 45% 45%;
+        margin-top: 10px;
+        gap: 50px;
+    }
+    
+    #pg .pg .user-about-sidebar{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 25px;
     }
 }
