@@ -90,7 +90,7 @@ input[type="text"]::-ms-clear {
   height: 0;
 }
 
- .profile-menu::before {
+ .profile-menu::before, .floating-menu::before {
   content: :'';
   position: absolute;
   top: -18px;
@@ -103,7 +103,7 @@ input[type="text"]::-ms-clear {
 }
 
 @media screen and (max-width: 640px) {
-  .profile-menu::before {
+  .profile-menu::before, .floating-menu::before {
     border-color: transparent transparent #29051c transparent;
   }
 }
@@ -185,10 +185,12 @@ input[type="text"]::-ms-clear {
 }
 
 .comet {
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
   transform: translate(-400px, 400px) rotate(45deg);
-  clip-path: ellipse(10% 50% at 50% 50%);
   opacity: 0;
 }
+
 
 .dragover .comet {
   opacity: 1;
@@ -286,4 +288,12 @@ input[type="text"]::-ms-clear {
 .su-gradient {
   background: linear-gradient(27.53deg, #6913fe -0.37%, #2078fe 68.56%);
   box-shadow: 0 11px 17px -4px rgba(0, 0, 0, 0.52);
+}
+
+/* Header in user page */
+
+.bgPosition{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

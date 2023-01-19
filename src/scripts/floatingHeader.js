@@ -16,8 +16,8 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
     <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" class="floating-img" />
   </a>
 </button>
-  <input type="button" class="floating-avatar open-menu avatar bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9">
-  <menu class="profile-menu w-64 sm:w-36 text-white text-lg bg-dropdown rounded-md  absolute top-20 right-2  hidden flex-col z-30">
+  <input type="button" class="floating-avatar bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9">
+    <menu class="floating-menu w-64 sm:w-36 text-white text-lg bg-dropdown rounded-md  absolute top-20 right-2  hidden flex-col z-30">
     <div class="h-24 bg-cover flex flex-col sm:hidden  p-4 rounded-t-md" style="background-image: url(&quot;https://imgur.com/user/vjenditapllana/cover&quot;);">
     <div class="flex items-center justify-between">
       <input type="button"
@@ -40,27 +40,27 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
     </div>
     <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+      <a href="http://localhost:5500/src/pages/user.html">
           Posts
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+      <a href="http://localhost:5500/src/pages/user.html">
           Favorites
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+      <a href="http://localhost:5500/src/pages/user.html">
           Comments
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+      <a href="http://localhost:5500/src/pages/user.html">
           About
         </a>
       </li>
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="">
+      <a href="http://localhost:5500/src/pages/user.html">
         Images
       </a>
     </li>
@@ -150,6 +150,16 @@ const addListeners = () => {
     previousScrollTop = scrollTop;
   });
 };
+let clickCount = 0;
+const goToUserPage = (avatar) => {
+  avatar.addEventListener('click', () => {
+    clickCount++;
+    console.log(clickCount)
+    if (clickCount === 2) {
+      window.location.href = "http://localhost:5500/src/pages/user.html";
+    }
+  });
+};
 
 export const addFloatingHeader = () => {
   floatingHeader.innerHTML += floatingHeaderHtml;
@@ -161,18 +171,12 @@ export const addFloatingHeader = () => {
       item.style.display = "none";
     }
   };
-  let btns = document.querySelectorAll(".open-menu");
-  let profileMenus = document.querySelectorAll(".profile-menu");
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      profileMenus.forEach((menu) => {
-        showAndHide(menu);
-      });
+  let floatBtn = document.querySelector(".floating-avatar");
+  let floatMenu = document.querySelector(".floating-menu");
+  floatBtn.addEventListener("click", () => {
+        showAndHide(floatMenu);
     });
-  });
 
-  profileMenus.forEach((menu) => {
-    menu.style.display = "none";
-  });
   addListeners();
+  goToUserPage(floatBtn)
 };
