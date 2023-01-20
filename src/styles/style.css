@@ -5,34 +5,34 @@
 @import url("animation.css");
 @import url("user.css");
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 * {
   font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
     sans-serif;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-.header-container, .background{
+.header-container,
+.background {
   background: url(../assets/Press_Page.jpg) no-repeat;
   background-size: cover;
 }
 
-.header-container{
-  background-position: center top; 
+.header-container {
+  background-position: center top;
 }
 
-.background{
-  background-position: center; 
+.background {
+  background-position: center;
 }
 
-.overlay{
+.overlay {
   background-attachment: fixed;
-  background-position: center bottom; 
+  background-position: center bottom;
   background-size: cover;
 }
-
 
 h1 {
   color: #aed8ea;
@@ -90,8 +90,9 @@ input[type="text"]::-ms-clear {
   height: 0;
 }
 
- .profile-menu::before, .floating-menu::before {
-  content: :'';
+.profile-menu::before,
+.floating-menu::before {
+  content: "";
   position: absolute;
   top: -18px;
   right: 16px;
@@ -103,7 +104,8 @@ input[type="text"]::-ms-clear {
 }
 
 @media screen and (max-width: 640px) {
-  .profile-menu::before, .floating-menu::before {
+  .profile-menu::before,
+  .floating-menu::before {
     border-color: transparent transparent #29051c transparent;
   }
 }
@@ -186,11 +188,14 @@ input[type="text"]::-ms-clear {
 
 .comet {
   clip-path: polygon(50% 100%, 0 0, 100% 0);
-  background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: translate(-400px, 400px) rotate(45deg);
   opacity: 0;
 }
-
 
 .dragover .comet {
   opacity: 1;
@@ -244,7 +249,6 @@ input[type="text"]::-ms-clear {
   }
 }
 
-
 #next-btn > *,
 #previous-btn > * {
   transition: all 500ms ease;
@@ -292,7 +296,7 @@ input[type="text"]::-ms-clear {
 
 /* Header in user page */
 
-.bgPosition{
+.bgPosition {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

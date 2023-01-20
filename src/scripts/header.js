@@ -168,13 +168,13 @@ const headerHtml = `
         Settings
       </a>
     </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-         <a href="" class="flex items-center gap-2">
+      <li class="hover:bg-searchBar px-6 py-1" id="sign-out">
+         <p class="flex items-center gap-2">
           <span class="material-symbols-outlined text-sm">
             mode_off_on
             </span>
           Sign out
-        </a>
+        </p>
       </li>
     </ul>
   </menu>
@@ -193,149 +193,167 @@ export const addHeader = () => {
   let menuBtn = document.querySelector(".nav-menu");
   let mobileMenu = document.querySelector(".menu");
 
-  showAndHide(btn, profileMenu)
-  showAndHide(menuBtn, mobileMenu) 
-    if (floatBtn != null && floatMenu != null) {
-    showAndHide(floatBtn, floatMenu) 
+  showAndHide(btn, profileMenu);
+  showAndHide(menuBtn, mobileMenu);
+  if (floatBtn != null && floatMenu != null) {
+    showAndHide(floatBtn, floatMenu);
   }
-  goToUserPage(avatar)
-
+  goToUserPage(avatar);
+  document.getElementById("sign-out").addEventListener("click", signOut);
 };
 
 export const handleHeader = () => {
-  let header = document.querySelector(".header")
-  let imgur = document.querySelector(".Navbar-logo-container")
-  let search = document.querySelector(".search-form")
-  let floatingSearch = document.querySelector(".floating-search")
-  let newPostBtn = document.querySelector(".new-post")  
-  let giftBtn = document.querySelector('.gift')
-  let chatBtn = document.querySelector('.chat')
-  let bellBtn = document.querySelector('.notification')
-  let username = document.querySelector(".username")
-  let logoImg = document.querySelector(".logoImg")
-  let headerContainer = document.querySelector(".header-container")
+  let header = document.querySelector(".header");
+  let imgur = document.querySelector(".Navbar-logo-container");
+  let search = document.querySelector(".search-form");
+  let floatingSearch = document.querySelector(".floating-search");
+  let newPostBtn = document.querySelector(".new-post");
+  let giftBtn = document.querySelector(".gift");
+  let chatBtn = document.querySelector(".chat");
+  let bellBtn = document.querySelector(".notification");
+  let username = document.querySelector(".username");
+  let logoImg = document.querySelector(".logoImg");
+  let headerContainer = document.querySelector(".header-container");
   const tags = document.querySelector("#tags");
 
-  observeHeader(imgur, header, headerContainer, newPostBtn, search, giftBtn, chatBtn, bellBtn, username, logoImg)
-  addListeners(tags, headerContainer, floatingSearch)
-}
+  observeHeader(
+    imgur,
+    header,
+    headerContainer,
+    newPostBtn,
+    search,
+    giftBtn,
+    chatBtn,
+    bellBtn,
+    username,
+    logoImg
+  );
+  addListeners(tags, headerContainer, floatingSearch);
+};
 const showAndHide = (button, menu) => {
-
-  button.addEventListener('click', (e) => {
-    e.stopPropagation()
-    if(!menu.classList.contains('flex')) {
-      menu.classList.add('flex')
-      menu.classList.remove('hidden')
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (!menu.classList.contains("flex")) {
+      menu.classList.add("flex");
+      menu.classList.remove("hidden");
     } else {
-      menu.classList.remove('flex')
-      menu.classList.add('hidden')
-    } 
-  })
+      menu.classList.remove("flex");
+      menu.classList.add("hidden");
+    }
+  });
 
-  window.addEventListener('click', () => {
-    if (menu.classList.contains('flex')) {
-      menu.classList.remove('flex')
-      menu.classList.add('hidden')
-    } 
-  })
-
+  window.addEventListener("click", () => {
+    if (menu.classList.contains("flex")) {
+      menu.classList.remove("flex");
+      menu.classList.add("hidden");
+    }
+  });
 };
 
 let options = {
-  threshold: '0.2'
-}
+  threshold: "0.2",
+};
 
-
-
-const observeHeader = (imgur, header, headerContainer, newPostBtn, search,  giftBtn, chatBtn, bellBtn, username, logoImg) => {
- const headerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+const observeHeader = (
+  imgur,
+  header,
+  headerContainer,
+  newPostBtn,
+  search,
+  giftBtn,
+  chatBtn,
+  bellBtn,
+  username,
+  logoImg
+) => {
+  const headerObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) {
-        header.classList.add('background')
-        imgur.classList.add('invisible')
-        newPostBtn.classList.add('invisible')
-        search.classList.add('invisible')
-        giftBtn.classList.add('invisible')
-        chatBtn.classList.add('invisible')
-        bellBtn.classList.add('invisible')
-        username.classList.add('invisible')
-        logoImg.classList.remove('hidden')
-        header.classList.add('shadow-lg')
+        header.classList.add("background");
+        imgur.classList.add("invisible");
+        newPostBtn.classList.add("invisible");
+        search.classList.add("invisible");
+        giftBtn.classList.add("invisible");
+        chatBtn.classList.add("invisible");
+        bellBtn.classList.add("invisible");
+        username.classList.add("invisible");
+        logoImg.classList.remove("hidden");
+        header.classList.add("shadow-lg");
         // newPostBtn.classList.add('sm:hidden')
       } else {
-        header.classList.remove('background')
-        header.classList.remove('shadow-lg')
-        imgur.classList.remove('invisible')
-        newPostBtn.classList.remove('invisible')
-        search.classList.remove('invisible')
-        giftBtn.classList.remove('invisible')
-        chatBtn.classList.remove('invisible')
-        bellBtn.classList.remove('invisible')
-        username.classList.remove('invisible')
-        logoImg.classList.add('hidden')
+        header.classList.remove("background");
+        header.classList.remove("shadow-lg");
+        imgur.classList.remove("invisible");
+        newPostBtn.classList.remove("invisible");
+        search.classList.remove("invisible");
+        giftBtn.classList.remove("invisible");
+        chatBtn.classList.remove("invisible");
+        bellBtn.classList.remove("invisible");
+        username.classList.remove("invisible");
+        logoImg.classList.add("hidden");
         // newPostBtn.classList.remove('sm:hidden')
       }
-    })
-  }, options)
-  headerObserver.observe(headerContainer)
- }
+    });
+  }, options);
+  headerObserver.observe(headerContainer);
+};
 
- const tags = document.querySelector("#tags");
+const tags = document.querySelector("#tags");
 
- const addListeners = (tags, headerContainer, floatingSearch) => {
-   window.addEventListener("scroll", function () {
-     const scrollTop = window.scrollY;
-     if (headerContainer.style.height < '400px') {
-       if (scrollTop < 330) {
-         floatingSearch.classList.remove("lg:flex");
-         floatingSearch.classList.add("lg:invisible");
-       } else {
-         floatingSearch.classList.add("lg:flex");
-         floatingSearch.classList.remove("lg:invisible");
-       }
-     } else {
- 
-       if (scrollTop < 770) {
-         floatingSearch.classList.remove("lg:flex");
-         floatingSearch.classList.add("lg:invisible");
-       } else {
-         floatingSearch.classList.add("lg:flex");
-         floatingSearch.classList.remove("lg:invisible");
-       }
-     }
-   });
- 
- 
-   window.addEventListener("scroll", function () {
-     // get the current scroll position
-     const scrollTop = window.scrollY;
- 
-     if (headerContainer.style.height < '400px') {
-       // check if the element is scrolling downwards
-       if (scrollTop <= 180) {
-         headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
-       } 
-     } else {
-       // check if the element is scrolling upwards
-       // check if the element is scrolling downwards
-       if (scrollTop <= 220) {
-         headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
-       } 
- 
-     }
-     // update the previous scroll position
-     previousScrollTop = scrollTop;
-   });
-   };
+const addListeners = (tags, headerContainer, floatingSearch) => {
+  window.addEventListener("scroll", function () {
+    const scrollTop = window.scrollY;
+    if (headerContainer.style.height < "400px") {
+      if (scrollTop < 330) {
+        floatingSearch.classList.remove("lg:flex");
+        floatingSearch.classList.add("lg:invisible");
+      } else {
+        floatingSearch.classList.add("lg:flex");
+        floatingSearch.classList.remove("lg:invisible");
+      }
+    } else {
+      if (scrollTop < 770) {
+        floatingSearch.classList.remove("lg:flex");
+        floatingSearch.classList.add("lg:invisible");
+      } else {
+        floatingSearch.classList.add("lg:flex");
+        floatingSearch.classList.remove("lg:invisible");
+      }
+    }
+  });
 
+  window.addEventListener("scroll", function () {
+    // get the current scroll position
+    const scrollTop = window.scrollY;
 
-   let clickCount = 0;
-   const goToUserPage = (avatar) => {
-     avatar.addEventListener('click', () => {
-       clickCount++;
-       if (clickCount === 2) {
-         window.location.href = "http://localhost:5500/src/pages/user.html";
-       }
-     });
-   };
-   
+    if (headerContainer.style.height < "400px") {
+      // check if the element is scrolling downwards
+      if (scrollTop <= 180) {
+        headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+      }
+    } else {
+      // check if the element is scrolling upwards
+      // check if the element is scrolling downwards
+      if (scrollTop <= 220) {
+        headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+      }
+    }
+    // update the previous scroll position
+    previousScrollTop = scrollTop;
+  });
+};
+
+let clickCount = 0;
+const goToUserPage = (avatar) => {
+  avatar.addEventListener("click", () => {
+    clickCount++;
+    if (clickCount === 2) {
+      window.location.href = "http://localhost:5500/src/pages/user.html";
+    }
+  });
+};
+
+const signOut = () => {
+  localStorage.setItem("loggedIn", false);
+  window.location = "./login.html";
+};

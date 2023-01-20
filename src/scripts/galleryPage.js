@@ -4,6 +4,7 @@ import { singleSidebarPost } from "./sidebarPost.js";
 import { getData } from "./addGalleryImages.js";
 import { addFooter } from "./footer.js";
 import { addModal, uploadByURL, uploadFromPC, uploadOnDrag } from "./modal.js";
+import { addEngagementBar } from "./engagementBar.js";
 
 let postIds = [];
 const addSidebarPosts = async () => {
@@ -28,68 +29,10 @@ addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+addEngagementBar();
 
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 await addSidebarPosts();
-
-const upvoteBtn = document.querySelector(".upvote");
-const downvoteBtn = document.querySelector(".downvote");
-const favoriteBtn = document.querySelector(".favorite");
-
-const body = document.querySelector("body");
-const upvoteBanner = document.querySelector("#upvote-banner");
-upvoteBtn.addEventListener(
-  "click",
-  (e) => {
-    e.stopPropagation();
-    upvoteBanner.classList.toggle("hidden");
-    downvoteBanner.classList.add("hidden");
-    favoriteBanner.classList.add("hidden");
-
-    body.addEventListener("click", (event) => {
-      event.stopPropagation();
-      console.log(body);
-      upvoteBanner.classList.add("hidden");
-    });
-  },
-  { capture: false }
-);
-
-const downvoteBanner = document.querySelector("#downvote-banner");
-downvoteBtn.addEventListener(
-  "click",
-  (e) => {
-    e.stopPropagation();
-    downvoteBanner.classList.toggle("hidden");
-    upvoteBanner.classList.add("hidden");
-    favoriteBanner.classList.add("hidden");
-
-    body.addEventListener("click", (event) => {
-      event.stopPropagation();
-      console.log(body);
-      downvoteBanner.classList.add("hidden");
-    });
-  },
-  { capture: false }
-);
-
-const favoriteBanner = document.querySelector("#favorite-banner");
-favoriteBtn.addEventListener(
-  "click",
-  (e) => {
-    e.stopPropagation();
-    favoriteBanner.classList.toggle("hidden");
-    upvoteBanner.classList.add("hidden");
-    downvoteBanner.classList.add("hidden");
-
-    body.addEventListener("click", (event) => {
-      event.stopPropagation();
-      console.log(body);
-      favoriteBanner.classList.add("hidden");
-    });
-  },
-  { capture: false }
-);
 
 const hd = document.querySelector(".pp-header");
 const logo = document.querySelector(".logoImg");
@@ -123,24 +66,23 @@ const headerObserver = new IntersectionObserver((entries) => {
 headerObserver.observe(title);
 
 let options = {
-    rootMargin: '-85px'
-}
+  rootMargin: "-85px",
+};
 const postObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-            search.classList.add('invisible')
-            floatTitle.classList.remove('invisible')
-            search.style.transform = 'translateY(40px)'
-            floatTitle.style.transform = 'translateY(-20px)'
-
-        } else {
-          floatTitle.classList.add('invisible')
-          search.classList.remove('invisible')
-          search.style.transform = 'translateY(0px)'
-          floatTitle.style.transform = 'translateY(40px)'
-        }
-    })
-}, options)
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      search.classList.add("invisible");
+      floatTitle.classList.remove("invisible");
+      search.style.transform = "translateY(40px)";
+      floatTitle.style.transform = "translateY(-20px)";
+    } else {
+      floatTitle.classList.add("invisible");
+      search.classList.remove("invisible");
+      search.style.transform = "translateY(0px)";
+      floatTitle.style.transform = "translateY(40px)";
+    }
+  });
+}, options);
 
 postObserver.observe(title);
 addFooter();

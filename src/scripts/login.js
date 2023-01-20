@@ -1,10 +1,9 @@
-document.getElementById("sign-in").addEventListener("click", function userInfo() {
+const login = () => {
+  localStorage.setItem("loggedIn", true);
+  const email = document.getElementById("email").value;
+  const username = email.split("@")[0];
+  localStorage.setItem("username", username);
+  window.history.back();
+};
 
-    var emai = document.getElementById("email").value;
-    var pass = document.getElementById("password").value;
-    
-    
-
-    console.log(`UserName: ${emai}`);
-    console.log(`Password: ${pass}`);
-})
+document.getElementById("sign-in").addEventListener("click", login);
