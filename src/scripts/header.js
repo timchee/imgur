@@ -219,6 +219,7 @@ export const handleHeader = () => {
   observeHeader(imgur, header, headerContainer, newPostBtn, search, giftBtn, chatBtn, bellBtn, username, logoImg)
   addListeners(tags, headerContainer, floatingSearch)
 }
+
 const showAndHide = (button, menu) => {
 
   button.addEventListener('click', (e) => {

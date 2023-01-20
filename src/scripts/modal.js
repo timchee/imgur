@@ -1,12 +1,12 @@
 const modalHtml = `
-<div class="modal-container w-3/5 h-2/5 shadow-md flex relative">
-<div class="x w-10 h-10 bg-modalCl hover:bg-settings cursor-pointer rounded-full shadow-lg absolute -top-5 -right-5 flex items-center justify-center">
+<div class="modal-container w-full h-auto shadow-md flex relative">
+<div class="x w-10 h-10 bg-modalCl hover:bg-settings cursor-pointer rounded-full shadow-lg absolute -top-5 -right-5 z-10 flex items-center justify-center">
   <span class="material-symbols-outlined text-3xl text-white">
     close
     </span>
 </div>
-<div class="modal w-full h-full rounded-md bg-modalCl shadow-md flex">
-  <div class="drop w-1/2 h-full flex rounded-l-md justify-center items-center relative overflow-hidden">
+<div class="modal w-full h-full sm:h-full rounded-md bg-modalCl shadow-md flex flex-col sm:flex-row overflow-hidden">
+  <div class="drop w-full h-[200px] md:w-1/2 flex sm:h-[280px] md:h-full  rounded-l-md justify-center items-center relative overflow-hidden">
       <div class="stars absolute -top-4 -right-8 h-20 w-40 flex">
         <div class="star h-12 w-12 relative top-24 -left-16 rounded-sm opacity-40"></div>
         <div class="star h-4 w-4 relative top-10 -left-40"></div>
@@ -15,12 +15,12 @@ const modalHtml = `
       </div>
       <div class="comet h-20 w-2"></div>
       <label for="drop-input" class="flex items-center gap-1 z-20" onclick="">
-        <img src="../assets/bg.png" alt="" class="absolute bottom-0 left-0 h-44 aspect-auto z-50">
-        <h1 class="text-white text-base border-2 border-white border-opacity-50 border-dashed py-4 px-12 rounded-md font-semibold relative z-10">Drop images here</h1>
+        <img src="../assets/bg.png" alt="" class="absolute bottom-0 left-0 h-24 sm:h-44 aspect-auto z-50">
+        <h1 class="text-white text-sm sm:text-base border-2 border-white border-opacity-50 border-dashed py-4 px-12 rounded-md font-semibold relative z-10">Drop images here</h1>
       </label>
       <input type="file" id="drop-input" name="drop-input" class="input h-full w-full bg-btnColor-1 absolute z-10 rounded-md hidden">
   </div>
-  <div class="add w-1/2 h-full p-10 self-center flex flex-col items-center  justify-between text-white">
+  <div class="add w-full md:w-1/2 h-[280px] md:h-full px-0 py-10 md:p-10 self-center flex flex-col items-center  justify-between gap-6 text-white">
     <div class="h-auto flex flex-col justify-between items-center gap-4">
       <label for="file-input" class="flex items-center gap-1" onclick="show">
         <img src="https://s.imgur.com/desktop-assets/desktop-assets/icon-photo.1ded6245836b46ed24022036f33a84e8.svg" alt="">
@@ -32,27 +32,27 @@ const modalHtml = `
         <p class="inline-block text-[12px] font-semibold">or</p>
         <span class="h-[1px] w-10 bg-gray-200 inline-block"></span>
       </div>
-      <input type="url" name="paste" id="paste" placeholder="" value="Paste image or URL" class="px-20 py-2 flex justify-center text-sm text-center bg-gray-900 rounded-sm">
+      <input type="url" name="paste" id="paste" placeholder="" value="Paste image or URL" class="lg:px-10 py-2 flex justify-center text-sm text-center bg-gray-900 rounded-sm w-full">
     </div>
-    <div class="extras flex w-3/4 justify-between">
+    <div class="extras flex w-3/4 justify-center gap-2 sm:gap-4">
         <div class="flex flex-col items-center text-sm gap-2 transition ease-in-out hover:opacity-75">
           <div class="w-8 h-8 bg-[url(https://s.imgur.com/desktop-assets/desktop-assets/meme.d410b11bc6ba72ecb8b3992971fba0a8.svg)] rounded-sm"></div>
-          <p>Meme Gen</p>
+          <p class="whitespace-nowrap">Meme Gen</p>
         </div>
         <a href="https://imgur.com/vidgif" class="flex flex-col items-center text-sm gap-2 transition ease-in-out hover:opacity-75">
             <div class="w-8 h-8 rounded-sm bg-[url(https://s.imgur.com/desktop-assets/desktop-assets/vid2gif.30286dc6c4e6d0c822073e0228dc3a4f.svg)] bg-contain">
             </div>
-            <p>Video to GIF</p>
+            <p class="whitespace-nowrap">Video to GIF</p>
         </a>
         <div class="flex flex-col items-center text-sm gap-2 transition ease-in-out hover:opacity-75">
           <div class="w-8 h-8 rounded-sm bg-[url(https://s.imgur.com/desktop-assets/desktop-assets/browse.fcd082e3eb7f93767b2b9edb7b3f1c2a.svg)]"></div>
-          <p>My Uploads</p>
+          <p class="whitespace-nowrap">My Uploads</p>
         </div>
     </div>
   </div>
 </div>
 </div>
-<h2 class="terms text-white text-xs"> By creating a post, you agree to Imgur's
+<h2 class="terms text-white text-xs text-center"> By creating a post, you agree to Imgur's
 <a href="https://imgur.com/tos" target="_blank" class="text-textGreen font-semibold"> Terms of Service </a>
  and
  <a href="https://imgur.com/privacy" target="_blank" class="text-textGreen font-semibold"> Privacy Policy </a>
