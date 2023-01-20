@@ -237,7 +237,10 @@
 
           <!-- Load more comments button -->
           <div class="hidden sm:flex justify-center items-center pt-4">
-            <button class="transition-all mx-auto border-blue border-2 hover:bg-blue px-4 py-2 rounded-sm" id="load-more-comments">Load more comments</button>
+            <button class="relative mx-auto border-blue border-2 px-4 py-2 rounded-sm group" id="load-more-comments">
+              <div class="absolute inset-0 scale-0 bg-blue group-hover:scale-100 transition-all 4s"></div>
+              <p class="relative z-10">Load more comments</p>
+            </button>
           </div>
 
           </div>
