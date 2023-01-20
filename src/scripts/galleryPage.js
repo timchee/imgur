@@ -5,6 +5,7 @@ import { getData } from "./addGalleryImages.js";
 import { addFooter } from "./footer.js";
 import { addModal, uploadByURL, uploadFromPC, uploadOnDrag } from "./modal.js";
 import { addEngagementBar } from "./engagementBar.js";
+import { avatarImages } from "./avatarImages.js";
 
 let postIds = [];
 const addSidebarPosts = async () => {
@@ -29,8 +30,14 @@ addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
-addEngagementBar();
 
+const loggedIn = localStorage.getItem("loggedIn");
+if (loggedIn) {
+  document.querySelector("#sign-in-to-comment").classList.add("hidden");
+  document.querySelector("#leave-a-comment").classList.remove("hidden");
+}
+
+addEngagementBar();
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 await addSidebarPosts();
 
@@ -86,3 +93,42 @@ const postObserver = new IntersectionObserver((entries) => {
 
 postObserver.observe(title);
 addFooter();
+
+const postCommentBtn = document.querySelector("#post-comment");
+const textarea = document.querySelector("textarea");
+textarea.addEventListener("input", () => {
+  if (textarea.value == "") {
+    postCommentBtn.classList.add("bg-gray-700");
+    postCommentBtn.classList.remove("bg-btnColor-1");
+    postCommentBtn.setAttribute("disabled", "");
+  } else {
+    postCommentBtn.classList.remove("bg-gray-700");
+    postCommentBtn.classList.add("bg-btnColor-1");
+    postCommentBtn.removeAttribute("disabled");
+  }
+});
+postCommentBtn.addEventListener("click", () => {
+  const commentsDiv = document.getElementById("comments");
+  const username = localStorage.getItem("username");
+  const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
+  const commentHtml = `
+  <div class="comment">
+  <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
+    <img src=${avatarImages[firstLetter]} class="bg-btnColor-1 shrink-0 w-6 h-6 rounded-full sm:top-0"></img>
+    <div class="flex flex-col gap-2">
+      <p class="pt-1 text-gray-200 font-bold tracking-wide sm:text-btnColor-1 sm: sm:top-1">${username}</p>
+      <div class="sm:mt-2 sm:left-0 font-medium text-sm tracking-wide first-letter:uppercase">${textarea.value}</div>
+      <div class="flex items-center gap-6 py-1">
+        <p class="text-gray-900"> <img src="../assets/upvote.svg" class="w-4 h-4" /></p>
+        <p class="text-white text-xs font-medium">0</p>
+        <img src="../assets/downvote.svg" class="w-4 h-4" />
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
+</div>
+  `;
+  commentsDiv.innerHTML = commentHtml + commentsDiv.innerHTML;
+
+  console.log(textarea.value);
+});

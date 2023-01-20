@@ -202,13 +202,21 @@
         </div>
 
         <div 
-             class="flex justify-between items-center border border-gray-500 rounded py-2.5 px-4 w-full mt-4 mb-12" id="">
+             class="flex justify-between items-center border border-gray-500 rounded py-2.5 px-4 w-full mt-4 mb-12" id="sign-in-to-comment">
            <p class="text-gray-200 text-xs sm:text-sm">Sign in to leave a comment</p>
            <div class="flex gap-2 text-white font-semibold text-xs">
             <button class="tracking-wider"> <a href="./login.html">Sign in</a></button>
             <button class="bg-btnColor-1 px-2 py-1 rounded-md tracking-wider"><a href="./signUp.html">Sign up</a></button>
           </div>
         </div> 
+        
+        <div  class="flex flex-col justify-between items-center border border-gray-500 rounded w-full mt-4 mb-12 text-gray-100 hidden"  id="leave-a-comment">
+           <textarea class="bg-gray-700 w-full resize-none p-2  outline-none text-sm  placeholder-gray-100"  placeholder="Write a comment" rows="4"></textarea>
+           <div class="flex justify-between items-center w-full p-2 text-xs">
+            <a href="https://imgur.com/rules" class=" hover:text-btnColor-1">Read community rules</a>
+            <button class="py-1 px-4 bg-gray-700 rounded font-semibold" id="post-comment" disabled>Post</button>
+           </div>
+        </div>
 
 
         <div class="comments hidden sm:block">
