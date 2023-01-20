@@ -5,6 +5,8 @@ import { addHeader } from "./header.js";
 import { addFloatingHeader } from "./floatingHeader.js";
 import changeLayout from "./changeLayout.js";
 import { changeAutoplayMode, addAutoplayBtn } from "./changeAutoplayMode.js";
+import { addFooter } from "./footer.js";
+
 if (localStorage.getItem("autoplayEnabled") == null) {
   localStorage.setItem("autoplayEnabled", false);
 }
@@ -17,3 +19,4 @@ uploadOnDrag();
 uploadFromPC();
 uploadByURL();
 addAutoplayBtn();
+addFooter();

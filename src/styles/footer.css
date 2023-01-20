@@ -1,5 +1,4 @@
 .footer {
-  display: flex;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -31,7 +30,7 @@
 }
 
 .footer .footer-items {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   color: #b4b9c2;
   gap: 30px;
@@ -41,48 +40,47 @@
   color: #b4b9c2;
 }
 
-.footer .footer-app{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 45px;
-    /* width: 10%; */
-    background-color: #474a51;
-    color: white;
+.footer .footer-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 45px;
+  /* width: 10%; */
+  background-color: #474a51;
+  color: white;
 }
 
-.ellipsis{
-    right: 166px;
+.ellipsis {
+  right: 166px;
 }
-@media screen and (max-width:420px) {
-    .footer, .footer .footer-app{
-        padding: 0px 14px;
-    }
+@media screen and (max-width: 420px) {
+  .footer,
+  .footer .footer-app {
+    padding: 0px 14px;
+  }
 
-    .ellipsis{
-        right: 106px;
-    }
-
-
+  .ellipsis {
+    right: 106px;
+  }
 }
 #scroll-btn {
-    position: fixed;
-    display: flex;
-    align-items: center; 
-    justify-content: start; 
-    bottom: -60px;
-    right: 25px;
-    width: 50px;
-    background-color: #474a51;
-    cursor: pointer;
-    border-radius: 4px;
-    overflow: hidden;
-    transition: width 1s;
-  }
-#scroll-btn:hover{
-    width: 160px;
-    height: 50px;
-    padding-right: 2px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  bottom: -60px;
+  right: 25px;
+  width: 50px;
+  background-color: #474a51;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: width 1s;
+}
+#scroll-btn:hover {
+  width: 160px;
+  height: 50px;
+  padding-right: 2px;
 }
 
 #scroll-btn svg {
