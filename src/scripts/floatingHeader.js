@@ -1,3 +1,6 @@
+import { avatarImages } from "./avatarImages.js";
+let url = sessionStorage.getItem("url");
+let username = sessionStorage.getItem("username")
 const header = document.querySelector(".header-container");
 const mainHeader = document.querySelector(".main-header");
 const floatingHeader = document.querySelector(".floating-header");
@@ -16,7 +19,7 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
     <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" class="floating-img" />
   </a>
 </button>
-  <input type="button" class="floating-avatar bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')] bg-contain self-end rounded-full w-9 h-9">
+  <input type="button" class="floating-avatar bg-btnColor-1 bg-contain self-end rounded-full w-9 h-9">
     <menu class="floating-menu w-64 sm:w-36 text-white text-lg bg-dropdown rounded-md  absolute top-20 right-2  hidden flex-col z-30">
     <div class="h-24 bg-cover flex flex-col sm:hidden  p-4 rounded-t-md" style="background-image: url(&quot;https://imgur.com/user/vjenditapllana/cover&quot;);">
     <div class="flex items-center justify-between">
@@ -74,7 +77,7 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
         Settings
       </a>
     </li>
-      <li class="hover:bg-searchBar px-6 py-1">
+      <li class="hover:bg-searchBar px-6 py-1" id="log-out">
          <a href="" class="flex items-center gap-2">
           <span class="material-symbols-outlined text-sm">
             mode_off_on
@@ -106,20 +109,6 @@ const headerObserver = new IntersectionObserver((entries) => {
     }
   });
 }, options);
-
-// const floatingHeaderObserver = new IntersectionObserver((entries) => {
-//         entries.forEach(entry => {
-//             console.log(entry.target)
-//         if (entry.isIntersecting) {
-//             floatingSearch.classList.add("transition")
-//             floatingSearch.classList.add("invisible")
-//         } else {
-//             floatingSearch.classList.remove("invisible")
-//         }
-//         })
-// })
-
-// floatingHeaderObserver.observe(mainHeader)
 
 const addListeners = () => {
   window.addEventListener("scroll", function () {
@@ -179,4 +168,33 @@ export const addFloatingHeader = () => {
 
   addListeners();
   goToUserPage(floatBtn)
+
+  if (sessionStorage.getItem('loggedIn') === "false") {
+    floatBtn.classList.add('hidden')
+  }
+
+  document.getElementById("log-out").addEventListener("click", signOut);
+  
+  addAvatar(floatBtn)
+
 };
+
+let href = window.location.href
+
+const signOut = (buttons, avatar, icons) => {
+  sessionStorage.setItem("loggedIn", false);
+  window.location = `${href}`;
+  buttons.classList.remove('hidden')
+  avatar.classList.add('hidden')
+  buttons.classList.add('flex')
+  icons.classList.add('hidden')
+};
+
+
+const addAvatar = (avatar) => {
+  const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
+  url = avatarImages[firstLetter];
+  sessionStorage.setItem("url", url);
+  avatar.style.backgroundImage = `url(${url})`;
+  console.log(avatar)
+}

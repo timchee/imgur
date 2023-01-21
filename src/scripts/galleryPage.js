@@ -31,7 +31,7 @@ uploadOnDrag();
 uploadFromPC();
 uploadByURL();
 
-const loggedIn = localStorage.getItem("loggedIn");
+const loggedIn = sessionStorage.getItem("loggedIn");
 if (loggedIn) {
   document.querySelector("#sign-in-to-comment").classList.add("hidden");
   document.querySelector("#leave-a-comment").classList.remove("hidden");
@@ -109,7 +109,7 @@ textarea.addEventListener("input", () => {
 });
 postCommentBtn.addEventListener("click", () => {
   const commentsDiv = document.getElementById("comments");
-  const username = localStorage.getItem("username");
+  const username = sessionStorage.getItem("username");
   const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
   const commentHtml = `
   <div class="comment">

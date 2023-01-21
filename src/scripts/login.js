@@ -1,9 +1,18 @@
+
+
+sessionStorage.setItem("loggedIn", false)
 const login = () => {
-  localStorage.setItem("loggedIn", true);
+  sessionStorage.setItem("loggedIn", true);
   const email = document.getElementById("email").value;
-  const username = email.split("@")[0];
-  localStorage.setItem("username", username);
+  let username = email.split("@")[0];
+  if (username === '') {
+    username = 'User'
+  }
+  sessionStorage.setItem("username", username);
   window.history.back();
+  
 };
 
 document.getElementById("sign-in").addEventListener("click", login);
+
+
