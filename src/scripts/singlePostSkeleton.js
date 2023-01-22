@@ -48,9 +48,9 @@ export default function singlePostSkeleton(
   const gradientStartColor = Math.floor(Math.random() * 6) + 1;
 
   //Posts' HTML
-  let post = `<div class="post ${titleLength} text-white rounded-sm overflow-hidden w-[300px] relative image-container" style="--span:${postHeight}" data-count= "${count}"id="${id}" onClick="window.location ='${path}'">  
-     <div class="w-[300px] bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" data-animated="${animated}" data-height="${height}" data-width="${width}" data-imageid = "${imageId}" data-objectFit = "${objectFit}" style = "height: ${imageHeight}px"></div>
-     <div class=" flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc">
+  let post = `<div class="post ${titleLength} text-white rounded-sm overflow-hidden sm:w-[300px] relative image-container" style="--span:${postHeight}" data-count= "${count}"id="${id}" onClick="window.location ='${path}'">  
+     <div class="sm:w-[300px] bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" data-animated="${animated}" data-height="${height}" data-width="${width}" data-imageid = "${imageId}" data-objectFit = "${objectFit}" style = "height: ${imageHeight}px"></div>
+     <div class=" flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc mb-2">
      <p class="text-sm font-medium overflow-hidden mb-3 title" style="width:260px">${title}</p>
      <div class="flex justify-between text-gray-200 text-xs font-medium ">      
      <p class="flex gap-1 items-center justify-center"> <span class= "hover:text-btnColor-1"><svg height="16" width="16">

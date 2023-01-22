@@ -355,5 +355,6 @@ const goToUserPage = (avatar) => {
 
 const signOut = () => {
   localStorage.setItem("loggedIn", false);
+  localStorage.removeItem("username");
   window.location = "./login.html";
 };

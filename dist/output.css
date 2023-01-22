@@ -820,6 +820,14 @@ video {
   margin-top: 0.25rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -1353,11 +1361,6 @@ video {
   border-color: rgb(71 74 81 / var(--tw-border-opacity));
 }
 
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(103 104 111 / var(--tw-border-opacity));
-}
-
 .border-blue {
   --tw-border-opacity: 1;
   border-color: rgb(74 88 251 / var(--tw-border-opacity));
@@ -1427,6 +1430,11 @@ video {
 .bg-btnColor-1 {
   --tw-bg-opacity: 1;
   background-color: rgb(27 183 110 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 53 59 / var(--tw-bg-opacity));
 }
 
 .bg-\[rgba\(0\2c 0\2c 0\2c \.2\)\] {
@@ -1520,11 +1528,6 @@ video {
 .bg-\[\#575d69\] {
   --tw-bg-opacity: 1;
   background-color: rgb(87 93 105 / var(--tw-bg-opacity));
-}
-
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 53 59 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'https\:\/\/imgur\.com\/user\/vjenditapllana\/avatar\'\)\] {
@@ -1923,11 +1926,6 @@ video {
   color: rgba(255,255,255,0.6);
 }
 
-.text-gray-400 {
-  --tw-text-opacity: 1;
-  color: rgb(103 104 111 / var(--tw-text-opacity));
-}
-
 .placeholder-inputTextColor::-moz-placeholder {
   color: #ffffffb3;
 }
@@ -1944,16 +1942,6 @@ video {
 .placeholder-gray-100::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(218 220 226 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-200::-moz-placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(141 146 154 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-200::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(141 146 154 / var(--tw-placeholder-opacity));
 }
 
 .caret-white {
@@ -2072,14 +2060,14 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.hover\:text-settings:hover {
-  --tw-text-opacity: 1;
-  color: rgb(86 95 110 / var(--tw-text-opacity));
-}
-
 .hover\:text-btnColor-1:hover {
   --tw-text-opacity: 1;
   color: rgb(27 183 110 / var(--tw-text-opacity));
+}
+
+.hover\:text-settings:hover {
+  --tw-text-opacity: 1;
+  color: rgb(86 95 110 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-75:hover {
@@ -2174,6 +2162,10 @@ video {
 
   .sm\:w-5\/6 {
     width: 83.333333%;
+  }
+
+  .sm\:w-\[300px\] {
+    width: 300px;
   }
 
   .sm\:flex-row {

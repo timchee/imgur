@@ -216,17 +216,14 @@ const addEventListeners = (
 export const addComments = async () => {
   const allComments = await getComments();
   const initialCommentsLoaded = 5;
-  const randomNumber = Math.random(); //this random number is used for generating random comment votes
   let commentsLoaded = initialCommentsLoaded;
   //Add initial comments
   const commentsAdded = await addInitialComments(
-    allComments.slice(0, initialCommentsLoaded),
-    randomNumber
+    allComments.slice(0, initialCommentsLoaded)
   );
   addEventListeners(
     allComments,
     commentsLoaded,
-    randomNumber,
     allComments.length,
     commentsAdded
   );
