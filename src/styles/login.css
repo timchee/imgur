@@ -113,10 +113,20 @@ font-weight: bold;
 .phoneNumber:hover{
 text-decoration: underline;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 280) {
   .container{
-    min-width: 40px;
-    max-width: 380px;
-    overflow: hidden;
+    width: 100vw !important;
+  }
+  .accounts{
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 90vw !important; */
+  }
+  .help{
+    /* width: 50%; */
+    width: 70%;
+  }
+  .info{
+    width: 90vw;
   }
 }
