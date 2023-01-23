@@ -95,12 +95,16 @@ let options = {
 const headerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     // console.log(entry.target)
+    let floatBtn = document.querySelector(".floating-avatar");
     if (!entry.isIntersecting) {
       mainHeader.classList.remove("sticky");
       floatingHeader.classList.remove("invisible");
       floatingHeader.classList.add("bg-bgColor");
       floatingHeader.classList.add("shadow-lg");
       floatingHeader.classList.add("shadow-[#000]");
+      if (sessionStorage.getItem('loggedIn') !== "true") {   
+        floatBtn.classList.add('hidden')
+      }
     } else {
       mainHeader.classList.add("sticky");
       floatingHeader.classList.add("invisible");

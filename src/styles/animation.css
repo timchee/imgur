@@ -160,3 +160,28 @@
         }
     }
 }
+
+
+/* Upload complete */
+
+.upload-complete{
+    animation: upload 4s ease-out 1s normal forwards;
+    opacity: 1;
+    visibility: hidden;
+
+    /* display: none; */
+}
+@keyframes upload {
+    0%{
+        visibility: visible;
+    }
+
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+}

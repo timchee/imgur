@@ -2,7 +2,6 @@ import { avatarImages } from "./avatarImages.js";
 let href;
 let url = sessionStorage.getItem("url");
 let username = sessionStorage.getItem("username")
-
 if (window.location.pathname[5] == undefined) {
   href = ``;
 } else {
@@ -118,10 +117,10 @@ const headerHtml = `
       notifications
       </span>
   </button>
-  <div class="open-menu gap-4 items-center hidden">
-  <h2 class="username hidden sm:block text-white font-sans font-medium text-start">${username}</h2>
+  <div class="open-menu gap-4 items-center hidden group">
+  <h2 class="username hidden sm:block text-white  cursor-pointer font-sans font-medium text-start">${username}</h2>
   <input type="button"
-    class="avatar bg-btnColor-1 bg-contain self-end rounded-full w-9 h-9"
+    class="avatar bg-btnColor-1 cursor-pointer group-hover:scale-105 bg-contain self-end rounded-full w-9 h-9"
   > 
   </input>
 </div>
@@ -219,7 +218,9 @@ export const addHeader = () => {
   goToUserPage(avatar);
   checkState(buttons, btn, icons)
   document.getElementById("sign-out").addEventListener("click", signOut);
-  addAvatar(avatar)
+  if (username !== null) {
+    addAvatar(avatar)
+  }
 };
 
 export const handleHeader = () => {
@@ -235,6 +236,7 @@ export const handleHeader = () => {
   let logoImg = document.querySelector(".logoImg");
   let headerContainer = document.querySelector(".header-container");
   const tags = document.querySelector("#tags");
+  let tagContainer = document.querySelector(".tag-container")
 
 
   observeHeader(
@@ -249,7 +251,7 @@ export const handleHeader = () => {
     username,
     logoImg
   );
-  addListeners(tags, headerContainer, floatingSearch);
+  addListeners(tagContainer, headerContainer, floatingSearch);
 };
 
 
@@ -274,7 +276,7 @@ const showAndHide = (button, menu) => {
 };
 
 let options = {
-  threshold: "0.2",
+  rootMargin: "-50px",
 };
 
 const observeHeader = (
@@ -301,7 +303,7 @@ const observeHeader = (
         bellBtn.classList.add("invisible");
         username.classList.add("invisible");
         logoImg.classList.remove("hidden");
-        if (sessionStorage.getItem("loggedIn") === "false") {
+        if (sessionStorage.getItem("loggedIn") !== "true") {
           buttons.classList.add("hidden");
         }
         header.classList.add("shadow-lg");
@@ -316,7 +318,7 @@ const observeHeader = (
         bellBtn.classList.remove("invisible");
         username.classList.remove("invisible");
         logoImg.classList.add("hidden");
-        if (sessionStorage.getItem("loggedIn") === "false") {
+        if (sessionStorage.getItem("loggedIn") !== "true") {
           buttons.classList.remove("hidden");
         }
       }
@@ -327,10 +329,10 @@ const observeHeader = (
 
 const tags = document.querySelector("#tags");
 
-const addListeners = (tags, headerContainer, floatingSearch) => {
+const addListeners = (tagContainer, headerContainer, floatingSearch) => {
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
-    if (headerContainer.style.height < "400px") {
+    if (tagContainer.clientHeight == "248") {
       if (scrollTop < 330) {
         floatingSearch.classList.remove("lg:flex");
         floatingSearch.classList.add("lg:invisible");
@@ -338,7 +340,7 @@ const addListeners = (tags, headerContainer, floatingSearch) => {
         floatingSearch.classList.add("lg:flex");
         floatingSearch.classList.remove("lg:invisible");
       }
-    } else {
+    } else if (tagContainer.clientHeight == "728") {
       if (scrollTop < 770) {
         floatingSearch.classList.remove("lg:flex");
         floatingSearch.classList.add("lg:invisible");
@@ -353,20 +355,20 @@ const addListeners = (tags, headerContainer, floatingSearch) => {
     // get the current scroll position
     const scrollTop = window.scrollY;
 
-    if (headerContainer.style.height < "400px") {
+    // if (headerContainer.style.height < "400px") {
       // check if the element is scrolling downwards
       if (scrollTop <= 180) {
         headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
       }
-    } else {
-      // check if the element is scrolling upwards
-      // check if the element is scrolling downwards
-      if (scrollTop <= 220) {
-        headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
-      }
-    }
-    // update the previous scroll position
-    previousScrollTop = scrollTop;
+    // }
+    // else {
+    //   // check if the element is scrolling upwards
+    //   // check if the element is scrolling downwards
+    //   if (scrollTop <= 220) {
+    //     headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+    //   }
+    // }
+
   });
 };
 
