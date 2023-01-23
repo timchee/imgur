@@ -1,33 +1,16 @@
-// const phoneInputField = document.querySelector("#phone");
-// const phoneInput = window.intlTelInput(phoneInputField, {
-//   utilsScript:
-//     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-// });
-// const info = document.querySelector(".alert-info");
+document.getElementById("next").addEventListener("click", function userInfo() {
 
-// function process(event) {
-//  event.preventDefault();
+    var userName = document.getElementById("username").value;
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("password").value;
+    var reTypePass = document.getElementById("retype-pass").value;
+    var tel = document.getElementById("tel").value;
+    
 
-//  const phoneNumber = phoneInput.getNumber();
+    console.log(`UserName: ${userName}`);
+    console.log(`Email: ${email}`);
+    console.log(`Password: ${pass}`);
+    console.log(`Retyped password: ${reTypePass}`);
+    console.log(`Tel: ${tel}`);
 
-//  info.style.display = "";
-//  info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-// }
-// function getIp(callback) {
-//  fetch('https://ipinfo.io/json?token=<your token>', { headers: { 'Accept': 'application/json' }})
-//    .then((resp) => resp.json())
-//    .catch(() => {
-//      return {
-//        country: 'us',
-//      };
-//    })
-//    .then((resp) => callback(resp.country));
-// }
-
-// const phoneInput = window.intlTelInput(phoneInputField, {
-//     initialCountry: "auto",
-//     geoIpLookup: getIp,
-//     utilsScript:
-//       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-//    });
-   
+})

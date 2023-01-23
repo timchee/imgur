@@ -12,8 +12,8 @@ function toggle(IDS) {
   }
 
   for (var i=0; i<a.length; i++) { 
-    if (a[i].id != IDS) { a[i].classList.remove('active-page');}
-    if (a[i].id == IDS) { a[i].classList.add('active-page');}
+    if (a[i].id != IDS) { a[i].classList.remove('active-page');a[i].classList.remove('font-bold');}
+    if (a[i].id == IDS) { a[i].classList.add('active-page');a[i].classList.add('font-bold');}
   }
   return false;
 }

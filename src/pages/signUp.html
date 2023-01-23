@@ -27,7 +27,7 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v3.0.1/css/line.css"
     />
-    <script src="signUp.js" defer></script>
+    <script src="../scripts/signUp.js" defer></script>
     <title>Register - Imgur</title>
   </head>
   <div class="back-to-imgur flex gap-x-2 p-4 items-center">
@@ -51,11 +51,11 @@
       "
     ></div>
 
-    <div class="container sign-in-with flex-col text-center w-1/2">
+    <div class="container sign-in-with flex-col text-center">
       <p class="text-white text-xs w-full text-center">Register with</p>
       <div class="w-full flex justify-center card">
         <div
-          class="accounts flex justify-center items-center text-center p-2 gap-5 bg-gray-800 rounded-md mt-2"
+          class="accounts flex flex-wrap justify-center items-center text-center p-2 gap-5 bg-gray-800 rounded-md mt-2"
         >
           <div
             class="facebook text-white h-10 flex items-center w-14 justify-center rounded-md"
@@ -85,18 +85,18 @@
           </div>
         </div>
       </div>
-      <div class="lines w-auto flex justify-center gap-x-2 items-center">
+      <div class="lines w-full flex justify-center gap-x-2 items-center">
         <div class="l-line w-32 h-[1px] mt-3"></div>
         <p class="with-imgur text-white text-xs mt-2">or with Imgur</p>
         <div class="r-line w-32 h-[1px] mt-3"></div>
       </div>
-      <div class="sign-in w-full h-auto flex-col mt-2">
+      <div class="sign-in h-auto flex-col mt-2">
         <div class="help">
-          <div class="info bg-gray-800 w-96 p-4 flex-col rounded-md">
+          <div class="info bg-gray-800 w-72 p-4 flex-col rounded-md">
             <input
               type="email"
               placeholder="Username"
-              id="email"
+              id="username"
               class="text-white"
             />
             <input
@@ -115,11 +115,13 @@
               <input
                 type="password"
                 placeholder="Retype password"
-                id="password"
+                id="retype-pass"
                 class="text-white border-0 rounded-md"
               />
             </div>
-            <input type="tel" class="mt-2" placeholder="Phone number" />
+            <input type="tel" class="mt-2 text-white" placeholder="Phone number" 
+            id="tel"
+            />
             <p class="text-gray-200 mt-2" style="font-size: 12px">
               Standard message and data rates may apply.
             </p>
@@ -136,7 +138,7 @@
             <a href="login.html" class="text-white">Sign In</a>
             <button
               class="text-white bg-[#5c69ff] px-4 py-2 rounded-sm"
-              id="sign-in"
+              id="next"
             >
               Next
             </button>

@@ -1,3 +1,7 @@
+@import url("/src/styles/user-about.css");
+@import url("/src/styles/user-comments.css");
+
+
 
 .user{
     color: white;
@@ -84,59 +88,6 @@
     color: white;
 }
 
-#pg .pg h1{
-    font-weight: 900;
-    font-size: 20px;
-    color: #8da6c9;
-}
-
-#pg .pg h3{
-    font-weight: 900;
-    font-size: 25px;
-}
-
-#pg .pg .user-about{
-    display: grid;
-    grid-template-columns: 30% 70%;
-    margin-top: 50px;
-    gap: 50px;
-}
-
-#pg .pg .user-about-sidebar{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 25px;
-}
-
-#pg .pg .user-about-trophies .trophy-container{
-    display: flex;
-    justify-content: start;
-    margin-top: 30px;
-    gap: 30px;
-}
-
-#pg .pg .user-about-trophies .trophy-container .trophy img{
-    width: 150px;
-}
-
-
-#pg .pg .user-about-trophies .trophy-container .trophy{
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-#pg3{
-    transform: translateY(5%);
-}
-
-#nav{
-    transform: translateY(7%);
-}
-
 
 
 @media only screen and (max-width: 600px) {
@@ -145,17 +96,18 @@
         width: 100vw;
         padding: 20px 10px;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
+        gap: 10px;
     }
     
     .profile-img{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         background-image: url(https://imgur.com/user/vjenditapllana/avatar);
         background-size: cover;
         background-position: center;
         border-radius: 50%;
-        margin-right: 25px;
+        margin-right: 0;
     }
 
     #pages-container{
@@ -169,7 +121,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 10px;
+        gap: 5px;
     }
 
     #pages-container a{
@@ -177,35 +129,18 @@
     }
 
     .profile-data-container p{
-        font-size: 14px;
+        font-size: 10px;
         font-weight: bolder;
     }
     
     
     .profile-data h2{
-        font-size: 30px;
+        font-size: 25px;
         font-weight: 900;
-    }
-
-    #pg .pg .user-about-trophies .trophy-container{
-        flex-direction: column;
     }
 
     #nav p{
         font-size: 14px;
     }
 
-    #pg .pg .user-about{
-        display: grid;
-        grid-template-columns: 45% 45%;
-        margin-top: 10px;
-        gap: 50px;
-    }
-    
-    #pg .pg .user-about-sidebar{
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        gap: 25px;
-    }
-}
+}   
