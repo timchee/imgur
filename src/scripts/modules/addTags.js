@@ -1,5 +1,5 @@
 //The functions in this script are used in the homepage
-import { Tag } from "./tag.js";
+import { Tag } from "../tag.js";
 
 //Gets tags from the endpoint, adds them to the homepage and then
 //gives functionality to the more/less buttons

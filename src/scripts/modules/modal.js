@@ -116,13 +116,13 @@ export const addModal = () => {
   // });
 };
 
-const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-start mt-60 mb-40">
-<div class="w-auto flex flex-col gap-6 relative">
+const postDiv = `<div class="container flex flex-col xl:flex-row w-full h-full gap-16 justify-center items-center xl:items-start mt-[660px] sm:mt-[1400px] md:mt-60 lg:mt-[800px] xl:mt-60 mb-40">
+<div class="w-full flex flex-col items-center gap-6 relative xl:mt-0">
     <h3 class="upload-comp bg-[#38d1b1] absolute -top-6 right-0 text-white font-medium px-4 py-2 flex items-center  rounded-sm" style="">Upload complete <span class="material-symbols-outlined">
     check
     </span></h3>
     <input type="text" name="title" id="title" class="w-full bg-transparent text-2xl outline-none cursor-text caret-white text-white font-semibold" placeholder="Give your post a unique title">
-    <div class="photoArea w-[700px] aspect-3/2 bg-tagColor-1 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-[50%] drop-shadow-xl">
+    <div class="photoArea w-full  md:w-[60%] xl:w-[700px] aspect-3/2 bg-tagColor-1 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-[50%] drop-shadow-xl">
         <input type="text" name="desc" id="desc" class="absolute bottom-0 left-0 right-0 bg-[#44474e] p-4 text-lg caret-white" placeholder="Add a description">
     </div>
     <button class="h-auto w-1/4 py-2 px-4 rounded-3xl bg-[#11b8bc] self-center text-white hover:bg-[#21e2e6] whitespace-nowrap">+ Add image</button>
