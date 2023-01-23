@@ -32,7 +32,7 @@ uploadFromPC();
 uploadByURL();
 
 const loggedIn = localStorage.getItem("loggedIn");
-if (loggedIn) {
+if (loggedIn == "true") {
   document.querySelector("#sign-in-to-comment").classList.add("hidden");
   document.querySelector("#leave-a-comment").classList.remove("hidden");
 }
@@ -130,5 +130,5 @@ postCommentBtn.addEventListener("click", () => {
   `;
   commentsDiv.innerHTML = commentHtml + commentsDiv.innerHTML;
 
-  console.log(textarea.value);
+  textarea.value = "";
 });

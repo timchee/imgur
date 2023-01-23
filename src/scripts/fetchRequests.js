@@ -12,3 +12,18 @@
 //   requestOptions
 // );
 // const responseJson = await response.json();
+
+// const getSearchJson = async () => {
+//   const response = await fetch("https://api.npoint.io/bc13239283496e6574a7");
+//   let data = (await response.json()).data;
+//   search = [];
+//   data.forEach((post) => {
+//     search.push({
+//       id: post.id,
+//       title: post.title,
+//     });
+//   });
+//   return search;
+// };
+
+// getSearchJson();

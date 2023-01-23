@@ -3,14 +3,15 @@ import singlePostSkeleton from "./singlePostSkeleton.js";
 //First adds initial 30 posts, then on every scroll adds 60 more
 const addPosts = (dataArray, infinite) => {
   let limitedDataArray = dataArray.slice(0, 30);
-  let postsLoadedCount = addMorePosts(limitedDataArray); //keeps track of the posts loaded count
+  let postsLoadedCount = 30;
+  addMorePosts(limitedDataArray); //keeps track of the posts loaded count
   window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (clientHeight + scrollTop >= scrollHeight - 300) {
+    if (clientHeight + scrollTop >= scrollHeight - 500) {
       //If there are no more elements in the dataArray and infinite scroll is enabled start from the beggining of the array.
       if (postsLoadedCount > dataArray.length - 60) {
         if (infinite) {
-          postsLoaded = 0;
+          postsLoadedCount = 0;
         }
         //If there are no more elements in the dataArray and infinite scroll is not enabled remove the spinner
         else {
@@ -22,7 +23,8 @@ const addPosts = (dataArray, infinite) => {
         postsLoadedCount,
         postsLoadedCount + 60
       );
-      postsLoadedCount += addMorePosts(limitedDataArray);
+      postsLoadedCount += 60;
+      addMorePosts(limitedDataArray);
     }
   });
 };
@@ -50,7 +52,6 @@ const addMorePosts = (dataArray) => {
   });
   //Adds images to the created skeletons
   addLazyLoadedImages(imagesArray, postsArray.length);
-  return postsArray.length;
 };
 
 //Gets gallery images from endpoint
@@ -70,7 +71,7 @@ export const createPostsSkeletons = (dataArray) => {
     if (views > 1000) {
       views = Math.floor(views / 1000) + "K";
     }
-    if (images != undefined && postsArray.length < 20) {
+    if (images != undefined) {
       const image = images[0];
       imagesArray.push({ id: post.id, image });
       let { height, width, animated } = image;
@@ -124,19 +125,19 @@ const addLazyLoadedImages = (imagesArray, postsLoaded) => {
           if (isVideo == "true") {
             if (imageDiv.innerHTML == "") {
               if (localStorage.getItem("autoplayEnabled") == "false") {
-                imageDiv.innerHTML = `<img src="${imageLink}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/><div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-tagColor-5 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">video</div>`;
+                imageDiv.innerHTML = `<img src="${imageLink}" id="image" class="image ${objectFit} w-full sm:w-[300px]"  data-height="${image.height}" data-width="${image.width}"/><div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-tagColor-5 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">video</div>`;
               } else {
                 imageDiv.innerHTML = `
-                <video id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}" autoplay muted>
+                <video id="image" class="image ${objectFit} w-full sm:w-[300px]"  data-height="${image.height}" data-width="${image.width}" autoplay muted>
                 <source src=${image.link} type="video/mp4">
                 </video>`;
               }
             }
           } else {
             if (count == 1) {
-              imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>`;
+              imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit} w-full sm:w-[300px]"  data-height="${image.height}" data-width="${image.width}"/>`;
             } else {
-              imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit}" width="300px" data-height="${image.height}" data-width="${image.width}"/>
+              imageDiv.innerHTML = `<img src="${image.link}" id="image" class="image ${objectFit} w-full sm:w-[300px]"  data-height="${image.height}" data-width="${image.width}"/>
             <div class="absolute top-4 right-4 uppercase font-medium  tracking-widest bg-gray-800 px-2 py-1 rounded-sm text-xs drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">${count}</div>`;
             }
           }

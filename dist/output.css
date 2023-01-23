@@ -823,6 +823,10 @@ video {
   margin-top: 0.25rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1089,10 +1093,6 @@ video {
 
 .w-1\/4 {
   width: 25%;
-}
-
-.w-\[300px\] {
-  width: 300px;
 }
 
 .min-w-full {
@@ -2161,6 +2161,10 @@ video {
     width: 50%;
   }
 
+  .sm\:w-\[300px\] {
+    width: 300px;
+  }
+
   .sm\:w-36 {
     width: 9rem;
   }
@@ -2171,6 +2175,10 @@ video {
 
   .sm\:w-5\/6 {
     width: 83.333333%;
+  }
+
+  .sm\:w-\[260px\] {
+    width: 260px;
   }
 
   .sm\:flex-row {
