@@ -51,7 +51,7 @@ export default function singlePostSkeleton(
   let post = `<div class="post ${titleLength} text-white rounded-sm overflow-hidden sm:w-[300px] relative image-container" style="--span:${postHeight}" data-count= "${count}"id="${id}" onClick="window.location ='${path}'">  
      <div class="sm:w-[300px] bg-gradient-to-b from-tagColor-${gradientStartColor} to-gray-800" data-animated="${animated}" data-height="${height}" data-width="${width}" data-imageid = "${imageId}" data-objectFit = "${objectFit}" style = "height: ${imageHeight}px"></div>
      <div class=" flex flex-col bg-gray-500 p-4 pt-2 rounded-b-sm desc mb-2">
-     <p class="text-sm font-medium overflow-hidden mb-3 title" style="width:260px">${title}</p>
+     <p class="text-sm font-medium overflow-hidden mb-3 title sm:w-[260px]">${title}</p>
      <div class="flex justify-between text-gray-200 text-xs font-medium ">      
      <p class="flex gap-1 items-center justify-center"> <span class= "hover:text-btnColor-1"><svg height="16" width="16">
      <path fill="currentColor" stroke="#ffffff" stroke-width="0" fill-rule="evenodd" clip-rule="evenodd" d="M7.197 2.524a1.2 1.2 0 011.606 0c.521.46 1.302 1.182 2.363 2.243a29.617 29.617 0 012.423 2.722c.339.435.025 1.028-.526 1.028h-2.397v4.147c0 .524-.306.982-.823 1.064-.417.066-1.014.122-1.843.122s-1.427-.056-1.843-.122c-.517-.082-.824-.54-.824-1.064V8.517H2.937c-.552 0-.865-.593-.527-1.028.52-.669 1.32-1.62 2.423-2.722a52.996 52.996 0 012.364-2.243z"></path>
