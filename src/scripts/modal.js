@@ -62,8 +62,7 @@ let overlayModal = document.querySelector(".overlay");
 
 
 export const addModal = () => {
-  const modalDiv = document.getElementById("modal");
-  modalDiv.innerHTML += modalHtml;
+  overlayModal.innerHTML += modalHtml;
   const input = document.querySelector("#paste");
   const inputValue = input.value;
 
@@ -100,9 +99,11 @@ export const addModal = () => {
   let closeBtn = document.querySelector(".x");
 
   newPostBtn.addEventListener("click", () => {
+    document.body.classList.add("overflow-hidden")
     showAndHide(overlayModal);
   });
   closeBtn.addEventListener("click", () => {
+    document.body.classList.remove("overflow-hidden")
     showAndHide(overlayModal);
   });
 
@@ -115,22 +116,29 @@ export const addModal = () => {
   // });
 };
 
-const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-center">
-<div class="w-auto flex flex-col gap-6 ">
+const postDiv = `<div class="container flex w-full h-full gap-16 justify-center items-start mt-60 mb-40">
+<div class="w-auto flex flex-col gap-6 relative">
+    <h3 class="upload-comp bg-[#38d1b1] absolute -top-6 right-0 text-white font-medium px-4 py-2 flex items-center  rounded-sm" style="">Upload complete <span class="material-symbols-outlined">
+    check
+    </span></h3>
     <input type="text" name="title" id="title" class="w-full bg-transparent text-2xl outline-none cursor-text caret-white text-white font-semibold" placeholder="Give your post a unique title">
     <div class="photoArea w-[700px] aspect-3/2 bg-tagColor-1 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-[50%] drop-shadow-xl">
         <input type="text" name="desc" id="desc" class="absolute bottom-0 left-0 right-0 bg-[#44474e] p-4 text-lg caret-white" placeholder="Add a description">
     </div>
-    <button class="h-auto w-1/4 py-2 px-4 rounded-3xl bg-[#11b8bc] self-center text-white">+ Add image</button>
+    <button class="h-auto w-1/4 py-2 px-4 rounded-3xl bg-[#11b8bc] self-center text-white hover:bg-[#21e2e6] whitespace-nowrap">+ Add image</button>
 </div>
 <div class="sidebar text-white  flex flex-col gap-10">
-    <div class=" flex flex-col gap-2">
+    <div class=" flex flex-col gap-2 mt-6 ">
         <h3>POST</h3>
-        <div class="buttons flex gap-2">
-            <button class="bg-[#38d1b1] rounded-sm w-auto h-auto py-2 px-8">To Community</button>
-            <button class="bg-[#575d69] rounded-sm w-auto h-auto py-2 px-8">Grab Link</button>
+        <div class="buttons flex gap-2 relative mt-6">
+            <button class="bg-[#38d1b1] hover:bg-[#29aa8e] rounded-sm w-auto h-auto py-2 px-8 whitespace-nowrap">To Community</button>
+            <button class="bg-[#575d69] hover:bg-[#3b414e] rounded-sm w-auto h-auto py-2 px-8 whitespace-nowrap">Grab Link</button>
         </div>
-        <p class="text-sm">Your post is currently <span class="text-textGreen">Hidden</span></p>
+        <div class="text-sm relative group"><p>Your post is currently <span class="text-textGreen">Hidden</span></p>
+          <p class="hidden pl-2 group-hover:block bg-white rounded-sm text-black absolute top-6">When a post is hidden you can grab a link and share it outside of the Imgur community.
+          </p>
+        </div>
+
         <div class="flex gap-2">
         <input type="checkbox" name="mature" id="" class="">
         <label for="mature" class="">Mature(?)</label>
@@ -138,14 +146,45 @@ const postDiv = `<div class="container flex w-full h-full gap-16 justify-center 
     </div>
     <div class="flex flex-col gap-2">
         <h3>ADD TAGS</h3>
-        <button class="bg-[#575d69] rounded-3xl w-20 px-4 py-2">+ Tag</button>
+        <button class="bg-[#575d69] hover:bg-[#3d434f] rounded-3xl w-20 pl-3 pr-4 py-2 flex items-center justify-between">
+          <span class="material-symbols-outlined">
+            add
+          </span>
+          <p>Tag</p>
+        </button>
     </div>
-    <div class="flex flex-col gap-2 items-start">
+    <div class="flex flex-col gap-2 items-start"> 
         <h3>IMG TOOLS</h3>
-        <button>Add more images</button>
-        <button>Embed post</button>
-        <button>Download post</button>
-        <button>Delete post</button>
+        <button class="flex items-center gap-2 text-gray-200 hover:text-white">
+          <span class="material-symbols-outlined">
+            add
+          </span>
+          <p>
+            Add more images      
+          </p>
+        </button>
+        <button class="flex items-center gap-2 text-gray-200 hover:text-white"> 
+          <span class="material-symbols-outlined">
+            code
+          </span>
+          <p> Embed post </p>
+        </button>
+        <button class="flex items-center gap-2 text-gray-200 hover:text-white"> 
+          <span class="material-symbols-outlined">
+            download
+          </span>
+          <p>
+            Download post
+          </p>
+        </button>
+        <button class="flex items-center gap-2 text-gray-200 hover:text-white">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+          <p>
+            Delete post   
+          </p>
+        </button>
     </div>
 </div>
 </div>`;
@@ -179,36 +218,59 @@ export const uploadOnDrag = () => {
     // overlay.style.background = 'linear-gradient(180deg, rgba(63,34,126,1) 0%, rgba(21,117,84,1) 25%, rgba(87,110,103,1) 50%, rgba(87,110,103,1) 100%)';
 
     overlayModal.innerHTML = postDiv
+    overlayModal.classList.add("absolute")
+    overlayModal.classList.add("overflow-auto")
+
+    // document.body.classList.add("overflow-hidden")
+    console.log(overlayModal)
+
+    // overlayModal.classList.remove("h-screen")
+    // overlayModal.classList.add("h-full")
     
     if (e.dataTransfer.files.length) {
       addPhoto(e.dataTransfer.files[0])
+
+      let uploadComplete = document.querySelector('.upload-comp')
+      uploadComplete.classList.add('upload-complete')
     }
   })
 
 }
 
 const addPhoto = (file) => {
-    
   let photoArea = document.querySelector(".photoArea");
 
   if (file.type.startsWith("image/")) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      photoArea.style.backgroundImage = `url('${reader.result}')`;
+      let img = new Image();
+      img.src = reader.result;
+      img.onload = () => {
+        let aspectRatio = img.width / img.height;
+        photoArea.style.aspectRatio = aspectRatio
+        photoArea.style.backgroundImage = `url('${reader.result}')`;
+      }
     }
   }
 }
 
+
 export const uploadFromPC = () => {
   const inputField = document.querySelector(".inputFromPC");
-
   inputField.addEventListener("change", e => {
     e.preventDefault()
     overlayModal.innerHTML = postDiv
     if (inputField.files.length) {
       addPhoto(inputField.files[0])
     }
+    overlayModal.classList.remove("h-screen")
+    overlayModal.classList.add("h-full")
+    overlayModal.classList.add("overflow-auto")
+
+    let uploadComplete = document.querySelector('.upload-comp')
+    uploadComplete.classList.add('upload-complete')
+
   })
 }
 
@@ -216,11 +278,15 @@ export const uploadByURL = () => {
   const pasteField = document.querySelector("#paste");
 
   pasteField.addEventListener("keypress", e => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter") {  
+      
       e.preventDefault()
       overlayModal.innerHTML = postDiv
       addPhotoByURL(pasteField.value)
     }
+    
+      let uploadComplete = document.querySelector('.upload-comp')
+      uploadComplete.classList.add('upload-complete')
   })   
 }
 

@@ -44,9 +44,10 @@ const showMoreTags = () => {
   lessTagsBtn.classList.remove("hidden");
   tagsDiv.classList.remove("h-[160px]");
   tagsDiv.classList.add("sm:h-[640px]");
-  mainDiv.classList.remove("md:top-52");
-  mainDiv.classList.add("md:top-[700px]");
+  mainDiv.classList.remove("md:top-64");
+  mainDiv.classList.add("md:top-[728px]");
   mainDiv.classList.add("sm:top-[520px]");
+  mainDiv.classList.add("top-[3160px]");
 };
 
 const hideTags = () => {
@@ -54,11 +55,14 @@ const hideTags = () => {
   const mainDiv = document.getElementsByTagName("main")[0];
   const moreTagsBtn = document.getElementById("moreTags");
   const lessTagsBtn = document.getElementById("lessTags");
+
   moreTagsBtn.classList.remove("hidden");
   lessTagsBtn.classList.add("hidden");
   tagsDiv.classList.add("h-[160px]");
   tagsDiv.classList.remove("sm:h-[640px]");
-  mainDiv.classList.add("md:top-52");
-  mainDiv.classList.remove("md:top-[700px]");
+  mainDiv.classList.add("md:top-64");
+  mainDiv.classList.remove("md:top-[728px]");
   mainDiv.classList.remove("sm:top-[520px]");
+  mainDiv.classList.remove("top-[3160px]");
+
 };

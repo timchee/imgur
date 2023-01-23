@@ -92,7 +92,7 @@ const favoritePost = () => {
   }
 };
 export const addEngagementBar = () => {
-  const loggedIn = localStorage.getItem("loggedIn");
+  const loggedIn = sessionStorage.getItem("loggedIn");
   if (loggedIn === null || loggedIn === "false") {
     upvoteBtn.addEventListener("click", addUpvoteBanner, { capture: false });
 

@@ -1,12 +1,13 @@
 import { addHeader, handleHeader } from "./header.js";
 import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "../scripts/modal.js"
+import { avatarImages } from "./avatarImages.js";
+
 addHeader();
 addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
 // handleHeader()
-
 let container = document.querySelector('.header-container')
 let header = document.querySelector('.header')
 let imgur = document.querySelector(".Navbar-logo-container")
@@ -61,3 +62,20 @@ const containerObserver = new IntersectionObserver((entries) => {
 containerObserver.observe(container)
 
 
+let url = sessionStorage.getItem("url");
+let user = sessionStorage.getItem("username")
+let profileImage = document.querySelector('.profile-img')
+let usernameEl = document.querySelector('.profile-username ')
+
+
+const addAvatar = () => {
+    const firstLetter = user.toUpperCase().charCodeAt(0) - 65;
+    url = avatarImages[firstLetter];
+    sessionStorage.setItem("url", url);
+    profileImage.style.backgroundImage = `url(${url})`;
+    usernameEl.innerText = user;
+}
+  
+addAvatar()
+
+// console.log(url)
