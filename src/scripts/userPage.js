@@ -1,12 +1,14 @@
 import { addHeader, handleHeader } from "./header.js";
 import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "../scripts/modal.js"
 import { avatarImages } from "./avatarImages.js";
+import { addTagImages } from "./addGalleryImages.js";
 
 addHeader();
 addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+addTagImages("https://api.npoint.io/bc13239283496e6574a7");
 // handleHeader()
 let container = document.querySelector('.header-container')
 let header = document.querySelector('.header')
@@ -75,6 +77,47 @@ let usernameEl = document.querySelector('.profile-username ')
 //     }
 // }
 
+let userComments = document.querySelector(".user-comments");
+
+let comments;
+
+// fetch('https://api.npoint.io/2da4f077d06b9a86d910')
+//       .then(response => response.json())
+//       .then(data => comments=data
+//   )
+
+ const getCommentsApi = async ()=>{
+    const response = await fetch('https://api.npoint.io/2da4f077d06b9a86d910')
+    const json = await response.json()
+    json.forEach(comment=>{
+        const html=`
+            <div class="comment-container">
+                <div class="comment-img">
+                    <img src="${comment.image_url}" alt="">
+                    </div>
+                    <div class="comment">
+                    <div class="comment-text">
+                        <p class="text-white">${comment.caption}</p>
+                    </div>
+                    <div class="comment-items">
+                        <div class="comment-details">
+                        <div class="flex align-center">
+                            <div class="comment-vote"></div>
+                            <p>${comment.points}</p>
+                        </div>
+                        
+                        <p>3 days</p>
+                        <button class="text-white">Reply</button>
+                        </div>
+                        <div class="comment-dropdown"><p></p></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        userComments.innerHTML+= html;
+    })
+ }
+
 let nameUser = window.location.search;
 
 
@@ -96,6 +139,9 @@ const addAvatar = () => {
 }
   
 addAvatar()
+
+
+await getCommentsApi()
 
 
 
