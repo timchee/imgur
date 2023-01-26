@@ -27,7 +27,11 @@ const addAccountNames = (account_name) => {
   );
   accountNames.forEach((an) => {
     changeInnerText(an, account_name);
+    an.addEventListener("click",()=>{
+    location.replace(`./user.html?userName=${account_name}`);
+  })
   });
+  
 };
 
 const addPostAge = (datetime) => {
@@ -66,6 +70,10 @@ const addAvatar = (username) => {
   avatarDivs.forEach((ad) => {
     ad.classList.remove("animate-pulse");
     ad.src = avatarImages[firstLetter];
+    ad.setAttribute("data-name",username);
+    ad.addEventListener("click",()=>{
+      location.replace(`./user.html?userName=${username}`);
+    })
   });
 };
 

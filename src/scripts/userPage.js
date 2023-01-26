@@ -67,6 +67,17 @@ let user = sessionStorage.getItem("username")
 let profileImage = document.querySelector('.profile-img')
 let usernameEl = document.querySelector('.profile-username ')
 
+// const getUsername = ()=>{
+//     let nameUser = window.location.search;
+//     nameUser=nameUser.split("=")[1]
+//     if (nameUser!=="") {
+//         usernameEl.innerHTML=nameUser
+//     }
+// }
+
+let nameUser = window.location.search;
+
+
 
 const addAvatar = () => {
     const firstLetter = user.toUpperCase().charCodeAt(0) - 65;
@@ -74,8 +85,18 @@ const addAvatar = () => {
     sessionStorage.setItem("url", url);
     profileImage.style.backgroundImage = `url(${url})`;
     usernameEl.innerText = user;
+    
+    if (nameUser!=="") {
+        nameUser=nameUser.split("=")[1]
+        usernameEl.innerHTML=nameUser
+        const firstLetter = nameUser.toUpperCase().charCodeAt(0) - 65;
+        url = avatarImages[firstLetter];
+        profileImage.style.backgroundImage = `url(${url})`;
+    }
 }
   
 addAvatar()
+
+
 
 // console.log(url)
