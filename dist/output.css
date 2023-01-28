@@ -742,10 +742,6 @@ video {
   top: 1.5rem;
 }
 
-.top-6 {
-  top: 1.5rem;
-}
-
 .z-50 {
   z-index: 50;
 }
@@ -1127,10 +1123,6 @@ video {
   width: 25%;
 }
 
-.w-\[300px\] {
-  width: 300px;
-}
-
 .min-w-full {
   min-width: 100%;
 }
@@ -1411,6 +1403,10 @@ video {
   border-style: dashed;
 }
 
+.border-none {
+  border-style: none;
+}
+
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(71 74 81 / var(--tw-border-opacity));
@@ -1541,6 +1537,11 @@ video {
   background-color: rgb(5 18 52 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#34cea8\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(52 206 168 / var(--tw-bg-opacity));
+}
+
 .bg-dropdown {
   --tw-bg-opacity: 1;
   background-color: rgb(103 104 111 / var(--tw-bg-opacity));
@@ -1590,6 +1591,10 @@ video {
   background-color: rgb(87 93 105 / var(--tw-bg-opacity));
 }
 
+.bg-\[url\(\'\.\.\/assets\/bg\.png\'\)\] {
+  background-image: url('../assets/bg.png');
+}
+
 .bg-\[url\(\'https\:\/\/imgur\.com\/user\/vjenditapllana\/avatar\'\)\] {
   background-image: url('https://imgur.com/user/vjenditapllana/avatar');
 }
@@ -1608,6 +1613,18 @@ video {
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.bg-\[url\(\'\.\.\/assets\/avatarBg\.png\'\)\] {
+  background-image: url('../assets/avatarBg.png');
+}
+
+.bg-\[url\(\'\.\.\/assets\/avatar\.jpg\'\)\] {
+  background-image: url('../assets/avatar.jpg');
+}
+
+.bg-\[url\(\.\.\/assets\/avatar\.jpg\)\] {
+  background-image: url(../assets/avatar.jpg);
 }
 
 .from-tagColor-1 {

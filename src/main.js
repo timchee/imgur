@@ -14,7 +14,7 @@ import {
   addAutoplayBtn,
 } from "./scripts/modules/changeAutoplayMode.js";
 import { addFooter } from "./scripts/modules/footer.js";
-import { searchByPost, searchByTag } from "./scripts/search.js";
+import { searchByPost, searchByTag, searchByUser } from "./scripts/search.js";
 // import { Tag } from "./scripts/tag.js";
 if (localStorage.getItem("autoplayEnabled") == null) {
   localStorage.setItem("autoplayEnabled", false);
@@ -31,6 +31,7 @@ addAutoplayBtn();
 addFooter()
 searchByPost()
 searchByTag()
+searchByUser()
 
 
 

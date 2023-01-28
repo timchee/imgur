@@ -87,6 +87,9 @@ const headerHtml = `
         <h3 class="tagsLabel font-semibold self-start pl-4">Tags</h3>
         <ul class="tags flex flex-col gap-2 px-4 w-full">
         </ul>
+        <h3 class="usersLabel font-semibold self-start pl-4">Users</h3>
+        <ul class="users flex flex-col gap-2 px-4 w-full">
+        </ul>
       </div>
     </form>
   </menu>

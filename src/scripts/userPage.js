@@ -69,6 +69,10 @@ containerObserver.observe(container)
 
 let url = sessionStorage.getItem("url");
 let user = sessionStorage.getItem("username")
+if (user === null) {
+    user = 'user'
+}
+
 let profileImage = document.querySelector('.profile-img')
 let usernameEl = document.querySelector('.profile-username ')
 
@@ -138,8 +142,8 @@ const addAvatar = () => {
         const firstLetter = nameUser.toUpperCase().charCodeAt(0) - 65;
         url = avatarImages[firstLetter];
         profileImage.style.backgroundImage = `url(${url})`;
+        }
     }
-}
   
 addAvatar()
 
