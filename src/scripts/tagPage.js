@@ -1,11 +1,12 @@
-import { addTagImages } from "./addGalleryImages.js";
-import { addTag } from "./addTagDetails.js";
-import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modal.js";
-import { addHeader } from "./header.js";
-import { addFloatingHeader } from "./floatingHeader.js";
-import changeLayout from "./changeLayout.js";
-import { changeAutoplayMode, addAutoplayBtn } from "./changeAutoplayMode.js";
-import { addFooter } from "./footer.js";
+import { addTagImages } from "./modules/addGalleryImages.js";
+import { addTag } from "./modules/addTagDetails.js";
+import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modules/modal.js";
+import { addHeader } from "./modules/header.js";
+import { addFloatingHeader } from "./modules/floatingHeader.js";
+import changeLayout from "./modules/changeLayout.js";
+import { changeAutoplayMode, addAutoplayBtn } from "./modules/changeAutoplayMode.js";
+import { addFooter } from "./modules/footer.js";
+import { searchByPost } from "./search.js";
 
 if (localStorage.getItem("autoplayEnabled") == null) {
   localStorage.setItem("autoplayEnabled", false);
@@ -20,3 +21,4 @@ uploadFromPC();
 uploadByURL();
 addAutoplayBtn();
 addFooter();
+searchByPost()

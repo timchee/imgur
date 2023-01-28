@@ -1,6 +1,7 @@
-import { addHeader, handleHeader } from "./header.js";
-import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "../scripts/modal.js"
-import { avatarImages } from "./avatarImages.js";
+import { addHeader, handleHeader } from "./modules/header.js";
+import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modules/modal.js"
+import { avatarImages } from "./modules/avatarImages.js";
+import { searchByPost } from "./search.js";
 import { addTagImages } from "./addGalleryImages.js";
 
 addHeader();
@@ -8,6 +9,8 @@ addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+searchByPost()
+
 addTagImages("https://api.npoint.io/bc13239283496e6574a7");
 // handleHeader()
 let container = document.querySelector('.header-container')
