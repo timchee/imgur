@@ -2,7 +2,7 @@ import { addHeader, handleHeader } from "./modules/header.js";
 import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modules/modal.js"
 import { avatarImages } from "./modules/avatarImages.js";
 import { searchByPost } from "./search.js";
-import { addTagImages } from "./addGalleryImages.js";
+import { addTagImages } from "./modules/addGalleryImages.js";
 
 addHeader();
 addModal();
