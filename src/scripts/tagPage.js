@@ -6,6 +6,7 @@ import { addFloatingHeader } from "./modules/floatingHeader.js";
 import changeLayout from "./modules/changeLayout.js";
 import { changeAutoplayMode, addAutoplayBtn } from "./modules/changeAutoplayMode.js";
 import { addFooter } from "./modules/footer.js";
+import { searchByPost } from "./search.js";
 
 if (localStorage.getItem("autoplayEnabled") == null) {
   localStorage.setItem("autoplayEnabled", false);
@@ -20,3 +21,4 @@ uploadFromPC();
 uploadByURL();
 addAutoplayBtn();
 addFooter();
+searchByPost()

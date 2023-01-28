@@ -6,6 +6,7 @@ import { addFooter } from "./modules/footer.js";
 import { addModal, uploadByURL, uploadFromPC, uploadOnDrag } from "./modules/modal.js";
 import { addEngagementBar } from "./modules/engagementBar.js";
 import { avatarImages } from "./modules/avatarImages.js";
+import { searchByPost } from "./search.js";
 
 let postIds = [];
 const addSidebarPosts = async () => {
@@ -30,6 +31,7 @@ addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+searchByPost()
 
 const loggedIn = sessionStorage.getItem("loggedIn");
 if (loggedIn) {

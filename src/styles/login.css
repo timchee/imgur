@@ -8,30 +8,53 @@
   font-size: 35px;
 }
 .facebook {
-  background-color: rgb(16, 85, 155);
+  background-color: #141518;
+  border-bottom: 6px solid rgb(58, 85, 142);
   font-size: x-large;
+}
+.facebook:hover{
+  background-color: rgb(58, 85, 142);
 }
 
 .twitter {
-  background-color: rgb(43, 150, 233);
+  background-color: #141518;
+  border-bottom: 6px solid rgb(43, 150, 233);
   font-size: x-large;
+}
+.twitter:hover{
+  background-color: rgb(43, 150, 233);
 }
 .apple {
-  background-color: aliceblue;
-  color: black;
+  background-color: #141518;
+  border-bottom: 6px solid rgb(240, 248, 255);
+  color: white;
   font-size: x-large;
 }
+.apple:hover{
+  background-color: rgb(240, 248, 255);
+  color: black;
+}
 .google {
-  background-color: rgb(43, 150, 233);
-  font-size: x-large;
+  background-color: #141518;
+  border-bottom: 6px solid rgb(43, 150, 233);
+  font-size: 20px;
   color: white;
   fill: white;
 }
 
+.google:hover{
+  background-color: rgb(43, 150, 233);
+}
+
 .yahoo {
-  background-color: purple;
+  background-color: #141518;
+  border-bottom: 6px solid purple;
   font-size: x-large;
   font-weight: 500;
+}
+
+.yahoo:hover{
+  background-color: purple;
 }
 
 .l-line{

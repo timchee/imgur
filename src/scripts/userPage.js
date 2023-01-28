@@ -1,12 +1,14 @@
 import { addHeader, handleHeader } from "./modules/header.js";
 import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modules/modal.js"
 import { avatarImages } from "./modules/avatarImages.js";
+import { searchByPost } from "./search.js";
 
 addHeader();
 addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+searchByPost()
 
 // handleHeader()
 let container = document.querySelector('.header-container')

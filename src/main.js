@@ -14,6 +14,7 @@ import {
   addAutoplayBtn,
 } from "./scripts/modules/changeAutoplayMode.js";
 import { addFooter } from "./scripts/modules/footer.js";
+import { searchByPost, searchByTag } from "./scripts/search.js";
 // import { Tag } from "./scripts/tag.js";
 if (localStorage.getItem("autoplayEnabled") == null) {
   localStorage.setItem("autoplayEnabled", false);
@@ -28,5 +29,19 @@ uploadFromPC();
 uploadByURL();
 addAutoplayBtn();
 addFooter()
+searchByPost()
+searchByTag()
 
 
+
+
+// searchInput.addEventListener("blur", e => {
+//   autocomplete.classList.add('hidden')
+// })
+
+// const node = document.createElement("li");
+// const textnode = document.createTextNode("Water");
+// node.appendChild(textnode);
+// document.getElementById("myList").appendChild(node);
+
+//by tags, by user
