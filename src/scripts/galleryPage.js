@@ -1,11 +1,12 @@
-import { addGalleryImages } from "./addGalleryImages.js";
-import { addHeader } from "./header.js";
-import { singleSidebarPost } from "./sidebarPost.js";
-import { getData } from "./addGalleryImages.js";
-import { addFooter } from "./footer.js";
-import { addModal, uploadByURL, uploadFromPC, uploadOnDrag } from "./modal.js";
-import { addEngagementBar } from "./engagementBar.js";
-import { avatarImages } from "./avatarImages.js";
+import { addGalleryImages } from "./modules/addGalleryImages.js";
+import { addHeader } from "./modules/header.js";
+import { singleSidebarPost } from "./modules/sidebarPost.js";
+import { getData } from "./modules/addGalleryImages.js";
+import { addFooter } from "./modules/footer.js";
+import { addModal, uploadByURL, uploadFromPC, uploadOnDrag } from "./modules/modal.js";
+import { addEngagementBar } from "./modules/engagementBar.js";
+import { avatarImages } from "./modules/avatarImages.js";
+import { searchByPost } from "./search.js";
 
 let postIds = [];
 const addSidebarPosts = async () => {
@@ -30,6 +31,7 @@ addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+searchByPost()
 
 const loggedIn = sessionStorage.getItem("loggedIn");
 if (loggedIn) {

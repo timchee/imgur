@@ -1,12 +1,17 @@
-import { addHeader, handleHeader } from "./header.js";
-import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "../scripts/modal.js"
-import { avatarImages } from "./avatarImages.js";
+import { addHeader, handleHeader } from "./modules/header.js";
+import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modules/modal.js"
+import { avatarImages } from "./modules/avatarImages.js";
+import { searchByPost } from "./search.js";
+import { addTagImages } from "./modules/addGalleryImages.js";
 
 addHeader();
 addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
+searchByPost()
+
+addTagImages("https://api.npoint.io/bc13239283496e6574a7");
 // handleHeader()
 let container = document.querySelector('.header-container')
 let header = document.querySelector('.header')
@@ -64,8 +69,64 @@ containerObserver.observe(container)
 
 let url = sessionStorage.getItem("url");
 let user = sessionStorage.getItem("username")
+if (user === null) {
+    user = 'user'
+}
+
 let profileImage = document.querySelector('.profile-img')
 let usernameEl = document.querySelector('.profile-username ')
+
+// const getUsername = ()=>{
+//     let nameUser = window.location.search;
+//     nameUser=nameUser.split("=")[1]
+//     if (nameUser!=="") {
+//         usernameEl.innerHTML=nameUser
+//     }
+// }
+
+let userComments = document.querySelector(".user-comments");
+
+let comments;
+
+// fetch('https://api.npoint.io/2da4f077d06b9a86d910')
+//       .then(response => response.json())
+//       .then(data => comments=data
+//   )
+
+ const getCommentsApi = async ()=>{
+    const response = await fetch('https://api.npoint.io/2da4f077d06b9a86d910')
+    const json = await response.json()
+    json.forEach(comment=>{
+        const html=`
+            <div class="comment-container">
+                <div class="comment-img">
+                    <img src="${comment.image_url}" alt="">
+                    </div>
+                    <div class="comment">
+                    <div class="comment-text">
+                        <p class="text-white">${comment.caption}</p>
+                    </div>
+                    <div class="comment-items">
+                        <div class="comment-details">
+                        <div class="flex align-center">
+                            <div class="comment-vote"></div>
+                            <p>${comment.points}</p>
+                        </div>
+                        
+                        <p>3 days</p>
+                        <button class="text-white">Reply</button>
+                        </div>
+                        <div class="comment-dropdown"><p></p></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        userComments.innerHTML+= html;
+    })
+ }
+
+let nameUser = window.location.search;
+
 
 
 const addAvatar = () => {
@@ -74,8 +135,21 @@ const addAvatar = () => {
     sessionStorage.setItem("url", url);
     profileImage.style.backgroundImage = `url(${url})`;
     usernameEl.innerText = user;
-}
+    
+    if (nameUser!=="") {
+        nameUser=nameUser.split("=")[1]
+        usernameEl.innerHTML=nameUser
+        const firstLetter = nameUser.toUpperCase().charCodeAt(0) - 65;
+        url = avatarImages[firstLetter];
+        profileImage.style.backgroundImage = `url(${url})`;
+        }
+    }
   
 addAvatar()
+
+
+await getCommentsApi()
+
+
 
 // console.log(url)

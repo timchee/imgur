@@ -100,9 +100,7 @@
     transform: translateY(5%);
 }
 
-#nav{
-    transform: translateY(7%);
-}
+
 
 
 @media only screen and (max-width: 600px) {
@@ -123,7 +121,7 @@
         display: grid;
         grid-template-columns: 45% 45%;
         margin-top: 10px;
-        gap: 50px;
+        gap: 25px;
     }
     
     #pg .pg .user-about-sidebar{

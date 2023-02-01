@@ -301,3 +301,8 @@ input[type="text"]::-ms-clear {
   background-size: cover;
   background-position: center;
 }
+
+
+.userAvatar{
+  background-image: url(../assets/avatar.jpg);
+}

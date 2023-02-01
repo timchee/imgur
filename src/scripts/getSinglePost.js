@@ -1,4 +1,4 @@
-import { addData } from "./addPostDetails.js";
+import { addData } from "./modules/addPostDetails.js";
 
 const getPostId = () => {
   return window.location.search.split("=")[1];

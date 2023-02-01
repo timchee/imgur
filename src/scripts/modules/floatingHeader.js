@@ -178,8 +178,10 @@ export const addFloatingHeader = () => {
   }
 
   document.getElementById("log-out").addEventListener("click", signOut);
-  
-  addAvatar(floatBtn)
+  if (url != null) {
+   
+    addAvatar(floatBtn)
+ }
 
 };
 

@@ -18,7 +18,7 @@
 .profile-img{
     width: 125px;
     height: 125px;
-    background-image: url(https://imgur.com/user/vjenditapllana/avatar);
+    background-color: #34cea8;
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -88,6 +88,9 @@
     color: white;
 }
 
+#nav{
+    transform: translateY(-12%);
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -108,6 +111,13 @@
         background-position: center;
         border-radius: 50%;
         margin-right: 0;
+    }
+
+    .profile-data .profile-username{
+        font-size: 25px;
+        font-weight: 900;
+        width: 60vw;
+        word-wrap: break-word;
     }
 
     #pages-container{
@@ -132,12 +142,7 @@
         font-size: 10px;
         font-weight: bolder;
     }
-    
-    
-    .profile-data h2{
-        font-size: 25px;
-        font-weight: 900;
-    }
+
 
     #nav p{
         font-size: 14px;
