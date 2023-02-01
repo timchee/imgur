@@ -2,13 +2,7 @@ import { addComments } from "./addComments.js";
 import { addPlaceholderComments } from "./addPlaceholderComments.js";
 import { avatarImages } from "./avatarImages.js";
 
-const postsWithComments = [
-  "6rXPASw",
-  "HnDIHVv",
-  "Ac7P2Jz",
-  "67ueQWS",
-  "4p1XwMc",
-];
+const postsWithComments = ["6rXPASw", "HnDIHVv", "Ac7P2Jz"];
 
 const changeInnerText = (element, newText) => {
   element.innerText = newText;
@@ -27,11 +21,10 @@ const addAccountNames = (account_name) => {
   );
   accountNames.forEach((an) => {
     changeInnerText(an, account_name);
-    an.addEventListener("click",()=>{
-    location.replace(`./user.html?userName=${account_name}`);
-  })
+    an.addEventListener("click", () => {
+      location.replace(`./user.html?userName=${account_name}`);
+    });
   });
-  
 };
 
 const addPostAge = (datetime) => {
@@ -70,10 +63,10 @@ const addAvatar = (username) => {
   avatarDivs.forEach((ad) => {
     ad.classList.remove("animate-pulse");
     ad.src = avatarImages[firstLetter];
-    ad.setAttribute("data-name",username);
-    ad.addEventListener("click",()=>{
+    ad.setAttribute("data-name", username);
+    ad.addEventListener("click", () => {
       location.replace(`./user.html?userName=${username}`);
-    })
+    });
   });
 };
 
