@@ -131,16 +131,7 @@ input:focus {
 .phoneNumber:hover {
   text-decoration: underline;
 }
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 17px solid transparent;
-  border-right: 17px solid #db3535;
-
-  border-bottom: 17px solid transparent;
-  transform: rotate(225deg);
-}
-@media only screen and (min-width: 280px) and (max-width: 500px) {
+@media only screen and (min-width: 280px) and (max-width:500px) {
   .container {
     width: 100vw !important;
   }
@@ -155,16 +146,5 @@ input:focus {
   }
   .info {
     width: 95vw;
-  }
-  .alerti {
-    position: absolute;
-    top: 150%;
-    left: 40%;
-  }
-  .triangle {
-    transform: rotate(-45deg);
-    position: absolute;
-    top: 50%;
-    right: 50%;
   }
 }
