@@ -131,7 +131,7 @@ input:focus {
 .phoneNumber:hover {
   text-decoration: underline;
 }
-@media only screen and (min-width: 280px) and (max-width:600px) {
+@media only screen and (min-width: 280px) and (max-width:500px) {
   .container {
     width: 100vw !important;
   }
