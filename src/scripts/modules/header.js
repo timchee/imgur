@@ -8,6 +8,17 @@ if (window.location.pathname[5] == undefined) {
   href = `../`;
 }
 
+let loginHref;
+let signUpHref;
+if (window.location.href.includes('pages')) {
+  loginHref = "login.html"
+  signUpHref = "signUp.html"
+} else {
+  loginHref = "pages/login.html"
+  signUpHref = "pages/signUp.html"
+}
+
+
 const headerHtml = `     
 <div class="flex gap-x-5 items-center w-2/3">
   <div class="nav-menu flex sm:hidden flex-col gap-1">
@@ -97,7 +108,7 @@ const headerHtml = `
 
 <div class="gap-x-5 flex" id="buttons">
   <button class="text-white hover:text-btnColor-1 font-sans font-semibold hidden sm:block" >
-    <a href="http://localhost:5500/src/pages/login.html" >
+    <a href="${loginHref}" >
 
     <p class="whitespace-nowrap">Sign in</p>
       
@@ -106,7 +117,7 @@ const headerHtml = `
   <button
     class="btn bg-btnColor-1 hover:bg-btnColor-2 w-auto flex items-center px-2  sm:py-1 sm:px-6 rounded-sm text-white font-semibold text-sm"
   >
-    <a href="http://localhost:5500/src/pages/signUp.html" class="whitespace-nowrap flex items-center">
+    <a href="${signUpHref}" class="whitespace-nowrap flex items-center">
       <span class="material-symbols-outlined sm:hidden" >
         login
       </span>
