@@ -44,39 +44,11 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
     <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
       <li class="hover:bg-searchBar px-6 py-1">
       <a href="./user.html">
-          Posts
+          Profile
         </a>
       </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-      <a href="./user.html">
-          Favorites
-        </a>
-      </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-      <a href="./user.html">
-          Comments
-        </a>
-      </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-      <a href="./user.html">
-          About
-        </a>
-      </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-      <a href="./user.html">
-        Images
-      </a>
-    </li>
     </ul>
     <ul class="bg-settings overflow-hidden flex py-2 sm:py-0 sm:flex-col rounded-b-md text-sm">
-      <li class="hover:bg-searchBar px-6 py-1">
-        <a href="" class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm">
-          settings
-          </span>
-        Settings
-      </a>
-    </li>
       <li class="hover:bg-searchBar px-6 py-1" id="log-out">
          <a href="" class="flex items-center gap-2">
           <span class="material-symbols-outlined text-sm">

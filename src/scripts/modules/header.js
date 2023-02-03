@@ -141,7 +141,7 @@ const headerHtml = `
     <div class="h-24 bg-cover flex flex-col sm:hidden  p-4 rounded-t-md" style="background-image: url(&quot;https://imgur.com/user/vjenditapllana/cover&quot;);">
     <div class="flex items-center justify-between">
       <input type="button"
-      class="avatar sm:hidden bg-btnColor-1 bg-[url('https://imgur.com/user/vjenditapllana/avatar')]  bg-contain rounded-full w-9 h-9"  
+      class="avatar avatarMobile sm:hidden bg-btnColor-1]  bg-contain rounded-full w-9 h-9"  
     ></input>
     <div class="flex gap-4 items-center">
       <button class="chat sm:hidden items-start pt-1.5">
@@ -156,44 +156,16 @@ const headerHtml = `
       </button>
     </div>
     </div>
-    <h2 class="sm:hidden text-white font-sans font-medium text-start">username</h2>
+    <h2 class="sm:hidden text-white font-sans font-medium text-start">${username}</h2>
     </div>
     <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
       <li class="hover:bg-searchBar px-6 py-1">
         <a href="http://localhost:5500/src/pages/user.html">
-          Posts
+          Profile
         </a>
       </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-        <a href="http://localhost:5500/src/pages/user.html">
-          Favorites
-        </a>
-      </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-        <a href="http://localhost:5500/src/pages/user.html">
-          Comments
-        </a>
-      </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-        <a href="http://localhost:5500/src/pages/user.html">
-          About
-        </a>
-      </li>
-      <li class="hover:bg-searchBar px-6 py-1">
-        <a href="http://localhost:5500/src/pages/user.html">
-        Images
-      </a>
-    </li>
     </ul>
     <ul class="bg-settings overflow-hidden flex py-2 sm:py-0 sm:flex-col rounded-b-md text-sm">
-      <li class="hover:bg-searchBar px-6 py-1">
-        <a href="" class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-sm">
-          settings
-          </span>
-        Settings
-      </a>
-    </li>
       <li class="hover:bg-searchBar px-6 py-1" id="sign-out">
          <p class="flex items-center gap-2">
           <span class="material-symbols-outlined text-sm">
@@ -216,6 +188,7 @@ export const addHeader = () => {
 
   let btn = document.querySelector(".open-menu");
   let avatar = document.querySelector(".avatar");
+  let avatarMobile = document.querySelector(".avatarMobile");
   let profileMenu = document.querySelector(".profile-menu");
   let menuBtn = document.querySelector(".nav-menu");
   let mobileMenu = document.querySelector(".menu");
@@ -233,6 +206,7 @@ export const addHeader = () => {
   document.getElementById("sign-out").addEventListener("click", signOut);
   if (username !== null) {
     addAvatar(avatar)
+    addAvatar(avatarMobile)
   }
 };
 
@@ -365,19 +339,10 @@ const addListeners = (tagContainer, headerContainer, floatingSearch) => {
     // get the current scroll position
     const scrollTop = window.scrollY;
 
-    // if (headerContainer.style.height < "400px") {
       // check if the element is scrolling downwards
       if (scrollTop <= 180) {
         headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
       }
-    // }
-    // else {
-    //   // check if the element is scrolling upwards
-    //   // check if the element is scrolling downwards
-    //   if (scrollTop <= 220) {
-    //     headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
-    //   }
-    // }
 
   });
 };
