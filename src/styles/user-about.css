@@ -1,0 +1,180 @@
+#pg3 h1{
+    font-weight: 900;
+    font-size: 20px;
+    color: #8da6c9;
+}
+
+#pg3 h3{
+    font-weight: 900;
+    font-size: 25px;
+}
+
+#pg .pg .user-about{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+#pg .pg .user-about-sidebar{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 25px;
+}
+
+#pg .pg .user-about-trophies .trophy-container{
+    display: flex;
+    justify-content: start;
+    margin-top: 30px;
+    gap: 30px;
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy img{
+    width: 150px;
+}
+
+
+#pg .pg .user-about-trophies .trophy-container .trophy{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: default;
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy1:hover::after,
+#pg .pg .user-about-trophies .trophy-container .trophy2:hover::after,
+#pg .pg .user-about-trophies .trophy-container .trophy3:hover::after,
+#pg .pg .user-about-trophies .trophy-container .trophy4:hover::after{
+    width: 362px;
+    background-color: #01b96b;
+    text-align: center;
+    padding: 30px;
+    border-radius: 6px;
+    font-size: 20px;
+    box-shadow: 0 2px 20px 10px rgb(0 0 0 / 50%);
+    position: absolute;
+    top: -60%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy1:hover::before,
+#pg .pg .user-about-trophies .trophy-container .trophy2:hover::before,
+#pg .pg .user-about-trophies .trophy-container .trophy3:hover::before,
+#pg .pg .user-about-trophies .trophy-container .trophy4:hover::before{
+    content: "";
+    position: absolute;
+    top: -16px;
+    height: 0px;
+    border: 8px solid transparent;
+    border-color: #1bb76e transparent transparent transparent;
+    z-index: 100;
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy1:hover::after{
+    content: "Imgurian for 2 years.";
+    top: -60%;
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy2:hover::after{
+    content: "One of us! One of us! Joined Imgur on October 5, 2020";
+    top: -75.5%;
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy3:hover::after{
+    content: "Multiple posts in Most Viral.";
+}
+
+#pg .pg .user-about-trophies .trophy-container .trophy4:hover::after{
+    content: "Reply received more upvotes than its parent comment.";
+    top: -75.5%;
+}
+
+
+
+#pg3{
+    transform: translateY(5%);
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    #pg3 h1{
+        font-size: 16px;
+    }
+    
+    #pg3 h3{
+        font-size: 20px;
+    }
+
+    #pg .pg .user-about-trophies .trophy-container{
+        flex-direction: column;
+    }
+
+    #pg .pg .user-about{
+        display: grid;
+        grid-template-columns: 45% 45%;
+        margin-top: 10px;
+        gap: 25px;
+    }
+    
+    #pg .pg .user-about-sidebar{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        gap: 25px;
+    }
+
+    #pg .pg .user-about-trophies .trophy-container .trophy1:hover::after,
+    #pg .pg .user-about-trophies .trophy-container .trophy2:hover::after,
+    #pg .pg .user-about-trophies .trophy-container .trophy3:hover::after,
+    #pg .pg .user-about-trophies .trophy-container .trophy4:hover::after{
+        display: none;
+    }
+
+    #pg .pg .user-about-trophies .trophy-container .trophy1:hover::before,
+    #pg .pg .user-about-trophies .trophy-container .trophy2:hover::before,
+    #pg .pg .user-about-trophies .trophy-container .trophy3:hover::before,
+    #pg .pg .user-about-trophies .trophy-container .trophy4:hover::before{
+        display: none;
+    }    
+}
+
+@media (min-width: 600px) and (max-width: 1200px){
+    #pg .pg .user-about-trophies .trophy-container{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    #pg .pg .user-about-trophies .trophy-container .trophy1:hover::after{
+        content: "Imgurian for 2 years.";
+        top: -65.5%;
+    }
+    
+    #pg .pg .user-about-trophies .trophy-container .trophy2:hover::after{
+        content: "One of us! One of us! Joined Imgur on October 5, 2020";
+        top: -82.5%;
+    }
+    
+    #pg .pg .user-about-trophies .trophy-container .trophy3:hover::after{
+        content: "Multiple posts in Most Viral.";
+    }
+    
+    #pg .pg .user-about-trophies .trophy-container .trophy4:hover::after{
+        content: "Reply received more upvotes than its parent comment.";
+        top: -75.5%;
+    }
+
+    #pg .pg .user-about-trophies .trophy-container .trophy1:hover::after,
+    #pg .pg .user-about-trophies .trophy-container .trophy2:hover::after,
+    #pg .pg .user-about-trophies .trophy-container .trophy3:hover::after,
+    #pg .pg .user-about-trophies .trophy-container .trophy4:hover::after{
+        left: 0;
+    }
+}

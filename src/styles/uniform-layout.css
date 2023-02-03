@@ -1,0 +1,80 @@
+.uniform:hover.uniform:before,
+.waterfall:hover.waterfall:before,
+.play:hover.play:before,
+.pause:hover.pause:before,
+.filter:hover.filter:before {
+  content: "Uniform";
+  color: white;
+  font-family: Proxima Nova ExtraBold, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  background-color: #1bb76e;
+  line-height: 14px;
+  border-radius: 2px;
+  padding: 6px;
+  position: absolute;
+  top: -34px;
+  left: -2px;
+  font-size: 12px;
+  width: auto;
+  height: auto;
+}
+
+.uniform:hover.uniform:before {
+  content: "Uniform";
+}
+.waterfall:hover.waterfall:before {
+  content: "Waterfall";
+}
+.play:hover.play:before {
+  content: "Enable Autoplay";
+}
+.pause:hover.pause:before {
+  content: "Disable autoplay";
+}
+.filter:hover.filter:before {
+  content: "Content Controls";
+}
+
+.uniform:hover.uniform:after,
+.waterfall:hover.waterfall::after,
+.play:hover.play::after,
+.pause:hover.pause::after,
+.filter:hover.filter::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 6px;
+  height: 0px;
+  width: 0px;
+  border: 8px solid transparent;
+  border-color: #1bb76e transparent transparent transparent;
+}
+
+@media screen and (min-width: 640px) {
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .flex-container > * {
+    height: 300px;
+  }
+
+  .flex-container img,
+  .flex-container video {
+    object-position: top left;
+    height: 220px;
+  }
+
+  .flex-container .long-title img,
+  .flex-container .long-title video {
+    height: 200px;
+  }
+
+  .flex-container .extra-long-title img,
+  .flex-container .extra-long-title video {
+    height: 180px;
+  }
+}

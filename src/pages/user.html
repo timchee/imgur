@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://s.imgur.com/images/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Imgur: The magic of the Internet</title>
+    <script type="module" src="../scripts/userPage.js" defer></script>
+    <script src="../scripts/toggle.js" defer></script>
+</head>
+<body class="bg-[#051234] flex flex-col items-center">
+
+    <!-- MODAL -->
+    <section
+      class="overlay w-full h-screen py-4 sm:py-0s px-4 sm:px-[7.5%] lg:px-[20%] bg-overlay absolute top-0 z-50 flex-col gap-2 items-center justify-center hidden"
+      id="modal"
+    ></section>
+
+    <!-- HEADER -->
+    <header
+          class="header bgPosition flex w-full h-auto py-4 px-2 sm:px-4 justify-between relative  top-0 left-0 z-20 bg-no-repeat bg-bottom"
+          id="header"
+    >
+        
+      <a href="http://localhost:5500/src/" class="logoImg absolute hidden">
+        <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" class="" />
+      </a>
+    </header>
+
+
+    <section
+      class="header-container bg-bgColor flex flex-col justify-center items-center gap-y-5 h-auto pb-5 absolute top-0 w-full py-8" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://imgur.com/user/pukec/cover);"
+    >
+      
+    <section class="user py-10">
+        <div class="profile">
+            <div class="profile-img"></div>
+            <div class="profile-data">
+                <h2 class="profile-username text-white text-3xl font-bold"></h2>
+                <div class="profile-data-container">
+                    <p>206,948 PTS</p>
+                    <p> &middot;  </p>
+                    <p> GLORIOUS</p>
+                    <div class="profile-data-chat">
+                        <svg width="15px" height="15px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M4.8 3H19.2C20.19 3 21 3.81 21 4.8V15.6C21 16.59 20.19 17.4 19.2 17.4H6.6L3 21V4.8C3 3.81 3.81 3 4.8 3ZM6.6 15.6H19.2V4.8H4.8V17.4L6.6 15.6Z" fill="#ffffff"></path> </g></svg>
+                        <p> CHAT </p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>  
+    </section>
+
+    <div class="relative top-48 w-full flex flex-col items-center">
+    <div id="pages-container" class="z-30 sticky top-2 py-4 w-1/2">
+      <a id="pg0" href="" onclick="return toggle('pg0')" class="active-page text-white font-bold">POSTS</a>
+      <!-- <a id="pg1" href="" onclick="return toggle('pg1')" class="text-white">FAVORITES</a> -->
+      <a id="pg2" href="" onclick="return toggle('pg2')" class="text-white">COMMENTS</a>
+      <a id="pg3" href="" onclick="return toggle('pg3')" class="text-white">ABOUT</a>
+    </div>
+
+    <div id="nav" class="nav z-10 sticky top-[70px] w-full py-2 flex justify-center items-center bg-[#051234]">
+      <div class="flex justify-between items-center text-gray-200 text-sm w-3/4">
+        <div class="flex gap-2 sm:gap-4">
+          <p class="text-white">ALL</p>
+          <p>PUBLIC</p>
+          <p>HIDDEN</p>
+        </div>
+        <div  class="flex gap-2 sm:gap-3">
+          <span
+                class="play material-symbols-rounded text-gray-200 hover:text-white text-2xl relative"
+                id="enable-autoplay-btn"
+          >
+                  smart_display
+          </span>
+
+          <span
+                class="uniform material-symbols-rounded text-gray-200 hover:text-white text-2xl relative"
+              >
+                grid_view
+          </span>
+        </div>
+      </div>
+    </div>
+  
+
+    <div id="pg" class="w-3/4 h-[1000px] flex flex-col items-center">
+      <div id="pg0" class="pg">
+        <div class="user-posts">
+          <div
+            class="dense-grid gallery relative overflow-hidden"
+            id="posts-container"
+          ></div>
+        </div>
+      </div>
+      <!-- <div id="pg1" class="pg">
+        <div class="user-favorites">
+          
+        </div>
+      </div> -->
+      <div id="pg2" class="pg">
+        <div class="user-comments">
+          <!-- <div class="comment-container">
+            <div class="comment-img">
+              <img src="https://i.imgur.com/NOnMnGAb.png" alt="">
+            </div>
+            <div class="comment">
+              <div class="comment-text">
+                <p class="text-white">I had this problem, turns out I needed glasses my whole life and wasn't seeing books as I was meant to be </p>
+              </div>
+              <div class="comment-items">
+                <div class="comment-details">
+                  <div class="flex align-center">
+                    <div class="comment-vote"></div>
+                    <p>1 pts</p>
+                  </div>
+                  
+                  <p>3 days</p>
+                  <button class="text-white">Reply</button>
+                </div>
+                <div class="comment-dropdown"><p></p></div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div id="pg3" class="pg w-full flex justify-start">
+        <div class="user-about"> 
+          <div class="user-about-sidebar">
+            <div>
+              <h1>ABOUT</h1>
+              <p>I like pukeM more</p>
+            </div>
+            <div>
+              <h1>JOINED</h1>
+              <h3>October 5, 2020</h3>
+            </div>
+            <div>
+              <h1>INTERNET POINTS</h1>
+              <h3>206,948</h3>
+            </div>
+            <div>
+              <h1>NOTORIETY</h1>
+              <h3>Glorious</h3>
+            </div>
+          </div>
+          <div class="user-about-trophies">
+            <h1>TROPHIES</h1>
+            <div class="trophy-container">
+              <div class="trophy trophy1">
+                <img class="trophy-img" src="https://s.imgur.com/images/trophies/2_years.png" alt="">
+                <p class="text-xs">2 YEARS</p>
+              </div>
+              <div class="trophy trophy2">
+                <img class="trophy-img" src="https://s.imgur.com/images/trophies/joined_imgur.png" alt="">
+                <p class="text-xs">JOINED IMGUR</p>
+              </div>
+              <div class="trophy  trophy3">
+                <img class="trophy-img" src="https://s.imgur.com/images/trophies/contributor.png" alt="">
+                <p class="text-xs">CONTRIBUTOR</p>
+              </div>
+              <div class="trophy trophy4">
+                <img class="trophy-img" src="https://s.imgur.com/images/trophies/steal_your_thunder.png" alt="">
+                <p class="text-xs w-20 text-center">STEAL YOUR THUNDER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <button id="scroll-btn">
+      <svg fill="#ffffff" version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="40px" viewBox="-9.6 -9.6 51.20 51.20" xml:space="preserve" stroke="#ffffff" stroke-width="0.00032"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="-9.6" y="-9.6" width="51.20" height="51.20" rx="7.68" fill="#474a51" strokewidth="0"></rect></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;} </style> <title>up-to-top</title> <polygon points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24 "></polygon> <rect x="4" y="8" width="24" height="2"></rect> <rect id="_Transparent_Rectangle_" class="st0" width="30" height="30"></rect> </g></svg>
+  </button>
+
+</body>
+</html>

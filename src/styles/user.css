@@ -1,0 +1,173 @@
+@import url("/src/styles/user-about.css");
+@import url("/src/styles/user-comments.css");
+
+
+
+.user{
+    color: white;
+}
+
+.profile{
+    display: flex;
+    width: 90vw;
+    padding: 40px 100px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.profile-img{
+    width: 125px;
+    height: 125px;
+    background-color: #34cea8;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-data-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-data-chat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-data-container p{
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+
+.profile-data h2{
+    font-size: 40px;
+    font-weight: 900;
+}
+
+#pages-container{
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+#pages-container a:after {
+    content: " ";
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#pages-container .active-page::after {
+    margin-top: 9px;
+    border: 2px solid #fff;
+    border-radius: 2px;
+}
+
+.pg { display:none; }
+
+#pg0{display: block;}
+
+#pg .pg{
+    width: 100%;
+    height: 100vh;
+    background-color: #061234;
+    color: white;
+}
+
+#nav{
+    transform: translateY(-12%);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .profile{
+        display: flex;
+        width: 100vw;
+        padding: 20px 10px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .profile-img{
+        width: 80px;
+        height: 80px;
+        background-image: url(https://imgur.com/user/vjenditapllana/avatar);
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        margin-right: 0;
+    }
+
+    .profile-data .profile-username{
+        font-size: 25px;
+        font-weight: 900;
+        width: 60vw;
+        word-wrap: break-word;
+    }
+
+    #pages-container{
+        gap: 10px;
+        justify-content: center;
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .profile-data-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #pages-container a{
+        font-size: 12px;
+    }
+
+    .profile-data-container p{
+        font-size: 10px;
+        font-weight: bolder;
+    }
+
+
+    #nav p{
+        font-size: 14px;
+    }
+
+}   
+
+@media (min-width: 600px) and (max-width: 1200px){
+    .profile{
+        display: flex;
+        width: 100vw;
+        padding: 20px 10px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .profile-img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-data .profile-username{
+        font-size: 30px;
+        width: 60vw;
+        word-wrap: break-word;
+    }
+}

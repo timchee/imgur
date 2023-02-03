@@ -1,0 +1,85 @@
+.custom-select {
+  position: relative;
+  width: auto;
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+    width: 100%;
+    display: flex;
+    gap: 2px;
+    justify-content: flex-end;
+    color: #8d929a;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+/*arrow*/
+.select-selected:after {
+    align-self: center;
+    margin-top: 6px;
+    margin-left: 10px;
+    content: "";
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #8d929a transparent transparent transparent;
+}
+
+
+/*options*/
+.select-items div,.select-selected {
+  /* color: white; */
+  font-family: Proxima Nova Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  user-select: none;
+  padding: 8px 12px;
+}
+
+/*triangle*/
+.select-items::before{
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: 12px;
+  z-index: 99;
+  border: 10px solid transparent;
+  border-color:  transparent transparent #53565d transparent ;
+}
+/* options */
+.select-items {
+  color: gray;
+  width: auto;
+  position: absolute;
+  background-color: #53565d;
+  border-radius: 4px;
+  top: 100%;
+  right: -4px;
+  z-index: 99;
+}
+
+.select-items>div{
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/*hide the options when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+/* Selected */
+.same-as-selected {
+  color: white;
+}
+
+.select-items div:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+}

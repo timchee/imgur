@@ -1,0 +1,15 @@
+@media screen and (min-width: 640px) {
+  .dense-grid {
+    width: 98%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-auto-rows: 5px;
+    column-gap: 20px;
+  }
+
+  .post {
+    grid-row: span var(--span);
+  }
+}
