@@ -662,8 +662,8 @@ video {
   top: 0.5rem;
 }
 
-.top-\[68px\] {
-  top: 68px;
+.top-\[70px\] {
+  top: 70px;
 }
 
 .top-1 {
@@ -1403,10 +1403,6 @@ video {
   border-style: dashed;
 }
 
-.border-none {
-  border-style: none;
-}
-
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(71 74 81 / var(--tw-border-opacity));
@@ -1591,10 +1587,6 @@ video {
   background-color: rgb(87 93 105 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\'\.\.\/assets\/bg\.png\'\)\] {
-  background-image: url('../assets/bg.png');
-}
-
 .bg-\[url\(\'https\:\/\/imgur\.com\/user\/vjenditapllana\/avatar\'\)\] {
   background-image: url('https://imgur.com/user/vjenditapllana/avatar');
 }
@@ -1613,18 +1605,6 @@ video {
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\.\.\/assets\/avatarBg\.png\'\)\] {
-  background-image: url('../assets/avatarBg.png');
-}
-
-.bg-\[url\(\'\.\.\/assets\/avatar\.jpg\'\)\] {
-  background-image: url('../assets/avatar.jpg');
-}
-
-.bg-\[url\(\.\.\/assets\/avatar\.jpg\)\] {
-  background-image: url(../assets/avatar.jpg);
 }
 
 .from-tagColor-1 {
@@ -2041,6 +2021,14 @@ video {
   caret-color: #ffffff;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
 .opacity-40 {
   opacity: 0.4;
 }
@@ -2328,6 +2316,10 @@ video {
     gap: 1rem;
   }
 
+  .sm\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .sm\:rounded-xl {
     border-radius: 0.75rem;
   }
@@ -2348,6 +2340,10 @@ video {
 
   .sm\:p-0 {
     padding: 0px;
+  }
+
+  .sm\:p-4 {
+    padding: 1rem;
   }
 
   .sm\:px-\[7\.5\%\] {
@@ -2476,8 +2472,16 @@ video {
     width: 60%;
   }
 
+  .md\:items-end {
+    align-items: flex-end;
+  }
+
   .md\:items-center {
     align-items: center;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
   }
 
   .md\:justify-around {

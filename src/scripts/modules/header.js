@@ -319,10 +319,8 @@ const observeHeader = (
         if (sessionStorage.getItem("loggedIn") !== "true") {
           buttons.classList.add("hidden");
         }
-        header.classList.add("shadow-lg");
       } else {
         header.classList.remove("background");
-        header.classList.remove("shadow-lg");
         imgur.classList.remove("invisible");
         newPostBtn.classList.remove("invisible");
         search.classList.remove("invisible");
@@ -340,7 +338,6 @@ const observeHeader = (
   headerObserver.observe(headerContainer);
 };
 
-const tags = document.querySelector("#tags");
 
 const addListeners = (tagContainer, headerContainer, floatingSearch) => {
   window.addEventListener("scroll", function () {
@@ -384,13 +381,19 @@ const addListeners = (tagContainer, headerContainer, floatingSearch) => {
 
   });
 };
+let userHref;
+if (window.location.href.includes('pages')) {
+  userHref = "user.html"
+} else {
+  userHref = "pages/user.html"
+}
 
 let clickCount = 0;
 const goToUserPage = (avatar) => {
   avatar.addEventListener("click", () => {
     clickCount++;
     if (clickCount === 2) {
-      window.location.href = "http://localhost:5500/src/pages/user.html";
+      window.location.href = userHref;
     }
   });
 };
