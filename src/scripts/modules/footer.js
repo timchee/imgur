@@ -82,11 +82,8 @@ let options = {
 const observeFooter = (ellipsis, footerMenu, footerItems) => {
   const hideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      // let attribute = entry.target.getAttribute("href");
-      // let a = `<a href="${attribute}">${entry.target.innerHTML}</a>`;
       if (!entry.isIntersecting) {
         ellipsis.style.display = "flex";
-        // footerMenu.innerHTML += a;
       } else if (entry.target.innerHTML == "API") {
         ellipsis.style.display = "none";
       }

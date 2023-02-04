@@ -248,6 +248,7 @@ export const handleHeader = () => {
   addListeners(tagContainer, headerContainer, floatingSearch);
 };
 
+//Open and close menu
 const showAndHide = (button, menu) => {
   button.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -272,6 +273,7 @@ let options = {
   rootMargin: "-50px",
 };
 
+//Snap header in or out of view, show and hide elements when header container moves in or out of viewport
 const observeHeader = (
   imgur,
   header,
@@ -319,6 +321,8 @@ const observeHeader = (
 };
 
 const addListeners = (tagContainer, headerContainer, floatingSearch) => {
+
+  //Show or hide search when navigation in main section becomes sticky/static
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
     if (tagContainer.clientHeight == "248") {
@@ -340,6 +344,7 @@ const addListeners = (tagContainer, headerContainer, floatingSearch) => {
     }
   });
 
+  //Translate header container vertically according to scrollY
   window.addEventListener("scroll", function () {
     // get the current scroll position
     const scrollTop = window.scrollY;
@@ -350,6 +355,8 @@ const addListeners = (tagContainer, headerContainer, floatingSearch) => {
     }
   });
 };
+
+//handle url
 let userHref;
 if (window.location.href.includes("pages")) {
   userHref = "user.html";
@@ -357,6 +364,7 @@ if (window.location.href.includes("pages")) {
   userHref = "pages/user.html";
 }
 
+//Redirect to user page on second click of the avatar button
 let clickCount = 0;
 const goToUserPage = (avatar) => {
   avatar.addEventListener("click", () => {
@@ -378,6 +386,7 @@ const signOut = (buttons, avatar, icons) => {
   icons.classList.add("hidden");
 };
 
+//Switch between sign in/up buttons or username and avatar when logged in/out
 const checkState = (buttons, avatar, icons) => {
   if (sessionStorage.getItem("loggedIn") === "true") {
     buttons.classList.add("hidden");
@@ -388,6 +397,7 @@ const checkState = (buttons, avatar, icons) => {
   }
 };
 
+//Change avatar based on username
 const addAvatar = (avatar) => {
   const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
   url = avatarImages[firstLetter];

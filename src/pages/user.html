@@ -24,7 +24,9 @@
     <script type="module" src="../scripts/userPage.js" defer></script>
     <script src="../scripts/toggle.js" defer></script>
   </head>
+
   <body class="bg-[#051234] flex flex-col items-center">
+
     <!-- MODAL -->
     <section
       class="overlay w-full h-screen py-4 sm:py-0s px-4 sm:px-[7.5%] lg:px-[20%] bg-overlay absolute top-0 z-50 flex-col gap-2 items-center justify-center hidden"
@@ -45,6 +47,7 @@
       </a>
     </header>
 
+    <!-- USER INFO -->
     <section
       class="header-container bg-bgColor flex flex-col justify-center items-center gap-y-5 h-auto pb-5 absolute top-0 w-full py-8"
       style="
@@ -91,7 +94,10 @@
       </section>
     </section>
 
+    <!-- MAIN -->
     <div class="relative top-48 w-full flex flex-col items-center">
+
+      <!-- NAVIGATION BAR FOR USER SECTIONS -->
       <div id="pages-container" class="z-30 sticky top-2 py-4 w-1/2">
         <a
           id="pg0"
@@ -109,6 +115,7 @@
         >
       </div>
 
+      <!-- SECONDARY NAVIGATION BAR -->
       <div
         id="nav"
         class="nav z-10 sticky top-[70px] w-full py-2 flex justify-center items-center bg-[#051234]"
@@ -138,20 +145,25 @@
         </div>
       </div>
 
-      <div id="pg" class="w-3/4 h-[1000px] flex flex-col items-center">
-        <div id="pg0" class="pg">
-          <div class="user-posts">
-            <div
-              class="dense-grid gallery relative overflow-hidden"
-              id="posts-container"
-            ></div>
+        <!-- POSTS SECTION -->
+        <div id="pg" class="w-3/4 h-[1000px] flex flex-col items-center">
+          <div id="pg0" class="pg">
+            <div class="user-posts">
+              <div
+                class="dense-grid gallery relative overflow-hidden"
+                id="posts-container"
+              ></div>
+            </div>
           </div>
         </div>
-      </div> -->
+
+        <!-- COMMENTS SECTION -->
         <div id="pg2" class="pg">
           <div class="user-comments">
           </div>
         </div>
+
+        <!-- ABOUT SECTION -->
         <div id="pg3" class="pg w-full flex justify-start">
           <div class="user-about">
             <div class="user-about-sidebar">
@@ -214,50 +226,7 @@
       </div>
     </div>
 
-    <button id="scroll-btn">
-      <svg
-        fill="#ffffff"
-        version="1.1"
-        id="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="40px"
-        height="40px"
-        viewBox="-9.6 -9.6 51.20 51.20"
-        xml:space="preserve"
-        stroke="#ffffff"
-        stroke-width="0.00032"
-      >
-        <g id="SVGRepo_bgCarrier" stroke-width="0">
-          <rect
-            x="-9.6"
-            y="-9.6"
-            width="51.20"
-            height="51.20"
-            rx="7.68"
-            fill="#474a51"
-            strokewidth="0"
-          ></rect>
-        </g>
-        <g id="SVGRepo_iconCarrier">
-          <style type="text/css">
-            .st0 {
-              fill: none;
-            }
-          </style>
-          <title>up-to-top</title>
-          <polygon
-            points="16,14 6,24 7.4,25.4 16,16.8 24.6,25.4 26,24 "
-          ></polygon>
-          <rect x="4" y="8" width="24" height="2"></rect>
-          <rect
-            id="_Transparent_Rectangle_"
-            class="st0"
-            width="30"
-            height="30"
-          ></rect>
-        </g>
-      </svg>
-    </button>
+    <!-- SCROLL TO TOP -->
+    <button id="scroll-btn"></button>
   </body>
 </html>

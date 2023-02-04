@@ -4,12 +4,10 @@ let username = sessionStorage.getItem("username");
 const header = document.querySelector(".header-container");
 const mainHeader = document.querySelector(".main-header");
 const floatingHeader = document.querySelector(".floating-header");
-const floatingNav = document.querySelector(".floating-nav");
-const floatingImg = document.querySelector(".floating-img");
-const floatingAvatar = document.querySelector(".floating-avatar");
 const floatingSearch = document.querySelector(".floating-search");
-const mainSection = document.querySelector("main");
 let previousScrollTop = 0;
+
+
 const floatingHeaderHtml = `
 <nav
 class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0"
@@ -61,12 +59,16 @@ class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sti
   </menu>
 </nav>
 `;
+
+
 let options = {
   rootMargin: "-30px 0px 0px 0px",
 };
+
+//Snap floating header in or out of view, hide or show elements
+//when the header container move in or out of view
 const headerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    // console.log(entry.target)
     let floatBtn = document.querySelector(".floating-avatar");
     if (!entry.isIntersecting) {
       mainHeader.classList.remove("sticky");
@@ -86,6 +88,7 @@ const headerObserver = new IntersectionObserver((entries) => {
   });
 }, options);
 
+// Show search in floating header after when navigation bar in main section becomes sticky
 const addListeners = () => {
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
@@ -98,7 +101,9 @@ const addListeners = () => {
     }
   });
 
+  //Translate header container vertically according to scrollY
   window.addEventListener("scroll", function () {
+
     // get the current scroll position
     const scrollTop = window.scrollY;
     // check if the element is scrolling upwards
@@ -115,6 +120,8 @@ const addListeners = () => {
     previousScrollTop = scrollTop;
   });
 };
+
+//Redirect to user page on second click of the avatar button
 let clickCount = 0;
 const goToUserPage = (avatar) => {
   avatar.addEventListener("click", () => {

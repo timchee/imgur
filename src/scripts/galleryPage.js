@@ -4,13 +4,11 @@ import { singleSidebarPost } from "./modules/sidebarPost.js";
 import { getData } from "./modules/addGalleryImages.js";
 import { addFooter } from "./modules/footer.js";
 import {
-  addModal,
-  uploadByURL,
-  uploadFromPC,
-  uploadOnDrag,
+  addModal
 } from "./modules/modal.js";
 import { addEngagementBar } from "./modules/engagementBar.js";
 import { avatarImages } from "./modules/avatarImages.js";
+import { addScrollButton } from "./modules/scrollToTop.js";
 
 let postIds = [];
 const addSidebarPosts = async () => {
@@ -42,9 +40,6 @@ addEngagementBar();
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 await addSidebarPosts();
 addModal();
-uploadOnDrag();
-uploadFromPC();
-uploadByURL();
 
 const hd = document.querySelector(".pp-header");
 const logo = document.querySelector(".logoImg");
@@ -105,6 +100,7 @@ const postObserver = new IntersectionObserver((entries) => {
 
 postObserver.observe(title);
 addFooter();
+addScrollButton()
 
 const postCommentBtn = document.querySelector("#post-comment");
 const textarea = document.querySelector("textarea");

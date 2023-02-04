@@ -1,15 +1,10 @@
 import { addHeader, handleHeader } from "./modules/header.js";
-import { addModal, uploadOnDrag, uploadFromPC, uploadByURL } from "./modules/modal.js"
+import { addModal } from "./modules/modal.js"
 import { avatarImages } from "./modules/avatarImages.js";
-import { searchByPost } from "./search.js";
 import { addTagImages } from "./modules/addGalleryImages.js";
 
 addHeader();
 addModal();
-uploadOnDrag();
-uploadFromPC();
-uploadByURL();
-searchByPost()
 
 addTagImages("https://api.npoint.io/bc13239283496e6574a7");
 // handleHeader()
@@ -76,22 +71,13 @@ if (user === null) {
 let profileImage = document.querySelector('.profile-img')
 let usernameEl = document.querySelector('.profile-username ')
 
-// const getUsername = ()=>{
-//     let nameUser = window.location.search;
-//     nameUser=nameUser.split("=")[1]
-//     if (nameUser!=="") {
-//         usernameEl.innerHTML=nameUser
-//     }
-// }
+
 
 let userComments = document.querySelector(".user-comments");
 
 let comments;
 
-// fetch('https://api.npoint.io/2da4f077d06b9a86d910')
-//       .then(response => response.json())
-//       .then(data => comments=data
-//   )
+
 
  const getCommentsApi = async ()=>{
     const response = await fetch('https://api.npoint.io/2da4f077d06b9a86d910')
@@ -149,7 +135,3 @@ addAvatar()
 
 
 await getCommentsApi()
-
-
-
-// console.log(url)

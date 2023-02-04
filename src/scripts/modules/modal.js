@@ -66,6 +66,7 @@ export const addModal = () => {
   const input = document.querySelector("#paste");
   const inputValue = input.value;
 
+  //Handle input value on focus and on blur
   input.addEventListener("focus", () => {
     input.value = "";
   });
@@ -76,7 +77,6 @@ export const addModal = () => {
   });
 
   const inputFile = document.querySelector("#file-input");
-
   inputFile.addEventListener("change", () => {
     inputFile.files[0];
   });
@@ -90,28 +90,27 @@ export const addModal = () => {
   };
 
   let newPostBtn = document.querySelector(".new-post");
-  let modal = document.querySelector(".modal");
   let closeBtn = document.querySelector(".x");
 
+  //Open modal
   newPostBtn.addEventListener("click", () => {
     document.body.classList.add("overflow-hidden")
     showAndHide(overlayModal);
   });
+
+  //Close modal
   closeBtn.addEventListener("click", () => {
     document.body.classList.remove("overflow-hidden")
     showAndHide(overlayModal);
   });
 
-  // overlayModal.addEventListener("click", () => {
-  //   showAndHide(overlayModal);
-  // });
-
-  // modal.addEventListener("click", (event) => {
-  //   event.stopPropagation();
-  // });
+  uploadByURL()
+  uploadFromPC()
+  uploadOnDrag()
 };
-let href = window.location.href
 
+//change overlay innerHTML upon file upload
+let href = window.location.href
 const postDiv = `<div class="container flex flex-col xl:flex-row w-full h-full gap-16 justify-center items-center xl:items-start mt-[660px] sm:mt-[1400px] md:mt-60 lg:mt-[800px] xl:mt-60 mb-40">
 <div class="Navbar-logo-container absolute top-4 left-4">
     <a aria-current="page" class="Navbar-logo active" href="${href}">
@@ -225,33 +224,34 @@ const postDiv = `<div class="container flex flex-col xl:flex-row w-full h-full g
 </div>
 </div>`;
 
-export const uploadOnDrag = () => {
+const uploadOnDrag = () => {
   const dropArea = document.querySelector(".drop");
   const inputElement = document.querySelector(".input");
 
+  //Add animation on dragover 
   dropArea.addEventListener('dragover', e => {
     e.preventDefault()
     dropArea.classList.add('dragover')
   })
 
+  //Remove animation on dragleave
   dropArea.addEventListener('dragleave', e => {
     dropArea.classList.remove('dragover') 
   })
   
+  //Remove animation on dragend
   dropArea.addEventListener('dragend', e => {
     dropArea.classList.remove('dragover')
   })
 
+  //Remove animation on drop
   dropArea.addEventListener('drop', e => {
     dropArea.classList.remove('dragover')
   })
     
+  //handle file on drop
   dropArea.addEventListener('drop', e => {
     e.preventDefault()
-    console.log(e.dataTransfer.files)
-  
-    console.log(overlayModal.style)
-    // overlay.style.background = 'linear-gradient(180deg, rgba(63,34,126,1) 0%, rgba(21,117,84,1) 25%, rgba(87,110,103,1) 50%, rgba(87,110,103,1) 100%)';
 
     overlayModal.innerHTML = postDiv
     overlayModal.classList.add("absolute")
@@ -260,12 +260,11 @@ export const uploadOnDrag = () => {
     document.body.classList.add("overflow-hidden")
     console.log(overlayModal)
 
-    // overlayModal.classList.remove("h-screen")
-    // overlayModal.classList.add("h-full")
     
     if (e.dataTransfer.files.length) {
       addPhoto(e.dataTransfer.files[0])
 
+      //show upload complete popup
       let uploadComplete = document.querySelector('.upload-comp')
       uploadComplete.classList.add('upload-complete')
     }
@@ -292,7 +291,9 @@ const addPhoto = (file) => {
 }
 
 
-export const uploadFromPC = () => {
+const uploadFromPC = () => {
+
+  //handle file on upload
   const inputField = document.querySelector(".inputFromPC");
   inputField.addEventListener("change", e => {
     e.preventDefault()
@@ -311,9 +312,10 @@ export const uploadFromPC = () => {
   })
 }
 
-export const uploadByURL = () => {
-  const pasteField = document.querySelector("#paste");
+const uploadByURL = () => {
 
+  //handle file uploaded by pasting url
+  const pasteField = document.querySelector("#paste");
   pasteField.addEventListener("keypress", e => {
     if (e.key === "Enter") {  
       
@@ -337,6 +339,6 @@ const addPhotoByURL = (inputValue) => {
    {
       photoArea.style.backgroundImage = `url('${inputValue}')`;
   }
-  }
+}
 
 

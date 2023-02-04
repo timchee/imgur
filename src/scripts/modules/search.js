@@ -1,4 +1,4 @@
-export const searchByPost = () => {
+const searchByPost = () => {
 
     const searchInput = document.querySelector('input[type="search"]')
     const autocomplete = document.querySelector('.autocomplete-box')
@@ -21,7 +21,7 @@ export const searchByPost = () => {
       count++;
     
       //show suggestions based on input that is longer than two characters
-      if (count > 1) {   
+      if (count > 2) {   
         let suggestions = []
         let suggestedThree = []
           data.forEach((post) => {
@@ -66,7 +66,7 @@ export const searchByPost = () => {
 }
 
 
-export const searchByTag = () => {
+const searchByTag = () => {
     const searchInput = document.querySelector('input[type="search"]')
     const autocomplete = document.querySelector('.autocomplete-box')
     const autocompleteTags = document.querySelector('.autocomplete-box ul.tags')
@@ -115,7 +115,7 @@ export const searchByTag = () => {
     })
 }
 
-export const searchByUser = () => {
+const searchByUser = () => {
   const searchInput = document.querySelector('input[type="search"]')
   const autocomplete = document.querySelector('.autocomplete-box')
   const autocompleteUsers = document.querySelector('.autocomplete-box ul.users')
@@ -178,3 +178,10 @@ const data = responseJson.data;
 const responseTags = await fetch("https://api.npoint.io/c84c906dc1ecf067f09a");
 const responseTagsJson = await responseTags.json();
 const tags = responseTagsJson.data.tags;
+
+
+export const addSearch = () => {
+  searchByPost()
+  searchByTag()
+  searchByUser()
+}
