@@ -34,7 +34,7 @@ const hideCollapseBtn = () => {
 
 //Gets comments from endpoint
 const getComments = async () => {
-  const data = await fetch(`../data/comments.json`);
+  const data = await fetch(`../data/comments${postId}.json`);
   const comments = await data.json();
   return comments;
 };
@@ -85,7 +85,7 @@ const createComment = async (comment) => {
   }
 
   const commentHtml = `
-    <div class="comment">
+    <div>
     <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
       <img src=${avatar} class="bg-btnColor-1 shrink-0 w-6 h-6 rounded-full sm:top-0"></img>
       <div class="flex flex-col gap-2">
@@ -109,6 +109,7 @@ const addInitialComments = async (comments, comment_count) => {
   let addedComments = [];
   for (const comment of comments) {
     if (comment.postId == postId) {
+      console.log();
       let newComment = await createComment(comment, comment_count);
       commentsDiv.innerHTML += newComment;
       addedComments.push(newComment);
@@ -131,11 +132,13 @@ const addMoreComments = async (allComments, commentsLoaded, randomNumber) => {
     commentsLoaded + commentCount
   );
   for (const comment of comments) {
-    commentsDiv.innerHTML += await createComment(
-      comment,
-      randomNumber,
-      allComments.length
-    );
+    if (comment.postId == postId) {
+      commentsDiv.innerHTML += await createComment(
+        comment,
+        randomNumber,
+        allComments.length
+      );
+    }
   }
 
   //If there are no more unloaded comments
@@ -156,11 +159,13 @@ const addRemainingComments = async (
 ) => {
   const comments = allComments.slice(startIndex);
   for (const comment of comments) {
-    commentsDiv.innerHTML += await createComment(
-      comment,
-      randomNumber,
-      comment_count
-    );
+    if (comment.postId == postId) {
+      commentsDiv.innerHTML += await createComment(
+        comment,
+        randomNumber,
+        comment_count
+      );
+    }
   }
   hideLoadMoreCommentsBtn();
 };

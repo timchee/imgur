@@ -31,7 +31,7 @@ addModal();
 uploadOnDrag();
 uploadFromPC();
 uploadByURL();
-searchByPost()
+
 
 const loggedIn = sessionStorage.getItem("loggedIn");
 if (loggedIn) {
@@ -50,6 +50,10 @@ const btn = document.querySelector(".new-post");
 const search = document.querySelector(".search-form");
 const title = document.querySelector(".post-title");
 const floatTitle = document.querySelector(".floating-title");
+const nextBtn=document.querySelector(".floating-title>div:nth-child(2) a:last-child>span")
+
+
+console.log(nextBtn)
 
 let rootMargin = {
   rootMargin: "-160px",
@@ -84,11 +88,15 @@ const postObserver = new IntersectionObserver((entries) => {
       floatTitle.classList.remove("invisible");
       search.style.transform = "translateY(40px)";
       floatTitle.style.transform = "translateY(-20px)";
+      nextBtn.classList.add("flex")
+      nextBtn.classList.remove("hidden")
     } else {
       floatTitle.classList.add("invisible");
       search.classList.remove("invisible");
       search.style.transform = "translateY(0px)";
       floatTitle.style.transform = "translateY(40px)";
+      nextBtn.classList.remove("flex")
+      nextBtn.classList.add("hidden")
     }
   });
 }, options);
@@ -134,3 +142,5 @@ postCommentBtn.addEventListener("click", () => {
 
   textarea.value = "";
 });
+
+searchByPost()

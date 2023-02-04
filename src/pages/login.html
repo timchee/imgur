@@ -7,6 +7,8 @@
     <link href="/dist/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/login.css" />
+    <link id="myLink" rel="stylesheet" type="text/css" href="../index.html">
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
@@ -28,7 +30,7 @@
       href="https://unicons.iconscout.com/release/v3.0.1/css/line.css"
     />
     <script src="../scripts/login.js" defer></script>
-    <title>Register - Imgur</title>
+    <title>Sign In - Imgur</title>
   </head>
   <div class="back-to-imgur flex gap-x-2 p-4 items-center">
     <h1
@@ -90,28 +92,48 @@
         <div class="r-line w-32 h-[1px] mt-3"></div>
       </div>
       <div class="sign-in w-full h-auto flex-col mt-2">
-        <div class="info bg-gray-800 w-96 p-4 flex-col rounded-md">
-          <input
-            type="email"
-            placeholder="Username or Email"
-            id="email"
-            class="text-white"
-          />
-          <div class="pass">
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              class="text-white border-0"
-            />
-            <button>forgot?</button>
+        <div class="help">
+          <div class="info bg-gray-800 w-96 p-4 flex-col rounded-md">
+            <div
+              class="w-full justify-center bg-[#121211] rounded-[3px] p-1.5 hidden"
+              id="hidden"
+            >
+              <p class="w-auto text-[#DB3535]">
+                Your login information was incorrect.
+              </p>
+            </div>
+            <div class="flex relative">
+              <input
+                type="email"
+                placeholder="Username or Email"
+                id="email"
+                class="text-white mt-2"
+              />
+              <div class="hidden alerti" id="usernamee">
+                <div class="triangle top-[55%] absolute right-[-9.8%]"></div>
+                <div
+                  class="bg-[#555555] absolute right-[-44%] top-[30%] bg-[#DB3535] px-2 text-white"
+                >
+                  <p class="text-white">Enter a username</p>
+                </div>
+              </div>
+            </div>
+            <div class="pass">
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                class="text-white border-0"
+              />
+              <button>forgot?</button>
+            </div>
           </div>
-        </div>
-        <div class="sign-up flex gap-x-4">
-          <p class="text-white"><a href="signUp.html">need an account?</a></p>
-          <button class="text-white bg-[#5c69ff] px-4 py-2" id="sign-in">
-            Sign In
-          </button>
+          <div class="sign-up flex gap-x-4">
+            <p class="text-white"><a href="signUp.html">need an account?</a></p>
+            <button class="text-white bg-[#5c69ff] px-4 py-2" id="sign-in">
+              Sign In
+            </button>
+          </div>
         </div>
       </div>
     </div>
