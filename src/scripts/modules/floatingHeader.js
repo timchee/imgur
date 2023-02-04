@@ -1,6 +1,6 @@
 import { avatarImages } from "./avatarImages.js";
 let url = sessionStorage.getItem("url");
-let username = sessionStorage.getItem("username")
+let username = sessionStorage.getItem("username");
 const header = document.querySelector(".header-container");
 const mainHeader = document.querySelector(".main-header");
 const floatingHeader = document.querySelector(".floating-header");
@@ -74,8 +74,8 @@ const headerObserver = new IntersectionObserver((entries) => {
       floatingHeader.classList.add("bg-bgColor");
       floatingHeader.classList.add("shadow-lg");
       floatingHeader.classList.add("shadow-[#000]");
-      if (sessionStorage.getItem('loggedIn') !== "true") {   
-        floatBtn.classList.add('hidden')
+      if (sessionStorage.getItem("loggedIn") !== "true") {
+        floatBtn.classList.add("hidden");
       }
     } else {
       mainHeader.classList.add("sticky");
@@ -117,9 +117,9 @@ const addListeners = () => {
 };
 let clickCount = 0;
 const goToUserPage = (avatar) => {
-  avatar.addEventListener('click', () => {
+  avatar.addEventListener("click", () => {
     clickCount++;
-    console.log(clickCount)
+    console.log(clickCount);
     if (clickCount === 2) {
       window.location.href = "http://localhost:5500/src/pages/user.html";
     }
@@ -139,40 +139,39 @@ export const addFloatingHeader = () => {
   let floatBtn = document.querySelector(".floating-avatar");
   let floatMenu = document.querySelector(".floating-menu");
   floatBtn.addEventListener("click", () => {
-        showAndHide(floatMenu);
-    });
+    showAndHide(floatMenu);
+  });
 
   addListeners();
-  goToUserPage(floatBtn)
+  goToUserPage(floatBtn);
 
-  if (sessionStorage.getItem('loggedIn') === "false") {
-    floatBtn.classList.add('hidden')
+  if (sessionStorage.getItem("loggedIn") === "false") {
+    floatBtn.classList.add("hidden");
   }
 
   document.getElementById("log-out").addEventListener("click", signOut);
   if (url != null) {
-   
-    addAvatar(floatBtn)
- }
-
+    addAvatar(floatBtn);
+  }
 };
 
-let href = window.location.href
+let href = window.location.href;
 
 const signOut = (buttons, avatar, icons) => {
-  sessionStorage.setItem("loggedIn", false);
+  sessionStorage.removeItem("loggedIn");
+  sessionStorage.removeItem("username");
+  sessionStorage.removeItem("url");
   window.location = `${href}`;
-  buttons.classList.remove('hidden')
-  avatar.classList.add('hidden')
-  buttons.classList.add('flex')
-  icons.classList.add('hidden')
+  buttons.classList.remove("hidden");
+  avatar.classList.add("hidden");
+  buttons.classList.add("flex");
+  icons.classList.add("hidden");
 };
-
 
 const addAvatar = (avatar) => {
   const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
   url = avatarImages[firstLetter];
   sessionStorage.setItem("url", url);
   avatar.style.backgroundImage = `url(${url})`;
-  console.log(avatar)
-}
+  console.log(avatar);
+};

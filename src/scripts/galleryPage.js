@@ -3,10 +3,14 @@ import { addHeader } from "./modules/header.js";
 import { singleSidebarPost } from "./modules/sidebarPost.js";
 import { getData } from "./modules/addGalleryImages.js";
 import { addFooter } from "./modules/footer.js";
-import { addModal, uploadByURL, uploadFromPC, uploadOnDrag } from "./modules/modal.js";
+import {
+  addModal,
+  uploadByURL,
+  uploadFromPC,
+  uploadOnDrag,
+} from "./modules/modal.js";
 import { addEngagementBar } from "./modules/engagementBar.js";
 import { avatarImages } from "./modules/avatarImages.js";
-import { searchByPost } from "./search.js";
 
 let postIds = [];
 const addSidebarPosts = async () => {
@@ -27,11 +31,6 @@ const addSidebarPosts = async () => {
 };
 
 addHeader();
-addModal();
-uploadOnDrag();
-uploadFromPC();
-uploadByURL();
-
 
 const loggedIn = sessionStorage.getItem("loggedIn");
 if (loggedIn) {
@@ -42,6 +41,10 @@ if (loggedIn) {
 addEngagementBar();
 addGalleryImages("https://api.npoint.io/bc13239283496e6574a7");
 await addSidebarPosts();
+addModal();
+uploadOnDrag();
+uploadFromPC();
+uploadByURL();
 
 const hd = document.querySelector(".pp-header");
 const logo = document.querySelector(".logoImg");
@@ -50,10 +53,9 @@ const btn = document.querySelector(".new-post");
 const search = document.querySelector(".search-form");
 const title = document.querySelector(".post-title");
 const floatTitle = document.querySelector(".floating-title");
-const nextBtn=document.querySelector(".floating-title>div:nth-child(2) a:last-child>span")
-
-
-console.log(nextBtn)
+const nextBtn = document.querySelector(
+  ".floating-title>div:nth-child(2) a:last-child>span"
+);
 
 let rootMargin = {
   rootMargin: "-160px",
@@ -88,15 +90,15 @@ const postObserver = new IntersectionObserver((entries) => {
       floatTitle.classList.remove("invisible");
       search.style.transform = "translateY(40px)";
       floatTitle.style.transform = "translateY(-20px)";
-      nextBtn.classList.add("flex")
-      nextBtn.classList.remove("hidden")
+      nextBtn.classList.add("flex");
+      nextBtn.classList.remove("hidden");
     } else {
       floatTitle.classList.add("invisible");
       search.classList.remove("invisible");
       search.style.transform = "translateY(0px)";
       floatTitle.style.transform = "translateY(40px)";
-      nextBtn.classList.remove("flex")
-      nextBtn.classList.add("hidden")
+      nextBtn.classList.remove("flex");
+      nextBtn.classList.add("hidden");
     }
   });
 }, options);
@@ -142,5 +144,3 @@ postCommentBtn.addEventListener("click", () => {
 
   textarea.value = "";
 });
-
-searchByPost()

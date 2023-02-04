@@ -1,7 +1,7 @@
 import { avatarImages } from "./avatarImages.js";
 let href;
 let url = sessionStorage.getItem("url");
-let username = sessionStorage.getItem("username")
+let username = sessionStorage.getItem("username");
 if (window.location.pathname[5] == undefined) {
   href = ``;
 } else {
@@ -10,14 +10,13 @@ if (window.location.pathname[5] == undefined) {
 
 let loginHref;
 let signUpHref;
-if (window.location.href.includes('pages')) {
-  loginHref = "login.html"
-  signUpHref = "signUp.html"
+if (window.location.href.includes("pages")) {
+  loginHref = "login.html";
+  signUpHref = "signUp.html";
 } else {
-  loginHref = "pages/login.html"
-  signUpHref = "pages/signUp.html"
+  loginHref = "pages/login.html";
+  signUpHref = "pages/signUp.html";
 }
-
 
 const headerHtml = `     
 <div class="flex gap-x-5 items-center w-2/3">
@@ -91,7 +90,7 @@ const headerHtml = `
         <span class="material-symbols-outlined"> search </span>
       </button>
       </div>
-      <div class="autocomplete-box hidden flex-col items-center absolute top-12 w-full h-auto py-4 gap-4 bg-gray-800 text-white placeholder-inputTextColor rounded-sm">
+      <div class="autocomplete-box z-[100] hidden flex-col items-center absolute top-12 w-full h-auto py-4 gap-4 bg-gray-800 text-white placeholder-inputTextColor rounded-sm">
         <h3 class="postsLabel font-semibold self-start pl-4">Posts</h3>
         <ul class="posts flex flex-col gap-2 px-4 w-full">
         </ul>
@@ -192,7 +191,6 @@ const headerHtml = `
 let floatBtn = document.querySelector(".floating-avatar");
 let floatMenu = document.querySelector(".floating-menu");
 
-
 export const addHeader = () => {
   const headerDiv = document.getElementById("header");
   headerDiv.innerHTML += headerHtml;
@@ -203,9 +201,8 @@ export const addHeader = () => {
   let profileMenu = document.querySelector(".profile-menu");
   let menuBtn = document.querySelector(".nav-menu");
   let mobileMenu = document.querySelector(".menu");
-  const buttons = document.querySelector('#buttons')
-  const icons = document.querySelector('.icons')
-  
+  const buttons = document.querySelector("#buttons");
+  const icons = document.querySelector(".icons");
 
   showAndHide(btn, profileMenu);
   showAndHide(menuBtn, mobileMenu);
@@ -213,11 +210,11 @@ export const addHeader = () => {
     showAndHide(floatBtn, floatMenu);
   }
   goToUserPage(avatar);
-  checkState(buttons, btn, icons)
+  checkState(buttons, btn, icons);
   document.getElementById("sign-out").addEventListener("click", signOut);
   if (username !== null) {
-    addAvatar(avatar)
-    addAvatar(avatarMobile)
+    addAvatar(avatar);
+    addAvatar(avatarMobile);
   }
 };
 
@@ -234,8 +231,7 @@ export const handleHeader = () => {
   let logoImg = document.querySelector(".logoImg");
   let headerContainer = document.querySelector(".header-container");
   const tags = document.querySelector("#tags");
-  let tagContainer = document.querySelector(".tag-container")
-
+  let tagContainer = document.querySelector(".tag-container");
 
   observeHeader(
     imgur,
@@ -251,7 +247,6 @@ export const handleHeader = () => {
   );
   addListeners(tagContainer, headerContainer, floatingSearch);
 };
-
 
 const showAndHide = (button, menu) => {
   button.addEventListener("click", (e) => {
@@ -323,7 +318,6 @@ const observeHeader = (
   headerObserver.observe(headerContainer);
 };
 
-
 const addListeners = (tagContainer, headerContainer, floatingSearch) => {
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
@@ -350,18 +344,17 @@ const addListeners = (tagContainer, headerContainer, floatingSearch) => {
     // get the current scroll position
     const scrollTop = window.scrollY;
 
-      // check if the element is scrolling downwards
-      if (scrollTop <= 180) {
-        headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
-      }
-
+    // check if the element is scrolling downwards
+    if (scrollTop <= 180) {
+      headerContainer.style.transform = `translate3d(0, -${window.scrollY}px, 0)`;
+    }
   });
 };
 let userHref;
-if (window.location.href.includes('pages')) {
-  userHref = "user.html"
+if (window.location.href.includes("pages")) {
+  userHref = "user.html";
 } else {
-  userHref = "pages/user.html"
+  userHref = "pages/user.html";
 }
 
 let clickCount = 0;
@@ -374,31 +367,30 @@ const goToUserPage = (avatar) => {
   });
 };
 
-
-
 const signOut = (buttons, avatar, icons) => {
-  sessionStorage.setItem("loggedIn", false);
+  sessionStorage.removeItem("loggedIn");
+  sessionStorage.removeItem("username");
+  sessionStorage.removeItem("url");
   window.location = `${href}`;
-  buttons.classList.remove('hidden')
-  avatar.classList.add('hidden')
-  buttons.classList.add('flex')
-  icons.classList.add('hidden')
+  buttons.classList.remove("hidden");
+  avatar.classList.add("hidden");
+  buttons.classList.add("flex");
+  icons.classList.add("hidden");
 };
 
 const checkState = (buttons, avatar, icons) => {
-
   if (sessionStorage.getItem("loggedIn") === "true") {
-    buttons.classList.add('hidden')
-    icons.classList.remove('hidden')
-    icons.classList.add('flex')
-    avatar.classList.remove('hidden')
-    avatar.classList.add('flex')
+    buttons.classList.add("hidden");
+    icons.classList.remove("hidden");
+    icons.classList.add("flex");
+    avatar.classList.remove("hidden");
+    avatar.classList.add("flex");
   }
-}
+};
 
 const addAvatar = (avatar) => {
   const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
   url = avatarImages[firstLetter];
   sessionStorage.setItem("url", url);
   avatar.style.backgroundImage = `url(${url})`;
-}
+};

@@ -17,9 +17,10 @@ const showExpandBtn = () => {
   expandButton.classList.add("flex");
 };
 const hideExpandBtn = () => {
-  const expandButton = expandAllBtns[0];
-  expandButton.classList.add("hidden");
-  expandButton.classList.remove("flex");
+  expandAllBtns.forEach((eb) => {
+    eb.classList.add("hidden");
+    eb.classList.remove("flex");
+  });
 };
 
 const showCollapseBtn = () => {
@@ -109,7 +110,6 @@ const addInitialComments = async (comments, comment_count) => {
   let addedComments = [];
   for (const comment of comments) {
     if (comment.postId == postId) {
-      console.log();
       let newComment = await createComment(comment, comment_count);
       commentsDiv.innerHTML += newComment;
       addedComments.push(newComment);
@@ -120,7 +120,7 @@ const addInitialComments = async (comments, comment_count) => {
 
 //If there are more than 30 unloaded comments, adds 30 more comments,
 //otherwise adds the comments left unloaded
-const addMoreComments = async (allComments, commentsLoaded, randomNumber) => {
+const addMoreComments = async (allComments, commentsLoaded) => {
   let commentCount; //Nr. of comments that will be added
   if (commentsLoaded + 30 < allComments.length) {
     commentCount = 30;
@@ -133,11 +133,7 @@ const addMoreComments = async (allComments, commentsLoaded, randomNumber) => {
   );
   for (const comment of comments) {
     if (comment.postId == postId) {
-      commentsDiv.innerHTML += await createComment(
-        comment,
-        randomNumber,
-        allComments.length
-      );
+      commentsDiv.innerHTML += await createComment(comment, allComments.length);
     }
   }
 
@@ -151,20 +147,11 @@ const addMoreComments = async (allComments, commentsLoaded, randomNumber) => {
 };
 
 //Adds all unloaded comments
-const addRemainingComments = async (
-  allComments,
-  startIndex,
-  randomNumber,
-  comment_count
-) => {
+const addRemainingComments = async (allComments, startIndex, comment_count) => {
   const comments = allComments.slice(startIndex);
   for (const comment of comments) {
     if (comment.postId == postId) {
-      commentsDiv.innerHTML += await createComment(
-        comment,
-        randomNumber,
-        comment_count
-      );
+      commentsDiv.innerHTML += await createComment(comment, comment_count);
     }
   }
   hideLoadMoreCommentsBtn();
@@ -182,7 +169,6 @@ const removeComments = (comments) => {
 const addEventListeners = (
   allComments,
   commentsLoaded,
-  randomNumber,
   comment_count,
   commentsAdded
 ) => {
@@ -190,12 +176,7 @@ const addEventListeners = (
     expandButton.addEventListener("click", () => {
       hideExpandBtn();
       showCollapseBtn();
-      addRemainingComments(
-        allComments,
-        commentsLoaded,
-        randomNumber,
-        comment_count
-      );
+      addRemainingComments(allComments, commentsLoaded, comment_count);
     });
   });
 
@@ -211,7 +192,6 @@ const addEventListeners = (
     const count = await addMoreComments(
       allComments,
       commentsLoaded,
-      randomNumber,
       comment_count
     );
     commentsLoaded += count;

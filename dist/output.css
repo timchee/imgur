@@ -778,6 +778,10 @@ video {
   z-index: 30;
 }
 
+.z-\[100\] {
+  z-index: 100;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1133,10 +1137,6 @@ video {
 
 .w-2 {
   width: 0.5rem;
-}
-
-.w-1\/4 {
-  width: 25%;
 }
 
 .min-w-full {
@@ -2065,14 +2065,6 @@ video {
   caret-color: #ffffff;
 }
 
-.opacity-0 {
-  opacity: 0;
-}
-
-.opacity-100 {
-  opacity: 1;
-}
-
 .opacity-40 {
   opacity: 0.4;
 }
@@ -2516,16 +2508,8 @@ video {
     width: 60%;
   }
 
-  .md\:items-end {
-    align-items: flex-end;
-  }
-
   .md\:items-center {
     align-items: center;
-  }
-
-  .md\:justify-end {
-    justify-content: flex-end;
   }
 
   .md\:justify-around {
