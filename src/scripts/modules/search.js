@@ -20,8 +20,8 @@ const searchByPost = () => {
       const value = e.target.value;
       count++;
     
-      //show suggestions based on input that is longer than two characters
-      if (count > 2) {   
+      //show suggestions based on input that is two or more characters long
+      if (count > 1) {   
         let suggestions = []
         let suggestedThree = []
           data.forEach((post) => {
@@ -77,7 +77,8 @@ const searchByTag = () => {
       const value = e.target.value;
       count++;
     
-      if (count > 2) {   
+      //show suggestions based on input that is two or more characters long
+      if (count > 1) {   
         let suggestions = []
         let suggestedThree = []
           tags.forEach((tag) => {
@@ -126,8 +127,8 @@ const searchByUser = () => {
     const value = e.target.value;
     count++;
   
-    //show suggestions based on input that is longer than two characters
-    if (count > 2) {   
+    //show suggestions based on input that is two or more characters long
+    if (count > 1) {   
       let suggestions = []
       let suggestedThree = []
         data.forEach((post) => {

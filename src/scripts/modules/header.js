@@ -8,6 +8,14 @@ if (window.location.pathname[5] == undefined) {
   href = `../`;
 }
 
+//handle url
+let userHref;
+if (window.location.href.includes("pages")) {
+  userHref = "user.html";
+} else {
+  userHref = "pages/user.html";
+}
+
 let loginHref;
 let signUpHref;
 if (window.location.href.includes("pages")) {
@@ -170,7 +178,7 @@ const headerHtml = `
     </div>
     <ul class="grid grid-cols-2 w-64 h-32 sm:w-auto sm:h-auto sm:flex sm:flex-col py-1">
       <li class="hover:bg-searchBar px-6 py-1">
-        <a href="http://localhost:5500/src/pages/user.html">
+        <a href="${userHref}">
           Profile
         </a>
       </li>
@@ -188,6 +196,7 @@ const headerHtml = `
   </menu>
 </div>`;
 
+let floatNav= document.querySelector(".floating-nav");
 let floatBtn = document.querySelector(".floating-avatar");
 let floatMenu = document.querySelector(".floating-menu");
 
@@ -243,7 +252,8 @@ export const handleHeader = () => {
     chatBtn,
     bellBtn,
     username,
-    logoImg
+    logoImg,
+    floatNav
   );
   addListeners(tagContainer, headerContainer, floatingSearch);
 };
@@ -284,7 +294,8 @@ const observeHeader = (
   chatBtn,
   bellBtn,
   username,
-  logoImg
+  logoImg,
+  floatNav
 ) => {
   const headerObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -298,6 +309,7 @@ const observeHeader = (
         bellBtn.classList.add("invisible");
         username.classList.add("invisible");
         logoImg.classList.remove("hidden");
+        floatNav.classList.add("z-40")
         if (sessionStorage.getItem("loggedIn") !== "true") {
           buttons.classList.add("hidden");
         }
@@ -311,6 +323,7 @@ const observeHeader = (
         bellBtn.classList.remove("invisible");
         username.classList.remove("invisible");
         logoImg.classList.add("hidden");
+        floatNav.classList.remove("z-40")
         if (sessionStorage.getItem("loggedIn") !== "true") {
           buttons.classList.remove("hidden");
         }
@@ -356,13 +369,6 @@ const addListeners = (tagContainer, headerContainer, floatingSearch) => {
   });
 };
 
-//handle url
-let userHref;
-if (window.location.href.includes("pages")) {
-  userHref = "user.html";
-} else {
-  userHref = "pages/user.html";
-}
 
 //Redirect to user page on second click of the avatar button
 let clickCount = 0;

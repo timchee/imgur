@@ -52,6 +52,7 @@ const nextBtn = document.querySelector(
   ".floating-title>div:nth-child(2) a:last-child>span"
 );
 
+//show title, username and buttons in header when title moves out of view
 let rootMargin = {
   rootMargin: "-160px",
 };
@@ -120,7 +121,6 @@ postCommentBtn.addEventListener("click", () => {
   const username = sessionStorage.getItem("username");
   const firstLetter = username.toUpperCase().charCodeAt(0) - 65;
   const commentHtml = `
-  <div class="comment">
   <div class="flex px-1 my-2 py-2 gap-2 text-xs sm:rounded-xl sm:hover:bg-gray-800">
     <img src=${avatarImages[firstLetter]} class="bg-btnColor-1 shrink-0 w-6 h-6 rounded-full sm:top-0"></img>
     <div class="flex flex-col gap-2">
@@ -133,9 +133,7 @@ postCommentBtn.addEventListener("click", () => {
       </div>
     </div>
   </div>
-  <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>
-</div>
-  `;
+  <div class="bg-gray-900 h-px w-full sm:bg-gray-500"></div>`;
   commentsDiv.innerHTML = commentHtml + commentsDiv.innerHTML;
 
   textarea.value = "";

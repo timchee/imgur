@@ -1,4 +1,4 @@
-const buttonHTML = `        <svg
+const buttonHTML = `<svg
 fill="#ffffff"
 version="1.1"
 id="icon"

@@ -13,7 +13,7 @@ const floatingHeaderHtml = `
 class="flex w-full md:px-4 sm:gap-4 h-auto py-5 justify-between items-center sticky top-0 left-0"
 >
 <button class="min-w-10 min-h-10" >
-  <a href="#header">
+  <a href="./../">
     <img src="https://s.imgur.com/images/favicon-32x32.png" alt="" class="floating-img" />
   </a>
 </button>
@@ -88,7 +88,7 @@ const headerObserver = new IntersectionObserver((entries) => {
   });
 }, options);
 
-// Show search in floating header after when navigation bar in main section becomes sticky
+// Show search in floating header when navigation bar in main section becomes sticky
 const addListeners = () => {
   window.addEventListener("scroll", function () {
     const scrollTop = window.scrollY;
